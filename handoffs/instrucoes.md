@@ -204,6 +204,12 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `node scripts/checar_env.mjs | tail -1` → `OBRIGATÓRIAS v01: 17/17 preenchidas` (exit 0); `grep -rEl "HOSTGATOR_FTP_PASS|SMOKE_BASIC" dist | wc -l` → `0`.
 - **Fonte:** decisão de 24/09/2026 (01.1).
 
+### Proteger o docroot do subdomínio (pai) e publicar em subpasta
+- **Gatilho:** `APP_URL` termina em `/intelligence/` e o docroot `/home2/maxwe196/lux.strategicepiphany.com` está vazio e sem proteção (verificado no cPanel em 24/09/2026).
+- **Ação:** aplicar a “Privacidade de diretórios” no **docroot do subdomínio**; a ferramenta e a API vão em `intelligence/`. O `.htaccess` que o deploy escreve fica na subpasta e **não toca** no `.htaccess` do pai onde mora a senha — elimina o risco de o deploy apagar a proteção. `BACKUP_DIR_SERVIDOR` deve ficar **fora** do docroot (`/home2/maxwe196/lux_backups`), nunca sob `lux.strategicepiphany.com/`. Continuar mesclando o `.htaccess` da subpasta com o que já existir lá.
+- **Evidência:** `curl -s -o /dev/null -w "%{http_code}" https://lux.strategicepiphany.com/intelligence/` → `401`; com `-u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS"` → `200`.
+- **Fonte:** cPanel de Max (Privacidade de diretórios, 24/09/2026); complementa a entrada sobre `.htaccess` gerenciado.
+
 ## 7. Candidatos a promoção
 
 - Pasta `data/` (fontes + conteúdo versionado) para projetos que são “ferramenta estática sobre dados curados”, sem banco — não existe no modelo de árvore da aurora-criativa.
