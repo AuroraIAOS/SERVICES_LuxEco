@@ -1,0 +1,138 @@
+# =======================================================================
+# ARQUIVO .gitignore
+# =======================================================================
+
+# >> lux-ferramentas-operacionais
+# >> [endereço-repositorio-GitHub Local — Max preenche]
+# >> [endereço-repositorio-GitHub Online (PRIVADO) — Max preenche]
+# >> gerado pelo ESTÁGIO CRIATIVO (aurora-criativa) em 24/09/2026
+
+# --------------------------------------------------------------------
+## Dependências
+
+node_modules/
+.venv/
+__pycache__/
+
+# --------------------------------------------------------------------
+## Builds
+
+dist/
+dist-single/
+dist-preview/
+dist-ssr/
+build/
+
+# --------------------------------------------------------------------
+## Ambiente — NUNCA versionar chaves
+## (não há exceção .env.example: o .env é gerado pronto e fica só no local)
+
+.env
+.env.*
+
+# --------------------------------------------------------------------
+## Logs
+
+logs/
+*.log
+npm-debug.log*
+
+# --------------------------------------------------------------------
+## Sistema operacional
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --------------------------------------------------------------------
+## Editores
+
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# --------------------------------------------------------------------
+## Vite / testes (blocos condicionais aplicáveis a este projeto)
+
+*.local
+.vite/
+coverage/
+*.lcov
+playwright-report/
+test-results/
+saidas_teste/
+
+# =======================================================================
+# SEGREDOS — NUNCA COMMITAR (blindagem reforçada)
+# =======================================================================
+
+## Dados sensíveis de teste — CSVs e XLS com dados reais JAMAIS entram no repo
+
+dados/
+*.csv
+!docs/**/*.csv
+*.xls
+*.xlsx
+
+# --------------------------------------------------------------------
+## Termos sensíveis (qualquer arquivo que contenha estas palavras no nome)
+
+*credencial*
+*credenciais*
+*credential*
+*credentials*
+*secret*
+*secrets*
+*senha*
+*senhas*
+*password*
+*passwords*
+*chave*
+*chaves*
+
+# --------------------------------------------------------------------
+## Arquivos de chave / certificado / token
+
+*.key
+*.pem
+*.pfx
+*.p12
+*.token
+*token*.json
+service-account*.json
+*serviceaccount*.json
+
+# --------------------------------------------------------------------
+## Sandbox / temporários
+
+sandbox/
+/tmp/
+*.tmp
+.cache/
+
+# =======================================================================
+# ESPECÍFICO DESTE PROJETO
+# =======================================================================
+
+## Contrato assinado contém RG/CPF/telefones de pessoas físicas — só existe no local
+referencias_privadas/
+
+## EXCEÇÃO CONSCIENTE: a Matriz V07 (xlsx) é a FONTE DE DADOS do pipeline
+## (scripts/xlsx_para_json.ts). O repositório é PRIVADO. Não abrir outras exceções .xlsx.
+!data/fontes/Matriz_Operacional.xlsx
+
+# ============================================================
+# Screenshots de apoio (cPanel, painéis, provas de tela)
+# Vivem APENAS no repositório físico local — nunca no remoto.
+# Podem expor caminhos, usuários e senhas visíveis na tela.
+# ============================================================
+
+screenshots/
+
+# ============================================================
+# Backup no servidor — gerado no deploy / dados do usuário. Nunca versionar.
+# ============================================================
+
+public/api/config.php
+lux_backups/
+backups_servidor/
