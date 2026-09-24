@@ -7,11 +7,11 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 
 | Item | Título | Modo · função · LLM | Status | Observação / prova |
 |---|---|---|---|---|
-| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — próxima: 01.1 |
+| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — próxima: 01.4 e 01.5 |
 | 01.0 | Varrer repositórios de referência e preencher instrucoes.md | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | 10/10 repositórios com status (o plano dizia 9; a tabela tem 10); 4 entradas na seção 4 e 5 novas na seção 6 de `instrucoes.md`; achados aplicados às subetapas 02.11 e 03.5. |
 | 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | `node scripts/checar_env.mjs` → `OBRIGATÓRIAS v01: 17/17 preenchidas` (exit 0); `.env` fora do Git (0); `curl` sem senha → `401`. |
 | 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "^APROVADO EM:" docs/PLANO_DE_ACAO.md` → `1`. Modo autônomo ativo. |
-| 01.3 | Scaffold do projeto e tooling | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.3 | Scaffold do projeto e tooling | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `typecheck`, `lint`, `test` (6/6), `build` exit 0; `dist/index.html` ok; `build:single` 459 kB; `e2e` 1 passed (4 rotas + fonte Cyntho Next). **`xlsx` adiado p/ 03.4** (npm bloqueou o pacote remoto; ver instrucoes §6). |
 | 01.4 | Pipeline xlsx → `matriz_v07.json` e validações de dados | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.6 | Varredura de segredos e blindagem do repositório | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -120,7 +120,7 @@ Evidência: `grep -c "^APROVADO EM:" docs/PLANO_DE_ACAO.md` → `1`.
 Após esta subetapa vale o **Regime de autonomia**.
 
 ### Subetapa 01.3 — Scaffold do projeto e tooling [Auto] [Goal] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: projeto Vite + React + TS rodando, com scripts e testes.
 Arquivos tocados: `package.json`, `tsconfig.json`, `vite.config.ts`, `vitest.config.ts`, `playwright.config.ts`, `index.html`, `src/main.tsx`, `src/app.tsx`, `src/telas/.gitkeep`, `design/tokens.json`, `src/estilos/tokens.css`, `README.md` (seção “Como rodar”).
 Passos: 1) Rodar `npm create vite@latest tmp_vite -- --template react-ts`; mover os arquivos gerados para a raiz **exceto** `README.md`; apagar `tmp_vite/`. 2) Instalar `react-router-dom`, `react-hook-form`, `zod`, `mermaid`, `xlsx`, `docx`, `basic-ftp`, `tsx`, `vitest`, `@testing-library/react`, `@playwright/test`, `vite-plugin-singlefile`, `eslint`; rodar `npx playwright install chromium`. 3) Scripts npm: `dev`, `build`, `build:single`, `typecheck` (`tsc --noEmit`), `lint`, `test` (`vitest run`), `e2e` (`playwright test`), `dados:gerar`, `dados:compor`, `dados:validar`, `env:checar`, `deploy`, `spike:fluxo`, `backup:provar` (placeholder até a 03.5). 4) Gerar `design/tokens.json` e `src/estilos/tokens.css` a partir de `docs/04`; carregar as fontes de `design/fontes/` via `@font-face`. 5) `HashRouter` com rotas `#/mmo`, `#/fpe`, `#/pop`, `#/versoes` renderizando um placeholder (fora de `src/telas/`, em `src/app.tsx`). 6) Preencher “Como rodar” no README.
@@ -375,7 +375,7 @@ Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–
 Status: ⬜ A FAZER
 Objetivo: tabelas do FPE (fichas por setor) e do POP em `.xlsx`.
 Arquivos tocados: `src/exportar/xlsx.ts`, `src/exportar/xlsx.test.ts`.
-Passos: 1) Uma aba por setor (fichas 5W1H) + abas de bibliotecas (documentos, ferramentas, investimentos, KPIs) + aba do POP geral. 2) Larguras e cabeçalhos com a marca.
+Passos: 0) **Instalar SheetJS 0.20.3** (o `xlsx` do npm está defasado em 0.18.5 e o npm desta máquina bloqueia o tarball remoto do CDN — ver `instrucoes.md` §6): decidir com Max, na mensagem consolidada, entre habilitar a fonte remota ou vendorizar o `.tgz` verificado; não usar a 0.18.5. 1) Uma aba por setor (fichas 5W1H) + abas de bibliotecas (documentos, ferramentas, investimentos, KPIs) + aba do POP geral. 2) Larguras e cabeçalhos com a marca.
 Conclusão: `.xlsx` gerado; abas conferem com os dados.
 Qualidade: sem fórmula quebrada; texto sem truncar.
 Evidência: `npm test -- xlsx` → `0 failed` (abas = 12 setores + 4 bibliotecas + 1 POP geral).

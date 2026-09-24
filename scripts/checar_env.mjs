@@ -69,8 +69,8 @@ const regra = (k, teste, msg, nivel = erros) => { if (ok(k) && !teste(env[k])) n
 
 regra('APP_AMBIENTE', (v) => ['homologacao', 'producao', 'desenvolvimento'].includes(v),
   'use homologacao | producao | desenvolvimento (docs/01: homologação na hospedagem de Max)', avisos);
-regra('APP_URL', (v) => /^https:\/\//.test(v) || /^http:\/\/localhost/.test(v), 'deve começar com https://');
-regra('VITE_APP_URL', (v) => /^https:\/\//.test(v) || /^http:\/\/localhost/.test(v), 'deve começar com https://');
+regra('APP_URL', (v) => v.startsWith('https://') || v.startsWith('http://localhost'), 'deve começar com https://');
+regra('VITE_APP_URL', (v) => v.startsWith('https://') || v.startsWith('http://localhost'), 'deve começar com https://');
 if (ok('APP_URL') && ok('VITE_APP_URL') && env.APP_URL.replace(/\/$/, '') !== env.VITE_APP_URL.replace(/\/$/, '')) {
   avisos.push('APP_URL e VITE_APP_URL diferem (esperado o mesmo endereço)');
 }

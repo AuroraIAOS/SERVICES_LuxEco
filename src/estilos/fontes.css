@@ -1,0 +1,16 @@
+/* Cyntho Next — fontes locais da marca (nunca de CDN). Só dois pesos: corpo 300, títulos 800. */
+@font-face {
+  font-family: 'Cyntho Next';
+  src: url('../../design/fontes/CynthoNext-Thin.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cyntho Next';
+  src: url('../../design/fontes/CynthoNext-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}

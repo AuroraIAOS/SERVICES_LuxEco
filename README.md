@@ -29,7 +29,21 @@ Tela POP + geração de texto (LLM OpenRouter/chave própria, com fallback), exp
 IA comercial, CRM, n8n/Supabase/WhatsApp — pertencem a outra fase e a outro chat. O `matriz_v08.json` fica apenas como base reaproveitável.
 
 ## Como rodar
-Preenchido pelo CODE na Etapa 01 (subetapa 01.3).
+Requisitos: Node ≥ 20 (testado com 24) e npm. O `.env` é local e nunca vai ao Git (ver `docs/CHECKLIST_MAX.md`).
+
+```bash
+npm install                # dependências (React 18, Vite, Vitest, Playwright…)
+npx playwright install chromium   # só na primeira vez, para o e2e
+npm run dev                # http://localhost:5173/#/mmo
+npm run typecheck && npm run lint && npm test && npm run build   # portão de qualidade
+npm run e2e                # sobe o build em :4173 e testa as rotas no Chromium
+npm run build:single       # dist-single/index.html (arquivo único, offline)
+npm run tokens:gerar       # regenera src/estilos/tokens.css a partir de design/tokens.json
+npm run env:checar         # confere o .env sem mostrar valores
+```
+
+Rotas (`HashRouter`): `#/mmo`, `#/fpe`, `#/pop`, `#/versoes`. Scripts de dados, deploy, spike e backup existem como
+marcadores e **falham de propósito** (`exit 1`) até a subetapa que os implementa — assim nenhum portão passa por engano.
 
 ## Status e documentos-chave
 - Roteiro: [`docs/00_PLANO_E_CRITERIOS.md`](docs/00_PLANO_E_CRITERIOS.md)

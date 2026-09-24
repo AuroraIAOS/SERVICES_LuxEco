@@ -210,6 +210,18 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `curl -s -o /dev/null -w "%{http_code}" https://lux.strategicepiphany.com/intelligence/` → `401`; com `-u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS"` → `200`.
 - **Fonte:** cPanel de Max (Privacidade de diretórios, 24/09/2026); complementa a entrada sobre `.htaccess` gerenciado.
 
+### `xlsx` do npm está defasado (0.18.5) e o npm bloqueia o pacote remoto do CDN
+- **Gatilho:** instalar SheetJS na 01.3/03.4 com `npm i xlsx`.
+- **Ação:** o registro npm está parado na 0.18.5 (vulnerável); o oficial é a 0.20.3 no CDN da SheetJS (`https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz`). Nesta máquina o npm **recusou** dependência remota (`Fetching packages of type "remote" have been disabled`) — trava do próprio npm, **não contornada**. `xlsx` foi **adiado para a 03.4** (só lá é usado). Opções a decidir com Max na 03.4: habilitar a fonte remota conscientemente, ou vendorizar o `.tgz` verificado no repositório.
+- **Evidência:** `npm i https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz` → `npm error Refusing to fetch`; `npm view xlsx version` → `0.18.5`.
+- **Fonte:** https://docs.sheetjs.com/docs/getting-started/installation/nodejs (consulta de 24/09/2026).
+
+### Scaffold: decisões da 01.3 (React 18, oxlint, `base: './'`)
+- **Gatilho:** `npm create vite@latest` gera React 19 e `oxlint`; o plano trava React 18 e cita ESLint.
+- **Ação:** manter **React 18.3.1** (reference lock; não reabrir). Manter **oxlint** (vem no template, sem configuração e sem plugins extras — ESLint 10 exigiria typescript-eslint + plugins, contra “sem dependências além das listadas”). `vite.config.ts` com `base: './'` para funcionar em subpasta (`/intelligence/`) e no build de arquivo único. Scripts ainda não implementados falham com `exit 1` (nunca verde falso). `tsc -b` como `typecheck`. Vitest sem `globals`: registrar `afterEach(cleanup)` no `setup.ts`, senão o Testing Library duplica elementos entre testes.
+- **Evidência:** `npm run typecheck && npm run lint && npm test && npm run build` → exit 0; `npm run e2e` → `1 passed`; `grep -n "\"react\":" package.json` → `^18.3.1`.
+- **Fonte:** decisão técnica de 24/09/2026 (01.3); erro real observado ao rodar os testes.
+
 ## 7. Candidatos a promoção
 
 - Pasta `data/` (fontes + conteúdo versionado) para projetos que são “ferramenta estática sobre dados curados”, sem banco — não existe no modelo de árvore da aurora-criativa.

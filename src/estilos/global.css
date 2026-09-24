@@ -1,0 +1,73 @@
+@import './fontes.css';
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--chumbo);
+  color: var(--branco);
+  font-family: var(--fonte-familia);
+  font-weight: var(--peso-corpo);
+  font-size: var(--tamanho-corpo-min);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--peso-titulo);
+  margin: 0 0 0.5em;
+}
+
+a {
+  color: var(--amarelo);
+}
+
+:focus-visible {
+  outline: 3px solid var(--amarelo);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--amarelo-glow);
+}
+
+.marca strong {
+  color: var(--amarelo);
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 1.5rem;
+  background: var(--chumbo-mid);
+  border-bottom: 1px solid var(--chumbo-light);
+}
+
+.cabecalho nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.cabecalho nav a {
+  text-decoration: none;
+  color: var(--branco);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.cabecalho nav a[aria-current='page'] {
+  background: var(--amarelo-dim);
+  color: var(--amarelo);
+}
+
+.conteudo {
+  padding: 2rem 1.5rem;
+}

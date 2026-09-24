@@ -1,0 +1,30 @@
+/* GERADO por scripts/gerar_tokens.mjs a partir de design/tokens.json — não edite à mão. */
+:root {
+  --chumbo: #181F28;
+  --chumbo-mid: #232D3A;
+  --chumbo-light: #2E3D4F;
+  --chumbo-lighter: #374A5E;
+  --amarelo: #F3C51E;
+  --amarelo-dim: rgba(243, 197, 30, 0.12);
+  --amarelo-glow: rgba(243, 197, 30, 0.35);
+  --branco: #FEFEFE;
+  --erro: #EF5350;
+  --sucesso: #4CAF50;
+  --whatsapp: #25D366;
+  --setor-marketing: #E67E22;
+  --setor-vendas: #2980B9;
+  --setor-administrativo: #8E44AD;
+  --setor-ceo: #F3C51E;
+  --setor-engenharia: #C0392B;
+  --setor-equipe-tecnica: #E74C3C;
+  --setor-cliente: #F39C12;
+  --setor-financeiro: #27AE60;
+  --setor-fornecedores: #7F8C8D;
+  --setor-contabilidade: #16A085;
+  --setor-logistica: #1ABC9C;
+  --setor-cemig: #3498DB;
+  --fonte-familia: 'Cyntho Next', sans-serif;
+  --peso-corpo: 300;
+  --peso-titulo: 800;
+  --tamanho-corpo-min: 16px;
+}
