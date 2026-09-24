@@ -44,7 +44,7 @@ O código é o mesmo nos dois ambientes; muda só o `.env` (`FTP_*`, `APP_URL`, 
 **Por que senha importa:** os dados da Lux ficam dentro do código da página. Quem tiver o link veria tudo. A senha do cPanel é a barreira real; senha “no front” seria só cosmética.
 
 ## Circuit breaker financeiro
-- **Teto mensal: R$ 0.** Só free tier do OpenRouter (modelos `:free`: 20 req/min e 50 req/dia sem crédito comprado).
+- **Teto mensal padrão: R$ 0**, **ajustável pelo contratante no painel “Limite de gasto da IA”** (tela POP). O `.env` (`LLM_TETO_MENSAL_BRL`, `LLM_ALERTA_EM_PERCENTUAL`) é só o valor inicial embutido no build; o valor efetivo (`config_llm`) é salvo no servidor pela API de backups, com cópia local. Aumentar o teto exige ciência de custo; a chave nunca entra na configuração. Só free tier do OpenRouter (modelos `:free`: 20 req/min e 50 req/dia sem crédito comprado).
 - **Alerta:** qualquer HTTP 402 (crédito) ou 429 recorrente → a ferramenta cai para o **fallback determinístico** (POP sai com o texto das respostas no template, sem polimento). Nunca fica parada.
 - **Exige aprovação manual de Max:** comprar crédito OpenRouter (ex.: US$ 10 para subir a 1.000 req/dia), qualquer plano pago, proxy/servidor, domínio novo, qualquer serviço com custo.
 - **Chave OpenRouter dedicada, sem saldo** (limite de gasto US$ 0 na própria chave). Risco residual aceito: por estar no bundle, terceiros podem esgotar a cota diária — não geram cobrança.

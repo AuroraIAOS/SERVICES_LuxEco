@@ -32,6 +32,8 @@ perfil_cliente   { id, nome, criterios, proxima_acao }                          
 pop_secao        { id, ordem, titulo, campos[] }
 pop_gerado       { id, escopo: "setor"|"geral", setor_id?, texto_por_secao{}, gerado_com: "template"|"llm", criado_em }
 versao_backup    { id: "bk_AAAAMMDD_HHMMSS_<8hex>", rotulo, escopo: "fpe"|"pop"|"completo", criado_em, tamanho_bytes, sha256, versao_app, protegido: bool }   // metadados no servidor (sem Drive)
+config_llm       { schema_versao, teto_mensal_brl: number>=0 (padrão do .env, hoje 0), alerta_percentual: 1..100, limite_diario_requisicoes: int>=0, preco_entrada_brl_por_milhao?: number, preco_saida_brl_por_milhao?: number, atualizado_em }   // salvo no servidor (configuracao_llm.json) + cópia local; SEM chave de API
+uso_llm          { mes: "AAAA-MM", dia: "AAAA-MM-DD", tokens_entrada, tokens_saida, gasto_estimado_brl, requisicoes_dia }   // contador local
 estado_backup    { schema_versao, fpe_edicoes: {ficha_id: {campo: valor}}, pop_respostas: {}, gerado_em }   // embutido no .html de backup; sem PII
 ```
 
@@ -44,4 +46,5 @@ estado_backup    { schema_versao, fpe_edicoes: {ficha_id: {campo: valor}}, pop_r
 6. `investimento.valor_estimado_brl === null` para todos; `kpi.meta === null` para todos.
 7. Cada setor tem ≥1 KPI de produtividade e ≥1 de eficiência.
 8. Presença setor × estágio de V07 == planilha == MMO_v01 legado (`scripts/comparar_mmo_legado.ts`).
+10. **Config do LLM:** `teto_mensal_brl >= 0` e `<= 10000`; `alerta_percentual` em 1–100; gasto estimado ≥ teto ⇒ nenhuma chamada paga (teste); a config nunca contém chave de API (teste). Padrão inicial vem do `.env`; edição do painel prevalece.
 9. **Backups:** `count(versao_backup) <= 10` (servidor recusa o 11º com 409); `id` obedece `^bk_\d{8}_\d{6}_[0-9a-f]{8}$`; todo backup contém `estado_backup` JSON válido com `schema_versao`; item `protegido` nunca é apagado por operação em lote. Testado em `src/backup/backup.test.ts` e `npm run backup:provar`.

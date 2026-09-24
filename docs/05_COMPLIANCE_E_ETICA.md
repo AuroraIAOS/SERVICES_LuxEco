@@ -15,7 +15,7 @@
 2. **Não inventar informação sobre a Lux:** conteúdo sem fonte é `origem: "sugerido"`; **zero valores em R$** inventados; **zero prazos/SLAs** inventados; metas de KPI vazias.
 3. **LLM e dados:** antes do 1º envio ao LLM, exibir aviso (“o conteúdo será enviado a um provedor externo”) e exigir checkbox de ciência; nunca enviar dados de contato/PII; a saída do LLM é renderizada como **texto**, nunca como HTML (evita injeção).
 4. **Diretrizes comerciais do CEO** (“boleto”, parcela ≈ conta, credenciamento IBS): reproduzidas fielmente no corpo do POP e listadas na seção final “Observações para revisão jurídica” (doc 06 §5). Não é parecer jurídico.
-5. **Custo:** teto R$ 0 (doc 01).
+5. **Custo:** teto R$ 0 por padrão (doc 01); o contratante pode alterá-lo no painel “Limite de gasto da IA”, com ciência de custo, e o app bloqueia chamadas ao atingi-lo.
 6. **Escopo:** sem IA comercial, CRM ou integrações fora deste projeto.
 
 ## Checklist de segurança (adaptado — sem banco)
@@ -29,6 +29,8 @@
 | Site abre com credencial | `curl -s -o /dev/null -w "%{http_code}" -u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS" "$APP_URL"` | `200` |
 | Sem chaves de outros provedores no bundle | `grep -rEl "sk-ant\|sk-proj" dist \| wc -l` | `0` |
 | Saída do LLM como texto | teste unitário `npm test -- llm_texto` | `0 failed` |
+| Teto de gasto do LLM respeitado | `npm test -- limite_gasto` | `0 failed` |
+| Config do LLM sem chave de API | `grep -rn "apiKey\|api_key" src/llm/limite_gasto.ts \| wc -l` | `0` |
 | API de backups protegida | `curl -s -o /dev/null -w "%{http_code}" "$APP_URL/api/backups.php?acao=listar"` | `401` |
 | Sem path traversal na API | `curl -s -o /dev/null -w "%{http_code}" -u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS" "$APP_URL/api/backups.php?acao=baixar&id=../../.env"` | `400` |
 | Limite de 10 respeitado | `npm run backup:provar \| tail -1` | `... onze=409` |

@@ -49,6 +49,7 @@ Formato de toda entrada: Gatilho → Ação → Evidência → Fonte.
 - Selo visível de proveniência (decisão de Max: preencher tudo sem marcação; `origem` só no JSON).
 - Supabase/n8n/WhatsApp (fora de escopo).
 - Google Drive/OAuth para backup (24/09/2026: exigiria conta Google do contratante e projeto Cloud sob Max).
+- Deixar o teto do circuit breaker só no `.env` (24/09/2026: o contratante não acessa o `.env`; agora é editável no painel “Limite de gasto da IA”, com o `.env` como padrão inicial).
 - Rotação automática (apagar o mais antigo sem perguntar) ao passar de 10 backups — destrutiva; a interface só oferece isso como ação explícita.
 
 ## 3. APIs e serviços de referência
@@ -120,6 +121,12 @@ _(preenchido pelo CODE na 01.0 a partir da varredura dos repositórios)_
 - **Ação:** confirmar (spike) que o diretório está protegido e que o PHP enxerga o usuário autenticado (`REMOTE_USER`/`REDIRECT_REMOTE_USER`); a API responde 401 se não enxergar. Mutações exigem `X-Lux-Requisicao: 1`; `id` só por regex; nome de arquivo nunca vem do cliente.
 - **Evidência:** `curl` sem senha em `$APP_URL/api/backups.php?acao=listar` → `401`; com `id=../../.env` → `400`.
 - **Fonte:** decisão de 24/09/2026 (replanejamento do backup); OWASP (path traversal/CSRF).
+
+### Teto do LLM editável pelo contratante — sem abrir brecha de custo
+- **Gatilho:** ao implementar o painel de limite de gasto (03.3) ou ao alterar `config_llm`.
+- **Ação:** padrão R$ 0 vindo do `.env`; aumento só com ciência de custo e valor digitado duas vezes; faixa validada no cliente **e** no PHP; a chave de API nunca entra na config; gasto = tokens reais da resposta × preço informado pelo contratante (o app não inventa preço); teto atingido ⇒ fallback determinístico.
+- **Evidência:** `npm test -- limite_gasto` → `0 failed`; `npm run backup:provar | tail -1` → `... config=200`.
+- **Fonte:** decisão de 24/09/2026 (Max); CLAUDE.md §0 item 3.
 
 ### O 11º backup não pode apagar nada em silêncio
 - **Gatilho:** `criar` com 10 backups já salvos.

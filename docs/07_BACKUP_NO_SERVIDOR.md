@@ -14,6 +14,8 @@ Tudo atrás da senha de diretório do cPanel (sem usuário autenticado → 401).
 | `excluir` | POST | `ids[]` | `200 {excluidos, ignorados_protegidos}` |
 | `renomear` | POST | `id`, `rotulo` (≤ 80 caracteres) | `200` |
 | `proteger` | POST | `id`, `valor` | `200` |
+| `config_ler` | GET | — | `200 config_llm` (ou o padrão do build se não existir) |
+| `config_gravar` | POST | `config_llm` JSON | `200`; `422` se fora das faixas ou se contiver chave de API |
 | `ver` | GET | `id` | `.html` inline com `Content-Security-Policy: sandbox` |
 
 `id`: `^bk_\d{8}_\d{6}_[0-9a-f]{8}$`, gerado no servidor. Rótulo sempre tratado como texto.
