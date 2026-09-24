@@ -9,7 +9,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 |---|---|---|---|---|
 | **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — próxima: 01.1 |
 | 01.0 | Varrer repositórios de referência e preencher instrucoes.md | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | 10/10 repositórios com status (o plano dizia 9; a tabela tem 10); 4 entradas na seção 4 e 5 novas na seção 6 de `instrucoes.md`; achados aplicados às subetapas 02.11 e 03.5. |
-| 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ⚠️ PENDENTE | `node scripts/checar_env.mjs` → `OBRIGATÓRIAS v01: 15/17`; faltam `SMOKE_BASIC_USER/PASS` (só a 02.11 precisa). Checklist em `docs/CHECKLIST_MAX.md`. |
 | 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.3 | Scaffold do projeto e tooling | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.4 | Pipeline xlsx → `matriz_v07.json` e validações de dados | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -71,11 +71,11 @@ A arquitetura não se redesenha — se implementa.
 - **Exige aprovação manual de Max antes de executar:** comprar crédito OpenRouter, contratar plano pago, proxy/servidor, domínio novo, qualquer serviço com custo.
 
 ## Credenciais necessárias (do .env) — somente nomes, sem valores
-- **[OBRIGATÓRIA v01]** (Max providencia antes de abrir o CODE): `APP_NOME`, `APP_AMBIENTE`, `APP_URL`, `FUSO_HORARIO`, `VITE_APP_NOME`, `VITE_APP_URL`, `LLM_TETO_MENSAL_BRL`, `LLM_ALERTA_EM_PERCENTUAL`, `FTP_HOST`, `FTP_USER`, `FTP_PASS`, `FTP_PORT`, `FTP_TLS`, `FTP_DIR`, `SMOKE_BASIC_USER`, `SMOKE_BASIC_PASS`.
+- **[OBRIGATÓRIA v01]** (Max providencia antes de abrir o CODE): `APP_NOME`, `APP_AMBIENTE`, `APP_URL`, `FUSO_HORARIO`, `VITE_APP_NOME`, `VITE_APP_URL`, `LLM_TETO_MENSAL_BRL`, `LLM_ALERTA_EM_PERCENTUAL`, `HOSTGATOR_DOMINIO`, `HOSTGATOR_FTP_HOST`, `HOSTGATOR_FTP_USER`, `HOSTGATOR_FTP_PASS`, `HOSTGATOR_FTP_PORT`, `HOSTGATOR_FTP_TLS`, `HOSTGATOR_REMOTE_DIR`, `SMOKE_BASIC_USER`, `SMOKE_BASIC_PASS`.
 - **[FUTURA — Etapa 03]** (providenciar já, para o CODE não parar): `VITE_OPENROUTER_API_KEY`, `VITE_OPENROUTER_MODELO_PADRAO`, `VITE_LLM_LIMITE_DIARIO_FREE`, `BACKUP_LIMITE_MAX` (padrão 10), `BACKUP_DIR_SERVIDOR` (pasta dos backups na hospedagem; padrão `../lux_backups`, fora da raiz web).
 - **[OBSOLETA — Drive descartado em 24/09/2026]:** `VITE_GOOGLE_OAUTH_CLIENT_ID`, `GOOGLE_DRIVE_PASTA_NOME`, `GOOGLE_OAUTH_MODO_CONSENTIMENTO`. Podem continuar no `.env` (o `checar_env.mjs` deve ignorá-las); não devem ser lidas por nenhum código.
 - **[CONDICIONAL]:** `CPANEL_DIRETORIO`, `LOG_NIVEL`.
-- **Ambientes:** `APP_AMBIENTE=homologacao` (hospedagem particular de Max) até a aprovação; na migração (03.8) Max troca `FTP_*`, `APP_URL`, `SMOKE_*` e `APP_AMBIENTE=producao` para os da hospedagem do contratante. O código não muda entre ambientes.
+- **Ambientes:** `APP_AMBIENTE=homologacao` (hospedagem particular de Max) até a aprovação; na migração (03.8) Max troca `HOSTGATOR_*`, `APP_URL`, `SMOKE_*` e `APP_AMBIENTE=producao` para os da hospedagem do contratante. O código não muda entre ambientes.
 - **Ações manuais de Max (juntas, uma vez — entregues pelo CODE na 01.1):** criar subdomínio + conta FTP + proteção de diretório por senha (cPanel) **na hospedagem particular**; confirmar no cPanel PHP ≥ 8.0 ativo no subdomínio; criar chave OpenRouter dedicada com limite US$ 0; criar repositório GitHub **privado**. _(Sem OAuth/Google Cloud.)_
 
 ---
@@ -101,13 +101,13 @@ Evidência: `git log --oneline -1 -- handoffs/instrucoes.md` → linha contendo 
 Teto de esforço: 30 minutos. Se estourar, registrar o que já achou e seguir.
 
 ### Subetapa 01.1 — Validar ambiente e `.env`; emitir checklist único de ações manuais [Plan] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ⚠️ PENDENTE _(script e checklist prontos; falta Max preencher `SMOKE_BASIC_USER/PASS` — bloqueia só a 02.11)_
 Objetivo: descobrir de uma vez tudo o que falta a Max, sem parar depois.
 Arquivos tocados: `scripts/checar_env.mjs`, `docs/CHECKLIST_MAX.md`.
 Passos: 1) `node -v` deve ser ≥ 20. 2) Criar `scripts/checar_env.mjs` que lê `.env`, lista variáveis por status (`[OBRIGATÓRIA v01]`, `[FUTURA — Etapa 03]`, `[CONDICIONAL]`) e detecta placeholders (`[...]`, `sk-or-v1-...`). 3) Rodar. 4) Gerar `docs/CHECKLIST_MAX.md` com **todas** as ações manuais pendentes (cPanel na hospedagem particular incluindo PHP ≥ 8, chave OpenRouter, repositório) em uma lista única com passo a passo curto. Ignorar as variáveis `[OBSOLETA]` (Google/Drive). 5) Se faltar alguma `[OBRIGATÓRIA v01]`, enviar a Max **uma única mensagem** com o checklist e aguardar; se faltarem só `[FUTURA]`, seguir sem parar.
 Conclusão: script roda; checklist gerado; obrigatórias preenchidas.
 Qualidade: o checklist cabe em uma tela; sem jargão desnecessário.
-Evidência: `node scripts/checar_env.mjs` → linha `OBRIGATÓRIAS v01: 16/16 preenchidas` e exit 0; `git ls-files | grep -c "^\.env$"` → `0`.
+Evidência: `node scripts/checar_env.mjs` → linha `OBRIGATÓRIAS v01: 17/17 preenchidas` e exit 0; `git ls-files | grep -c "^\.env$"` → `0`.
 
 ### Subetapa 01.2 — Plano de Ação e aprovação [Plan] [Accept] [LLM: Sonnet]
 Status: ⬜ A FAZER
@@ -307,10 +307,10 @@ Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–
 Status: ⬜ A FAZER
 Objetivo: MVP no ar, atrás de senha.
 Arquivos tocados: `scripts/deploy_ftp.ts`, `public/.htaccess` (cache e HTTPS), `docs/CHECKLIST_MAX.md` (status).
-Passos: 1) `npm run build`. 2) `deploy_ftp.ts`: enviar `dist/` por FTPS para `FTP_DIR` (**hospedagem particular de Max = homologação**), sem apagar o que não for do build — em particular **nunca** tocar em `BACKUP_DIR_SERVIDOR` nem em `api/config.php` (dados do usuário no servidor). O script lê o destino só do `.env`, para a migração da 03.8 não exigir mudança de código. **Regras herdadas (instrucoes §4/§6):** `FTP_HOST` é o host real do servidor (não `ftp.<dominio>` atrás de CDN); baixar o `.htaccess` remoto, guardar cópia e **mesclar** sem apagar a proteção de senha; conferir tamanho local × remoto de cada arquivo (`0 divergência(s)`); nunca enviar dados em claro (sigilo) — em 451, reenviar sob TLS e, persistindo, consultar Max. 3) Verificar que a proteção de diretório do cPanel está ativa (feita por Max — ver checklist). 4) Rodar as provas do portão. Se a proteção não estiver ativa, **não** publicar conteúdo além de uma página vazia e avisar Max na mensagem consolidada (caso 4 do regime de autonomia).
+Passos: 1) `npm run build`. 2) `deploy_ftp.ts`: enviar `dist/` por FTPS para `HOSTGATOR_REMOTE_DIR` (**hospedagem particular de Max = homologação**), sem apagar o que não for do build — em particular **nunca** tocar em `BACKUP_DIR_SERVIDOR` nem em `api/config.php` (dados do usuário no servidor). O script lê o destino só do `.env`, para a migração da 03.8 não exigir mudança de código. **Regras herdadas (instrucoes §4/§6):** `HOSTGATOR_FTP_HOST` é o host real do servidor (não `ftp.<dominio>` atrás de CDN); baixar o `.htaccess` remoto, guardar cópia e **mesclar** sem apagar a proteção de senha; conferir tamanho local × remoto de cada arquivo (`0 divergência(s)`); nunca enviar dados em claro (sigilo) — em 451, reenviar sob TLS e, persistindo, consultar Max. 3) Verificar que a proteção de diretório do cPanel está ativa (feita por Max — ver checklist). 4) Rodar as provas do portão. Se a proteção não estiver ativa, **não** publicar conteúdo além de uma página vazia e avisar Max na mensagem consolidada (caso 4 do regime de autonomia).
 Conclusão: URL responde 401 sem senha e 200 com senha; telas MMO e FPE abrem.
 Qualidade: nenhum segredo no bundle.
-Evidência: `curl -s -o /dev/null -w "%{http_code}" "$APP_URL"` → `401`; `curl -s -o /dev/null -w "%{http_code}" -u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS" "$APP_URL"` → `200`; `grep -rEl "FTP_PASS|SMOKE_BASIC" dist | wc -l` → `0`; `gitleaks detect --no-banner` → `no leaks found`.
+Evidência: `curl -s -o /dev/null -w "%{http_code}" "$APP_URL"` → `401`; `curl -s -o /dev/null -w "%{http_code}" -u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS" "$APP_URL"` → `200`; `grep -rEl "HOSTGATOR_FTP_PASS|SMOKE_BASIC" dist | wc -l` → `0`; `gitleaks detect --no-banner` → `no leaks found`.
 Esforço máximo do /goal: 4 tentativas.
 Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis, incluindo FTP/TLS/permissões/`.htaccess` + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
@@ -438,7 +438,7 @@ Status: ⬜ A FAZER
 Objetivo: mover o sistema aprovado da hospedagem de Max para a do contratante, sem mudar código.
 Portão de entrada: portão 03→entrega verde **e** mensagem “aprovado” de Max **e** credenciais/acessos da hospedagem do contratante (cPanel/FTP/subdomínio) entregues por Max — ausência = caso 1/4 do regime de autonomia (uma única mensagem).
 Arquivos tocados: `docs/MIGRACAO.md`, `docs/CHECKLIST_MAX.md`, `.env` (só Max altera os valores), `handoffs/instrucoes.md`, `CHANGELOG.md`.
-Passos: 1) `docs/MIGRACAO.md` com o checklist: subdomínio + https + proteção de diretório + PHP ≥ 8 na hospedagem do contratante; preencher `FTP_*`, `APP_URL`, `SMOKE_*`, `APP_AMBIENTE=producao`. 2) Repetir o **spike da 03.5** (PHP, `ZipArchive`, `REMOTE_USER`, gravação) no novo servidor. 3) `npm run deploy` e as provas do portão (`401`/`200`, `backup:provar`). 4) Opcional, a pedido de Max: levar os backups existentes — `baixar_zip` na origem e importação manual pela tela `#/versoes` (botão “Importar versão” aceita `.html` de backup, respeita o limite de 10). 5) **Descomissionamento da hospedagem de Max (destrutivo → só com aprovação explícita de Max):** apagar o subdomínio de homologação, a pasta de backups e o `api/config.php`; até lá, manter a senha ativa (sigilo, Cl. 5.4/9). 6) Atualizar `CHANGELOG` (`+0.1`) e as pendências vigiadas.
+Passos: 1) `docs/MIGRACAO.md` com o checklist: subdomínio + https + proteção de diretório + PHP ≥ 8 na hospedagem do contratante; preencher `HOSTGATOR_*`, `APP_URL`, `SMOKE_*`, `APP_AMBIENTE=producao`. 2) Repetir o **spike da 03.5** (PHP, `ZipArchive`, `REMOTE_USER`, gravação) no novo servidor. 3) `npm run deploy` e as provas do portão (`401`/`200`, `backup:provar`). 4) Opcional, a pedido de Max: levar os backups existentes — `baixar_zip` na origem e importação manual pela tela `#/versoes` (botão “Importar versão” aceita `.html` de backup, respeita o limite de 10). 5) **Descomissionamento da hospedagem de Max (destrutivo → só com aprovação explícita de Max):** apagar o subdomínio de homologação, a pasta de backups e o `api/config.php`; até lá, manter a senha ativa (sigilo, Cl. 5.4/9). 6) Atualizar `CHANGELOG` (`+0.1`) e as pendências vigiadas.
 Conclusão: URL do contratante responde `401`/`200`; ciclo de backup verde no novo servidor; descomissionamento concluído ou explicitamente adiado por Max.
 Qualidade: nenhum segredo do ambiente antigo no repositório; nenhuma alteração em `src/`.
 Evidência: mesmas provas da 02.11/03.5 apontando para a nova `APP_URL`; `git diff --stat -- src | wc -l` → `0`.

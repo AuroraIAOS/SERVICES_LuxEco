@@ -24,7 +24,7 @@
 | `.env` fora do Git | `git ls-files \| grep -c "^\.env$"` | `0` |
 | Contrato fora do Git | `git ls-files referencias_privadas \| wc -l` | `0` |
 | Sem segredos no histórico | `gitleaks detect --no-banner` | `no leaks found` |
-| Bundle sem segredos de deploy | `grep -rEl "FTP_PASS\|SMOKE_BASIC\|service_role" dist \| wc -l` | `0` |
+| Bundle sem segredos de deploy | `grep -rEl "HOSTGATOR_FTP_PASS\|SMOKE_BASIC\|service_role" dist \| wc -l` | `0` |
 | Site protegido | `curl -s -o /dev/null -w "%{http_code}" "$APP_URL"` | `401` |
 | Site abre com credencial | `curl -s -o /dev/null -w "%{http_code}" -u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS" "$APP_URL"` | `200` |
 | Sem chaves de outros provedores no bundle | `grep -rEl "sk-ant\|sk-proj" dist \| wc -l` | `0` |

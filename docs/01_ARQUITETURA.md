@@ -34,7 +34,7 @@ data/conteudo/*.json (fichas 5W1H, bibliotecas, KPIs) ────┘           
 | Construção e homologação | Hospedagem **particular de Max** (HostGator, subdomínio próprio, senha no cPanel) | `homologacao` | — |
 | Entrega | Hospedagem **do contratante** | `producao` | Max, com “aprovado” explícito (subetapa 03.8) |
 
-O código é o mesmo nos dois ambientes; muda só o `.env` (`FTP_*`, `APP_URL`, `SMOKE_*`, `APP_AMBIENTE`). A migração repete o spike de PHP/`ZipArchive`/usuário autenticado e as provas de `401`/`200`. Após a migração, a hospedagem de Max é descomissionada (com aprovação).
+O código é o mesmo nos dois ambientes; muda só o `.env` (`HOSTGATOR_*`, `APP_URL`, `SMOKE_*`, `APP_AMBIENTE`). A migração repete o spike de PHP/`ZipArchive`/usuário autenticado e as provas de `401`/`200`. Após a migração, a hospedagem de Max é descomissionada (com aprovação).
 
 ## Decisão de hospedagem (ordem de preferência por custo)
 1. **Hospedagem que Max já paga (HostGator)** — escolhida para homologação e, depois, equivalente na do contratante: subdomínio dedicado, https, **diretório protegido por senha no cPanel** (“Privacidade de diretório”), PHP ≥ 8. Custo adicional: R$ 0.

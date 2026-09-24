@@ -117,7 +117,7 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 ### `VITE_` publica a variável
 - **Gatilho:** ao criar qualquer variável de ambiente para o front-end.
 - **Ação:** só usar `VITE_` para o que pode ser público (Client ID do Google, chave OpenRouter dedicada sem saldo). FTP e SMOKE **nunca** levam `VITE_`.
-- **Evidência:** `grep -rEl "FTP_PASS|SMOKE_BASIC" dist | wc -l` → `0`.
+- **Evidência:** `grep -rEl "HOSTGATOR_FTP_PASS|SMOKE_BASIC" dist | wc -l` → `0`.
 - **Fonte:** references da aurora-criativa (env_e_gitignore_templates).
 
 ### `.gitignore` ignora `*.xlsx`
@@ -197,6 +197,12 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Ação:** antes de refazer build/deploy, distinguir: 521 = Cloudflare no ar e origem recusando; FTP responde? outros sites da mesma conta também caíram? Se for a hospedagem, esperar e refazer só a verificação HTTP.
 - **Evidência:** `curl -o /dev/null -w '%{http_code}' https://<host>` e teste do FTP em separado.
 - **Fonte:** CRM-Sindcom, `orientacoes.md` §1.3.
+
+### O `.env` de Max é a referência dos nomes (`HOSTGATOR_*`) e o script nunca imprime valores
+- **Gatilho:** Max reescreveu o `.env` trocando `FTP_*` por `HOSTGATOR_FTP_*`/`HOSTGATOR_REMOTE_DIR` e acrescentando `HOSTGATOR_DOMINIO` e `VITE_OPENROUTER_API_NAME`; as etiquetas `[OBRIGATÓRIA v01]` saíram dos comentários.
+- **Ação:** adotar os nomes do `.env` nos documentos (não o contrário). O catálogo de status (`OBRIGATÓRIA v01` / `FUTURA` / `CONDICIONAL`) vive em `scripts/checar_env.mjs`, não nos comentários do `.env`. O script valida regras (https, porta, TLS, faixas, `VITE_` sem segredo) e imprime só `ok`/`PLACEHOLDER`/`AUSENTE` — nunca valores. `SMOKE_BASIC_*` só é usado a partir da 02.11 (prova 401/200): ausente, a 01.1 fica ⚠️ PENDENTE e o trabalho segue até lá.
+- **Evidência:** `node scripts/checar_env.mjs | tail -1` → `OBRIGATÓRIAS v01: 17/17 preenchidas` (exit 0); `grep -rEl "HOSTGATOR_FTP_PASS|SMOKE_BASIC" dist | wc -l` → `0`.
+- **Fonte:** decisão de 24/09/2026 (01.1).
 
 ## 7. Candidatos a promoção
 
