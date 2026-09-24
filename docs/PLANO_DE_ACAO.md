@@ -43,3 +43,5 @@ Em todos: `what` fiel à ação; `why/where/when/how` só com o que os documento
 
 ## 7. O que a aprovação autoriza
 Executar as subetapas 01.3 a 03.7 sem novas confirmações, com teto de gasto **R$ 0**, deploy **somente** na hospedagem particular de Max, e **sem** iniciar a migração (03.8) nem apagar nada no servidor sem novo “aprovado”.
+
+APROVADO EM: 2026-09-24 (Max: "feito. podemos seguir", após o resumo do Plano de Ação e do escopo autorizado na seção 7)

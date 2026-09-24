@@ -9,8 +9,8 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 |---|---|---|---|---|
 | **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — próxima: 01.1 |
 | 01.0 | Varrer repositórios de referência e preencher instrucoes.md | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | 10/10 repositórios com status (o plano dizia 9; a tabela tem 10); 4 entradas na seção 4 e 5 novas na seção 6 de `instrucoes.md`; achados aplicados às subetapas 02.11 e 03.5. |
-| 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ⚠️ PENDENTE | `node scripts/checar_env.mjs` → `OBRIGATÓRIAS v01: 15/17`; faltam `SMOKE_BASIC_USER/PASS` (só a 02.11 precisa). Checklist em `docs/CHECKLIST_MAX.md`. |
-| 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ⚠️ PENDENTE | `docs/PLANO_DE_ACAO.md` escrito (≈ 2 páginas); aguardando “aprovado” de Max. |
+| 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | `node scripts/checar_env.mjs` → `OBRIGATÓRIAS v01: 17/17 preenchidas` (exit 0); `.env` fora do Git (0); `curl` sem senha → `401`. |
+| 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "^APROVADO EM:" docs/PLANO_DE_ACAO.md` → `1`. Modo autônomo ativo. |
 | 01.3 | Scaffold do projeto e tooling | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.4 | Pipeline xlsx → `matriz_v07.json` e validações de dados | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -101,7 +101,7 @@ Evidência: `git log --oneline -1 -- handoffs/instrucoes.md` → linha contendo 
 Teto de esforço: 30 minutos. Se estourar, registrar o que já achou e seguir.
 
 ### Subetapa 01.1 — Validar ambiente e `.env`; emitir checklist único de ações manuais [Plan] [LLM: Sonnet]
-Status: ⚠️ PENDENTE _(script e checklist prontos; falta Max preencher `SMOKE_BASIC_USER/PASS` — bloqueia só a 02.11)_
+Status: ✅ CONCLUÍDA
 Objetivo: descobrir de uma vez tudo o que falta a Max, sem parar depois.
 Arquivos tocados: `scripts/checar_env.mjs`, `docs/CHECKLIST_MAX.md`.
 Passos: 1) `node -v` deve ser ≥ 20. 2) Criar `scripts/checar_env.mjs` que lê `.env`, lista variáveis por status (`[OBRIGATÓRIA v01]`, `[FUTURA — Etapa 03]`, `[CONDICIONAL]`) e detecta placeholders (`[...]`, `sk-or-v1-...`). 3) Rodar. 4) Gerar `docs/CHECKLIST_MAX.md` com **todas** as ações manuais pendentes (cPanel na hospedagem particular incluindo PHP ≥ 8, chave OpenRouter, repositório) em uma lista única com passo a passo curto. Ignorar as variáveis `[OBSOLETA]` (Google/Drive). 5) Se faltar alguma `[OBRIGATÓRIA v01]`, enviar a Max **uma única mensagem** com o checklist e aguardar; se faltarem só `[FUTURA]`, seguir sem parar.
@@ -110,7 +110,7 @@ Qualidade: o checklist cabe em uma tela; sem jargão desnecessário.
 Evidência: `node scripts/checar_env.mjs` → linha `OBRIGATÓRIAS v01: 17/17 preenchidas` e exit 0; `git ls-files | grep -c "^\.env$"` → `0`.
 
 ### Subetapa 01.2 — Plano de Ação e aprovação [Plan] [Accept] [LLM: Sonnet]
-Status: ⚠️ PENDENTE _(plano escrito; aguardando o “aprovado” de Max)_
+Status: ✅ CONCLUÍDA
 Objetivo: obter a única aprovação humana antes do modo autônomo.
 Arquivos tocados: `docs/PLANO_DE_ACAO.md`.
 Passos: 1) Ler `CLAUDE.md`, este plano, `docs/01`, `02`, `04`, `05`, `06`. 2) Escrever `docs/PLANO_DE_ACAO.md` (≤ 2 páginas): ordem real de execução, lotes de conteúdo por fase, riscos (Mermaid, volume de fichas, PHP/permissões no servidor de backup), o que roda em paralelo, estimativa por etapa em horas de CODE. 3) Apresentar a Max e pedir “aprovado”. 4) Ao receber, acrescentar a linha `APROVADO EM: <data>` no fim do arquivo e commitar.
