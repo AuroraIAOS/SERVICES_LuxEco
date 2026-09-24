@@ -28,8 +28,13 @@ Nunca commitar credenciais/keys/senhas. Revisar `.gitignore` sempre. `.env` é a
 ## 5. Segurança (adaptação ao projeto — não há banco)
 Ver checklist em `docs/05_COMPLIANCE_E_ETICA.md`: proteção por senha do diretório no cPanel, varredura de segredos (`gitleaks`), repo privado, contrato fora do Git, aviso + consentimento antes de enviar conteúdo ao LLM.
 
-## 6. Avisos de etapa
-Ao iniciar e ao terminar cada etapa/subetapa, informe **modo + função + LLM**, conforme o plano.
+## 6. Avisos de etapa e resgistro de conclusão
+1. Ao iniciar e ao terminar cada etapa/subetapa, informe **modo + função + LLM**, conforme o plano.
+2. Marcar em `docs/00_PLANO_E_CRITERIOS.md`, logo após o título da etapa/subetapa e na "Tabela de Progresso":
+- `Status: ✅ CONCLUÍDA` — código, testes, deploy e verificação 100% verdes.
+- `Status: ⏸️ ADIADA` — pulada e deixada para o futuro.
+- `Status: ⚠️ PENDENTE` — em aberto, sem bloquear o avanço.
+- `Status: 🛑 ABANDONADA` — abandonada; permanece registrada.
 
 ## 7. Ponte entre estágios
 Repo + HANDOFF + `handoffs/instrucoes.md`. Sessões separadas por etapa.

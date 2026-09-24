@@ -1,5 +1,48 @@
 # PLANO_E_CRITERIOS — Lux Ferramentas Operacionais (MMO v02 · FPE · POP)
 
+## Tabela de Progresso
+_Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §6). Status aparece aqui e logo abaixo do título de cada item._
+
+**Legenda:** ✅ CONCLUÍDA (código, testes, deploy e verificação 100% verdes) · ⏸️ ADIADA (deixada para o futuro) · ⚠️ PENDENTE (em aberto, sem bloquear o avanço) · 🛑 ABANDONADA (permanece registrada) · ⬜ A FAZER (ainda não iniciada — estado inicial, anterior às quatro marcas do §6).
+
+| Item | Título | Modo · função · LLM | Status | Observação / prova |
+|---|---|---|---|---|
+| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — 01.0 pendente |
+| 01.0 | Varrer repositórios de referência e preencher instrucoes.md | [Plan] [LLM: Sonnet] | ⚠️ PENDENTE | Varredura dos repositórios bloqueada pelo classificador do modo automático; aguarda decisão de Max (clone raso / registrar sem varredura / colar trechos). |
+| 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.3 | Scaffold do projeto e tooling | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.4 | Pipeline xlsx → `matriz_v07.json` e validações de dados | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.6 | Varredura de segredos e blindagem do repositório | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.7 | HANDOFF_BUILD | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
+| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER |  |
+| 02.1 | Compor a Matriz V08 (Anotações integradas) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.2 | Fichas 5W1H, Fase 1 Comercial (Est. 01–09) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.3 | Fichas 5W1H, Fase 2 Técnica/Projeto (Est. 10–14) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.4 | Fichas 5W1H, Fase 3 Execução (Est. 15–19) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.5 | Fichas 5W1H, Fase 4 Homologação e Encerramento + consolidação (Est. 20–22) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.6 | Bibliotecas: documentos, ferramentas, investimentos e KPIs | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.7 | Base de UI e navegação entre as 3 telas | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.8 | Tela MMO v02 | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.9 | Tela FPE: formulário 5W1H + fluxograma | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.10 | Exportações do FPE (JSON, MD, MERMAID, PDF) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.11 | Deploy protegido e prova do portão | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.12 | HANDOFF_UPGRADE e CHANGELOG do MVP | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
+| **Etapa 03** | UPGRADES E VERSIONAMENTOS |  | ⬜ A FAZER |  |
+| 03.1 | Tela POP: perguntas estratégicas e geração por template | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 03.2 | Exportar POP em .docx e .pdf | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 03.3 | LLM: seletor padrão/particular, consentimento e fallback | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 03.4 | Exportar XLSX (FPE e POP) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 03.5 | API PHP de backups versionados no servidor (limite 10) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 03.6 | Tela “Versões salvas” (`#/versoes`) e botão “Salvar versão” | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 03.7 | Build offline, guia do contratante e deploy final (homologação) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 03.8 | Migração para a hospedagem do contratante | [Auto após aprovação] [LLM: Sonnet] | ⬜ A FAZER |  |
+
+**Fora das etapas (já feito, registrado no Git):** estágio criativo (fundação) · replanejamento de 24/09/2026 — backup no servidor no lugar do Drive, teto do LLM configurável, homologação na hospedagem de Max (commits `64589e1`, `edd34e6`).
+
+---
+
 ## Princípio-guia
 Entregar um MVP em uma semana é sempre melhor que passar uma eternidade construindo algo surreal.
 Foco: fatia vertical funcional (100% verde) antes de qualquer sofisticação.
@@ -40,6 +83,7 @@ A arquitetura não se redesenha — se implementa.
 # ESTÁGIO PRÁTICO (executado no Claude CODE)
 
 ## ETAPA 01 — PLANEJAMENTO E ESTRUTURAS
+Status: ⬜ A FAZER
 Objetivo geral: fundação desenhada, conectada, testada, aprovada e versionada; pipeline de dados verde. Gerar HANDOFF_BUILD ao final.
 Modo predominante: [Plan Mode] até a 01.2 (aprovação); depois [Auto] + [Goal].
 Portão de entrada: repositório criado (privado), `.env` preenchido com as variáveis `[OBRIGATÓRIA v01]`.
@@ -47,6 +91,7 @@ Portão de entrada: repositório criado (privado), `.env` preenchido com as vari
 Observações: nada destrutivo sem aprovação; commit com prefixo padronizado + push ao fim de cada subetapa; sessão separada das demais etapas.
 
 ### Subetapa 01.0 — Varrer repositórios de referência e preencher instrucoes.md [Plan] [LLM: Sonnet]
+Status: ⚠️ PENDENTE
 Objetivo: extrair dos repositórios da seção 1 de `handoffs/instrucoes.md` o que serve a este projeto.
 Arquivos tocados: `handoffs/instrucoes.md`.
 Passos: 1) Ler a tabela da seção 1. 2) Consultar CRM-Sindcom (deploy FTP HostGator, `.htaccess`, portões), OS_Affiliate (circuit breaker), superpowers e ECC (provas e economia de token), React (API atual). 3) Registrar “não aplicável” em uma linha para hermes-agent, OpenClaw, Public-APIs, Build-your-own-X e Awesome-selfhosted. 4) Preencher seções 4 e 6 (entradas Gatilho → Ação → Evidência → Fonte) e “Status da varredura” da seção 1.
@@ -56,6 +101,7 @@ Evidência: `git log --oneline -1 -- handoffs/instrucoes.md` → linha contendo 
 Teto de esforço: 30 minutos. Se estourar, registrar o que já achou e seguir.
 
 ### Subetapa 01.1 — Validar ambiente e `.env`; emitir checklist único de ações manuais [Plan] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: descobrir de uma vez tudo o que falta a Max, sem parar depois.
 Arquivos tocados: `scripts/checar_env.mjs`, `docs/CHECKLIST_MAX.md`.
 Passos: 1) `node -v` deve ser ≥ 20. 2) Criar `scripts/checar_env.mjs` que lê `.env`, lista variáveis por status (`[OBRIGATÓRIA v01]`, `[FUTURA — Etapa 03]`, `[CONDICIONAL]`) e detecta placeholders (`[...]`, `sk-or-v1-...`). 3) Rodar. 4) Gerar `docs/CHECKLIST_MAX.md` com **todas** as ações manuais pendentes (cPanel na hospedagem particular incluindo PHP ≥ 8, chave OpenRouter, repositório) em uma lista única com passo a passo curto. Ignorar as variáveis `[OBSOLETA]` (Google/Drive). 5) Se faltar alguma `[OBRIGATÓRIA v01]`, enviar a Max **uma única mensagem** com o checklist e aguardar; se faltarem só `[FUTURA]`, seguir sem parar.
@@ -64,6 +110,7 @@ Qualidade: o checklist cabe em uma tela; sem jargão desnecessário.
 Evidência: `node scripts/checar_env.mjs` → linha `OBRIGATÓRIAS v01: 16/16 preenchidas` e exit 0; `git ls-files | grep -c "^\.env$"` → `0`.
 
 ### Subetapa 01.2 — Plano de Ação e aprovação [Plan] [Accept] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: obter a única aprovação humana antes do modo autônomo.
 Arquivos tocados: `docs/PLANO_DE_ACAO.md`.
 Passos: 1) Ler `CLAUDE.md`, este plano, `docs/01`, `02`, `04`, `05`, `06`. 2) Escrever `docs/PLANO_DE_ACAO.md` (≤ 2 páginas): ordem real de execução, lotes de conteúdo por fase, riscos (Mermaid, volume de fichas, PHP/permissões no servidor de backup), o que roda em paralelo, estimativa por etapa em horas de CODE. 3) Apresentar a Max e pedir “aprovado”. 4) Ao receber, acrescentar a linha `APROVADO EM: <data>` no fim do arquivo e commitar.
@@ -73,6 +120,7 @@ Evidência: `grep -c "^APROVADO EM:" docs/PLANO_DE_ACAO.md` → `1`.
 Após esta subetapa vale o **Regime de autonomia**.
 
 ### Subetapa 01.3 — Scaffold do projeto e tooling [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: projeto Vite + React + TS rodando, com scripts e testes.
 Arquivos tocados: `package.json`, `tsconfig.json`, `vite.config.ts`, `vitest.config.ts`, `playwright.config.ts`, `index.html`, `src/main.tsx`, `src/app.tsx`, `src/telas/.gitkeep`, `design/tokens.json`, `src/estilos/tokens.css`, `README.md` (seção “Como rodar”).
 Passos: 1) Rodar `npm create vite@latest tmp_vite -- --template react-ts`; mover os arquivos gerados para a raiz **exceto** `README.md`; apagar `tmp_vite/`. 2) Instalar `react-router-dom`, `react-hook-form`, `zod`, `mermaid`, `xlsx`, `docx`, `basic-ftp`, `tsx`, `vitest`, `@testing-library/react`, `@playwright/test`, `vite-plugin-singlefile`, `eslint`; rodar `npx playwright install chromium`. 3) Scripts npm: `dev`, `build`, `build:single`, `typecheck` (`tsc --noEmit`), `lint`, `test` (`vitest run`), `e2e` (`playwright test`), `dados:gerar`, `dados:compor`, `dados:validar`, `env:checar`, `deploy`, `spike:fluxo`, `backup:provar` (placeholder até a 03.5). 4) Gerar `design/tokens.json` e `src/estilos/tokens.css` a partir de `docs/04`; carregar as fontes de `design/fontes/` via `@font-face`. 5) `HashRouter` com rotas `#/mmo`, `#/fpe`, `#/pop`, `#/versoes` renderizando um placeholder (fora de `src/telas/`, em `src/app.tsx`). 6) Preencher “Como rodar” no README.
@@ -84,6 +132,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas + 2–3 alternativas); registrar em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 01.4 — Pipeline xlsx → `matriz_v07.json` e validações de dados [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: espelho fiel da Matriz V07 em JSON, com testes de contagem e de paridade com o MMO_v01.
 Arquivos tocados: `scripts/xlsx_para_json.ts`, `scripts/validar_dados.ts`, `scripts/comparar_mmo_legado.ts`, `data/matriz_v07.json`, `data/conteudo/mapa_condicionais.json`, `src/dados/tipos.ts`, `src/dados/validar.test.ts`.
 Passos: 1) `xlsx_para_json.ts`: ler `data/fontes/Matriz_Operacional.xlsx`, **parar na linha “LEGENDA DE CORES”**; emitir `setores`, `estagios` (22, em 4 fases), `acoes` (uma por célula não vazia), `condicionais` (células com “IF/ELSE”, separando condição e ações consequentes). 2) `validar_dados.ts` implementa as regras 1, 2, 4–8 de `docs/02_MODELO_DE_DADOS.md` (as de V08/fichas/bibliotecas ficam inativas até existirem). 3) `comparar_mmo_legado.ts`: extrair presença setor × estágio do `data/fontes/legado/MMO_v01.html` e comparar com o JSON. 4) Agrupar as 31 células IF/ELSE nas 15 situações do Mapa em `mapa_condicionais.json`; se não fechar em 15, registrar a diferença em `docs/06` §2. 5) Testes em Vitest.
@@ -95,6 +144,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto; registrar em `instrucoes.md` seção 5.
 
 ### Subetapa 01.5 — Spike de legibilidade do fluxograma (Mermaid × SVG de raias) [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: decidir com números se o Mermaid dá conta de 22 estágios × 12 setores.
 Arquivos tocados: `scripts/spike_fluxo.ts`, `src/fluxograma/mermaid.ts`, `src/fluxograma/raias.ts` (só se reprovar), `handoffs/instrucoes.md`.
 Passos: 1) Gerar o Mermaid (`flowchart LR`) de **cada setor** (nós = ações em ordem de estágio; IF/ELSE como losango) e do **fluxo geral por fase** (4 grafos). 2) Renderizar em Chromium headless (Playwright) e medir a largura do SVG. 3) Critérios: setor ≤ 2600 px de largura; fase ≤ 3200 px. 4) Se algum reprovar, implementar o SVG de raias próprio (`raias.ts`) e repetir a medição. 5) Registrar a decisão e os números em `handoffs/instrucoes.md` (seção 2).
@@ -106,6 +156,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar; relatório curto com as medições e as alternativas (dividir o fluxo geral por fase em páginas; reduzir rótulos).
 
 ### Subetapa 01.6 — Varredura de segredos e blindagem do repositório [Auto] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: garantir que nada sensível entra no histórico.
 Arquivos tocados: `.husky/pre-commit` (ou `scripts/pre_commit.mjs`), `handoffs/instrucoes.md`.
 Passos: 1) Instalar `gitleaks` (binário) e rodar sobre o histórico. 2) Configurar pré-commit que roda `gitleaks protect --staged`. 3) Provar as exclusões do `.gitignore`.
@@ -114,6 +165,7 @@ Qualidade: pré-commit não bloqueia commits legítimos.
 Evidência: `gitleaks detect --no-banner` → `no leaks found`; `git ls-files | grep -c "^\.env$"` → `0`; `git ls-files referencias_privadas | wc -l` → `0`; `git check-ignore -q data/fontes/Matriz_Operacional.xlsx; echo $?` → `1`.
 
 ### Subetapa 01.7 — HANDOFF_BUILD [Auto] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: fechar a Etapa 01 e abrir a 02 em sessão limpa.
 Arquivos tocados: `handoffs/HANDOFF_BUILD.md`, `CHANGELOG.md`.
 Passos: 1) Preencher `HANDOFF_BUILD.md` (verde com prova, portão, artefatos, primeiro passo da 02.1). 2) Registrar no `CHANGELOG.md`. 3) Commit + push.
@@ -124,6 +176,7 @@ Evidência: `grep -c "status: verde" handoffs/HANDOFF_BUILD.md` → `>= 5`.
 ---
 
 ## ETAPA 02 — CONSTRUÇÃO E DEPLOY DO MVP (v01 / fatia vertical: MMO v02 + FPE)
+Status: ⬜ A FAZER
 Objetivo geral: V08 + conteúdo completo + telas MMO e FPE com exports locais, no ar e protegido. Gerar HANDOFF_UPGRADE ao final.
 Modo predominante: [Auto] + [Goal] (um `/goal` por subetapa). Sessão nova, abrir com `HANDOFF_BUILD.md`.
 Portão de entrada: portão 01→02 verde (repetido).
@@ -131,6 +184,7 @@ Portão de entrada: portão 01→02 verde (repetido).
 Observações: coletar evidências; commit + push por subetapa; conteúdo gerado segue `docs/06` (nunca inventar; sem selo visível; sem R$/SLA).
 
 ### Subetapa 02.1 — Compor a Matriz V08 (Anotações integradas) [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: `matriz_v08.json` = V07 + overlay das Anotações do CEO.
 Arquivos tocados: `data/conteudo/anotacoes_v08.json`, `scripts/compor_v08.ts`, `data/matriz_v08.json`, `src/dados/v08.test.ts`.
 Passos: 1) Ler `data/fontes/Anotacoes_CEO_2026-09-24.md` inteiro. 2) Escrever `anotacoes_v08.json` seguindo `docs/06` §3 (ações e IF/ELSE novos com `origem_doc: "anotacoes_ceo_2026-09-24"`; `perfil_cliente`; `oportunidade`). 3) `compor_v08.ts`: aplicar o overlay sobre `matriz_v07.json` sem alterar o que já existe. 4) Estender `validar_dados.ts` com `--v08` (regra 3). 5) Testes.
@@ -142,6 +196,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar; relatório curto; registrar em `instrucoes.md`.
 
 ### Subetapa 02.2 — Fichas 5W1H, Fase 1 Comercial (Est. 01–09) [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: 1 ficha completa por célula da Fase 1.
 Arquivos tocados: `data/conteudo/fichas_5w1h.json`, `scripts/validar_dados.ts`.
 Passos: 1) Para cada `acao` da V08 com `estagio_id` 1–9, criar a ficha conforme `docs/06` §4 (campos, `origem`, `fontes`). 2) Estender `validar_dados.ts` com `--fichas [--fase=N]`.
@@ -153,6 +208,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar; relatório curto.
 
 ### Subetapa 02.3 — Fichas 5W1H, Fase 2 Técnica/Projeto (Est. 10–14) [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: 1 ficha completa por célula da Fase 2.
 Arquivos tocados: `data/conteudo/fichas_5w1h.json`, `scripts/validar_dados.ts`.
 Passos: 1) Para cada `acao` da V08 com `estagio_id` de 10 a 14, criar a ficha conforme `docs/06` §4 (campos, `origem`, `fontes`). 2) Acrescentar as fichas ao `fichas_5w1h.json` sem alterar as das fases anteriores. 3) Rodar `--fichas --fase=2`.
@@ -164,6 +220,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas + alternativas); registrar em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.4 — Fichas 5W1H, Fase 3 Execução (Est. 15–19) [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: 1 ficha completa por célula da Fase 3.
 Arquivos tocados: `data/conteudo/fichas_5w1h.json`, `scripts/validar_dados.ts`.
 Passos: 1) Para cada `acao` da V08 com `estagio_id` de 15 a 19, criar a ficha conforme `docs/06` §4 (campos, `origem`, `fontes`). 2) Acrescentar as fichas ao `fichas_5w1h.json` sem alterar as das fases anteriores. 3) Rodar `--fichas --fase=3`.
@@ -175,6 +232,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas + alternativas); registrar em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.5 — Fichas 5W1H, Fase 4 Homologação e Encerramento + consolidação (Est. 20–22) [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: 1 ficha completa por célula da Fase 4.
 Arquivos tocados: `data/conteudo/fichas_5w1h.json`, `scripts/validar_dados.ts`.
 Passos: 1) Incluir as ações novas do Est. 22 vindas das Anotações. 2) Para cada `acao` da V08 com `estagio_id` de 20 a 22, criar a ficha conforme `docs/06` §4 (campos, `origem`, `fontes`). 3) Acrescentar as fichas ao `fichas_5w1h.json` sem alterar as das fases anteriores. 4) Rodar `--fichas --fase=4` e depois `--fichas` (total).
@@ -186,6 +244,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas + alternativas); registrar em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.6 — Bibliotecas: documentos, ferramentas, investimentos e KPIs [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: cobrir as Etapas 6.c–6.h do contrato.
 Arquivos tocados: `data/conteudo/documentos.json`, `ferramentas.json`, `investimentos.json`, `kpis.json`, `scripts/validar_dados.ts`.
 Passos: 1) Seguir `docs/06` §4 (documentados vs sugeridos; investimentos como categorias, `valor_estimado_brl: null`; KPIs com formulário e `meta: null`). 2) Mínimo de 1 KPI de produtividade e 1 de eficiência por setor (12 setores, inclusive Cemig e Cliente como indicadores de acompanhamento). 3) Estender `--bibliotecas`.
@@ -197,6 +256,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.7 — Base de UI e navegação entre as 3 telas [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: shell da aplicação com a identidade Lux.
 Arquivos tocados: `src/app.tsx`, `src/ui/*` (cabeçalho, hero, botões, cards, formulário base), `src/estilos/*.css`, `src/ui/ui.test.tsx`.
 Passos: 1) Componentes base usando **só** os tokens de `design/tokens.json`. 2) Navegação por teclado; `aria-label` nos botões de exportação. 3) Rodapé com a nota de propriedade intelectual sugerida em `docs/05`. 4) Testes de renderização e de acessibilidade básica.
@@ -208,6 +268,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.8 — Tela MMO v02 [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: dashboard do MMO renderizado do `matriz_v08.json`, com paridade de funcionalidades do MMO_v01 + as Anotações.
 Arquivos tocados: `src/telas/mmo/*`, `src/telas/mmo/mmo.test.tsx`, `e2e/mmo.spec.ts`.
 Passos: 1) Hero com estatísticas **calculadas** do JSON. 2) 22 pills expansíveis por fase (setor → ações; ramos IF/ELSE com ✓/✗; tag WhatsApp). 3) 12 cards de setor. 4) Bloco de condicionais. 5) Bloco “Jornada do cliente”. 6) Ramificações novas (perfis, Energia por Assinatura, pós-venda) visíveis no Est. 02 e no Est. 22. 7) Testes de unidade e e2e.
@@ -219,6 +280,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.9 — Tela FPE: formulário 5W1H + fluxograma [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: formulário pré-preenchido, editável, e diagramação gerada das respostas.
 Arquivos tocados: `src/telas/fpe/*`, `src/fluxograma/*`, `src/estado/armazenamento.ts`, `src/telas/fpe/fpe.test.tsx`, `e2e/fpe.spec.ts`.
 Passos: 1) Navegação setor → estágio → ficha; campos 5W1H com valores da V08 e edição livre. 2) Edições persistem em `localStorage` (`try/catch`; funciona com storage vazio) e marcam `origem: "manual"` no estado. 3) Botão “Gerar fluxograma” usa o renderizador decidido na 01.5, por setor e geral por fase. 4) Botão “Restaurar padrão” por ficha. 5) Testes.
@@ -230,6 +292,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.10 — Exportações do FPE (JSON, MD, MERMAID, PDF) [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: “memória exportável” do FPE.
 Arquivos tocados: `src/exportar/json.ts`, `md.ts`, `mermaid.ts`, `pdf.ts`, `src/estilos/impressao.css`, `src/exportar/exportar.test.ts`.
 Passos: 1) JSON com carimbo de versão e data. 2) MD legível por setor. 3) `.mermaid` por setor e geral. 4) PDF por impressão (`@page` A3 paisagem para o fluxograma, A4 para o texto), com fundo branco. 5) Teste de ida e volta: exportar JSON → importar → estado idêntico.
@@ -241,6 +304,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.11 — Deploy protegido e prova do portão [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: MVP no ar, atrás de senha.
 Arquivos tocados: `scripts/deploy_ftp.ts`, `public/.htaccess` (cache e HTTPS), `docs/CHECKLIST_MAX.md` (status).
 Passos: 1) `npm run build`. 2) `deploy_ftp.ts`: enviar `dist/` por FTPS para `FTP_DIR` (**hospedagem particular de Max = homologação**), sem apagar o que não for do build — em particular **nunca** tocar em `BACKUP_DIR_SERVIDOR` nem em `api/config.php` (dados do usuário no servidor). O script lê o destino só do `.env`, para a migração da 03.8 não exigir mudança de código. 3) Verificar que a proteção de diretório do cPanel está ativa (feita por Max — ver checklist). 4) Rodar as provas do portão. Se a proteção não estiver ativa, **não** publicar conteúdo além de uma página vazia e avisar Max na mensagem consolidada (caso 4 do regime de autonomia).
@@ -252,6 +316,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis, incluindo FTP/TLS/permissões/`.htaccess` + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.12 — HANDOFF_UPGRADE e CHANGELOG do MVP [Auto] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: fechar a Etapa 02.
 Arquivos tocados: `handoffs/HANDOFF_UPGRADE.md`, `CHANGELOG.md`, `handoffs/instrucoes.md`.
 Passos: 1) Preencher o handoff com provas. 2) Registrar `+1.0` no CHANGELOG (lançamento do MVP: MMO v02 e FPE). 3) Promover candidatos (seção 7 do instrucoes).
@@ -262,6 +327,7 @@ Evidência: `grep -c "^## \[+1.0\]" CHANGELOG.md` → `>= 1`.
 ---
 
 ## ETAPA 03 — UPGRADES E VERSIONAMENTOS (tela POP, LLM, XLSX, backup versionado no servidor, migração)
+Status: ⬜ A FAZER
 Objetivo geral: completar as Etapas 08/09 do contrato, o backup versionado no servidor e a gestão de versões, sobre o MVP já no ar (hospedagem de Max), e preparar a migração para a hospedagem do contratante.
 Versionamento: +0.1 = correções/melhorias | +1.0 = novas funcionalidades/serviços.
 Modo predominante: [Auto] + [Goal]. Sessão nova, abrir com `HANDOFF_UPGRADE.md`.
@@ -270,6 +336,7 @@ Observações: commit + push por subetapa; registrar em `handoffs/instrucoes.md`
 **PORTÃO 03→entrega (na hospedagem de Max):** `npm test` → `0 failed` · `npm run e2e` → `passed` · `npm run dados:validar -- --v08 --fichas --bibliotecas` → 3 `OK` · `401` sem senha e `200` com senha, **inclusive em `/api/backups.php`** · `npm run backup:provar` → `OK backup: criar=201 listar=200 baixar=200 zip=200 excluir=200 onze=409 config=200` · `gitleaks` → `no leaks found` · teste de fallback do LLM verde. Enquanto vermelho, é **proibido** marcar a entrega como concluída. **A migração (03.8) só começa depois deste portão verde + “aprovado” de Max.**
 
 ### Subetapa 03.1 — Tela POP: perguntas estratégicas e geração por template [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: POP parcial (por setor) e geral, **sem LLM**, a partir do template fixo.
 Arquivos tocados: `data/conteudo/perguntas_pop.json`, `pop_templates.json`, `pop_observacoes_juridicas.json`, `src/telas/pop/*`, `src/pop/gerar.ts`, `src/pop/gerar.test.ts`, `scripts/validar_dados.ts`.
 Passos: 1) Escrever ≥ 8 perguntas estratégicas por setor com resposta-padrão pré-preenchida (`docs/06` §5). 2) Template com as 11 seções fixas (a 11 = Observações para revisão jurídica, sempre por último). 3) `gerar.ts`: montar POP setorial e geral a partir das fichas, condicionais, bibliotecas e respostas. 4) Tela: escolher setor(es), editar respostas, botão “Gerar POP do setor” / “Gerar POP geral”.
@@ -281,6 +348,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 03.2 — Exportar POP em .docx e .pdf [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: POP em arquivo de texto entregável.
 Arquivos tocados: `src/exportar/pop_docx.ts`, `src/exportar/pop_pdf.ts`, `scripts/verificar_docx.mjs`, `src/exportar/pop.test.ts`.
 Passos: 1) `.docx` com a biblioteca `docx`: capa, sumário, 11 seções, rodapé com a nota de propriedade intelectual. 2) PDF por impressão (A4). 3) `verificar_docx.mjs` abre o arquivo gerado e conta seções.
@@ -292,6 +360,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 03.3 — LLM: seletor padrão/particular, consentimento e fallback [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: redigir campos do POP com OpenRouter (padrão) ou chave do contratante; nunca travar.
 Arquivos tocados: `src/llm/cliente.ts`, `src/llm/prompt.ts`, `src/llm/fallback.ts`, `src/llm/limite_gasto.ts`, `src/telas/pop/SeletorLlm.tsx`, `src/telas/pop/PainelLimiteGasto.tsx`, `src/llm/llm.test.ts`, `src/llm/limite_gasto.test.ts`, `src/llm/llm_texto.test.ts`.
 Passos: 1) **Search-first:** confirmar a doc atual do OpenRouter e o modelo `:free` vigente; atualizar `VITE_OPENROUTER_MODELO_PADRAO` (valor real fica com Max; o CODE só sugere). 2) Checkbox “LLM padrão / LLM particular”; particular = campo para chave e (opcional) URL/modelo, guardada só em memória da sessão. 3) Aviso + checkbox de ciência antes do 1º envio; sem consentimento, nenhuma chamada. 4) Prompt fixo: usar somente o conteúdo fornecido; sem fatos, números, prazos ou nomes novos. 5) Tratamento de 402, 429, 404 e timeout → fallback determinístico (texto das respostas no template). 6) Contador local de uso diário com aviso perto do limite. 7) Saída do LLM sempre como **texto**. 8) **Painel “Limite de gasto da IA”** (`PainelLimiteGasto`): campos editáveis **teto mensal (R$)**, **alerta em (%)**, **limite diário de requisições** e, para a chave particular, **preço por 1 milhão de tokens (entrada e saída, em R$)** informado pelo contratante — o app não inventa preço. Mostra gasto estimado do mês (tokens reais devolvidos pela API × preço informado), barra de uso e botão “Zerar contador do mês”. 9) `limite_gasto.ts`: antes de cada chamada, se gasto estimado ≥ teto (ou requisições do dia ≥ limite) → **bloqueia a chamada e usa o fallback determinístico**, com aviso claro; ao atingir o percentual de alerta, exibe aviso. Teto padrão **R$ 0 = nenhuma chamada paga**; chave padrão `:free` segue permitida só pelo limite diário. 10) **Trava de ciência de custo:** subir o teto acima de R$ 0 exige checkbox “Entendo que o gasto é cobrado na minha conta do provedor” e digitar o novo valor duas vezes; reduzir é livre. Valores negativos, não numéricos ou acima de um teto de sanidade (R$ 10.000) são recusados. 11) Persistência: `config_llm` salvo no servidor pela API de backups (rotas `config_ler`/`config_gravar`, 03.5) com cópia em `localStorage` (`try/catch`); sem servidor, vale só o local. A chave da API **nunca** é gravada na configuração.
@@ -303,6 +372,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 03.4 — Exportar XLSX (FPE e POP) [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: tabelas do FPE (fichas por setor) e do POP em `.xlsx`.
 Arquivos tocados: `src/exportar/xlsx.ts`, `src/exportar/xlsx.test.ts`.
 Passos: 1) Uma aba por setor (fichas 5W1H) + abas de bibliotecas (documentos, ferramentas, investimentos, KPIs) + aba do POP geral. 2) Larguras e cabeçalhos com a marca.
@@ -314,6 +384,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 03.5 — API PHP de backups versionados no servidor (limite 10) [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: guardar, listar, baixar e excluir backups HTML no servidor do contratante, sem Google e sem custo. Substitui o antigo backup no Drive.
 Arquivos tocados: `public/api/backups.php`, `public/api/.htaccess`, `scripts/deploy_ftp.ts` (gera `api/config.php`), `scripts/provar_backup.mjs`, `docs/07_BACKUP_NO_SERVIDOR.md`, `handoffs/instrucoes.md`.
 Passos:
@@ -332,6 +403,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis, incluindo `open_basedir`, permissões e `REMOTE_USER` + 2–3 alternativas, p. ex. WebDAV do cPanel ou salvar só por download manual); registrar em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 03.6 — Tela “Versões salvas” (`#/versoes`) e botão “Salvar versão” [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: o contratante salva versões do FPE/POP e gere as versões anteriores em uma view própria.
 Arquivos tocados: `src/telas/versoes/*`, `src/backup/cliente.ts`, `src/backup/gerar_html.ts`, `src/backup/estado.ts`, `src/telas/comum/SalvarVersao.tsx`, `src/backup/backup.test.ts`, `src/telas/versoes/versoes.test.tsx`, `e2e/versoes.spec.ts`.
 Passos:
@@ -350,6 +422,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 03.7 — Build offline, guia do contratante e deploy final (homologação) [Auto] [Goal] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: fechar a entrega **na hospedagem de Max**.
 Arquivos tocados: `docs/GUIA_DO_CONTRATANTE.md`, `docs/ENTREGA.md`, `CHANGELOG.md`, `handoffs/instrucoes.md`.
 Passos: 1) `npm run build:single` → `dist-single/index.html` (LLM e backup no servidor desativados sem rede/servidor; “Baixar arquivo” continua). 2) `GUIA_DO_CONTRATANTE.md` (≤ 2 páginas: acessar, preencher, gerar, exportar, salvar e gerir versões — limite de 10 —, **baixar cópias para guardar fora do servidor**, limitações). 3) `ENTREGA.md`: mapa das 9 etapas do contrato → tela/arquivo, e a lista de pendências vigiadas para Max. 4) Deploy final e provas do portão. 5) CHANGELOG `+1.0`.
@@ -361,6 +434,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 03.8 — Migração para a hospedagem do contratante [Auto após aprovação] [LLM: Sonnet]
+Status: ⬜ A FAZER
 Objetivo: mover o sistema aprovado da hospedagem de Max para a do contratante, sem mudar código.
 Portão de entrada: portão 03→entrega verde **e** mensagem “aprovado” de Max **e** credenciais/acessos da hospedagem do contratante (cPanel/FTP/subdomínio) entregues por Max — ausência = caso 1/4 do regime de autonomia (uma única mensagem).
 Arquivos tocados: `docs/MIGRACAO.md`, `docs/CHECKLIST_MAX.md`, `.env` (só Max altera os valores), `handoffs/instrucoes.md`, `CHANGELOG.md`.
