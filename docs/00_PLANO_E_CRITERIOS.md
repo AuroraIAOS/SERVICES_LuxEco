@@ -10,7 +10,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — próxima: 01.1 |
 | 01.0 | Varrer repositórios de referência e preencher instrucoes.md | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | 10/10 repositórios com status (o plano dizia 9; a tabela tem 10); 4 entradas na seção 4 e 5 novas na seção 6 de `instrucoes.md`; achados aplicados às subetapas 02.11 e 03.5. |
 | 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ⚠️ PENDENTE | `node scripts/checar_env.mjs` → `OBRIGATÓRIAS v01: 15/17`; faltam `SMOKE_BASIC_USER/PASS` (só a 02.11 precisa). Checklist em `docs/CHECKLIST_MAX.md`. |
-| 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ⚠️ PENDENTE | `docs/PLANO_DE_ACAO.md` escrito (≈ 2 páginas); aguardando “aprovado” de Max. |
 | 01.3 | Scaffold do projeto e tooling | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.4 | Pipeline xlsx → `matriz_v07.json` e validações de dados | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -110,7 +110,7 @@ Qualidade: o checklist cabe em uma tela; sem jargão desnecessário.
 Evidência: `node scripts/checar_env.mjs` → linha `OBRIGATÓRIAS v01: 17/17 preenchidas` e exit 0; `git ls-files | grep -c "^\.env$"` → `0`.
 
 ### Subetapa 01.2 — Plano de Ação e aprovação [Plan] [Accept] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ⚠️ PENDENTE _(plano escrito; aguardando o “aprovado” de Max)_
 Objetivo: obter a única aprovação humana antes do modo autônomo.
 Arquivos tocados: `docs/PLANO_DE_ACAO.md`.
 Passos: 1) Ler `CLAUDE.md`, este plano, `docs/01`, `02`, `04`, `05`, `06`. 2) Escrever `docs/PLANO_DE_ACAO.md` (≤ 2 páginas): ordem real de execução, lotes de conteúdo por fase, riscos (Mermaid, volume de fichas, PHP/permissões no servidor de backup), o que roda em paralelo, estimativa por etapa em horas de CODE. 3) Apresentar a Max e pedir “aprovado”. 4) Ao receber, acrescentar a linha `APROVADO EM: <data>` no fim do arquivo e commitar.
