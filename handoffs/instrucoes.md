@@ -29,7 +29,19 @@ Formato de toda entrada: Gatilho → Ação → Evidência → Fonte.
 | **OS_Affiliate** | https://github.com/AuroraIAOS/OS_Affiliate.git | Projeto próprio: circuit breaker financeiro, aprovação manual antes de gasto. | Ao implementar o circuit breaker/fallback do LLM. |
 | **CRM-Sindcom** | https://github.com/AuroraIAOS/CRM-Sindcom.git | Projeto próprio: React+TS+Vite, deploy FTP em HostGator, `.htaccess`, portões de fase, pendência vigiada. | **Prioritário aqui:** deploy FTP HostGator, `.htaccess`, testes como portão. |
 
-**Status da varredura:** _(preenchido pelo CODE na subetapa 01.0 — repo a repo, data e o que rendeu)_
+**Status da varredura (01.0 — 24/09/2026, clone raso `--depth 1`, leitura apenas; nenhum código dos repositórios foi executado):**
+| Repositório | Status | O que rendeu |
+|---|---|---|
+| **CRM-Sindcom** | ✅ consultado (prioritário) | Deploy FTP HostGator (host real × Cloudflare, erro 451, verificação de tamanho), `.htaccess` (HTTPS antes do fallback, HSTS curto, cache), blocos `.htaccess` gerenciados por software, portão adversarial. → seções 4 e 6. |
+| **OS_Affiliate** | ✅ consultado | Circuit breaker aplicado **em código** (limite é valor de política, nenhuma LLM decide); pausa automática ao atingir o teto; aprovação humana antes de gasto. → seção 4. |
+| **superpowers** | ✅ consultado | `verification-before-completion` (evidência antes de afirmar) — casa com o Status ✅ do CLAUDE.md §6. → seção 4. |
+| **ECC** | ✅ consultado | Roteamento de modelo por complexidade (haiku/sonnet/opus) e `cost-aware-llm-pipeline` (rastreador de custo imutável, checagem antes da chamada, retry só em erro transitório). → seção 4. |
+| **React** | ⏭️ não consultado agora | Consulta oficial (via context7) na 01.3 e na 02.7, antes de escrever componente. |
+| **hermes-agent** | ➖ não aplicável | Sem agente neste projeto. |
+| **OpenClaw** | ➖ não aplicável | Sem agente neste projeto. |
+| **Public-APIs** | ➖ não aplicável | Drive descartado; só OpenRouter. (Nota: OS_Affiliate usa PTAX/BCB, gratuita e sem chave, para câmbio — só se um dia o preço do LLM vier em USD.) |
+| **Build your own X** | ➖ não aplicável | Uso restrito (nunca como diretriz). |
+| **Awesome-selfhosted** | ➖ não aplicável | Proxy/infra segue no backlog. |
 
 ## 2. Stack e tecnologias desta obra
 
@@ -68,7 +80,29 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 
 ## 4. Padrões e boas práticas herdadas
 
-_(preenchido pelo CODE na 01.0 a partir da varredura dos repositórios)_
+### Deploy só termina com verificação de tamanho local × remoto
+- **Gatilho:** ao escrever `scripts/deploy_ftp.ts` (02.11) ou ao migrar para a hospedagem do contratante (03.8).
+- **Ação:** depois do envio, comparar o tamanho de **cada** arquivo de `dist/` com o remoto (com `basic-ftp`, `client.size()` — confirmar a API na 02.11, search-first). “Enviou sem erro” não prova que “chegou inteiro” (o 451 deixa arquivo com 0 bytes sem reclamar). Qualquer divergência → exit 1.
+- **Evidência:** `npm run deploy | tail -1` → `0 divergência(s) de tamanho`.
+- **Fonte:** CRM-Sindcom, `scripts/deploy.sh` e `docs/deploy.md` (24/09/2026).
+
+### Nova superfície pública ⇒ portão adversarial antes de liberar
+- **Gatilho:** ao concluir a API PHP de backups (03.5) — é o primeiro endpoint que grava no servidor.
+- **Ação:** além do ciclo feliz, escrever ataques deliberados: `id` com `../`, método errado, mutação sem `X-Lux-Requisicao`, corpo acima de 5 MB, HTML sem `lux-estado`, `config_gravar` com chave de API, 11º backup, duas criações simultâneas (`flock`), acesso sem senha. A suíte funcional prova o comportamento pretendido; não prova a ausência de caminho não pretendido.
+- **Evidência:** `npm test -- adversarial_api` → `0 failed` e `npm run backup:provar | tail -1` → `OK backup: ...`.
+- **Fonte:** CRM-Sindcom, `docs/RELATORIO_07_PORTAO_ADVERSARIAL.md` (5 falhas reais achadas onde a suíte funcional estava verde).
+
+### Limite de gasto é regra de código, não decisão de LLM
+- **Gatilho:** ao implementar `src/llm/limite_gasto.ts` (03.3).
+- **Ação:** teto e alerta são valores de configuração aplicados **antes** de cada chamada (bloqueio → fallback determinístico). Rastreador de gasto **imutável** (cada chamada devolve novo estado); retry só para erro transitório (429/timeout), nunca para 402 nem para teto atingido; modelo por complexidade (mecânico → barato; ambíguo/arquitetura → Opus), como o plano já faz nas tentativas de /goal.
+- **Evidência:** `npm test -- limite_gasto` → `0 failed` (teto atingido ⇒ 0 chamadas; 402 ⇒ sem retry).
+- **Fonte:** OS_Affiliate (`docs/00_PLANO_E_CRITERIOS.md`: circuit breaker, aprovação antes de gasto); ECC (`cost-aware-llm-pipeline`, `model-route`).
+
+### Nada é “concluído” sem evidência fresca na mesma mensagem
+- **Gatilho:** ao marcar `Status: ✅ CONCLUÍDA` (CLAUDE.md §6) ou escrever `status: verde` num handoff.
+- **Ação:** identificar o comando de prova, rodá-lo por inteiro, ler a saída e o exit code, só então afirmar. Proibido “deve passar”, “provavelmente” ou reaproveitar execução antiga.
+- **Evidência:** cada item verde do `HANDOFF_BUILD/UPGRADE` traz comando + saída reais (`grep -c "status: verde" handoffs/HANDOFF_BUILD.md` → `>= 5`).
+- **Fonte:** superpowers, skill `verification-before-completion`.
 
 ## 5. Problemas e soluções deste projeto
 
@@ -133,6 +167,36 @@ _(preenchido pelo CODE na 01.0 a partir da varredura dos repositórios)_
 - **Ação:** responder 409 e deixar a interface pedir confirmação explícita (“excluir o mais antigo não protegido e salvar”); itens protegidos nunca entram na exclusão automática ou em lote.
 - **Evidência:** `npm run backup:provar | tail -1` → `... onze=409`.
 - **Fonte:** decisão de 24/09/2026; CLAUDE.md §0 (ação destrutiva).
+
+### FTP: usar o host real da hospedagem, não o do domínio
+- **Gatilho:** conexão FTP expira sem erro claro.
+- **Ação:** se o domínio está atrás de CDN (Cloudflare), `ftp.<dominio>` não repassa a porta 21. Usar o host do servidor exibido na URL do cPanel (porta 2083). Vale para a hospedagem de Max **e** para a do contratante (03.8): perguntar/confirmar o host real de cada uma.
+- **Evidência:** `nslookup ftp.<dominio>` aponta para IP de CDN ⇒ errado; o `basic-ftp` conecta em < 10 s com o host real.
+- **Fonte:** CRM-Sindcom, `orientacoes.md` §1.1 (`br998.hostgator.com.br` no lugar de `ftp.sindcompassos.org`).
+
+### Erro 451 no canal de dados sob TLS — **adaptação: aqui os dados NÃO são públicos**
+- **Gatilho:** upload termina com erro 451 ou arquivo com 0 bytes/parcial.
+- **Ação:** no CRM-Sindcom a saída foi deixar o canal de **dados** em claro (`curl --ftp-ssl-control`), pois os assets eram públicos. **Neste projeto o `dist/` embute o conteúdo operacional da Lux (sigilo, Cl. 5.4/9): não usar dados em claro sem aprovação de Max.** Ordem: (1) reenviar o arquivo sob TLS (o 451 é intermitente); (2) reduzir a concorrência para 1 conexão; (3) verificar por tamanho (entrada de deploy acima); (4) só então propor a Max SFTP (porta 22, se o plano tiver) ou dados em claro como decisão dele (caso 6/2 do regime de autonomia).
+- **Evidência:** deploy com `0 divergência(s) de tamanho`; nenhum flag de “dados em claro” no `scripts/deploy_ftp.ts` (`grep -c "ssl-control\|secure: false" scripts/deploy_ftp.ts` → `0`).
+- **Fonte:** CRM-Sindcom, `orientacoes.md` §1.2 (adaptado ao sigilo deste projeto).
+
+### O deploy NÃO pode sobrescrever o `.htaccess` que guarda a senha do diretório
+- **Gatilho:** ao enviar `public/.htaccess` (HTTPS/cache) para um diretório protegido pelo cPanel.
+- **Ação:** a “Privacidade de diretório” do cPanel grava as diretivas de senha (`AuthType`, `AuthUserFile`, `require valid-user`) no `.htaccess` do próprio diretório; um `PUT` cego apaga a proteção. O deploy deve **baixar o `.htaccess` remoto**, guardar cópia (`.htaccess.bak_AAAAMMDD`), preservar todo bloco gerenciado por software (Auth*, `# BEGIN … / # END …`, handler de PHP) e **mesclar** a nossa regra. Regra própria fica **fora** dos marcadores gerenciados, e o redirecionamento HTTPS **acima de tudo**. _(Comportamento do cPanel inferido do CRM-Sindcom e a confirmar no spike da 02.11/03.5 — não verificado ainda neste servidor.)_
+- **Evidência:** após cada deploy, `curl -s -o /dev/null -w "%{http_code}" "$APP_URL"` → `401` (se voltar `200` sem senha, a proteção foi perdida ⇒ abortar e restaurar a cópia).
+- **Fonte:** CRM-Sindcom, `orientacoes.md` §(`.htaccess` com blocos NFD EPC/WordPress) e `docs/htaccess_site_institucional_backup_2026-08-25.txt`.
+
+### `.htaccess` do site: HTTPS antes de qualquer regra, HSTS curto, cache correto
+- **Gatilho:** ao escrever `public/.htaccess` (02.11).
+- **Ação:** `RewriteRule` de HTTP→HTTPS (301) **antes** de qualquer outra regra; HSTS com `max-age=86400` na primeira aplicação (subir para 1 ano depois de uma semana estável), **sem** `includeSubDomains`; `index.html` com `no-cache`; assets com hash `immutable`. Sem fallback de SPA: o roteamento é `HashRouter`. A API PHP (`/api/`) nunca pode ser cacheada (`Cache-Control: no-store`).
+- **Evidência:** `curl -sI "http://<host>" | head -1` → `301`; `curl -sI "$APP_URL/index.html" -u ... | grep -i cache-control` → `no-cache`.
+- **Fonte:** CRM-Sindcom, `public/.htaccess`.
+
+### Site fora do ar depois de deploy verde ≠ deploy quebrado
+- **Gatilho:** HTTP não responde (ex.: 521) logo após deploy com 0 divergências.
+- **Ação:** antes de refazer build/deploy, distinguir: 521 = Cloudflare no ar e origem recusando; FTP responde? outros sites da mesma conta também caíram? Se for a hospedagem, esperar e refazer só a verificação HTTP.
+- **Evidência:** `curl -o /dev/null -w '%{http_code}' https://<host>` e teste do FTP em separado.
+- **Fonte:** CRM-Sindcom, `orientacoes.md` §1.3.
 
 ## 7. Candidatos a promoção
 

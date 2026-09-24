@@ -7,8 +7,8 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 
 | Item | Título | Modo · função · LLM | Status | Observação / prova |
 |---|---|---|---|---|
-| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — 01.0 pendente |
-| 01.0 | Varrer repositórios de referência e preencher instrucoes.md | [Plan] [LLM: Sonnet] | ⚠️ PENDENTE | Varredura dos repositórios bloqueada pelo classificador do modo automático; aguarda decisão de Max (clone raso / registrar sem varredura / colar trechos). |
+| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — próxima: 01.1 |
+| 01.0 | Varrer repositórios de referência e preencher instrucoes.md | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | 10/10 repositórios com status (o plano dizia 9; a tabela tem 10); 4 entradas na seção 4 e 5 novas na seção 6 de `instrucoes.md`; achados aplicados às subetapas 02.11 e 03.5. |
 | 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.3 | Scaffold do projeto e tooling | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -91,11 +91,11 @@ Portão de entrada: repositório criado (privado), `.env` preenchido com as vari
 Observações: nada destrutivo sem aprovação; commit com prefixo padronizado + push ao fim de cada subetapa; sessão separada das demais etapas.
 
 ### Subetapa 01.0 — Varrer repositórios de referência e preencher instrucoes.md [Plan] [LLM: Sonnet]
-Status: ⚠️ PENDENTE
+Status: ✅ CONCLUÍDA
 Objetivo: extrair dos repositórios da seção 1 de `handoffs/instrucoes.md` o que serve a este projeto.
 Arquivos tocados: `handoffs/instrucoes.md`.
 Passos: 1) Ler a tabela da seção 1. 2) Consultar CRM-Sindcom (deploy FTP HostGator, `.htaccess`, portões), OS_Affiliate (circuit breaker), superpowers e ECC (provas e economia de token), React (API atual). 3) Registrar “não aplicável” em uma linha para hermes-agent, OpenClaw, Public-APIs, Build-your-own-X e Awesome-selfhosted. 4) Preencher seções 4 e 6 (entradas Gatilho → Ação → Evidência → Fonte) e “Status da varredura” da seção 1.
-Conclusão: seção 1 com status de todos os 9 repositórios; seção 4 com ≥ 3 entradas; nenhuma entrada sem as quatro linhas.
+Conclusão: seção 1 com status de todos os 10 repositórios; seção 4 com ≥ 3 entradas; nenhuma entrada sem as quatro linhas.
 Qualidade: entradas específicas a este projeto, não resumos de README.
 Evidência: `git log --oneline -1 -- handoffs/instrucoes.md` → linha contendo `docs: varrer repositórios de referência`.
 Teto de esforço: 30 minutos. Se estourar, registrar o que já achou e seguir.
@@ -307,7 +307,7 @@ Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–
 Status: ⬜ A FAZER
 Objetivo: MVP no ar, atrás de senha.
 Arquivos tocados: `scripts/deploy_ftp.ts`, `public/.htaccess` (cache e HTTPS), `docs/CHECKLIST_MAX.md` (status).
-Passos: 1) `npm run build`. 2) `deploy_ftp.ts`: enviar `dist/` por FTPS para `FTP_DIR` (**hospedagem particular de Max = homologação**), sem apagar o que não for do build — em particular **nunca** tocar em `BACKUP_DIR_SERVIDOR` nem em `api/config.php` (dados do usuário no servidor). O script lê o destino só do `.env`, para a migração da 03.8 não exigir mudança de código. 3) Verificar que a proteção de diretório do cPanel está ativa (feita por Max — ver checklist). 4) Rodar as provas do portão. Se a proteção não estiver ativa, **não** publicar conteúdo além de uma página vazia e avisar Max na mensagem consolidada (caso 4 do regime de autonomia).
+Passos: 1) `npm run build`. 2) `deploy_ftp.ts`: enviar `dist/` por FTPS para `FTP_DIR` (**hospedagem particular de Max = homologação**), sem apagar o que não for do build — em particular **nunca** tocar em `BACKUP_DIR_SERVIDOR` nem em `api/config.php` (dados do usuário no servidor). O script lê o destino só do `.env`, para a migração da 03.8 não exigir mudança de código. **Regras herdadas (instrucoes §4/§6):** `FTP_HOST` é o host real do servidor (não `ftp.<dominio>` atrás de CDN); baixar o `.htaccess` remoto, guardar cópia e **mesclar** sem apagar a proteção de senha; conferir tamanho local × remoto de cada arquivo (`0 divergência(s)`); nunca enviar dados em claro (sigilo) — em 451, reenviar sob TLS e, persistindo, consultar Max. 3) Verificar que a proteção de diretório do cPanel está ativa (feita por Max — ver checklist). 4) Rodar as provas do portão. Se a proteção não estiver ativa, **não** publicar conteúdo além de uma página vazia e avisar Max na mensagem consolidada (caso 4 do regime de autonomia).
 Conclusão: URL responde 401 sem senha e 200 com senha; telas MMO e FPE abrem.
 Qualidade: nenhum segredo no bundle.
 Evidência: `curl -s -o /dev/null -w "%{http_code}" "$APP_URL"` → `401`; `curl -s -o /dev/null -w "%{http_code}" -u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS" "$APP_URL"` → `200`; `grep -rEl "FTP_PASS|SMOKE_BASIC" dist | wc -l` → `0`; `gitleaks detect --no-banner` → `no leaks found`.
@@ -397,7 +397,7 @@ Passos:
 7. `scripts/provar_backup.mjs`: usa `APP_URL` + `SMOKE_*` e percorre criar → listar → baixar → zip → proteger → excluir → criar 11 e conferir `409`; sai com exit 0 e limpa o que criou. Para desenvolvimento local: `php -S` se houver PHP; senão os testes de unidade usam mock de `fetch`.
 Conclusão: ciclo completo funcionando na hospedagem de Max; 11º backup recusado; API 401 sem senha.
 Qualidade: PHP sem dependências externas (Composer proibido); mensagens de erro em PT-BR simples; código PHP segue `snake_case` em português (exceção consciente à regra de TS: o servidor não roda Node).
-Evidência: `npm run backup:provar | tail -1` → `OK backup: criar=201 listar=200 baixar=200 zip=200 excluir=200 onze=409 config=200`; `curl -s -o /dev/null -w "%{http_code}" "$APP_URL/api/backups.php?acao=listar"` → `401`; mesmo `curl` com `-u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS"` → `200`; `curl` com `id=../../.env` (autenticado) → `400`.
+Evidência: `npm test -- adversarial_api` → `0 failed` (portão adversarial: `../`, método errado, sem `X-Lux-Requisicao`, > 5 MB, HTML sem `lux-estado`, chave de API na config, 11º backup, criação simultânea, sem senha); `npm run backup:provar | tail -1` → `OK backup: criar=201 listar=200 baixar=200 zip=200 excluir=200 onze=409 config=200`; `curl -s -o /dev/null -w "%{http_code}" "$APP_URL/api/backups.php?acao=listar"` → `401`; mesmo `curl` com `-u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS"` → `200`; `curl` com `id=../../.env` (autenticado) → `400`.
 Esforço máximo do /goal: 5 tentativas.
 Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis, incluindo `open_basedir`, permissões e `REMOTE_USER` + 2–3 alternativas, p. ex. WebDAV do cPanel ou salvar só por download manual); registrar em `handoffs/instrucoes.md` seção 5.
