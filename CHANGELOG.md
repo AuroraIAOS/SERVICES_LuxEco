@@ -3,6 +3,12 @@
 Convenção: `+0.1` = correções/melhorias · `+1.0` = novas funcionalidades/serviços.
 Registra **o que mudou para o usuário**; o *como resolvemos* fica em `handoffs/instrucoes.md`.
 
+## [+0.1] - 2026-09-24 (Etapa 01 — fundação técnica)
+- Projeto Vite + React + TypeScript criado, com as rotas `#/mmo`, `#/fpe`, `#/pop` e `#/versoes` (ainda em construção), tema e fonte da marca Lux.
+- Matriz Operacional V07 lida da planilha (12 setores, 22 estágios, 212 ações, 31 condicionais IF/ELSE) e conferida contra o MMO_v01 legado.
+- Fluxogramas: definido o formato de raias por fase e estágio, legível em A3 (o Mermaid não coube).
+- Proteções do repositório: varredura de segredos e bloqueio de dados pessoais antes de cada commit.
+
 ## [+0.1] - 2026-09-24 (replanejamento)
 - Backup no Google Drive **descartado**; no lugar, backups HTML versionados no próprio servidor (máx. 10) e nova tela “Versões salvas” (`#/versoes`) para listar, selecionar em lote, baixar e excluir. Plano, arquitetura, modelo de dados, compliance e handoffs atualizados.
 - Limite de gasto da IA passa a ser configurável na ferramenta (painel na tela POP: teto mensal, alerta em %, limite diário, preço por tokens), com R$ 0 como padrão e o `.env` só como valor inicial.

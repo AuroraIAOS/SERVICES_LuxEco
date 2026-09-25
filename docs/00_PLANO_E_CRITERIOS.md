@@ -7,7 +7,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 
 | Item | Título | Modo · função · LLM | Status | Observação / prova |
 |---|---|---|---|---|
-| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — próxima: 01.7 (HANDOFF_BUILD) |
+| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ✅ CONCLUÍDA | Portão 01→02 verde (ver `handoffs/HANDOFF_BUILD.md`). Próxima: **02.1**. |
 | 01.0 | Varrer repositórios de referência e preencher instrucoes.md | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | 10/10 repositórios com status (o plano dizia 9; a tabela tem 10); 4 entradas na seção 4 e 5 novas na seção 6 de `instrucoes.md`; achados aplicados às subetapas 02.11 e 03.5. |
 | 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | `node scripts/checar_env.mjs` → `OBRIGATÓRIAS v01: 17/17 preenchidas` (exit 0); `.env` fora do Git (0); `curl` sem senha → `401`. |
 | 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "^APROVADO EM:" docs/PLANO_DE_ACAO.md` → `1`. Modo autônomo ativo. |
@@ -15,7 +15,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 01.4 | Pipeline xlsx → `matriz_v07.json` e validações de dados | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar` → `OK v07: setores=12 estagios=22 celulas=212 if_else=31`; `comparar_mmo_legado` → `OK: MMO_v01 == Matriz V07` (presença **e** contagem); 25 testes. 31 IF/ELSE → 15 situações (17 diretas, 11 sugeridas, 3 sem situação). Leitura sem SheetJS (fflate + fast-xml-parser). |
 | 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run spike:fluxo \| tail -1` → `DECISAO: raias_svg`. Mermaid 3/16 (máx 12.219 px); raias 16/16 (máx 1.972 px), fonte A3 ≥ 8,1 pt. 38 testes. |
 | 01.6 | Varredura de segredos e blindagem do repositório | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `gitleaks detect` → `no leaks found`; `.env`/`referencias_privadas`/`screenshots` = 0 versionados; xlsx versionável (1). Pré-commit (segredo + arquivo proibido + CPF/CNPJ) provado com 3 commits de teste bloqueados (exit 1) e commit legítimo aprovado. |
-| 01.7 | HANDOFF_BUILD | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.7 | HANDOFF_BUILD | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "status: verde" handoffs/HANDOFF_BUILD.md` → `12` (≥ 5); portão 01→02 verde com saídas reais. |
 | **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER |  |
 | 02.1 | Compor a Matriz V08 (Anotações integradas) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 02.2 | Fichas 5W1H, Fase 1 Comercial (Est. 01–09) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -83,7 +83,7 @@ A arquitetura não se redesenha — se implementa.
 # ESTÁGIO PRÁTICO (executado no Claude CODE)
 
 ## ETAPA 01 — PLANEJAMENTO E ESTRUTURAS
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo geral: fundação desenhada, conectada, testada, aprovada e versionada; pipeline de dados verde. Gerar HANDOFF_BUILD ao final.
 Modo predominante: [Plan Mode] até a 01.2 (aprovação); depois [Auto] + [Goal].
 Portão de entrada: repositório criado (privado), `.env` preenchido com as variáveis `[OBRIGATÓRIA v01]`.
@@ -165,7 +165,7 @@ Qualidade: pré-commit não bloqueia commits legítimos.
 Evidência: `gitleaks detect --no-banner` → `no leaks found`; `git ls-files | grep -c "^\.env$"` → `0`; `git ls-files referencias_privadas | wc -l` → `0`; `git check-ignore -q data/fontes/Matriz_Operacional.xlsx; echo $?` → `1`.
 
 ### Subetapa 01.7 — HANDOFF_BUILD [Auto] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: fechar a Etapa 01 e abrir a 02 em sessão limpa.
 Arquivos tocados: `handoffs/HANDOFF_BUILD.md`, `CHANGELOG.md`.
 Passos: 1) Preencher `HANDOFF_BUILD.md` (verde com prova, portão, artefatos, primeiro passo da 02.1). 2) Registrar no `CHANGELOG.md`. 3) Commit + push.
