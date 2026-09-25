@@ -7,13 +7,13 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 
 | Item | Título | Modo · função · LLM | Status | Observação / prova |
 |---|---|---|---|---|
-| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — próxima: 01.4 e 01.5 |
+| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ⬜ A FAZER | em curso — próxima: 01.6 |
 | 01.0 | Varrer repositórios de referência e preencher instrucoes.md | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | 10/10 repositórios com status (o plano dizia 9; a tabela tem 10); 4 entradas na seção 4 e 5 novas na seção 6 de `instrucoes.md`; achados aplicados às subetapas 02.11 e 03.5. |
 | 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | `node scripts/checar_env.mjs` → `OBRIGATÓRIAS v01: 17/17 preenchidas` (exit 0); `.env` fora do Git (0); `curl` sem senha → `401`. |
 | 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "^APROVADO EM:" docs/PLANO_DE_ACAO.md` → `1`. Modo autônomo ativo. |
 | 01.3 | Scaffold do projeto e tooling | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `typecheck`, `lint`, `test` (6/6), `build` exit 0; `dist/index.html` ok; `build:single` 459 kB; `e2e` 1 passed (4 rotas + fonte Cyntho Next). **`xlsx` adiado p/ 03.4** (npm bloqueou o pacote remoto; ver instrucoes §6). |
 | 01.4 | Pipeline xlsx → `matriz_v07.json` e validações de dados | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar` → `OK v07: setores=12 estagios=22 celulas=212 if_else=31`; `comparar_mmo_legado` → `OK: MMO_v01 == Matriz V07` (presença **e** contagem); 25 testes. 31 IF/ELSE → 15 situações (17 diretas, 11 sugeridas, 3 sem situação). Leitura sem SheetJS (fflate + fast-xml-parser). |
-| 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run spike:fluxo \| tail -1` → `DECISAO: raias_svg`. Mermaid 3/16 (máx 12.219 px); raias 16/16 (máx 1.972 px), fonte A3 ≥ 8,1 pt. 38 testes. |
 | 01.6 | Varredura de segredos e blindagem do repositório | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.7 | HANDOFF_BUILD | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
 | **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER |  |
@@ -144,7 +144,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto; registrar em `instrucoes.md` seção 5.
 
 ### Subetapa 01.5 — Spike de legibilidade do fluxograma (Mermaid × SVG de raias) [Auto] [Goal] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: decidir com números se o Mermaid dá conta de 22 estágios × 12 setores.
 Arquivos tocados: `scripts/spike_fluxo.ts`, `src/fluxograma/mermaid.ts`, `src/fluxograma/raias.ts` (só se reprovar), `handoffs/instrucoes.md`.
 Passos: 1) Gerar o Mermaid (`flowchart LR`) de **cada setor** (nós = ações em ordem de estágio; IF/ELSE como losango) e do **fluxo geral por fase** (4 grafos). 2) Renderizar em Chromium headless (Playwright) e medir a largura do SVG. 3) Critérios: setor ≤ 2600 px de largura; fase ≤ 3200 px. 4) Se algum reprovar, implementar o SVG de raias próprio (`raias.ts`) e repetir a medição. 5) Registrar a decisão e os números em `handoffs/instrucoes.md` (seção 2).

@@ -17,7 +17,7 @@
     "dados:gerar": "tsx scripts/xlsx_para_json.ts",
     "dados:compor": "node -e \"console.error('dados:compor: ainda não implementado (subetapa 02.1).');process.exit(1)\"",
     "dados:validar": "tsx scripts/validar_dados.ts",
-    "spike:fluxo": "node -e \"console.error('spike:fluxo: ainda não implementado (subetapa 01.5).');process.exit(1)\"",
+    "spike:fluxo": "tsx scripts/spike_fluxo.ts",
     "deploy": "node -e \"console.error('deploy: ainda não implementado (subetapa 02.11).');process.exit(1)\"",
     "backup:provar": "node -e \"console.error('backup:provar: ainda não implementado (subetapa 03.5).');process.exit(1)\"",
     "dados:comparar": "tsx scripts/comparar_mmo_legado.ts"

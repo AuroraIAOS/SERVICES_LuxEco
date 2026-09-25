@@ -16,7 +16,7 @@ data/conteudo/*.json (fichas 5W1H, bibliotecas, KPIs) ────┘           
 ## Stack essencial v01
 - **Base:** React 18 + TypeScript + Vite (padrão de Max). Tailwind é opcional: os tokens da marca em CSS variables têm prioridade. Sem shadcn/ui (não há necessidade).
 - **Rotas:** `HashRouter` — funciona em hospedagem estática sem regra de rewrite.
-- **Fluxogramas:** Mermaid (gera `.mermaid` de graça). Fallback decidido no spike 01.5: SVG de raias próprio (`src/fluxograma/raias.ts`).
+- **Fluxogramas:** **SVG de raias próprio** (`src/fluxograma/raias.ts`) — decidido no spike 01.5 (Mermaid ficou com 12.219 px de largura no pior caso; raias, 1.972 px). O Mermaid permanece **só** para gerar o arquivo `.mermaid` do export (`src/fluxograma/mermaid.ts`).
 - **Exports (todos no navegador, sem API paga):** JSON/MD/MERMAID (texto) · PDF por impressão com CSS `@page` · XLSX com SheetJS · DOCX com a biblioteca `docx`.
 - **Testes:** Vitest (unidade) + Playwright (e2e das telas). **Qualidade:** `tsc --noEmit`, ESLint.
 - **Backups no servidor:** `public/api/backups.php` (PHP ≥ 8, sem Composer) + view `#/versoes`. Ver seção abaixo e `docs/07_BACKUP_NO_SERVIDOR.md`.

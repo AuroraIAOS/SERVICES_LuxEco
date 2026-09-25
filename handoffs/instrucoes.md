@@ -54,6 +54,16 @@ Formato de toda entrada: Gatilho → Ação → Evidência → Fonte.
 - Backup: `.html` autossuficiente + estado JSON embutido, salvo por API PHP mínima (`public/api/backups.php`) na hospedagem; limite 10; gestão em `#/versoes`.
 - LLM: OpenRouter (modelo `:free`) ou chave do contratante; **fallback determinístico obrigatório**.
 
+**Decisão do spike 01.5 (24/09/2026) — fluxograma: `raias_svg` (SVG próprio). Mermaid só no export `.mermaid`.**
+Medido no Chromium (Playwright), limites do plano: setor ≤ 2600 px, fase ≤ 3200 px, A3 paisagem com fonte efetiva ≥ 8 pt.
+| | Mermaid `flowchart LR` | SVG de raias |
+|---|---|---|
+| Diagramas dentro do limite | **3/16** (com o critério de 8 pt) | **16/16** |
+| Maior largura | **12.219 px** (Administrativo); Vendas 8.030; CEO 11.902; Fase 1 6.912 | **1.972 px** (Fase 1) |
+| Fonte efetiva no A3 (pior caso) | 1,5 pt | **8,1 pt** |
+| Páginas A3 (pior caso) | — | 4 (Fase 3, 3.616 px de altura) |
+Motivo: o Mermaid LR encadeia todas as ações em linha (Administrativo tem ~50 ações). O SVG de raias usa **bandas por fase e colunas por estágio**, então a largura é previsível (≤ 9 colunas). Implementação: `src/fluxograma/raias.ts` (puro, string → string, cores e fonte só de `design/tokens.json`); `mermaid.ts` continua gerando o texto `.mermaid` (export). Prova: `npm run spike:fluxo | tail -1` → `DECISAO: raias_svg`.
+
 **Alternativas descartadas (não reabrir):**
 - GitHub Pages (repo público expõe dados da Lux).
 - Proxy n8n/Edge Function para esconder a chave (infra contínua sem contrato de manutenção → backlog).
@@ -113,6 +123,12 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Fonte:** estágio criativo (aurora-criativa), 24/09/2026.
 
 ## 6. Armadilhas conhecidas (não repetir)
+
+### Diagrama: números não bastam — olhar a imagem (e o contraste)
+- **Gatilho:** ao gerar diagramas/SVG que entram no PDF (01.5 e 02.9).
+- **Ação:** além de medir largura/escala, renderizar 1–2 diagramas em PNG (Playwright) e **olhar**. Na 01.5 isso revelou (1) nomes de setor quebrados no meio da palavra (“Administrati/vo”) — a coluna do rótulo precisa caber a maior palavra (“Administrativo”, 14 caracteres em negrito); (2) títulos em **amarelo sobre branco** (contraste ≪ AA) — no tema claro usar a cor do texto com um filete amarelo. O script do spike também tinha uma constante de fonte desatualizada (13 px × 14 px real): **exportar a constante do módulo** em vez de duplicá-la.
+- **Evidência:** `npm test -- fluxograma` → `0 failed` (inclui `>Administrativo<` inteiro no SVG e escape de `<script>`).
+- **Fonte:** inspeção visual na 01.5.
 
 ### `VITE_` publica a variável
 - **Gatilho:** ao criar qualquer variável de ambiente para o front-end.
