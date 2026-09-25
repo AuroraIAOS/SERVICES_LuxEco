@@ -31,6 +31,7 @@ Regras de conteúdo do projeto: qual fonte manda, o que diverge entre as fontes,
 
 Outros pontos:
 - **Marketing / layouts:** Mapa (Est. 04) e Relatório (Est. 04, “refina layouts”) vs Matriz (célula “Cria e edita layouts e cenários de simulação” no **Est. 03**). Vale a Matriz.
+- **Solicitação da vistoria técnica externa:** Relatório (Est. 18, “O Administrativo solicita a vistoria e monitora”) vs Matriz (célula “Solicita a vistoria técnica externa à Cemig” no **Est. 17**). Vale a Matriz; a ficha explica que a solicitação ocorre durante a instalação, para viabilizar a vistoria do Est. 18.
 - **Vendas “01 a 22”:** a Matriz tem Vendas em 15 dos 22 estágios (ausente em 09–12, 18, 20, 21). O texto “transversal” do Mapa é retórico; vale a Matriz.
 - **Est. 13 — “7 perspectivas”:** o Mapa lista 7 (Vendas, Adm, Financeiro, Contabilidade, Engenharia, CEO, Cliente). A Matriz tem **8** setores com célula no Est. 13 (inclui **Equipe Técnica**: “Aprova projeto conforme critérios técnicos”). Vale a Matriz: 8.
 - **Condicionais com estágio deslocado** (tabela de 15 situações do Mapa/Relatório vs células IF/ELSE da Matriz):
@@ -93,6 +94,7 @@ Regras de integração (o CODE decide os detalhes, sem perguntar):
 - **`who`:** o setor (Vendas = “Vendedor”; Engenharia e Equipe Técnica com as empresas/equipes nomeadas na Matriz). Nenhuma pessoa interna da Lux.
 - **`sugerido`:** 2 fichas na Fase 1 (Marketing “Orienta comportamentos e comunicação da equipe” e Engenharia “Edita layouts e cenários do projeto”), cujo propósito é inferência do consultor; as demais são `documentado`. Pontos que dependem de informação que a Lux ainda não deu ficam escritos na própria ficha (ex.: a “margem autorizada” da renegociação de contrato não consta dos documentos).
 - **Fase 2 (02.3):** 36 fichas, nenhuma `sugerido`. O Est. 13 é escrito com as **oito perspectivas da Matriz** (inclui a Equipe Técnica), não as cinco/sete do Relatório e do Mapa — a Matriz vence (§2). As aprovações do Est. 13 têm `where` próprio (“aprovação conjunta coordenada pelo Administrativo”); a agenda de entrega do Est. 14 usa o Grupo de Fluxo só como “alinhamentos pós-contrato”, que é o uso que os documentos descrevem.
+- **Fase 3 (02.4):** 62 fichas, 2 `sugerido` (o treinamento do cliente por Vendas e pela Equipe Técnica — os documentos não dizem onde ele ocorre; a ficha assume o imóvel do cliente, onde os equipamentos estão instalados). Onde falta dado, a ficha diz: a **duração esperada da instalação** (“dentro do prazo”) não consta dos documentos e deve ser informada pela Lux. Os locais da fase: entrega e conferência no local de instalação no horário combinado; vistoria interna pela Equipe Técnica; vistoria externa pela Cemig (com o risco de prazo registrado no “porquê”).
 - **Diretrizes do CEO** (“boleto”, IBS, afirmações sobre o imóvel alugado) aparecem como o CEO as formulou e com a marca “sujeita à revisão jurídica”; a lista completa vai para a seção 11 do POP (03.1).
 
 **Bibliotecas (6.c–6.h):**

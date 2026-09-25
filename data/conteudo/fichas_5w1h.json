@@ -8,9 +8,10 @@
     ],
     "fases_autoradas": [
       1,
-      2
+      2,
+      3
     ],
-    "total": 146
+    "total": 208
   },
   "fichas": [
     {
@@ -434,6 +435,118 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_02_15_1",
+      "acao_id": "acao_02_15_1",
+      "setor_id": "setor_02",
+      "estagio_id": 15,
+      "what": "Monitora a entrega do material conforme os termos da venda",
+      "why": "Vendas acompanha a entrega do material conforme os termos da venda.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "Vendas (Vendedor)",
+      "how": "Acompanha a entrega do material, comparando-a com os termos da venda.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P5 — Vendas × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_16_1",
+      "acao_id": "acao_02_16_1",
+      "setor_id": "setor_02",
+      "estagio_id": 16,
+      "what": "Apura, com o Administrativo, disponibilidade da Equipe Técnica",
+      "why": "O agendamento da instalação depende da disponibilidade da Equipe Técnica.",
+      "where": "Comunicação interna entre Vendas e Administrativo",
+      "when": "Est. 16 — Agendamento: após a entrega do material (Est. 15)",
+      "who": "Vendas (Vendedor)",
+      "how": "Levanta, junto com o Administrativo, a disponibilidade da Equipe Técnica para a instalação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula Q5 — Vendas × Est. 16"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 16 — Agendamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_17_1",
+      "acao_id": "acao_02_17_1",
+      "setor_id": "setor_02",
+      "estagio_id": 17,
+      "what": "Acompanha a instalação com visitas presenciais",
+      "why": "Vendas mantém presença na jornada do cliente durante a instalação.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Vendas (Vendedor)",
+      "how": "Faz visitas presenciais ao imóvel durante a instalação para acompanhá-la.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R5 — Vendas × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_19_1",
+      "acao_id": "acao_02_19_1",
+      "setor_id": "setor_02",
+      "estagio_id": 19,
+      "what": "Treina o cliente no uso e cuidados dos equipamentos instalados",
+      "why": "Vendas conduz o treinamento do cliente sobre o uso dos equipamentos, junto com a Equipe Técnica.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 19 — Treinamento: após a instalação e a vistoria técnica",
+      "who": "Vendas (Vendedor)",
+      "how": "Treina o cliente no uso e nos cuidados dos equipamentos instalados.",
+      "origem": "sugerido",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula T5 — Vendas × Est. 19"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 19 — Treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_02_01_2",
       "acao_id": "acao_02_01_2",
       "setor_id": "setor_02",
@@ -649,6 +762,90 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_15_2",
+      "acao_id": "acao_02_15_2",
+      "setor_id": "setor_02",
+      "estagio_id": 15,
+      "what": "Confere o material entregue",
+      "why": "O Vendedor confere a entrega junto com o Administrativo, a Equipe Técnica e o Fornecedor.",
+      "where": "No local de instalação, no local e horário definidos com o cliente",
+      "when": "Est. 15 — Entrega de material: no momento da entrega do material",
+      "who": "Vendas (Vendedor)",
+      "how": "Confere o material entregue e segue o caminho previsto para cada resultado. Condicional: se “Conformidade”, informa ao Administrativo; se “Inconformidade”, comunica atrasos, desvios ou avarias ao Administrativo e ao cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P6 — Vendas × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_16_2",
+      "acao_id": "acao_02_16_2",
+      "setor_id": "setor_02",
+      "estagio_id": 16,
+      "what": "Agenda com o cliente horário e condições de instalação",
+      "why": "Combinar com o cliente quando e em que condições a instalação será feita.",
+      "where": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 16 — Agendamento: após a entrega do material (Est. 15)",
+      "who": "Vendas (Vendedor)",
+      "how": "Agenda com o cliente o horário e as condições da instalação, com base na disponibilidade da Equipe Técnica.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula Q6 — Vendas × Est. 16"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 16 — Agendamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_19_2",
+      "acao_id": "acao_02_19_2",
+      "setor_id": "setor_02",
+      "estagio_id": 19,
+      "what": "Solicita assinatura do comprovante de treinamento",
+      "why": "O comprovante de treinamento registra que o cliente foi treinado.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 19 — Treinamento: após a instalação e a vistoria técnica",
+      "who": "Vendas (Vendedor)",
+      "how": "Solicita ao cliente que assine o comprovante de treinamento.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula T6 — Vendas × Est. 19"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 19 — Treinamento"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -1218,6 +1415,146 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_03_15_1",
+      "acao_id": "acao_03_15_1",
+      "setor_id": "setor_03",
+      "estagio_id": 15,
+      "what": "Confere o material entregue conforme a documentação",
+      "why": "O Administrativo confere a entrega pela perspectiva documental.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "Administrativo",
+      "how": "Compara o material entregue com a documentação do pedido.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P11 — Administrativo × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_16_1",
+      "acao_id": "acao_03_16_1",
+      "setor_id": "setor_03",
+      "estagio_id": 16,
+      "what": "Apura e estabelece o calendário de disponibilidade da Equipe Técnica",
+      "why": "O Administrativo apura e estabelece o calendário de disponibilidade da Equipe Técnica, base do agendamento.",
+      "where": "Comunicação entre o Administrativo e a Equipe Técnica",
+      "when": "Est. 16 — Agendamento: após a entrega do material (Est. 15)",
+      "who": "Administrativo",
+      "how": "Apura com a Equipe Técnica a disponibilidade e estabelece o calendário.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula Q11 — Administrativo × Est. 16"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 16 — Agendamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_17_1",
+      "acao_id": "acao_03_17_1",
+      "setor_id": "setor_03",
+      "estagio_id": 17,
+      "what": "Solicita a vistoria técnica externa à Cemig",
+      "why": "A vistoria técnica externa é feita pela Cemig e o Administrativo a solicita.",
+      "where": "Solicitação do Administrativo à Cemig (concessionária)",
+      "when": "Est. 17 — Instalação: durante a instalação, para viabilizar a vistoria técnica externa do Est. 18",
+      "who": "Administrativo",
+      "how": "Solicita à Cemig a vistoria técnica externa.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R11 — Administrativo × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_18_1",
+      "acao_id": "acao_03_18_1",
+      "setor_id": "setor_03",
+      "estagio_id": 18,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 18 — Vistoria técnica por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 18 — Vistoria técnica: após a instalação",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula S11 — Administrativo × Est. 18"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_19_1",
+      "acao_id": "acao_03_19_1",
+      "setor_id": "setor_03",
+      "estagio_id": 19,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 19 — Treinamento por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 19 — Treinamento: após a instalação e a vistoria técnica",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula T11 — Administrativo × Est. 19"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 19 — Treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_03_03_2",
       "acao_id": "acao_03_03_2",
       "setor_id": "setor_03",
@@ -1526,6 +1863,90 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_03_15_2",
+      "acao_id": "acao_03_15_2",
+      "setor_id": "setor_03",
+      "estagio_id": 15,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 15 — Entrega de material por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P12 — Administrativo × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_16_2",
+      "acao_id": "acao_03_16_2",
+      "setor_id": "setor_03",
+      "estagio_id": 16,
+      "what": "Acompanha o agendamento de instalação entre Vendedor e Cliente",
+      "why": "O Administrativo coordena a operação e acompanha o agendamento entre o Vendedor e o cliente.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 16 — Agendamento: após a entrega do material (Est. 15)",
+      "who": "Administrativo",
+      "how": "Acompanha o agendamento da instalação combinado entre o Vendedor e o cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula Q12 — Administrativo × Est. 16"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 16 — Agendamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_17_2",
+      "acao_id": "acao_03_17_2",
+      "setor_id": "setor_03",
+      "estagio_id": 17,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 17 — Instalação por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R12 — Administrativo × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_03_03_3",
       "acao_id": "acao_03_03_3",
       "setor_id": "setor_03",
@@ -1666,6 +2087,90 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_03_15_3",
+      "acao_id": "acao_03_15_3",
+      "setor_id": "setor_03",
+      "estagio_id": 15,
+      "what": "Trata e emite resolução sobre atrasos, desvios e avarias na entrega",
+      "why": "O Administrativo trata inconformidades de documentação e de entrega, com escalada ao CEO quando necessário.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "Administrativo",
+      "how": "Trata o atraso, desvio ou avaria comunicado na entrega e emite a resolução, seguindo o caminho previsto. Condicional: se “Inconformidade resolvida internamente”, registra e comunica; se “Inconformidade não resolvida”, escala ao CEO.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P13 — Administrativo × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_16_3",
+      "acao_id": "acao_03_16_3",
+      "setor_id": "setor_03",
+      "estagio_id": 16,
+      "what": "Comunica o agendamento à Equipe Técnica",
+      "why": "A Equipe Técnica precisa saber a data e as condições da instalação: o Administrativo a comunica para a instalação.",
+      "where": "Comunicação entre o Administrativo e a Equipe Técnica",
+      "when": "Est. 16 — Agendamento: após a entrega do material (Est. 15)",
+      "who": "Administrativo",
+      "how": "Informa à Equipe Técnica a data e as condições da instalação agendada.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula Q13 — Administrativo × Est. 16"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 16 — Agendamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_17_3",
+      "acao_id": "acao_03_17_3",
+      "setor_id": "setor_03",
+      "estagio_id": 17,
+      "what": "Trata e resolve inconformidades relacionadas à documentação",
+      "why": "O Administrativo trata inconformidades de documentação, com escalada ao CEO quando necessário.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Administrativo",
+      "how": "Trata a inconformidade de documentação encontrada na instalação e segue o caminho previsto. Condicional: se “Documentação regularizável”, corrige e reemite; se “Documentação com impedimento”, escala ao CEO.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R13 — Administrativo × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_03_07_4",
       "acao_id": "acao_03_07_4",
       "setor_id": "setor_03",
@@ -1697,6 +2202,34 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§4 Canal Temporário — Grupo de Fluxo (WhatsApp)"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_17_4",
+      "acao_id": "acao_03_17_4",
+      "setor_id": "setor_03",
+      "estagio_id": 17,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 17 — Instalação por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R14 — Administrativo × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
         }
       ],
       "atualizado_em": "2026-09-24"
@@ -1870,6 +2403,90 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_04_15_1",
+      "acao_id": "acao_04_15_1",
+      "setor_id": "setor_04",
+      "estagio_id": 15,
+      "what": "Trata movimentos financeiros relativos a atrasos, desvios e avarias na entrega",
+      "why": "O Financeiro trata inconformidades financeiras, com escalada ao CEO nos casos de maior impacto.",
+      "where": "Rotina interna do Financeiro",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "Financeiro",
+      "how": "Avalia o movimento financeiro decorrente do atraso, desvio ou avaria e segue o caminho previsto. Condicional: se “Ajuste financeiro viável”, processa internamente; se “Impacto financeiro relevante”, escala ao CEO.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P15 — Financeiro × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_04_17_1",
+      "acao_id": "acao_04_17_1",
+      "setor_id": "setor_04",
+      "estagio_id": 17,
+      "what": "Processa movimentações financeiras de serviços e insumos",
+      "why": "O Financeiro processa as movimentações financeiras relativas a serviços e insumos.",
+      "where": "Rotina interna do Financeiro",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Financeiro",
+      "how": "Processa as movimentações financeiras dos serviços e insumos da instalação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R15 — Financeiro × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_04_17_2",
+      "acao_id": "acao_04_17_2",
+      "setor_id": "setor_04",
+      "estagio_id": 17,
+      "what": "Trata e resolve inconformidades financeiras",
+      "why": "O Financeiro trata inconformidades financeiras, com escalada ao CEO nos casos de maior impacto.",
+      "where": "Rotina interna do Financeiro",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Financeiro",
+      "how": "Trata a inconformidade financeira surgida na instalação e segue o caminho previsto. Condicional: se “Inconformidade resolvível”, regulariza e registra; se “Inconformidade crítica”, escala ao CEO.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R16 — Financeiro × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_05_04_1",
       "acao_id": "acao_05_04_1",
       "setor_id": "setor_05",
@@ -2001,6 +2618,62 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 05 — Contabilidade"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_05_17_1",
+      "acao_id": "acao_05_17_1",
+      "setor_id": "setor_05",
+      "estagio_id": 17,
+      "what": "Processa informações fiscais relativas à obra (ISSQN)",
+      "why": "A Contabilidade processa o ISSQN da obra de instalação.",
+      "where": "Rotina interna da Contabilidade",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Contabilidade",
+      "how": "Processa as informações fiscais da obra de instalação (ISSQN).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R17 — Contabilidade × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 05 — Contabilidade"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_05_17_2",
+      "acao_id": "acao_05_17_2",
+      "setor_id": "setor_05",
+      "estagio_id": 17,
+      "what": "Trata e resolve inconformidades fiscais",
+      "why": "A Contabilidade trata inconformidades fiscais, com escalada ao CEO nos casos críticos.",
+      "where": "Rotina interna da Contabilidade",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Contabilidade",
+      "how": "Trata a inconformidade fiscal surgida na instalação e segue o caminho previsto. Condicional: se “Inconformidade regularizável”, corrige e registra; se “Inconformidade crítica”, escala ao CEO.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R18 — Contabilidade × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -2402,6 +3075,146 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_06_15_1",
+      "acao_id": "acao_06_15_1",
+      "setor_id": "setor_06",
+      "estagio_id": 15,
+      "what": "Cobra resolução da entrega e documentações",
+      "why": "O CEO cobra a resolução da entrega e das documentações.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "CEO",
+      "how": "Cobra dos setores a resolução da entrega e das documentações pendentes.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P19 — CEO × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_16_1",
+      "acao_id": "acao_06_16_1",
+      "setor_id": "setor_06",
+      "estagio_id": 16,
+      "what": "Apoia a mobilização da Equipe Técnica",
+      "why": "O CEO apoia a mobilização da Equipe Técnica.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 16 — Agendamento: após a entrega do material (Est. 15)",
+      "who": "CEO",
+      "how": "Apoia o Administrativo na mobilização da Equipe Técnica para a instalação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula Q19 — CEO × Est. 16"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 16 — Agendamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_17_1",
+      "acao_id": "acao_06_17_1",
+      "setor_id": "setor_06",
+      "estagio_id": 17,
+      "what": "Apoia a Equipe Técnica durante a instalação",
+      "why": "O CEO dá suporte à Equipe Técnica durante a instalação.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "CEO",
+      "how": "Apoia a Equipe Técnica durante a instalação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R19 — CEO × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_18_1",
+      "acao_id": "acao_06_18_1",
+      "setor_id": "setor_06",
+      "estagio_id": 18,
+      "what": "Acompanha e cobra resolução da vistoria técnica",
+      "why": "O CEO acompanha e cobra a resolução da vistoria técnica.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 18 — Vistoria técnica: após a instalação",
+      "who": "CEO",
+      "how": "Acompanha as vistorias interna e externa e cobra a resolução das pendências.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula S19 — CEO × Est. 18"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_19_1",
+      "acao_id": "acao_06_19_1",
+      "setor_id": "setor_06",
+      "estagio_id": 19,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 19 — Treinamento na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 19 — Treinamento: após a instalação e a vistoria técnica",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula T19 — CEO × Est. 19"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 19 — Treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_06_01_2",
       "acao_id": "acao_06_01_2",
       "setor_id": "setor_06",
@@ -2710,6 +3523,118 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_06_15_2",
+      "acao_id": "acao_06_15_2",
+      "setor_id": "setor_06",
+      "estagio_id": 15,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 15 — Entrega de material na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P20 — CEO × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_16_2",
+      "acao_id": "acao_06_16_2",
+      "setor_id": "setor_06",
+      "estagio_id": 16,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 16 — Agendamento na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 16 — Agendamento: após a entrega do material (Est. 15)",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula Q20 — CEO × Est. 16"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 16 — Agendamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_17_2",
+      "acao_id": "acao_06_17_2",
+      "setor_id": "setor_06",
+      "estagio_id": 17,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 17 — Instalação na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R20 — CEO × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_18_2",
+      "acao_id": "acao_06_18_2",
+      "setor_id": "setor_06",
+      "estagio_id": 18,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 18 — Vistoria técnica na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 18 — Vistoria técnica: após a instalação",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula S20 — CEO × Est. 18"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_06_06_3",
       "acao_id": "acao_06_06_3",
       "setor_id": "setor_06",
@@ -2729,6 +3654,62 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_15_3",
+      "acao_id": "acao_06_15_3",
+      "setor_id": "setor_06",
+      "estagio_id": 15,
+      "what": "Trata e apoia a resolução de casos de atrasos, desvios e avarias na entrega",
+      "why": "O CEO apoia a resolução de situações críticas na entrega e é a instância final das inconformidades escaladas pelos demais setores.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "CEO",
+      "how": "Trata e apoia a resolução dos casos de atraso, desvio e avaria na entrega escalados pelos setores. Condicional: se “Situação gerenciável”, orienta e monitora; se “Situação crítica”, assume gestão direta.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P21 — CEO × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_17_3",
+      "acao_id": "acao_06_17_3",
+      "setor_id": "setor_06",
+      "estagio_id": 17,
+      "what": "Trata e resolve inconformidades gerais da instalação",
+      "why": "O CEO é a instância final de resolução das inconformidades escaladas pelos demais setores.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "CEO",
+      "how": "Trata e resolve as inconformidades gerais da instalação escaladas pelos setores. Condicional: se “Inconformidade resolvível”, orienta setores responsáveis; se “Inconformidade crítica”, assume gestão direta.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R21 — CEO × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -2878,6 +3859,34 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_07_19_1",
+      "acao_id": "acao_07_19_1",
+      "setor_id": "setor_07",
+      "estagio_id": 19,
+      "what": "Mantém o Administrativo atualizado sobre tecnologias de produtos e serviços",
+      "why": "A Engenharia mantém o Administrativo atualizado sobre novas tecnologias de produtos e serviços.",
+      "where": "Comunicação entre o Administrativo e a Engenharia terceirizada",
+      "when": "Est. 19 — Treinamento: após a instalação e a vistoria técnica",
+      "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)",
+      "how": "Informa ao Administrativo as novas tecnologias de produtos e serviços.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula T23 — Engenharia × Est. 19"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 19 — Treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 07 — Engenharia"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_07_11_2",
       "acao_id": "acao_07_11_2",
       "setor_id": "setor_07",
@@ -2981,6 +3990,90 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 08 — Fornecedores"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_08_15_1",
+      "acao_id": "acao_08_15_1",
+      "setor_id": "setor_08",
+      "estagio_id": 15,
+      "what": "Trata atrasos, desvios e avarias em conjunto com a Logística",
+      "why": "O Fornecedor age em conjunto com a Logística nos atrasos, desvios e avarias e escala ao CEO quando necessário.",
+      "where": "Rotina do Fornecedor (parceiro externo)",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "Fornecedores",
+      "how": "Trata a ocorrência junto com a Logística e segue o caminho previsto. Condicional: se “Inconformidade resolvível”, regulariza e comunica Administrativo; se “Inconformidade crítica”, escala ao CEO.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P25 — Fornecedores × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 08 — Fornecedores"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_08_17_1",
+      "acao_id": "acao_08_17_1",
+      "setor_id": "setor_08",
+      "estagio_id": 17,
+      "what": "Trata e resolve inconformidades relacionadas aos materiais",
+      "why": "O Fornecedor e a Equipe Técnica tratam as inconformidades de material e de instalação.",
+      "where": "Rotina do Fornecedor (parceiro externo)",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Fornecedores",
+      "how": "Trata a inconformidade dos materiais que forneceu e segue o caminho previsto. Condicional: se “Inconformidade sanável”, substitui ou repara; se “Inconformidade insanável”, escala ao CEO.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R25 — Fornecedores × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 08 — Fornecedores"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_08_19_1",
+      "acao_id": "acao_08_19_1",
+      "setor_id": "setor_08",
+      "estagio_id": 19,
+      "what": "Compartilha informações técnicas sobre uso e cuidados dos produtos",
+      "why": "O Fornecedor compartilha informações técnicas sobre uso e cuidados dos produtos instalados.",
+      "where": "Rotina do Fornecedor (parceiro externo)",
+      "when": "Est. 19 — Treinamento: após a instalação e a vistoria técnica",
+      "who": "Fornecedores",
+      "how": "Compartilha as informações técnicas sobre uso e cuidados dos produtos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula T25 — Fornecedores × Est. 19"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 19 — Treinamento"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -3130,6 +4223,34 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_09_15_1",
+      "acao_id": "acao_09_15_1",
+      "setor_id": "setor_09",
+      "estagio_id": 15,
+      "what": "Entrega o material no local e horário definidos",
+      "why": "A Logística entrega o material no local e no horário definidos com o cliente.",
+      "where": "No local de instalação, no local e horário definidos com o cliente",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "Logística",
+      "how": "Entrega o material no local e no horário definidos (combinados pelo Vendedor no Est. 14 e reafirmados pelo cliente).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P30 — Logística × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 09 — Logística"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_09_14_2",
       "acao_id": "acao_09_14_2",
       "setor_id": "setor_09",
@@ -3149,6 +4270,34 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 09 — Logística"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_09_15_2",
+      "acao_id": "acao_09_15_2",
+      "setor_id": "setor_09",
+      "estagio_id": 15,
+      "what": "Comunica possíveis atrasos, desvios e avarias",
+      "why": "Em caso de atraso, desvio ou avaria, a Logística notifica imediatamente o Fornecedor e o Administrativo.",
+      "where": "No local de instalação, no local e horário definidos com o cliente",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "Logística",
+      "how": "Acompanha a entrega e comunica qualquer atraso, desvio ou avaria, seguindo o caminho previsto. Condicional: se “Ocorrência identificada”, notifica Fornecedor e Administrativo imediatamente; se “Entrega conforme”, registra conclusão.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P31 — Logística × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -3237,6 +4386,398 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_15_1",
+      "acao_id": "acao_10_15_1",
+      "setor_id": "setor_10",
+      "estagio_id": 15,
+      "what": "Confere o material entregue conforme os termos técnicos",
+      "why": "A Equipe Técnica confere o material entregue pela perspectiva dos termos técnicos.",
+      "where": "No local de instalação, no local e horário definidos com o cliente",
+      "when": "Est. 15 — Entrega de material: no momento da entrega do material",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Compara o material entregue com os termos técnicos do projeto.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P32 — Equipe Técnica × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_16_1",
+      "acao_id": "acao_10_16_1",
+      "setor_id": "setor_10",
+      "estagio_id": 16,
+      "what": "Informa disponibilidade de agenda, insumos, ferramentas e necessidades de suporte",
+      "why": "A Equipe Técnica informa o que tem e o que precisa para executar a instalação na data agendada.",
+      "where": "Comunicação entre o Administrativo e a Equipe Técnica",
+      "when": "Est. 16 — Agendamento: após a entrega do material (Est. 15)",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Informa ao Administrativo a disponibilidade de agenda, de insumos e de ferramentas e as necessidades de suporte.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula Q32 — Equipe Técnica × Est. 16"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 16 — Agendamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_17_1",
+      "acao_id": "acao_10_17_1",
+      "setor_id": "setor_10",
+      "estagio_id": 17,
+      "what": "Executa a instalação com qualidade e dentro do prazo",
+      "why": "A Equipe Técnica executa fisicamente o projeto no imóvel do cliente.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Executa a instalação do sistema no imóvel do cliente com qualidade e dentro do prazo; a duração esperada da instalação não consta dos documentos e deve ser informada pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R32 — Equipe Técnica × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_18_1",
+      "acao_id": "acao_10_18_1",
+      "setor_id": "setor_10",
+      "estagio_id": 18,
+      "what": "Realiza a vistoria técnica interna",
+      "why": "A vistoria técnica interna é feita pela Equipe Técnica; a externa, pela Cemig.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 18 — Vistoria técnica: após a instalação",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Realiza a vistoria técnica interna do sistema instalado.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula S32 — Equipe Técnica × Est. 18"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_19_1",
+      "acao_id": "acao_10_19_1",
+      "setor_id": "setor_10",
+      "estagio_id": 19,
+      "what": "Treina o cliente no uso e cuidados dos equipamentos",
+      "why": "A Equipe Técnica treina o cliente no uso e cuidados dos equipamentos que instalou.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 19 — Treinamento: após a instalação e a vistoria técnica",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Treina o cliente no uso e nos cuidados dos equipamentos instalados.",
+      "origem": "sugerido",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula T32 — Equipe Técnica × Est. 19"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 19 — Treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_15_2",
+      "acao_id": "acao_10_15_2",
+      "setor_id": "setor_10",
+      "estagio_id": 15,
+      "what": "Trata e apoia a resolução de atrasos, desvios e avarias na entrega",
+      "why": "A Equipe Técnica comunica inconformidades ao Administrativo, com escalada ao CEO nos casos críticos.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 15 — Entrega de material: após a compra e o despacho do material (Est. 14)",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Trata e apoia a resolução de atrasos, desvios e avarias na entrega, pelo lado técnico. Condicional: se “Situação gerenciável”, orienta e registra; se “Situação crítica”, escala ao Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P33 — Equipe Técnica × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_17_2",
+      "acao_id": "acao_10_17_2",
+      "setor_id": "setor_10",
+      "estagio_id": 17,
+      "what": "Trata e resolve inconformidades da instalação",
+      "why": "As inconformidades da instalação são tratadas no ato; as críticas escalam ao Administrativo e ao CEO.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Trata a inconformidade encontrada durante a instalação e segue o caminho previsto. Condicional: se “Inconformidade técnica resolvível”, corrige no ato; se “Inconformidade crítica”, escala ao Administrativo e CEO.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R33 — Equipe Técnica × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_18_2",
+      "acao_id": "acao_10_18_2",
+      "setor_id": "setor_10",
+      "estagio_id": 18,
+      "what": "Emite laudo de vistoria técnica interna",
+      "why": "Registrar formalmente o resultado da vistoria técnica interna.",
+      "where": "Rotina da Equipe Técnica (terceirizada)",
+      "when": "Est. 18 — Vistoria técnica: após realizar a vistoria técnica interna",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Emite o laudo da vistoria técnica interna.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula S33 — Equipe Técnica × Est. 18"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_19_2",
+      "acao_id": "acao_10_19_2",
+      "setor_id": "setor_10",
+      "estagio_id": 19,
+      "what": "Solicita assinatura do comprovante de treinamento",
+      "why": "O comprovante de treinamento registra que o cliente foi treinado.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 19 — Treinamento: após a instalação e a vistoria técnica",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Solicita ao cliente que assine o comprovante de treinamento.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula T33 — Equipe Técnica × Est. 19"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 19 — Treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_16_2",
+      "acao_id": "acao_10_16_2",
+      "setor_id": "setor_10",
+      "estagio_id": 16,
+      "what": "Comunica indisponibilidade de agenda ao Administrativo",
+      "why": "Quando a equipe não pode cumprir a agenda, o Administrativo precisa ser avisado para reagendar com o cliente ou mobilizar equipe reserva.",
+      "where": "Comunicação entre o Administrativo e a Equipe Técnica",
+      "when": "Est. 16 — Agendamento: ao identificar que não poderá cumprir a agenda",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Comunica ao Administrativo a indisponibilidade de agenda e segue o caminho previsto conforme o cliente aceite ou não o reagendamento. Condicional: se “Reagendamento aceito pelo cliente”, confirma nova data; se “Reagendamento não aceito”, escala ao Administrativo para mobilização de equipe reserva.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula Q34 — Equipe Técnica × Est. 16"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 16 — Agendamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_18_3",
+      "acao_id": "acao_10_18_3",
+      "setor_id": "setor_10",
+      "estagio_id": 18,
+      "what": "Comunica situações, problemas e necessidades ao Administrativo",
+      "why": "A Equipe Técnica comunica situações, problemas e necessidades ao Administrativo, com escalada ao CEO nos casos críticos.",
+      "where": "Comunicação entre o Administrativo e a Equipe Técnica",
+      "when": "Est. 18 — Vistoria técnica: após a instalação",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Comunica ao Administrativo as situações, problemas e necessidades identificados na vistoria e segue o caminho previsto. Condicional: se “Situação gerenciável”, registra e resolve com suporte do Administrativo; se “Situação crítica”, escala ao CEO.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula S34 — Equipe Técnica × Est. 18"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_11_18_1",
+      "acao_id": "acao_11_18_1",
+      "setor_id": "setor_11",
+      "estagio_id": 18,
+      "what": "Realiza a vistoria técnica externa",
+      "why": "A vistoria técnica externa cabe à concessionária; a dependência da Cemig é o principal risco de prazo de toda a operação.",
+      "where": "Cemig (concessionária, agente externo)",
+      "when": "Est. 18 — Vistoria técnica: após a solicitação da vistoria pelo Administrativo",
+      "who": "Cemig (concessionária)",
+      "how": "Realiza a vistoria técnica externa do sistema instalado.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula S35 — Cemig × Est. 18"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 11 — Cemig"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_11_18_2",
+      "acao_id": "acao_11_18_2",
+      "setor_id": "setor_11",
+      "estagio_id": 18,
+      "what": "Emite o laudo de vistoria técnica externa",
+      "why": "Registrar o resultado da vistoria técnica externa.",
+      "where": "Cemig (concessionária, agente externo)",
+      "when": "Est. 18 — Vistoria técnica: após realizar a vistoria técnica externa",
+      "who": "Cemig (concessionária)",
+      "how": "Emite o laudo da vistoria técnica externa.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula S36 — Cemig × Est. 18"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 11 — Cemig"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_11_18_3",
+      "acao_id": "acao_11_18_3",
+      "setor_id": "setor_11",
+      "estagio_id": 18,
+      "what": "Comunica situações de inconformidade e necessidade de reajuste",
+      "why": "Inconformidades identificadas na vistoria externa exigem ajustes e reagendamento ou parecer definitivo negativo.",
+      "where": "Cemig (concessionária, agente externo)",
+      "when": "Est. 18 — Vistoria técnica: após a instalação",
+      "who": "Cemig (concessionária)",
+      "how": "Comunica a situação de inconformidade e a necessidade de reajuste e segue o caminho previsto. Condicional: se “Inconformidade sanável”, indica ajustes e reagenda vistoria; se “Inconformidade insanável”, emite parecer definitivo negativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula S37 — Cemig × Est. 18"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 11 — Cemig"
         }
       ],
       "atualizado_em": "2026-09-24"
@@ -3522,6 +5063,146 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_12_15_1",
+      "acao_id": "acao_12_15_1",
+      "setor_id": "setor_12",
+      "estagio_id": 15,
+      "what": "Recepciona a entrega do material",
+      "why": "O cliente recepciona o material no local e horário combinados e confirma a conformidade da entrega.",
+      "where": "No local de instalação, no local e horário definidos com o cliente",
+      "when": "Est. 15 — Entrega de material: no momento da entrega do material",
+      "who": "Cliente",
+      "how": "Recebe o material no local e no horário combinados e confirma a conformidade da entrega.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula P38 — Cliente × Est. 15"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 15 — Entrega de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_16_1",
+      "acao_id": "acao_12_16_1",
+      "setor_id": "setor_12",
+      "estagio_id": 16,
+      "what": "Comunica disponibilidade de agenda para a instalação",
+      "why": "O cliente informa quando pode receber a equipe para a instalação.",
+      "where": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 16 — Agendamento: após a entrega do material (Est. 15)",
+      "who": "Cliente",
+      "how": "Informa ao Vendedor a sua disponibilidade de agenda para a instalação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula Q38 — Cliente × Est. 16"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 16 — Agendamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_17_1",
+      "acao_id": "acao_12_17_1",
+      "setor_id": "setor_12",
+      "estagio_id": 17,
+      "what": "Recepciona a Equipe Técnica para a instalação",
+      "why": "O cliente recepciona a Equipe Técnica na data agendada e acompanha a execução da instalação.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Cliente",
+      "how": "Recebe a Equipe Técnica no imóvel na data agendada e acompanha a execução da instalação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R38 — Cliente × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_18_1",
+      "acao_id": "acao_12_18_1",
+      "setor_id": "setor_12",
+      "estagio_id": 18,
+      "what": "Comunica ao Administrativo ou Vendedor situações, problemas e necessidades supervenientes",
+      "why": "O cliente comunica situações supervenientes ao Administrativo ou ao Vendedor; a situação crítica escala ao CEO.",
+      "where": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 18 — Vistoria técnica: após a instalação",
+      "who": "Cliente",
+      "how": "Comunica ao Administrativo ou ao Vendedor as situações, problemas e necessidades supervenientes e segue o caminho previsto. Condicional: se “Situação gerenciável”, Vendedor ou Administrativo trata e resolve; se “Situação crítica”, escala ao CEO.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula S38 — Cliente × Est. 18"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_19_1",
+      "acao_id": "acao_12_19_1",
+      "setor_id": "setor_12",
+      "estagio_id": 19,
+      "what": "Recepciona o treinamento de uso dos equipamentos",
+      "why": "O cliente participa do treinamento sobre o uso e os cuidados dos equipamentos.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 19 — Treinamento: após a instalação e a vistoria técnica",
+      "who": "Cliente",
+      "how": "Participa do treinamento de uso e cuidados dos equipamentos instalados.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula T38 — Cliente × Est. 19"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 19 — Treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_12_08_2",
       "acao_id": "acao_12_08_2",
       "setor_id": "setor_12",
@@ -3569,6 +5250,62 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 09 — Pagamentos"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_17_2",
+      "acao_id": "acao_12_17_2",
+      "setor_id": "setor_12",
+      "estagio_id": 17,
+      "what": "Trata e resolve inconformidades relacionadas ao imóvel",
+      "why": "Algumas inconformidades dependem do imóvel, que é do cliente: só ele pode resolver o que está ao seu alcance.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 17 — Instalação: na data agendada para a instalação",
+      "who": "Cliente",
+      "how": "Trata a inconformidade relacionada ao imóvel e segue o caminho previsto. Condicional: se “Inconformidade resolvível pelo cliente”, resolve e comunica; se “Inconformidade fora do alcance do cliente”, escala ao Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula R39 — Cliente × Est. 17"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_19_2",
+      "acao_id": "acao_12_19_2",
+      "setor_id": "setor_12",
+      "estagio_id": 19,
+      "what": "Assina o comprovante de treinamento e informes",
+      "why": "A assinatura registra que o cliente recebeu o treinamento.",
+      "where": "Contato do cliente com a Lux (Vendedor e Administrativo)",
+      "when": "Est. 19 — Treinamento: após a instalação e a vistoria técnica",
+      "who": "Cliente",
+      "how": "Assina o comprovante de treinamento e os informes.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula T39 — Cliente × Est. 19"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 19 — Treinamento"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",

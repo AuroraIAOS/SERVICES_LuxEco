@@ -4,7 +4,8 @@
     "regra": "Autoria das fichas 5W1H (docs/06 §4). Cada ficha = o texto da ação (what) + o que está aqui (why, how, e onde/quando/quem quando fogem do padrão). Só o que os documentos sustentam: sem valores em R$, sem prazos numéricos, sem nomes de pessoas internas. origem = documentado, exceto onde marcado sugerido. Sem citações de fonte dentro dos textos: as fontes vivem no campo fontes de cada ficha.",
     "fases_autoradas": [
       1,
-      2
+      2,
+      3
     ]
   },
   "setores": {
@@ -139,6 +140,31 @@
       "objetivo": "O Administrativo emite a ordem de compra ao Fornecedor, o Financeiro efetiva a compra, a Contabilidade processa as informações fiscais (ICMS) e o Fornecedor separa, embala e despacha os produtos, comunicando o Administrativo.",
       "gatilho": "após a aprovação conjunta do projeto",
       "trecho": "§3 Est. 14 — Compra de material"
+    },
+    "15": {
+      "objetivo": "A Logística entrega o material no local e horário definidos; Vendedor, Administrativo, Equipe Técnica e Fornecedor conferem a entrega e tratam atrasos, desvios e avarias; o CEO apoia a resolução de situações críticas; o cliente recepciona o material.",
+      "gatilho": "após a compra e o despacho do material (Est. 14)",
+      "trecho": "§3 Est. 15 — Entrega de material"
+    },
+    "16": {
+      "objetivo": "O Administrativo apura e estabelece o calendário de disponibilidade da Equipe Técnica; o Vendedor agenda com o cliente horário e condições de instalação; a Equipe Técnica informa disponibilidade e pode comunicar indisponibilidades; o CEO apoia a mobilização.",
+      "gatilho": "após a entrega do material (Est. 15)",
+      "trecho": "§3 Est. 16 — Agendamento"
+    },
+    "17": {
+      "objetivo": "A Equipe Técnica executa a instalação; o Vendedor acompanha com visitas presenciais; o Administrativo coordena e monitora; o CEO dá suporte; o Fornecedor e a Equipe Técnica tratam inconformidades de material e de instalação; o cliente recepciona a equipe.",
+      "gatilho": "na data agendada para a instalação",
+      "trecho": "§3 Est. 17 — Instalação"
+    },
+    "18": {
+      "objetivo": "A Equipe Técnica realiza a vistoria técnica interna e a Cemig a externa, cada uma com laudo; inconformidades são tratadas com ajustes e reagendamento ou com parecer definitivo negativo; o cliente comunica situações supervenientes.",
+      "gatilho": "após a instalação",
+      "trecho": "§3 Est. 18 — Vistoria técnica"
+    },
+    "19": {
+      "objetivo": "A Equipe Técnica e o Vendedor treinam o cliente no uso e cuidados dos equipamentos instalados; o cliente assina o comprovante de treinamento; o Fornecedor compartilha informações técnicas; a Equipe Técnica mantém o Administrativo informado sobre dados críticos do projeto executado.",
+      "gatilho": "após a instalação e a vistoria técnica",
+      "trecho": "§3 Est. 19 — Treinamento"
     }
   },
   "locais": {
@@ -151,7 +177,11 @@
     "pagamento": "Pagamento feito pelo cliente conforme as guias e orientações recebidas (orientações pelo Grupo de Fluxo no WhatsApp)",
     "adm_engenharia": "Comunicação entre o Administrativo e a Engenharia terceirizada",
     "aprovacao": "Aprovação conjunta do projeto, coordenada pelo Administrativo",
-    "contato_pos": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)"
+    "contato_pos": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+    "local_entrega": "No local de instalação, no local e horário definidos com o cliente",
+    "adm_equipe": "Comunicação entre o Administrativo e a Equipe Técnica",
+    "adm_cemig": "Solicitação do Administrativo à Cemig (concessionária)",
+    "rotina_equipe": "Rotina da Equipe Técnica (terceirizada)"
   },
   "modelos": {
     "Monitora métricas do setor": {
@@ -688,6 +718,249 @@
       "why": "Confirmar com a Lux o local e o horário em que o material deve ser entregue.",
       "how": "Reafirma o local e o horário de entrega combinados com o Vendedor.",
       "onde": "contato_pos"
+    },
+    "acao_02_15_1": {
+      "why": "Vendas acompanha a entrega do material conforme os termos da venda.",
+      "how": "Acompanha a entrega do material, comparando-a com os termos da venda."
+    },
+    "acao_02_15_2": {
+      "why": "O Vendedor confere a entrega junto com o Administrativo, a Equipe Técnica e o Fornecedor.",
+      "how": "Confere o material entregue e segue o caminho previsto para cada resultado.",
+      "onde": "local_entrega",
+      "quando": "no momento da entrega do material"
+    },
+    "acao_03_15_1": {
+      "why": "O Administrativo confere a entrega pela perspectiva documental.",
+      "how": "Compara o material entregue com a documentação do pedido."
+    },
+    "acao_03_15_3": {
+      "why": "O Administrativo trata inconformidades de documentação e de entrega, com escalada ao CEO quando necessário.",
+      "how": "Trata o atraso, desvio ou avaria comunicado na entrega e emite a resolução, seguindo o caminho previsto."
+    },
+    "acao_04_15_1": {
+      "why": "O Financeiro trata inconformidades financeiras, com escalada ao CEO nos casos de maior impacto.",
+      "how": "Avalia o movimento financeiro decorrente do atraso, desvio ou avaria e segue o caminho previsto."
+    },
+    "acao_06_15_1": {
+      "why": "O CEO cobra a resolução da entrega e das documentações.",
+      "how": "Cobra dos setores a resolução da entrega e das documentações pendentes."
+    },
+    "acao_06_15_3": {
+      "why": "O CEO apoia a resolução de situações críticas na entrega e é a instância final das inconformidades escaladas pelos demais setores.",
+      "how": "Trata e apoia a resolução dos casos de atraso, desvio e avaria na entrega escalados pelos setores."
+    },
+    "acao_08_15_1": {
+      "why": "O Fornecedor age em conjunto com a Logística nos atrasos, desvios e avarias e escala ao CEO quando necessário.",
+      "how": "Trata a ocorrência junto com a Logística e segue o caminho previsto."
+    },
+    "acao_09_15_1": {
+      "why": "A Logística entrega o material no local e no horário definidos com o cliente.",
+      "how": "Entrega o material no local e no horário definidos (combinados pelo Vendedor no Est. 14 e reafirmados pelo cliente).",
+      "onde": "local_entrega"
+    },
+    "acao_09_15_2": {
+      "why": "Em caso de atraso, desvio ou avaria, a Logística notifica imediatamente o Fornecedor e o Administrativo.",
+      "how": "Acompanha a entrega e comunica qualquer atraso, desvio ou avaria, seguindo o caminho previsto.",
+      "onde": "local_entrega"
+    },
+    "acao_10_15_1": {
+      "why": "A Equipe Técnica confere o material entregue pela perspectiva dos termos técnicos.",
+      "how": "Compara o material entregue com os termos técnicos do projeto.",
+      "onde": "local_entrega",
+      "quando": "no momento da entrega do material"
+    },
+    "acao_10_15_2": {
+      "why": "A Equipe Técnica comunica inconformidades ao Administrativo, com escalada ao CEO nos casos críticos.",
+      "how": "Trata e apoia a resolução de atrasos, desvios e avarias na entrega, pelo lado técnico."
+    },
+    "acao_12_15_1": {
+      "why": "O cliente recepciona o material no local e horário combinados e confirma a conformidade da entrega.",
+      "how": "Recebe o material no local e no horário combinados e confirma a conformidade da entrega.",
+      "onde": "local_entrega",
+      "quando": "no momento da entrega do material"
+    },
+    "acao_02_16_1": {
+      "why": "O agendamento da instalação depende da disponibilidade da Equipe Técnica.",
+      "how": "Levanta, junto com o Administrativo, a disponibilidade da Equipe Técnica para a instalação.",
+      "onde": "comunicacao_adm"
+    },
+    "acao_02_16_2": {
+      "why": "Combinar com o cliente quando e em que condições a instalação será feita.",
+      "how": "Agenda com o cliente o horário e as condições da instalação, com base na disponibilidade da Equipe Técnica.",
+      "onde": "contato_pos"
+    },
+    "acao_03_16_1": {
+      "why": "O Administrativo apura e estabelece o calendário de disponibilidade da Equipe Técnica, base do agendamento.",
+      "how": "Apura com a Equipe Técnica a disponibilidade e estabelece o calendário.",
+      "onde": "adm_equipe"
+    },
+    "acao_03_16_2": {
+      "why": "O Administrativo coordena a operação e acompanha o agendamento entre o Vendedor e o cliente.",
+      "how": "Acompanha o agendamento da instalação combinado entre o Vendedor e o cliente."
+    },
+    "acao_03_16_3": {
+      "why": "A Equipe Técnica precisa saber a data e as condições da instalação: o Administrativo a comunica para a instalação.",
+      "how": "Informa à Equipe Técnica a data e as condições da instalação agendada.",
+      "onde": "adm_equipe"
+    },
+    "acao_06_16_1": {
+      "why": "O CEO apoia a mobilização da Equipe Técnica.",
+      "how": "Apoia o Administrativo na mobilização da Equipe Técnica para a instalação."
+    },
+    "acao_10_16_1": {
+      "why": "A Equipe Técnica informa o que tem e o que precisa para executar a instalação na data agendada.",
+      "how": "Informa ao Administrativo a disponibilidade de agenda, de insumos e de ferramentas e as necessidades de suporte.",
+      "onde": "adm_equipe"
+    },
+    "acao_10_16_2": {
+      "why": "Quando a equipe não pode cumprir a agenda, o Administrativo precisa ser avisado para reagendar com o cliente ou mobilizar equipe reserva.",
+      "how": "Comunica ao Administrativo a indisponibilidade de agenda e segue o caminho previsto conforme o cliente aceite ou não o reagendamento.",
+      "onde": "adm_equipe",
+      "quando": "ao identificar que não poderá cumprir a agenda"
+    },
+    "acao_12_16_1": {
+      "why": "O cliente informa quando pode receber a equipe para a instalação.",
+      "how": "Informa ao Vendedor a sua disponibilidade de agenda para a instalação.",
+      "onde": "contato_pos"
+    },
+    "acao_02_17_1": {
+      "why": "Vendas mantém presença na jornada do cliente durante a instalação.",
+      "how": "Faz visitas presenciais ao imóvel durante a instalação para acompanhá-la.",
+      "onde": "imovel"
+    },
+    "acao_03_17_1": {
+      "why": "A vistoria técnica externa é feita pela Cemig e o Administrativo a solicita.",
+      "how": "Solicita à Cemig a vistoria técnica externa.",
+      "onde": "adm_cemig",
+      "quando": "durante a instalação, para viabilizar a vistoria técnica externa do Est. 18"
+    },
+    "acao_03_17_3": {
+      "why": "O Administrativo trata inconformidades de documentação, com escalada ao CEO quando necessário.",
+      "how": "Trata a inconformidade de documentação encontrada na instalação e segue o caminho previsto."
+    },
+    "acao_04_17_1": {
+      "why": "O Financeiro processa as movimentações financeiras relativas a serviços e insumos.",
+      "how": "Processa as movimentações financeiras dos serviços e insumos da instalação."
+    },
+    "acao_04_17_2": {
+      "why": "O Financeiro trata inconformidades financeiras, com escalada ao CEO nos casos de maior impacto.",
+      "how": "Trata a inconformidade financeira surgida na instalação e segue o caminho previsto."
+    },
+    "acao_05_17_1": {
+      "why": "A Contabilidade processa o ISSQN da obra de instalação.",
+      "how": "Processa as informações fiscais da obra de instalação (ISSQN)."
+    },
+    "acao_05_17_2": {
+      "why": "A Contabilidade trata inconformidades fiscais, com escalada ao CEO nos casos críticos.",
+      "how": "Trata a inconformidade fiscal surgida na instalação e segue o caminho previsto."
+    },
+    "acao_06_17_1": {
+      "why": "O CEO dá suporte à Equipe Técnica durante a instalação.",
+      "how": "Apoia a Equipe Técnica durante a instalação."
+    },
+    "acao_06_17_3": {
+      "why": "O CEO é a instância final de resolução das inconformidades escaladas pelos demais setores.",
+      "how": "Trata e resolve as inconformidades gerais da instalação escaladas pelos setores."
+    },
+    "acao_08_17_1": {
+      "why": "O Fornecedor e a Equipe Técnica tratam as inconformidades de material e de instalação.",
+      "how": "Trata a inconformidade dos materiais que forneceu e segue o caminho previsto."
+    },
+    "acao_10_17_1": {
+      "why": "A Equipe Técnica executa fisicamente o projeto no imóvel do cliente.",
+      "how": "Executa a instalação do sistema no imóvel do cliente com qualidade e dentro do prazo; a duração esperada da instalação não consta dos documentos e deve ser informada pela Lux.",
+      "quando": "na data agendada para a instalação"
+    },
+    "acao_10_17_2": {
+      "why": "As inconformidades da instalação são tratadas no ato; as críticas escalam ao Administrativo e ao CEO.",
+      "how": "Trata a inconformidade encontrada durante a instalação e segue o caminho previsto."
+    },
+    "acao_12_17_1": {
+      "why": "O cliente recepciona a Equipe Técnica na data agendada e acompanha a execução da instalação.",
+      "how": "Recebe a Equipe Técnica no imóvel na data agendada e acompanha a execução da instalação.",
+      "onde": "imovel",
+      "quando": "na data agendada para a instalação"
+    },
+    "acao_12_17_2": {
+      "why": "Algumas inconformidades dependem do imóvel, que é do cliente: só ele pode resolver o que está ao seu alcance.",
+      "how": "Trata a inconformidade relacionada ao imóvel e segue o caminho previsto.",
+      "onde": "imovel"
+    },
+    "acao_06_18_1": {
+      "why": "O CEO acompanha e cobra a resolução da vistoria técnica.",
+      "how": "Acompanha as vistorias interna e externa e cobra a resolução das pendências."
+    },
+    "acao_10_18_1": {
+      "why": "A vistoria técnica interna é feita pela Equipe Técnica; a externa, pela Cemig.",
+      "how": "Realiza a vistoria técnica interna do sistema instalado."
+    },
+    "acao_10_18_2": {
+      "why": "Registrar formalmente o resultado da vistoria técnica interna.",
+      "how": "Emite o laudo da vistoria técnica interna.",
+      "onde": "rotina_equipe",
+      "quando": "após realizar a vistoria técnica interna"
+    },
+    "acao_10_18_3": {
+      "why": "A Equipe Técnica comunica situações, problemas e necessidades ao Administrativo, com escalada ao CEO nos casos críticos.",
+      "how": "Comunica ao Administrativo as situações, problemas e necessidades identificados na vistoria e segue o caminho previsto.",
+      "onde": "adm_equipe"
+    },
+    "acao_11_18_1": {
+      "why": "A vistoria técnica externa cabe à concessionária; a dependência da Cemig é o principal risco de prazo de toda a operação.",
+      "how": "Realiza a vistoria técnica externa do sistema instalado.",
+      "quando": "após a solicitação da vistoria pelo Administrativo"
+    },
+    "acao_11_18_2": {
+      "why": "Registrar o resultado da vistoria técnica externa.",
+      "how": "Emite o laudo da vistoria técnica externa.",
+      "quando": "após realizar a vistoria técnica externa"
+    },
+    "acao_11_18_3": {
+      "why": "Inconformidades identificadas na vistoria externa exigem ajustes e reagendamento ou parecer definitivo negativo.",
+      "how": "Comunica a situação de inconformidade e a necessidade de reajuste e segue o caminho previsto."
+    },
+    "acao_12_18_1": {
+      "why": "O cliente comunica situações supervenientes ao Administrativo ou ao Vendedor; a situação crítica escala ao CEO.",
+      "how": "Comunica ao Administrativo ou ao Vendedor as situações, problemas e necessidades supervenientes e segue o caminho previsto.",
+      "onde": "contato_pos"
+    },
+    "acao_02_19_1": {
+      "why": "Vendas conduz o treinamento do cliente sobre o uso dos equipamentos, junto com a Equipe Técnica.",
+      "how": "Treina o cliente no uso e nos cuidados dos equipamentos instalados.",
+      "onde": "imovel",
+      "origem": "sugerido"
+    },
+    "acao_02_19_2": {
+      "why": "O comprovante de treinamento registra que o cliente foi treinado.",
+      "how": "Solicita ao cliente que assine o comprovante de treinamento."
+    },
+    "acao_07_19_1": {
+      "why": "A Engenharia mantém o Administrativo atualizado sobre novas tecnologias de produtos e serviços.",
+      "how": "Informa ao Administrativo as novas tecnologias de produtos e serviços.",
+      "onde": "adm_engenharia"
+    },
+    "acao_08_19_1": {
+      "why": "O Fornecedor compartilha informações técnicas sobre uso e cuidados dos produtos instalados.",
+      "how": "Compartilha as informações técnicas sobre uso e cuidados dos produtos."
+    },
+    "acao_10_19_1": {
+      "why": "A Equipe Técnica treina o cliente no uso e cuidados dos equipamentos que instalou.",
+      "how": "Treina o cliente no uso e nos cuidados dos equipamentos instalados.",
+      "onde": "imovel",
+      "origem": "sugerido"
+    },
+    "acao_10_19_2": {
+      "why": "O comprovante de treinamento registra que o cliente foi treinado.",
+      "how": "Solicita ao cliente que assine o comprovante de treinamento."
+    },
+    "acao_12_19_1": {
+      "why": "O cliente participa do treinamento sobre o uso e os cuidados dos equipamentos.",
+      "how": "Participa do treinamento de uso e cuidados dos equipamentos instalados.",
+      "onde": "imovel"
+    },
+    "acao_12_19_2": {
+      "why": "A assinatura registra que o cliente recebeu o treinamento.",
+      "how": "Assina o comprovante de treinamento e os informes."
     }
   }
 }
