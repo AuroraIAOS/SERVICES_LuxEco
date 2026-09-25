@@ -45,6 +45,8 @@ Outros pontos:
 - **31 células IF/ELSE × 15 condicionais:** várias células (setores diferentes) descrevem a mesma situação. **Hipótese a validar por teste** na subetapa 01.4: agrupar as 31 células nas 15 situações e registrar o mapeamento em `data/conteudo/mapa_condicionais.json`. Se o agrupamento não fechar em 15, a ferramenta passa a exibir a contagem real e registra a diferença aqui.
 - **`Relatorio_Operacional_V07.md`** era um `.docx` que é, na verdade, markdown puro. Se for entregue à Lux, regerar como Word de verdade.
 
+**Resultado do agrupamento (subetapa 01.4 — `data/conteudo/mapa_condicionais.json`).** As **31 células IF/ELSE** da Matriz fecham nas **15 situações** do Mapa, cada célula em exatamente um lugar: **17** com vínculo direto (mesmo setor e tema da situação), **11** como *participantes* de outros setores ligados à mesma situação por tema (`origem: "sugerido"`, com o motivo registrado) e **3** sem situação no Mapa (Est. 18: Equipe Técnica, Cemig e Cliente “comunicam situações/inconformidades ao Administrativo”). As 4 situações com estágio deslocado (5, 12, 13, 14) estão marcadas `divergencia_estagio: true`; vale a Matriz. Nenhum texto de célula foi alterado. Os vínculos “sugerido” e as 3 células sem situação devem ser validados com a Lux (Etapa 04 do contrato, pendente).
+
 ## 3. Integração das Anotações do CEO (overlay V08) — decisão de Max: refazer todo o MMO integrando
 
 Conteúdo **novo** trazido pelas Anotações (não existe na Matriz V07):

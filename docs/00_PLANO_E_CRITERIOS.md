@@ -12,7 +12,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | `node scripts/checar_env.mjs` → `OBRIGATÓRIAS v01: 17/17 preenchidas` (exit 0); `.env` fora do Git (0); `curl` sem senha → `401`. |
 | 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "^APROVADO EM:" docs/PLANO_DE_ACAO.md` → `1`. Modo autônomo ativo. |
 | 01.3 | Scaffold do projeto e tooling | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `typecheck`, `lint`, `test` (6/6), `build` exit 0; `dist/index.html` ok; `build:single` 459 kB; `e2e` 1 passed (4 rotas + fonte Cyntho Next). **`xlsx` adiado p/ 03.4** (npm bloqueou o pacote remoto; ver instrucoes §6). |
-| 01.4 | Pipeline xlsx → `matriz_v07.json` e validações de dados | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 01.4 | Pipeline xlsx → `matriz_v07.json` e validações de dados | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar` → `OK v07: setores=12 estagios=22 celulas=212 if_else=31`; `comparar_mmo_legado` → `OK: MMO_v01 == Matriz V07` (presença **e** contagem); 25 testes. 31 IF/ELSE → 15 situações (17 diretas, 11 sugeridas, 3 sem situação). Leitura sem SheetJS (fflate + fast-xml-parser). |
 | 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.6 | Varredura de segredos e blindagem do repositório | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 01.7 | HANDOFF_BUILD | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -132,7 +132,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas + 2–3 alternativas); registrar em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 01.4 — Pipeline xlsx → `matriz_v07.json` e validações de dados [Auto] [Goal] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: espelho fiel da Matriz V07 em JSON, com testes de contagem e de paridade com o MMO_v01.
 Arquivos tocados: `scripts/xlsx_para_json.ts`, `scripts/validar_dados.ts`, `scripts/comparar_mmo_legado.ts`, `data/matriz_v07.json`, `data/conteudo/mapa_condicionais.json`, `src/dados/tipos.ts`, `src/dados/validar.test.ts`.
 Passos: 1) `xlsx_para_json.ts`: ler `data/fontes/Matriz_Operacional.xlsx`, **parar na linha “LEGENDA DE CORES”**; emitir `setores`, `estagios` (22, em 4 fases), `acoes` (uma por célula não vazia), `condicionais` (células com “IF/ELSE”, separando condição e ações consequentes). 2) `validar_dados.ts` implementa as regras 1, 2, 4–8 de `docs/02_MODELO_DE_DADOS.md` (as de V08/fichas/bibliotecas ficam inativas até existirem). 3) `comparar_mmo_legado.ts`: extrair presença setor × estágio do `data/fontes/legado/MMO_v01.html` e comparar com o JSON. 4) Agrupar as 31 células IF/ELSE nas 15 situações do Mapa em `mapa_condicionais.json`; se não fechar em 15, registrar a diferença em `docs/06` §2. 5) Testes em Vitest.

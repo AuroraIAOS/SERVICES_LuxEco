@@ -10,17 +10,17 @@ Não há banco. A fonte é JSON versionado (`data/`). Sem RLS. Chaves em `snake_
 | `data/matriz_v08.json` | `npm run dados:compor` (v07 + overlay) | **Fonte de verdade das telas.** |
 | `data/conteudo/fichas_5w1h.json` | CODE (subetapas 02.2–02.5) | 1 ficha por célula. |
 | `data/conteudo/documentos.json`, `ferramentas.json`, `investimentos.json`, `kpis.json` | CODE (02.6) | Bibliotecas. |
-| `data/conteudo/mapa_condicionais.json` | CODE (01.4) | Agrupamento das células IF/ELSE em situações. |
+| `data/conteudo/mapa_condicionais.json` | CODE (01.4) | Agrupamento das 31 células IF/ELSE nas 15 situações do Mapa (vínculo direto, participantes sugeridos, sem situação, divergência de estágio). |
 | `data/conteudo/perguntas_pop.json`, `pop_templates.json`, `pop_observacoes_juridicas.json` | CODE (03.1) | Tela e templates do POP. |
 | `BACKUP_DIR_SERVIDOR/bk_*.html` + `bk_*_meta.json` | API PHP (03.5) — **fora do Git, só no servidor** | Backups versionados (máx. 10). O JSON de estado vive dentro do `.html`. |
 
 ## Entidades (campos principais)
 ```
-setor            { id: "setor_01".."setor_12", numero, nome, tipo: "estrategico"|"interno"|"externo", cor_hex, equipes?: [{nome, regiao, empresa?}] }
+setor            { id: "setor_01".."setor_12", numero, nome, cor_token (chave em design/tokens.json → `setores.<slug>`; a cor vive só nos tokens), tipo?: "estrategico"|"interno"|"externo" (V08), equipes?: [{nome, regiao, empresa?}] (V08) }
 fase             { id: 1..4, nome }                        // Comercial, Técnica/Projeto, Execução, Homologação e Encerramento
 estagio          { id: 1..22, numero, nome, fase_id, descricao? }
-acao             { id, setor_id, estagio_id, ordem, texto, e_condicional: bool, canal?: "whatsapp_grupo_fluxo", origem_doc?: string }
-condicional      { id, acao_id, pergunta, se_sim: {texto, acoes_ids?}, se_nao: {texto, acoes_ids?}, situacao_id? }
+acao             { id: "acao_<setor>_<estagio>_<ordem>", setor_id, estagio_id, ordem, texto, e_condicional: bool, canal?: "whatsapp_grupo_fluxo", celula (ref. na planilha, ex. "P6"), origem_doc?: string }
+condicional      { id, acao_id, pergunta: string (= texto-base da ação), se_sim: {rotulo, texto}, se_nao: {rotulo, texto}, situacao_id? (preenchido pelo mapa/V08) }   // 1º ramo da célula = se_sim, 2º = se_nao; o texto original se reconstrói exatamente
 situacao         { id, nome, estagio_id, setor_id }        // as "15 situações" (agrupa células IF/ELSE)
 ficha_5w1h       { id, setor_id, estagio_id, what, why, where, when, who, how, origem: "documentado"|"sugerido"|"manual", fontes: [{arquivo, trecho}], atualizado_em }
 documento        { id, nome, estagio_ids[], setor_ids[], origem }

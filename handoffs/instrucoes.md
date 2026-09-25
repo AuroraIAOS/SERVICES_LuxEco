@@ -222,6 +222,24 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm run typecheck && npm run lint && npm test && npm run build` → exit 0; `npm run e2e` → `1 passed`; `grep -n "\"react\":" package.json` → `^18.3.1`.
 - **Fonte:** decisão técnica de 24/09/2026 (01.3); erro real observado ao rodar os testes.
 
+### Ler o `.xlsx` sem SheetJS: zip + XML, e as cores da legenda são dado
+- **Gatilho:** `scripts/xlsx_para_json.ts` (01.4) com o SheetJS do npm defasado/bloqueado (ver entrada do `xlsx`).
+- **Ação:** ler o `.xlsx` como zip (`fflate`) + XML (`fast-xml-parser`, só devDependencies — nada disso vai ao bundle). Tratar `sharedStrings` com “runs” de texto formatado, normalizar `\r\n` → `\n` e resolver a cor da célula por `s` → `cellXfs` → `fills`. **A cor é informação:** verde `FFC8F7C5` = IF/ELSE (cruzar com o texto “(IF/ELSE)” e falhar se divergirem), lilás `FFE8DAEF` = Grupo de Fluxo WhatsApp (4 células). Parar na célula da coluna A que contém “LEGENDA DE CORES” (linha 42). IF/ELSE tem o formato `texto\n(IF/ELSE) A → a | B → b`; qualquer desvio falha com a referência da célula.
+- **Evidência:** `npm run dados:gerar` → `celulas=212 if_else=31`; `npm test -- validar` → `0 failed` (inclui mutações que provam que os validadores detectam erro).
+- **Fonte:** inspeção de `xl/styles.xml` e `sheet1.xml` na 01.4 (24/09/2026).
+
+### O MMO_v01 legado permite comparar mais que presença
+- **Gatilho:** regra 8 (`comparar_mmo_legado.ts`).
+- **Ação:** cada pílula `.stage-pill` traz `.stage-sector-block` por setor com um `<li class="stage-action-item">` por ação; comparar **presença e quantidade de ações** por setor × estágio (mais forte que só presença). Resultado real: 100% igual à V07. Teste de sensibilidade obrigatório (remover/alterar um item deve reprovar).
+- **Evidência:** `npx tsx scripts/comparar_mmo_legado.ts | tail -1` → `OK: MMO_v01 == Matriz V07`.
+- **Fonte:** `data/fontes/legado/MMO_v01.html`.
+
+### Testes de dados ficam no projeto TypeScript de Node
+- **Gatilho:** `tsc -b` acusa `Cannot find name 'process'`/`node:fs` em testes que leem arquivos.
+- **Ação:** `src/dados/*.test.ts` entram em `tsconfig.node.json` (com `types: ["node"]`) e saem de `tsconfig.app.json`; o teste usa `// @vitest-environment node`.
+- **Evidência:** `npm run typecheck` → exit 0.
+- **Fonte:** erro real da 01.4.
+
 ## 7. Candidatos a promoção
 
 - Pasta `data/` (fontes + conteúdo versionado) para projetos que são “ferramenta estática sobre dados curados”, sem banco — não existe no modelo de árvore da aurora-criativa.

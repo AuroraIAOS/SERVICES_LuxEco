@@ -14,12 +14,13 @@
     "e2e": "playwright test",
     "tokens:gerar": "node scripts/gerar_tokens.mjs",
     "env:checar": "node scripts/checar_env.mjs",
-    "dados:gerar": "node -e \"console.error('dados:gerar: ainda não implementado (subetapa 01.4).');process.exit(1)\"",
+    "dados:gerar": "tsx scripts/xlsx_para_json.ts",
     "dados:compor": "node -e \"console.error('dados:compor: ainda não implementado (subetapa 02.1).');process.exit(1)\"",
-    "dados:validar": "node -e \"console.error('dados:validar: ainda não implementado (subetapa 01.4).');process.exit(1)\"",
+    "dados:validar": "tsx scripts/validar_dados.ts",
     "spike:fluxo": "node -e \"console.error('spike:fluxo: ainda não implementado (subetapa 01.5).');process.exit(1)\"",
     "deploy": "node -e \"console.error('deploy: ainda não implementado (subetapa 02.11).');process.exit(1)\"",
-    "backup:provar": "node -e \"console.error('backup:provar: ainda não implementado (subetapa 03.5).');process.exit(1)\""
+    "backup:provar": "node -e \"console.error('backup:provar: ainda não implementado (subetapa 03.5).');process.exit(1)\"",
+    "dados:comparar": "tsx scripts/comparar_mmo_legado.ts"
   },
   "dependencies": {
     "docx": "^9.7.2",
@@ -40,6 +41,8 @@
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^6.1.1",
     "basic-ftp": "^6.2.1",
+    "fast-xml-parser": "^5.11.1",
+    "fflate": "^0.8.3",
     "jsdom": "^30.1.1",
     "oxlint": "^1.81.0",
     "tsx": "^4.23.15",

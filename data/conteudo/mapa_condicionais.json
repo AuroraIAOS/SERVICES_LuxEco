@@ -1,0 +1,380 @@
+{
+  "meta": {
+    "fonte": "data/fontes/Mapa_Organizacional.md — tabela “Condicionais (IF/ELSE) — 15 situações mapeadas”",
+    "regra": "condicionais_ids = células cujo setor e tema coincidem com a situação do Mapa (vínculo direto). participantes = células de outros setores ligadas à mesma situação por tema (origem: sugerido). sem_situacao = células que o Mapa não contempla. Onde o estágio da planilha difere do Mapa, divergencia_estagio = true e a planilha (Matriz V07) prevalece.",
+    "totais": {
+      "situacoes": 15,
+      "celulas": 31
+    }
+  },
+  "situacoes": [
+    {
+      "id": "sit_01",
+      "numero": 1,
+      "nome": "Conta de energia disponível?",
+      "estagios_mapa": [
+        2
+      ],
+      "setor_id": "setor_02",
+      "se_sim": "Segue para simulação",
+      "se_nao": "Solicita estimativa e projeta dimensionamento",
+      "condicionais_ids": [
+        "cond_02_02_5"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        2
+      ],
+      "participantes": []
+    },
+    {
+      "id": "sit_02",
+      "numero": 2,
+      "nome": "Contato correto?",
+      "estagios_mapa": [
+        2
+      ],
+      "setor_id": "setor_02",
+      "se_sim": "Prossegue",
+      "se_nao": "Redireciona e registra",
+      "condicionais_ids": [
+        "cond_02_02_6"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        2
+      ],
+      "participantes": []
+    },
+    {
+      "id": "sit_03",
+      "numero": 3,
+      "nome": "Crédito pré-aprovado?",
+      "estagios_mapa": [
+        3
+      ],
+      "setor_id": "setor_04",
+      "se_sim": "Prossegue com boleto",
+      "se_nao": "Oferece alternativa",
+      "condicionais_ids": [
+        "cond_04_03_1"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        3
+      ],
+      "participantes": []
+    },
+    {
+      "id": "sit_04",
+      "numero": 4,
+      "nome": "Proposta ajustada?",
+      "estagios_mapa": [
+        4
+      ],
+      "setor_id": "setor_08",
+      "se_sim": "Reenvia dados revisados",
+      "se_nao": "Confirma dados anteriores",
+      "condicionais_ids": [
+        "cond_08_04_1"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        4
+      ],
+      "participantes": [
+        {
+          "condicional_id": "cond_12_05_1",
+          "origem": "sugerido",
+          "motivo": "Decisão do Cliente sobre a proposta (aceita ou pede revisão) é o gatilho do ajuste de proposta."
+        }
+      ]
+    },
+    {
+      "id": "sit_05",
+      "numero": 5,
+      "nome": "Renegociação dentro da margem?",
+      "estagios_mapa": [
+        7
+      ],
+      "setor_id": "setor_06",
+      "se_sim": "Assina e registra",
+      "se_nao": "Recusa e define próxima ação",
+      "condicionais_ids": [
+        "cond_06_06_3"
+      ],
+      "divergencia_estagio": true,
+      "estagios_planilha": [
+        6
+      ],
+      "participantes": [
+        {
+          "condicional_id": "cond_12_07_1",
+          "origem": "sugerido",
+          "motivo": "Decisão do Cliente sobre o contrato (aceita, recusa ou pede revisão) origina a renegociação."
+        }
+      ]
+    },
+    {
+      "id": "sit_06",
+      "numero": 6,
+      "nome": "Impedimento técnico sanável?",
+      "estagios_mapa": [
+        13
+      ],
+      "setor_id": "setor_07",
+      "se_sim": "Propõe solução alternativa",
+      "se_nao": "Emite parecer de inviabilidade",
+      "condicionais_ids": [
+        "cond_07_13_1"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        13
+      ],
+      "participantes": []
+    },
+    {
+      "id": "sit_07",
+      "numero": 7,
+      "nome": "Material entregue conforme?",
+      "estagios_mapa": [
+        15
+      ],
+      "setor_id": "setor_02",
+      "se_sim": "Informa Administrativo",
+      "se_nao": "Comunica inconformidade",
+      "condicionais_ids": [
+        "cond_02_15_2"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        15
+      ],
+      "participantes": [
+        {
+          "condicional_id": "cond_03_15_3",
+          "origem": "sugerido",
+          "motivo": "Administrativo trata atrasos, desvios e avarias da mesma entrega."
+        },
+        {
+          "condicional_id": "cond_09_15_2",
+          "origem": "sugerido",
+          "motivo": "Logística comunica atrasos, desvios e avarias da mesma entrega."
+        },
+        {
+          "condicional_id": "cond_10_15_2",
+          "origem": "sugerido",
+          "motivo": "Equipe Técnica apoia a resolução de atrasos, desvios e avarias da mesma entrega."
+        }
+      ]
+    },
+    {
+      "id": "sit_08",
+      "numero": 8,
+      "nome": "Ajuste financeiro viável?",
+      "estagios_mapa": [
+        15
+      ],
+      "setor_id": "setor_04",
+      "se_sim": "Processa internamente",
+      "se_nao": "Escala ao CEO",
+      "condicionais_ids": [
+        "cond_04_15_1"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        15
+      ],
+      "participantes": []
+    },
+    {
+      "id": "sit_09",
+      "numero": 9,
+      "nome": "Situação de entrega/instalação gerenciável?",
+      "estagios_mapa": [
+        15,
+        16,
+        17
+      ],
+      "setor_id": "setor_06",
+      "se_sim": "Orienta e monitora",
+      "se_nao": "Assume gestão direta",
+      "condicionais_ids": [
+        "cond_06_15_3",
+        "cond_06_17_3"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        15,
+        17
+      ],
+      "participantes": [
+        {
+          "condicional_id": "cond_03_17_3",
+          "origem": "sugerido",
+          "motivo": "Administrativo trata inconformidades na fase de instalação (Est. 17)."
+        },
+        {
+          "condicional_id": "cond_10_17_2",
+          "origem": "sugerido",
+          "motivo": "Equipe Técnica trata inconformidades da instalação (Est. 17)."
+        },
+        {
+          "condicional_id": "cond_12_17_2",
+          "origem": "sugerido",
+          "motivo": "Cliente trata inconformidades relacionadas ao imóvel na instalação (Est. 17)."
+        }
+      ]
+    },
+    {
+      "id": "sit_10",
+      "numero": 10,
+      "nome": "Avaria/atraso resolvível?",
+      "estagios_mapa": [
+        15,
+        16,
+        17
+      ],
+      "setor_id": "setor_08",
+      "se_sim": "Regulariza e comunica",
+      "se_nao": "Escala ao CEO",
+      "condicionais_ids": [
+        "cond_08_15_1",
+        "cond_08_17_1"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        15,
+        17
+      ],
+      "participantes": []
+    },
+    {
+      "id": "sit_11",
+      "numero": 11,
+      "nome": "Reagendamento aceito?",
+      "estagios_mapa": [
+        16
+      ],
+      "setor_id": "setor_10",
+      "se_sim": "Confirma nova data",
+      "se_nao": "Escala para equipe reserva",
+      "condicionais_ids": [
+        "cond_10_16_2"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        16
+      ],
+      "participantes": []
+    },
+    {
+      "id": "sit_12",
+      "numero": 12,
+      "nome": "Inconformidade financeira resolvível?",
+      "estagios_mapa": [
+        18
+      ],
+      "setor_id": "setor_04",
+      "se_sim": "Regulariza",
+      "se_nao": "Escala ao CEO",
+      "condicionais_ids": [
+        "cond_04_17_2"
+      ],
+      "divergencia_estagio": true,
+      "estagios_planilha": [
+        17
+      ],
+      "participantes": []
+    },
+    {
+      "id": "sit_13",
+      "numero": 13,
+      "nome": "Inconformidade fiscal regularizável?",
+      "estagios_mapa": [
+        18
+      ],
+      "setor_id": "setor_05",
+      "se_sim": "Corrige",
+      "se_nao": "Escala ao CEO",
+      "condicionais_ids": [
+        "cond_05_17_2"
+      ],
+      "divergencia_estagio": true,
+      "estagios_planilha": [
+        17
+      ],
+      "participantes": []
+    },
+    {
+      "id": "sit_14",
+      "numero": 14,
+      "nome": "Negativa de homologação sanável?",
+      "estagios_mapa": [
+        21
+      ],
+      "setor_id": "setor_06",
+      "se_sim": "Apoia correção",
+      "se_nao": "Informa cliente e encerra",
+      "condicionais_ids": [
+        "cond_06_20_2"
+      ],
+      "divergencia_estagio": true,
+      "estagios_planilha": [
+        20
+      ],
+      "participantes": [
+        {
+          "condicional_id": "cond_03_20_3",
+          "origem": "sugerido",
+          "motivo": "Administrativo solicita o parecer negativo de homologação e inicia o tratamento."
+        },
+        {
+          "condicional_id": "cond_11_21_1",
+          "origem": "sugerido",
+          "motivo": "Cemig processa a ligação e a homologação (origem da negativa)."
+        }
+      ]
+    },
+    {
+      "id": "sit_15",
+      "numero": 15,
+      "nome": "Insatisfação resolvível internamente?",
+      "estagios_mapa": [
+        22
+      ],
+      "setor_id": "setor_06",
+      "se_sim": "Soluciona",
+      "se_nao": "Aciona garantia contratual",
+      "condicionais_ids": [
+        "cond_06_22_2"
+      ],
+      "divergencia_estagio": false,
+      "estagios_planilha": [
+        22
+      ],
+      "participantes": [
+        {
+          "condicional_id": "cond_12_22_2",
+          "origem": "sugerido",
+          "motivo": "Cliente registra a insatisfação ao Vendedor; escala ao CEO se não resolvida."
+        }
+      ]
+    }
+  ],
+  "sem_situacao": [
+    {
+      "condicional_id": "cond_10_18_3",
+      "motivo": "Est. 18: Equipe Técnica comunica situações ao Administrativo — o Mapa não tem situação própria para o Est. 18 além da financeira e da fiscal."
+    },
+    {
+      "condicional_id": "cond_11_18_3",
+      "motivo": "Est. 18: Cemig comunica inconformidade e necessidade de reajuste — sem situação correspondente no Mapa."
+    },
+    {
+      "condicional_id": "cond_12_18_1",
+      "motivo": "Est. 18: Cliente comunica situações ao Administrativo ou Vendedor — sem situação correspondente no Mapa."
+    }
+  ]
+}
