@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "descricao": "Seção 11 do POP (docs/06 §5): as diretrizes do CEO reproduzidas fielmente no corpo do POP, com o ponto a revisar. Não editar o sentido nem remover."
+  },
+  "aviso": "Este texto é sinalização ao contratante, não parecer jurídico.",
+  "itens": [
+    {
+      "id": "obs_01",
+      "diretriz": "Orientação de usar o termo “boleto” no lugar de “financiamento” na comunicação comercial.",
+      "revisar": "Em operações de crédito com consumidor, a informação sobre juros e custo total deve ser clara.",
+      "palavra_chave": "boleto"
+    },
+    {
+      "id": "obs_02",
+      "diretriz": "Afirmação de que a parcela fica próxima ou inferior à conta de energia (“em muitos casos, a parcela fica próxima ou inferior ao valor atualmente pago na conta de energia, dependendo do projeto e da aprovação de crédito”).",
+      "revisar": "Condicionar a projeto/aprovação de crédito, como já ressalvado nas Anotações; evitar promessa genérica.",
+      "palavra_chave": "parcela"
+    },
+    {
+      "id": "obs_03",
+      "diretriz": "Afirmação de que a Lux é credenciada junto ao IBS (Instituto Brasileiro de Energia Solar).",
+      "revisar": "Não há documento de suporte no material do projeto; confirmar antes de usar como argumento de venda.",
+      "palavra_chave": "IBS"
+    },
+    {
+      "id": "obs_04",
+      "diretriz": "Afirmações técnicas de venda: na maioria das vezes o proprietário autoriza a instalação porque valoriza o imóvel, protege o telhado quando instalado corretamente e agrega patrimônio ao imóvel.",
+      "revisar": "Revisar tecnicamente antes de uso como padrão.",
+      "palavra_chave": "telhado"
+    }
+  ]
+}

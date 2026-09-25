@@ -1,0 +1,190 @@
+/*
+ * Tela POP. Só tokens da marca (ver ui.css): nenhuma cor, fonte ou peso literal.
+ * Reaproveita .fpe-aviso, .fpe-nav e .chips da tela FPE para a escolha do setor.
+ */
+
+/* ── Perguntas estratégicas ────────────────────────────────────────── */
+.pop-perguntas {
+  max-width: 64rem;
+  margin-bottom: 1.5rem;
+}
+
+.pop-perguntas__dica {
+  max-width: 60ch;
+  margin: 0 0 1.25rem;
+  color: var(--texto-suave);
+}
+
+.pop-perguntas__lista {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pop-pergunta {
+  display: grid;
+  gap: 0.25rem;
+  justify-items: start;
+}
+
+.pop-pergunta .campo {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* ── Ações e resultado ─────────────────────────────────────────────── */
+.pop-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vao);
+  margin: 0 0 2rem;
+}
+
+.pop-resultado {
+  max-width: 64rem;
+}
+
+.pop-resultado__vazio {
+  color: var(--texto-suave);
+}
+
+/* ── POP gerado ────────────────────────────────────────────────────── */
+.pop-gerado__cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--amarelo);
+}
+
+.pop-gerado__titulo {
+  margin: 0;
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+}
+
+.pop-gerado__subtitulo {
+  margin: 0.2rem 0 0;
+  color: var(--texto-suave);
+}
+
+.pop-aviso {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--chumbo-mid);
+  border-left: 3px solid var(--amarelo);
+}
+
+.pop-secao {
+  padding: 0.5rem 1.25rem 1rem;
+}
+
+.pop-secao p {
+  max-width: 68ch;
+}
+
+.pop-subtitulo {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: var(--peso-titulo);
+}
+
+.pop-lista {
+  max-width: 68ch;
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.pop-lista li {
+  margin-bottom: 0.35rem;
+}
+
+/* Passos do procedimento */
+.pop-passos {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.pop-passo__texto {
+  margin: 0 0 0.25rem;
+  font-weight: var(--peso-titulo);
+}
+
+.pop-passo__detalhes {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.pop-passo__detalhes dt {
+  display: inline;
+  color: var(--texto-fraco);
+}
+
+.pop-passo__detalhes dt::after {
+  content: ':';
+}
+
+.pop-passo__detalhes dd {
+  display: inline;
+  margin: 0;
+}
+
+/* Respostas das perguntas estratégicas dentro do POP */
+.pop-respostas {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 1rem;
+  background: var(--chumbo-mid);
+  border-left: 3px solid var(--chumbo-lighter);
+}
+
+.pop-respostas dt {
+  font-weight: var(--peso-titulo);
+}
+
+.pop-respostas dd {
+  margin: 0.15rem 0 0;
+  max-width: 68ch;
+  color: var(--texto-suave);
+}
+
+/* Tabelas (condicionais, indicadores, formulário) */
+.pop-tabela-rolagem {
+  max-width: 100%;
+  margin: 0 0 1rem;
+  overflow-x: auto;
+}
+
+.pop-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.pop-tabela th,
+.pop-tabela td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--chumbo-lighter);
+  text-align: left;
+  vertical-align: top;
+}
+
+.pop-tabela th {
+  background: var(--chumbo-mid);
+  font-weight: var(--peso-titulo);
+}
+
+@media (max-width: 40rem) {
+  .pop-secao {
+    padding-inline: 0.5rem;
+  }
+}

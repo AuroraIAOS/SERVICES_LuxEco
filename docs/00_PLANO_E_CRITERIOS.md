@@ -5,7 +5,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 
 >> **Progresso Geral**
 >>
->> ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅⬜⬜⬜⬜⬜⬜⬜⬜ 20/28
+>> ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅⬜⬜⬜⬜⬜⬜⬜ 21/28
 >>
 >> *baseado no número total de subetapas*
 
@@ -36,7 +36,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 02.11 | Deploy protegido e prova do portão | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run deploy` → 8 arquivos, `0 divergência(s)`; `curl` sem senha → 401, com SMOKE_BASIC → 200; MMO e FPE abrem no Chromium real sem erros (`scripts/smoke_remoto.ts`); 0 segredos no dist; gitleaks limpo. Spike PHP: 8.3.33, ZipArchive ok, REMOTE_USER visível, gravável fora do docroot. |
 | 02.12 | HANDOFF_UPGRADE e CHANGELOG do MVP | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `HANDOFF_UPGRADE.md` preenchido com as saídas reais; `grep -c "^## \[+1.0\]" CHANGELOG.md` → `1`; portão 02→03 verde (304 testes, e2e 13 passed, 3 `dados:validar` OK, 401/200, gitleaks limpo). |
 | **Etapa 03** | UPGRADES E VERSIONAMENTOS |  | ⬜ A FAZER |  |
-| 03.1 | Tela POP: perguntas estratégicas e geração por template | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 03.1 | Tela POP: perguntas estratégicas e geração por template | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run dados:validar -- --pop` → `OK pop: setores=12 perguntas>=96 secoes=11` (108 perguntas); `npm test` → 385 passed (39 do gerador: 12 POPs setoriais + 1 geral com 11 seções e os 4 itens da seção 11); `npm run e2e` → 17 passed (4 do POP); gitleaks limpo. |
 | 03.2 | Exportar POP em .docx e .pdf | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 03.3 | LLM: seletor padrão/particular, consentimento e fallback | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 03.4 | Exportar XLSX (FPE e POP) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -342,7 +342,7 @@ Observações: commit + push por subetapa; registrar em `handoffs/instrucoes.md`
 **PORTÃO 03→entrega (na hospedagem de Max):** `npm test` → `0 failed` · `npm run e2e` → `passed` · `npm run dados:validar -- --v08 --fichas --bibliotecas` → 3 `OK` · `401` sem senha e `200` com senha, **inclusive em `/api/backups.php`** · `npm run backup:provar` → `OK backup: criar=201 listar=200 baixar=200 zip=200 excluir=200 onze=409 config=200` · `gitleaks` → `no leaks found` · teste de fallback do LLM verde. Enquanto vermelho, é **proibido** marcar a entrega como concluída. **A migração (03.8) só começa depois deste portão verde + “aprovado” de Max.**
 
 ### Subetapa 03.1 — Tela POP: perguntas estratégicas e geração por template [Auto] [Goal] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: POP parcial (por setor) e geral, **sem LLM**, a partir do template fixo.
 Arquivos tocados: `data/conteudo/perguntas_pop.json`, `pop_templates.json`, `pop_observacoes_juridicas.json`, `src/telas/pop/*`, `src/pop/gerar.ts`, `src/pop/gerar.test.ts`, `scripts/validar_dados.ts`.
 Passos: 1) Escrever ≥ 8 perguntas estratégicas por setor com resposta-padrão pré-preenchida (`docs/06` §5). 2) Template com as 11 seções fixas (a 11 = Observações para revisão jurídica, sempre por último). 3) `gerar.ts`: montar POP setorial e geral a partir das fichas, condicionais, bibliotecas e respostas. 4) Tela: escolher setor(es), editar respostas, botão “Gerar POP do setor” / “Gerar POP geral”.

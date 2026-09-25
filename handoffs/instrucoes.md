@@ -167,6 +167,12 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm run deploy | tail -3` → `prova: sem senha → 401; com SMOKE_BASIC → 200` · `DEPLOY OK`; `npm test -- deploy_lib` → 9 passed.
 - **Fonte:** decisão técnica de 25/09/2026 (02.11); instrucoes §6 (FTP host, 451, .htaccess).
 
+### POP por template: dados curados + gerador puro (`gerarPop`) + estado de respostas separado do FPE
+- **Gatilho:** qualquer mudança na tela POP, em `data/conteudo/{perguntas_pop,pop_templates,pop_observacoes_juridicas}.json`, nos exports do POP (03.2, que reaproveitam a estrutura `Pop`) ou no backup (03.5, que embute `lux_pop_estado_v1` ao lado do estado do FPE).
+- **Ação:** `src/pop/gerar.ts` (`gerarPop(escopo, entrada) → Pop` = 11 seções de blocos tipados) é puro: junta as fichas EM VIGOR (`montarFpe` com as edições do FPE), Matriz, bibliotecas e respostas. Ordem/títulos das 11 seções, frases de ligação (`{chave}` validada) e glossário vivem no JSON; a seção 11 vem de `pop_observacoes_juridicas.json` (4 itens de docs/06 §5, fiéis ao CEO) e vai em **todo** POP. Cada pergunta (9 por setor) tem `secao` e alimenta uma seção; resposta apagada não entra (nada inventado no lugar). POP geral = os blocos de cada setor sob um subtítulo. Respostas editadas: `lux_pop_estado_v1` (`src/estado/pop.ts`, mesmas regras do FPE: Zod, cópia do ilegível, igual ao padrão desfaz a edição). `--pop` valida só os DADOS (≥ 8 perguntas por setor, as 9 seções cobertas, sem R$/prazo/pessoa interna, 11 seções, 4 itens com palavra-chave); a geração dos 13 POPs é provada no teste. `scripts/*` compilam com `module: nodenext`, que exige extensão `.ts` nos imports: por isso o validador não importa `gerar.ts` (que importa `telas/fpe/modelo` sem extensão).
+- **Evidência:** `npm run dados:validar -- --pop | tail -1` → `OK pop: setores=12 perguntas>=96 secoes=11`; `npm test -- pop` → 0 failed; `npm run e2e -- pop` → 4 passed.
+- **Fonte:** decisão técnica de 25/09/2026 (03.1); docs/06 §5.
+
 ## 6. Armadilhas conhecidas (não repetir)
 
 ### `white-space: nowrap` em rótulo de pílula estoura a largura no celular

@@ -1,0 +1,1099 @@
+{
+  "meta": {
+    "descricao": "Perguntas estratégicas por setor (docs/06 §5). Cada resposta-padrão vem dos documentos da Lux; a que tem inferência é 'sugerido'. Cada pergunta alimenta uma seção do POP (campo 'secao').",
+    "secoes_alimentadas": [1, 2, 3, 5, 6, 7, 8, 9, 10]
+  },
+  "perguntas": [
+    {
+      "id": "perg_01_1",
+      "setor_id": "setor_01",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o objetivo do Marketing no ciclo de serviço?",
+      "resposta_padrao": "Gerar e encaminhar leads ao setor de Vendas, cuidar da propaganda e da publicidade da marca e produzir os layouts e cenários usados nas simulações. No pós-venda, define a abordagem e o tom da comunicação com o cliente.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 01 — Marketing; Matriz, Marketing × Est. 1, 3 e 22"
+    },
+    {
+      "id": "perg_01_2",
+      "setor_id": "setor_01",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo o Marketing entra na operação?",
+      "resposta_padrao": "Atua na Prospecção, no Atendimento e na Simulação e volta no Pós-venda. Nos estágios do meio do ciclo a operação segue com os outros setores.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células do Marketing nos Est. 1, 2, 3 e 22"
+    },
+    {
+      "id": "perg_01_3",
+      "setor_id": "setor_01",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem responde pelo Marketing e com quem ele se coordena?",
+      "resposta_padrao": "A função Marketing responde pelas campanhas e pelo conteúdo da marca. Encaminha os leads ao setor de Vendas e trabalha com a Engenharia nos layouts e cenários de simulação. O CEO orienta as ações e o Administrativo monitora as métricas do setor.",
+      "origem": "documentado",
+      "fundamento": "Relatório §3 Est. 1 e 3"
+    },
+    {
+      "id": "perg_01_4",
+      "setor_id": "setor_01",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que o Marketing precisa ter antes de agir?",
+      "resposta_padrao": "Precisa das orientações do CEO para a comunicação, do acesso às campanhas de tráfego pago (Google Ads) e da simulação gerada pelo Administrativo, que serve de base para os layouts e cenários.",
+      "origem": "sugerido",
+      "fundamento": "Relatório §3 Est. 1 e 3 (o CEO orienta as ações; o Administrativo gera as simulações)"
+    },
+    {
+      "id": "perg_01_5",
+      "setor_id": "setor_01",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência principal de trabalho do Marketing?",
+      "resposta_padrao": "Opera a campanha de tráfego pago, gera o lead e o encaminha ao setor de Vendas. Na Simulação, edita layouts e cenários com a Engenharia. No Pós-venda, define a abordagem e o tom da comunicação.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 01 — Marketing"
+    },
+    {
+      "id": "perg_01_6",
+      "setor_id": "setor_01",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Quando o Marketing escala uma ocorrência e a quem?",
+      "resposta_padrao": "Os documentos não trazem decisão IF/ELSE para o Marketing. Ocorrência sobre campanha, lead ou comunicação segue ao Administrativo, que coordena a operação, e, sem solução, ao CEO. A Lux confirma esse caminho.",
+      "origem": "sugerido",
+      "fundamento": "Ausência de IF/ELSE do Marketing na Matriz; Relatório §2 (Administrativo como hub; CEO como instância final)"
+    },
+    {
+      "id": "perg_01_7",
+      "setor_id": "setor_01",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais o Marketing usa?",
+      "resposta_padrao": "Usa o Google Ads para o tráfego pago. Os documentos não nomeiam a ferramenta de edição de layouts e cenários; a Lux informa qual usa.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 01; biblioteca de ferramentas (Google Ads)"
+    },
+    {
+      "id": "perg_01_8",
+      "setor_id": "setor_01",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como o desempenho do Marketing é acompanhado?",
+      "resposta_padrao": "Pelos indicadores Leads gerados, Leads aproveitados e Custo por lead. A meta de cada indicador é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs do Marketing (sugeridos; a Lux ainda não definiu indicadores)"
+    },
+    {
+      "id": "perg_01_9",
+      "setor_id": "setor_01",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que o Marketing registra e como usa o registro para melhorar?",
+      "resposta_padrao": "Registra os leads encaminhados a Vendas e o resultado das campanhas. Compara leads gerados com leads aproveitados para ajustar as campanhas e a abordagem do pós-venda.",
+      "origem": "sugerido",
+      "fundamento": "KPIs Leads gerados e Leads aproveitados; Relatório §2 Setor 01"
+    },
+
+    {
+      "id": "perg_02_1",
+      "setor_id": "setor_02",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o objetivo de Vendas no ciclo de serviço?",
+      "resposta_padrao": "Atender os leads do primeiro contato ao pós-venda, identificar o perfil e a condição financeira do cliente, classificar o lead (quente, morno ou frio) e conduzir a venda do sistema fotovoltaico ou da Energia por Assinatura da Lux.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 02 — Vendas; Anotações do CEO, atendimento"
+    },
+    {
+      "id": "perg_02_2",
+      "setor_id": "setor_02",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo Vendas atua?",
+      "resposta_padrao": "Atua da Prospecção à Pós-aprovação do contrato, acompanha a aprovação conjunta do projeto, a compra e a entrega do material, o agendamento, a instalação e o treinamento, e volta no Pós-venda.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células de Vendas nos Est. 1 a 8, 13 a 17, 19 e 22"
+    },
+    {
+      "id": "perg_02_3",
+      "setor_id": "setor_02",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem responde por Vendas e com quem se coordena?",
+      "resposta_padrao": "O Vendedor responde pelo relacionamento com o cliente. Recebe os leads do Marketing e trabalha com o Administrativo, que envia propostas e contratos, e com o Financeiro, que verifica a pré-aprovação de crédito. O CEO orienta as ações.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 02 e §3 Est. 1 a 6"
+    },
+    {
+      "id": "perg_02_4",
+      "setor_id": "setor_02",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que o Vendedor precisa confirmar antes de simular?",
+      "resposta_padrao": "Confirma a identidade e a titularidade do contato e verifica se a conta de energia está disponível. Sem a conta, solicita a estimativa de consumo e projeta o dimensionamento.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Vendas × Est. 2 (IF/ELSE: contato e conta de energia)"
+    },
+    {
+      "id": "perg_02_5",
+      "setor_id": "setor_02",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência principal de trabalho de Vendas?",
+      "resposta_padrao": "Prospecta ou recebe o lead, aborda com perguntas abertas, identifica o perfil e a condição financeira, classifica o lead, apresenta as formas de pagamento, conduz a proposta e o fechamento e acompanha a instalação e o treinamento até o pós-venda.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 02; Anotações do CEO, atendimento"
+    },
+    {
+      "id": "perg_02_6",
+      "setor_id": "setor_02",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Quais decisões Vendas toma e quando escala?",
+      "resposta_padrao": "No atendimento segue as decisões IF/ELSE: conta de energia disponível ou não; contato correto ou não; cliente já possui energia solar ou não; compra por assinatura ou não; quer e consegue instalar ou não; capital disponível ou não. Na entrega com inconformidade, comunica atrasos, desvios ou avarias ao Administrativo e ao cliente. Insatisfação que o Vendedor não resolve segue ao CEO.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Vendas × Est. 2, 15 e 22 (IF/ELSE); CEO × Est. 22"
+    },
+    {
+      "id": "perg_02_7",
+      "setor_id": "setor_02",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais Vendas usa?",
+      "resposta_padrao": "Usa as plataformas financeiras parceiras (boleto parcelado), a plataforma especializada de cartão em até 21 vezes e o registro de leads e atendimentos enquanto o CRM próprio não existir. O CRM próprio é futuro e está fora deste projeto.",
+      "origem": "sugerido",
+      "fundamento": "Anotações do CEO (formas de pagamento); Relatório §4 (CRM futuro); registro de leads é sugerido"
+    },
+    {
+      "id": "perg_02_8",
+      "setor_id": "setor_02",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como o desempenho de Vendas é acompanhado?",
+      "resposta_padrao": "Pelos indicadores Atendimentos realizados, Contratos fechados, Conversão de lead em contrato e Tempo de resposta ao lead. A meta de cada indicador é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs de Vendas (sugeridos)"
+    },
+    {
+      "id": "perg_02_9",
+      "setor_id": "setor_02",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que Vendas registra e como usa o registro para melhorar?",
+      "resposta_padrao": "Registra o lead, o perfil, a classificação, a oportunidade de pós-venda e a prioridade dela, o feedback do cliente e as indicações. Usa a prioridade e o feedback para melhorar a abordagem.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Vendas × Est. 8 e 22; Anotações do CEO, pós-venda"
+    },
+
+    {
+      "id": "perg_03_1",
+      "setor_id": "setor_03",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o objetivo do Administrativo no ciclo de serviço?",
+      "resposta_padrao": "Coordenar a operação como hub central: elaborar e enviar propostas e contratos, gerar simulações, emitir ordens de compra, monitorar as métricas em todos os estágios, coordenar a aprovação multissetorial do projeto e solicitar a homologação.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 03 — Administrativo"
+    },
+    {
+      "id": "perg_03_2",
+      "setor_id": "setor_03",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo o Administrativo atua?",
+      "resposta_padrao": "Atua em todos os estágios, da Prospecção ao Pós-venda, porque coordena a operação e monitora as métricas de cada um.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células do Administrativo nos 22 estágios"
+    },
+    {
+      "id": "perg_03_3",
+      "setor_id": "setor_03",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem responde pelo Administrativo e com quem se coordena?",
+      "resposta_padrao": "A função Administrativo responde pela coordenação. Recebe dos Fornecedores, da Logística e da Equipe Técnica as informações de campo, comunica a Equipe Técnica para a instalação, gerencia o Grupo de Fluxo (WhatsApp) com o cliente e escala ao CEO o que não resolve.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 03; Matriz, Administrativo × Est. 15, 17 e 20"
+    },
+    {
+      "id": "perg_03_4",
+      "setor_id": "setor_03",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que o Administrativo precisa ter antes de emitir a ordem de compra e de pedir a homologação?",
+      "resposta_padrao": "A ordem de compra sai depois da aprovação conjunta do projeto. O pedido de homologação sai depois da instalação e da vistoria técnica, conforme a sequência dos estágios.",
+      "origem": "sugerido",
+      "fundamento": "Ordem dos estágios: 13 Aprovação conjunta, 14 Compra de material, 17 Instalação, 18 Vistoria técnica, 20 Solicitação de ligação"
+    },
+    {
+      "id": "perg_03_5",
+      "setor_id": "setor_03",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência principal de trabalho do Administrativo?",
+      "resposta_padrao": "Gera a simulação e elabora a proposta, envia o contrato e cria o Grupo de Fluxo após o fechamento, envia as guias de pagamento, coordena a aprovação conjunta do projeto, emite a ordem de compra, comunica a Equipe Técnica para a instalação e solicita a homologação à Cemig.",
+      "origem": "documentado",
+      "fundamento": "Relatório §3 Est. 3 a 20"
+    },
+    {
+      "id": "perg_03_6",
+      "setor_id": "setor_03",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Quando o Administrativo escala ao CEO?",
+      "resposta_padrao": "Atrasos, desvios e avarias na entrega: resolvidos internamente, registra e comunica; não resolvidos, escala ao CEO. Inconformidade de documentação: regularizável, corrige e reemite; com impedimento, escala ao CEO. Rejeição de homologação: sanável, corrige e reencaminha; insanável, comunica o CEO e o cliente.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Administrativo × Est. 15, 17 e 20 (IF/ELSE)"
+    },
+    {
+      "id": "perg_03_7",
+      "setor_id": "setor_03",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais o Administrativo usa?",
+      "resposta_padrao": "Usa o Grupo de Fluxo (WhatsApp), canal temporário com o cliente, a assinatura digital do contrato e o registro de leads e atendimentos enquanto o CRM próprio não existir. O CRM próprio é futuro e está fora deste projeto.",
+      "origem": "sugerido",
+      "fundamento": "Relatório §4 (Grupo de Fluxo temporário; CRM futuro); assinatura digital e registro de leads são sugeridos"
+    },
+    {
+      "id": "perg_03_8",
+      "setor_id": "setor_03",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como o desempenho do Administrativo é acompanhado?",
+      "resposta_padrao": "Pelos indicadores Propostas e contratos enviados, Ordens de compra emitidas, Tempo entre estágios e Pendências documentais resolvidas. A meta de cada indicador é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs do Administrativo (sugeridos)"
+    },
+    {
+      "id": "perg_03_9",
+      "setor_id": "setor_03",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que o Administrativo registra e como usa o registro para melhorar?",
+      "resposta_padrao": "Registra a resolução de atrasos, desvios e avarias, as ocorrências de entrega e instalação, as oportunidades de pós-venda e as métricas de cada estágio. Usa os registros para achar gargalos entre estágios.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Administrativo × Est. 15, 17 e 22; Relatório §2 Setor 03"
+    },
+
+    {
+      "id": "perg_04_1",
+      "setor_id": "setor_04",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o objetivo do Financeiro no ciclo de serviço?",
+      "resposta_padrao": "Verificar a pré-aprovação de crédito, aprovar o projeto sob a perspectiva financeira, efetivar a compra de materiais, processar as movimentações financeiras e escalar ao CEO os casos de maior impacto.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 04 — Financeiro"
+    },
+    {
+      "id": "perg_04_2",
+      "setor_id": "setor_04",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo o Financeiro atua?",
+      "resposta_padrao": "Atua na Simulação, na Proposta, no Fechamento, na Pós-aprovação do contrato, na Aprovação conjunta do projeto, na Compra e na Entrega de material, na Instalação e no Pós-venda.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células do Financeiro nos Est. 3, 4, 6, 8, 13, 14, 15, 17 e 22"
+    },
+    {
+      "id": "perg_04_3",
+      "setor_id": "setor_04",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem responde pelo Financeiro e com quem se coordena?",
+      "resposta_padrao": "A função Financeiro responde pelo crédito e pelas movimentações financeiras. Atua em paralelo com a Contabilidade, recebe do Administrativo a ordem de compra e escala ao CEO o que tem impacto relevante.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setores 04 e 05; §3 Est. 14"
+    },
+    {
+      "id": "perg_04_4",
+      "setor_id": "setor_04",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que o Financeiro precisa ter antes de verificar o crédito e de efetivar a compra?",
+      "resposta_padrao": "Para verificar o crédito precisa dos dados da simulação e da proposta. Para efetivar a compra precisa da ordem de compra emitida pelo Administrativo.",
+      "origem": "sugerido",
+      "fundamento": "Relatório §3 Est. 3, 4 e 14"
+    },
+    {
+      "id": "perg_04_5",
+      "setor_id": "setor_04",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência principal de trabalho do Financeiro?",
+      "resposta_padrao": "Verifica a pré-aprovação de crédito para o boleto parcelado, aprova o projeto na perspectiva financeira, efetiva a compra dos materiais depois da ordem de compra e processa as movimentações financeiras até o encerramento.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 04; Matriz, Financeiro × Est. 3, 13 e 14"
+    },
+    {
+      "id": "perg_04_6",
+      "setor_id": "setor_04",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Quais decisões o Financeiro toma e quando escala?",
+      "resposta_padrao": "Crédito aprovado: prossegue com o boleto parcelado. Crédito negado: oferece alternativa de pagamento ao cliente. Ajuste financeiro viável na entrega: processa internamente; impacto relevante: escala ao CEO. Inconformidade financeira na instalação: resolvível, regulariza e registra; crítica, escala ao CEO.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Financeiro × Est. 3, 15 e 17 (IF/ELSE)"
+    },
+    {
+      "id": "perg_04_7",
+      "setor_id": "setor_04",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais o Financeiro usa?",
+      "resposta_padrao": "Usa as plataformas financeiras parceiras para o crédito e a plataforma especializada de cartão em até 21 vezes.",
+      "origem": "documentado",
+      "fundamento": "Anotações do CEO (formas de pagamento); biblioteca de ferramentas"
+    },
+    {
+      "id": "perg_04_8",
+      "setor_id": "setor_04",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como o desempenho do Financeiro é acompanhado?",
+      "resposta_padrao": "Pelos indicadores Compras de material efetivadas, Crédito pré-aprovado e Inconformidades financeiras resolvidas no setor. A meta de cada indicador é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs do Financeiro (sugeridos)"
+    },
+    {
+      "id": "perg_04_9",
+      "setor_id": "setor_04",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que o Financeiro registra e como usa o registro para melhorar?",
+      "resposta_padrao": "Registra o resultado da verificação de crédito, as compras efetivadas e as inconformidades financeiras tratadas. Usa o registro para revisar as alternativas de pagamento oferecidas quando o crédito é negado.",
+      "origem": "sugerido",
+      "fundamento": "Matriz, Financeiro × Est. 3, 14 e 17"
+    },
+
+    {
+      "id": "perg_05_1",
+      "setor_id": "setor_05",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o objetivo da Contabilidade no ciclo de serviço?",
+      "resposta_padrao": "Indicar os movimentos contábeis da proposta e do contrato, aprovar o projeto sob a perspectiva fiscal, processar o ICMS da compra e do translado de material e o ISSQN da obra de instalação e finalizar os processos contábeis ao encerramento.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 05 — Contabilidade"
+    },
+    {
+      "id": "perg_05_2",
+      "setor_id": "setor_05",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo a Contabilidade atua?",
+      "resposta_padrao": "Atua na Proposta, no Fechamento, na Pós-aprovação do contrato, na Aprovação conjunta do projeto, na Compra de material, na Instalação e no Pós-venda, quando finaliza os processos contábeis.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células da Contabilidade nos Est. 4, 6, 8, 13, 14, 17 e 22"
+    },
+    {
+      "id": "perg_05_3",
+      "setor_id": "setor_05",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem responde pela Contabilidade e com quem se coordena?",
+      "resposta_padrao": "A função Contabilidade responde pelos aspectos fiscais e contábeis. Atua em paralelo ao Financeiro e escala ao CEO as inconformidades fiscais críticas.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 05; Matriz, Contabilidade × Est. 17 (IF/ELSE)"
+    },
+    {
+      "id": "perg_05_4",
+      "setor_id": "setor_05",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que a Contabilidade precisa receber antes de agir?",
+      "resposta_padrao": "Precisa da proposta e do contrato para indicar os movimentos contábeis, do projeto para a aprovação fiscal e das guias de translado para processar o ICMS.",
+      "origem": "documentado",
+      "fundamento": "Biblioteca de documentos (Proposta comercial, Contrato digital, Projeto técnico, Guias de translado)"
+    },
+    {
+      "id": "perg_05_5",
+      "setor_id": "setor_05",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência principal de trabalho da Contabilidade?",
+      "resposta_padrao": "Indica os movimentos contábeis na Proposta e no Fechamento, aprova o projeto na perspectiva fiscal, processa o ICMS na compra e no translado, processa o ISSQN na instalação e finaliza os processos contábeis no encerramento.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 05 e §3 Est. 4, 6, 13, 14, 17 e 22"
+    },
+    {
+      "id": "perg_05_6",
+      "setor_id": "setor_05",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Quando a Contabilidade escala uma inconformidade?",
+      "resposta_padrao": "Inconformidade fiscal regularizável: corrige e registra. Inconformidade fiscal crítica: escala ao CEO.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Contabilidade × Est. 17 (IF/ELSE)"
+    },
+    {
+      "id": "perg_05_7",
+      "setor_id": "setor_05",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais a Contabilidade usa?",
+      "resposta_padrao": "Os documentos não nomeiam ferramenta da Contabilidade. A Lux informa o sistema contábil e fiscal que usa.",
+      "origem": "sugerido",
+      "fundamento": "Ausência de ferramenta da Contabilidade nos documentos"
+    },
+    {
+      "id": "perg_05_8",
+      "setor_id": "setor_05",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como o desempenho da Contabilidade é acompanhado?",
+      "resposta_padrao": "Pelos indicadores Obrigações fiscais processadas e Inconformidades fiscais regularizadas no setor. A meta de cada indicador é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs da Contabilidade (sugeridos)"
+    },
+    {
+      "id": "perg_05_9",
+      "setor_id": "setor_05",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que a Contabilidade registra e como usa o registro para melhorar?",
+      "resposta_padrao": "Registra as obrigações fiscais processadas e as inconformidades regularizadas. Usa o registro para rever o procedimento quando a mesma inconformidade se repete.",
+      "origem": "sugerido",
+      "fundamento": "Matriz, Contabilidade × Est. 17 e 22"
+    },
+
+    {
+      "id": "perg_06_1",
+      "setor_id": "setor_06",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o objetivo do CEO no ciclo de serviço?",
+      "resposta_padrao": "Orientar e supervisionar todos os estágios, assinar os contratos, ser a instância final de resolução das inconformidades escaladas e definir a estratégia comercial por cenário, inclusive nas situações não previstas.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 06 — CEO; Anotações do CEO, situações não previstas"
+    },
+    {
+      "id": "perg_06_2",
+      "setor_id": "setor_06",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo o CEO atua?",
+      "resposta_padrao": "Atua em todos os estágios, da Prospecção ao Pós-venda.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células do CEO nos 22 estágios"
+    },
+    {
+      "id": "perg_06_3",
+      "setor_id": "setor_06",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem recebe as escaladas do CEO e com quem ele se coordena?",
+      "resposta_padrao": "O CEO responde pela decisão final. Recebe as escaladas do Administrativo, do Financeiro, da Contabilidade, da Equipe Técnica, dos Fornecedores e do cliente, e apoia a mobilização da Equipe Técnica.",
+      "origem": "documentado",
+      "fundamento": "Matriz, IF/ELSE com escalonamento ao CEO nos Est. 15, 17, 18 e 22"
+    },
+    {
+      "id": "perg_06_4",
+      "setor_id": "setor_06",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que o CEO precisa ter antes de decidir uma escalada ou reassinar um contrato?",
+      "resposta_padrao": "Precisa do registro da ocorrência feito pelo setor que escalou e do que já foi tentado. Na renegociação de contrato precisa da margem autorizada, que a Lux define: os documentos não a informam.",
+      "origem": "sugerido",
+      "fundamento": "Matriz, CEO × Est. 6 (margem autorizada); ficha da renegociação"
+    },
+    {
+      "id": "perg_06_5",
+      "setor_id": "setor_06",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência principal de trabalho do CEO?",
+      "resposta_padrao": "Orienta as ações em cada estágio, assina o contrato, aprova o projeto na aprovação geral, acompanha pagamentos e métricas, apoia a mobilização da Equipe Técnica e trata as escaladas.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 06"
+    },
+    {
+      "id": "perg_06_6",
+      "setor_id": "setor_06",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Como o CEO decide nas situações previstas e nas não previstas?",
+      "resposta_padrao": "Situação não prevista: ouve o cliente, identifica a causa, avalia os impactos técnicos, comerciais e financeiros, busca uma solução personalizada e registra a decisão para padronização. Negativa de homologação sanável: apoia a correção; insanável: informa o cliente e encerra o processo. Insatisfação com impacto contratual: aciona a garantia e formaliza o encerramento. Inconformidade crítica na entrega ou na instalação: assume a gestão direta.",
+      "origem": "documentado",
+      "fundamento": "Matriz, CEO × Est. 2, 15, 17, 20 e 22 (IF/ELSE)"
+    },
+    {
+      "id": "perg_06_7",
+      "setor_id": "setor_06",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais o CEO usa?",
+      "resposta_padrao": "Usa a assinatura digital do contrato; a Lux confirma qual ferramenta. O CRM próprio é futuro e está fora deste projeto.",
+      "origem": "sugerido",
+      "fundamento": "Relatório §3 Est. 7 (contrato digital); assinatura digital é sugerida"
+    },
+    {
+      "id": "perg_06_8",
+      "setor_id": "setor_06",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como o desempenho do CEO é acompanhado?",
+      "resposta_padrao": "Pelos indicadores Escaladas tratadas, Escaladas resolvidas e Decisões padronizadas. A meta de cada indicador é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs do CEO (sugeridos)"
+    },
+    {
+      "id": "perg_06_9",
+      "setor_id": "setor_06",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que o CEO registra e como usa o registro para melhorar?",
+      "resposta_padrao": "Registra cada decisão em situação não prevista para transformá-la em procedimento padrão e revisa as respostas-padrão de atendimento a partir dessas decisões.",
+      "origem": "documentado",
+      "fundamento": "Anotações do CEO, situações não previstas (registro para padronização)"
+    },
+
+    {
+      "id": "perg_07_1",
+      "setor_id": "setor_07",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o objetivo da Engenharia no ciclo de serviço?",
+      "resposta_padrao": "Realizar as visitas técnicas facultativas, elaborar o projeto técnico, enviá-lo ao Administrativo para aprovação, propor solução alternativa ou emitir parecer de inviabilidade quando há impedimento e emitir o CAT ao final do processo.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 07 — Engenharia"
+    },
+    {
+      "id": "perg_07_2",
+      "setor_id": "setor_07",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo a Engenharia atua?",
+      "resposta_padrao": "Atua no Atendimento e na Simulação (visitas facultativas e layouts), no Projeto, na Engenharia, na Aprovação conjunta do projeto, no Treinamento e na Homologação, quando emite o CAT.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células da Engenharia nos Est. 2, 3, 10, 11, 13, 19 e 21"
+    },
+    {
+      "id": "perg_07_3",
+      "setor_id": "setor_07",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem responde pela Engenharia e com quem se coordena?",
+      "resposta_padrao": "As empresas de engenharia terceirizadas (Galva Engenharia e Telar Engenharia) respondem pelo projeto. Enviam o projeto ao Administrativo, comunicam o CEO e o cliente em caso de inviabilidade e mantêm o Administrativo atualizado sobre novas tecnologias.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 07; Matriz, Engenharia × Est. 13"
+    },
+    {
+      "id": "perg_07_4",
+      "setor_id": "setor_07",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que a Engenharia precisa receber antes de elaborar o projeto?",
+      "resposta_padrao": "Precisa dos dados da simulação e do cliente e, quando há visita técnica, do acesso ao imóvel.",
+      "origem": "sugerido",
+      "fundamento": "Relatório §3 Est. 3, 10 e 11"
+    },
+    {
+      "id": "perg_07_5",
+      "setor_id": "setor_07",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência principal de trabalho da Engenharia?",
+      "resposta_padrao": "Elabora o projeto técnico, o envia ao Administrativo, participa da aprovação conjunta, ajusta o projeto ou emite parecer de inviabilidade se houver impedimento e emite o CAT ao final do processo.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 07 e §3 Est. 10, 11, 13 e 21"
+    },
+    {
+      "id": "perg_07_6",
+      "setor_id": "setor_07",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Como a Engenharia decide diante de um impedimento técnico?",
+      "resposta_padrao": "Impedimento sanável: propõe solução técnica alternativa. Impedimento insanável: emite parecer de inviabilidade e comunica o CEO e o cliente.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Engenharia × Est. 13 (IF/ELSE)"
+    },
+    {
+      "id": "perg_07_7",
+      "setor_id": "setor_07",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais a Engenharia usa?",
+      "resposta_padrao": "Os documentos não nomeiam a ferramenta de projeto das empresas parceiras. A Lux informa se exige alguma.",
+      "origem": "sugerido",
+      "fundamento": "Ausência de ferramenta da Engenharia nos documentos"
+    },
+    {
+      "id": "perg_07_8",
+      "setor_id": "setor_07",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como o desempenho da Engenharia é acompanhado?",
+      "resposta_padrao": "Pelos indicadores Projetos técnicos entregues, Projetos aprovados sem adequação e Tempo de elaboração do projeto. A meta de cada indicador é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs da Engenharia (sugeridos)"
+    },
+    {
+      "id": "perg_07_9",
+      "setor_id": "setor_07",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que a Engenharia registra e como usa o registro para melhorar?",
+      "resposta_padrao": "Registra os pareceres de inviabilidade e as adequações pedidas no imóvel e mantém o Administrativo atualizado sobre novas tecnologias de produtos e serviços.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 07"
+    },
+
+    {
+      "id": "perg_08_1",
+      "setor_id": "setor_08",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o objetivo dos Fornecedores no ciclo de serviço?",
+      "resposta_padrao": "Fornecer os dados para a simulação de consumo, receber a ordem de compra, separar, embalar e despachar os materiais, comunicar o despacho ao Administrativo e compartilhar as informações técnicas dos produtos.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 08 — Fornecedores"
+    },
+    {
+      "id": "perg_08_2",
+      "setor_id": "setor_08",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo os Fornecedores atuam?",
+      "resposta_padrao": "Atuam na Simulação e na Proposta (dados), na Compra e na Entrega de material, na Instalação (inconformidades com materiais) e no Treinamento (informações técnicas dos produtos).",
+      "origem": "documentado",
+      "fundamento": "Matriz, células dos Fornecedores nos Est. 3, 4, 14, 15, 17 e 19"
+    },
+    {
+      "id": "perg_08_3",
+      "setor_id": "setor_08",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem responde pelos Fornecedores e com quem se coordenam?",
+      "resposta_padrao": "O Fornecedor responde pelo material até o despacho. Age em conjunto com a Logística nos atrasos, desvios e avarias, comunica o Administrativo e escala ao CEO quando necessário.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 08; Matriz, Fornecedores × Est. 15"
+    },
+    {
+      "id": "perg_08_4",
+      "setor_id": "setor_08",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que o Fornecedor precisa receber antes de despachar?",
+      "resposta_padrao": "Precisa da ordem de compra emitida pelo Administrativo e da compra efetivada pelo Financeiro.",
+      "origem": "documentado",
+      "fundamento": "Relatório §3 Est. 14"
+    },
+    {
+      "id": "perg_08_5",
+      "setor_id": "setor_08",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência principal de trabalho dos Fornecedores?",
+      "resposta_padrao": "Recebe a ordem de compra, separa, embala e despacha o material, comunica o despacho ao Administrativo e trata com a Logística os atrasos, desvios e avarias.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 08 e §3 Est. 14 e 15"
+    },
+    {
+      "id": "perg_08_6",
+      "setor_id": "setor_08",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Quando os Fornecedores escalam uma ocorrência?",
+      "resposta_padrao": "Inconformidade resolvível na entrega: regulariza e comunica o Administrativo; crítica: escala ao CEO. Inconformidade de material na instalação: sanável, substitui ou repara; insanável, escala ao CEO. Ajuste de proposta: reenvia os dados revisados; proposta mantida: confirma os dados anteriores.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Fornecedores × Est. 4, 15 e 17 (IF/ELSE)"
+    },
+    {
+      "id": "perg_08_7",
+      "setor_id": "setor_08",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais os Fornecedores usam?",
+      "resposta_padrao": "Os documentos não nomeiam ferramenta dos Fornecedores. A comunicação do despacho segue ao Administrativo pelo canal que a Lux define.",
+      "origem": "sugerido",
+      "fundamento": "Ausência de ferramenta dos Fornecedores nos documentos"
+    },
+    {
+      "id": "perg_08_8",
+      "setor_id": "setor_08",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como o desempenho dos Fornecedores é acompanhado?",
+      "resposta_padrao": "Pelos indicadores Pedidos despachados e Pedidos sem inconformidade. A meta de cada indicador é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs dos Fornecedores (sugeridos)"
+    },
+    {
+      "id": "perg_08_9",
+      "setor_id": "setor_08",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que os Fornecedores registram e como usam o registro para melhorar?",
+      "resposta_padrao": "Registram as ocorrências de entrega e instalação e usam o checklist de conferência da entrega. Usam os registros para reduzir atrasos, desvios e avarias repetidos.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de documentos (checklist de conferência e registro de ocorrências são sugeridos)"
+    },
+
+    {
+      "id": "perg_09_1",
+      "setor_id": "setor_09",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o objetivo da Logística no ciclo de serviço?",
+      "resposta_padrao": "Fazer o translado dos materiais do Fornecedor até o local de instalação, receber os produtos, emitir as guias de translado, entregar no local e no horário definidos e notificar atrasos e avarias.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 09 — Logística"
+    },
+    {
+      "id": "perg_09_2",
+      "setor_id": "setor_09",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo a Logística atua?",
+      "resposta_padrao": "Atua na Compra de material, com o translado, e na Entrega de material.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células da Logística nos Est. 14 e 15"
+    },
+    {
+      "id": "perg_09_3",
+      "setor_id": "setor_09",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem responde pela Logística e com quem se coordena?",
+      "resposta_padrao": "A função Logística responde pelo translado e pela entrega. Age em conjunto com o Fornecedor e notifica o Fornecedor e o Administrativo em caso de atrasos, desvios e avarias.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setores 08 e 09"
+    },
+    {
+      "id": "perg_09_4",
+      "setor_id": "setor_09",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que a Logística precisa ter antes de entregar?",
+      "resposta_padrao": "Precisa do material despachado pelo Fornecedor e do local e do horário de entrega definidos.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Logística × Est. 15 (entrega conforme local e horário definidos)"
+    },
+    {
+      "id": "perg_09_5",
+      "setor_id": "setor_09",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência principal de trabalho da Logística?",
+      "resposta_padrao": "Recebe os produtos, emite as guias de translado, faz o translado até o local de instalação, entrega no local e no horário definidos e registra a conclusão.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 09"
+    },
+    {
+      "id": "perg_09_6",
+      "setor_id": "setor_09",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Quando a Logística notifica uma ocorrência?",
+      "resposta_padrao": "Ocorrência identificada: notifica o Fornecedor e o Administrativo imediatamente. Entrega conforme: registra a conclusão.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Logística × Est. 15 (IF/ELSE)"
+    },
+    {
+      "id": "perg_09_7",
+      "setor_id": "setor_09",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais a Logística usa?",
+      "resposta_padrao": "Usa as guias de translado como documento. Os documentos não nomeiam ferramenta da Logística; a Lux informa o canal usado para notificar o Fornecedor e o Administrativo.",
+      "origem": "sugerido",
+      "fundamento": "Ausência de ferramenta da Logística nos documentos"
+    },
+    {
+      "id": "perg_09_8",
+      "setor_id": "setor_09",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como o desempenho da Logística é acompanhado?",
+      "resposta_padrao": "Pelos indicadores Entregas realizadas e Entregas conformes. A meta de cada indicador é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs da Logística (sugeridos)"
+    },
+    {
+      "id": "perg_09_9",
+      "setor_id": "setor_09",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que a Logística registra e como usa o registro para melhorar?",
+      "resposta_padrao": "Registra as guias de translado emitidas e as ocorrências de entrega. Usa o registro para rever o procedimento quando há avaria ou atraso repetido.",
+      "origem": "sugerido",
+      "fundamento": "Matriz, Logística × Est. 15"
+    },
+
+    {
+      "id": "perg_10_1",
+      "setor_id": "setor_10",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o objetivo da Equipe Técnica no ciclo de serviço?",
+      "resposta_padrao": "Realizar as visitas técnicas ao imóvel, conferir o material entregue, executar a instalação, realizar a vistoria técnica interna e emitir o laudo e treinar o cliente no uso dos equipamentos.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 10 — Equipe Técnica"
+    },
+    {
+      "id": "perg_10_2",
+      "setor_id": "setor_10",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo a Equipe Técnica atua?",
+      "resposta_padrao": "Atua nas visitas do Atendimento e da Simulação, na Aprovação conjunta do projeto, na Entrega de material, no Agendamento, na Instalação, na Vistoria técnica, no Treinamento e na Solicitação de ligação.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células da Equipe Técnica nos Est. 2, 3, 13, 15, 16, 17, 18, 19 e 20"
+    },
+    {
+      "id": "perg_10_3",
+      "setor_id": "setor_10",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem compõe a Equipe Técnica e com quem ela se coordena?",
+      "resposta_padrao": "Equipes por região: em Lavras, Tiago/Illumini e Vinícius; em Passos, Odirley/Lumines e João Paulo/C7. Comunicam-se com o Administrativo, que as aciona para a instalação, e o CEO apoia a mobilização.",
+      "origem": "documentado",
+      "fundamento": "Matriz, equipes terceirizadas; Relatório §2 Setor 10"
+    },
+    {
+      "id": "perg_10_4",
+      "setor_id": "setor_10",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que a Equipe Técnica precisa ter antes de instalar?",
+      "resposta_padrao": "Precisa do projeto técnico aprovado, do material entregue e conferido e da data de instalação combinada com o cliente.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Equipe Técnica × Est. 13, 15, 16 e 17"
+    },
+    {
+      "id": "perg_10_5",
+      "setor_id": "setor_10",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência principal de trabalho da Equipe Técnica?",
+      "resposta_padrao": "Confere o material entregue, combina a data com o cliente, executa a instalação, realiza a vistoria técnica interna e emite o laudo, mantém o Administrativo informado e treina o cliente.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 10 e §3 Est. 15 a 20"
+    },
+    {
+      "id": "perg_10_6",
+      "setor_id": "setor_10",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Quando a Equipe Técnica escala uma ocorrência e a quem?",
+      "resposta_padrao": "Entrega: situação gerenciável, orienta e registra; crítica, escala ao Administrativo. Instalação: inconformidade técnica resolvível, corrige no ato; crítica, escala ao Administrativo e ao CEO. Agenda: reagendamento aceito, confirma a nova data; não aceito, escala ao Administrativo para mobilizar equipe reserva. Vistoria: situação gerenciável, registra e resolve com o Administrativo; crítica, escala ao CEO.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Equipe Técnica × Est. 15, 16, 17 e 18 (IF/ELSE)"
+    },
+    {
+      "id": "perg_10_7",
+      "setor_id": "setor_10",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais a Equipe Técnica usa?",
+      "resposta_padrao": "Usa o checklist de conferência da entrega e o comprovante de treinamento. Os documentos não nomeiam o canal com o Administrativo; a Lux define.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de documentos (checklist de conferência é sugerido)"
+    },
+    {
+      "id": "perg_10_8",
+      "setor_id": "setor_10",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como o desempenho da Equipe Técnica é acompanhado?",
+      "resposta_padrao": "Pelos indicadores Instalações concluídas, Vistorias internas realizadas, Instalações sem inconformidade e Treinamentos comprovados. A meta de cada indicador é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs da Equipe Técnica (sugeridos)"
+    },
+    {
+      "id": "perg_10_9",
+      "setor_id": "setor_10",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que a Equipe Técnica registra e como usa o registro para melhorar?",
+      "resposta_padrao": "Registra o laudo da vistoria técnica interna, o comprovante de treinamento e as ocorrências de entrega e instalação. Usa os registros para reduzir inconformidades repetidas.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Equipe Técnica × Est. 18 e 19; biblioteca de documentos"
+    },
+
+    {
+      "id": "perg_11_1",
+      "setor_id": "setor_11",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o papel da Cemig no ciclo de serviço?",
+      "resposta_padrao": "Realizar a vistoria técnica externa, analisar o pedido de ligação e homologação e liberar a usina para gerar energia. Em caso de inconformidade, emite parecer com os ajustes necessários.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 11 — Cemig"
+    },
+    {
+      "id": "perg_11_2",
+      "setor_id": "setor_11",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo a Cemig atua?",
+      "resposta_padrao": "Atua na Vistoria técnica, na Solicitação de ligação e na Homologação, no fim do ciclo.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células da Cemig nos Est. 18, 20 e 21"
+    },
+    {
+      "id": "perg_11_3",
+      "setor_id": "setor_11",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Quem responde pela Cemig e como a Lux se coordena com ela?",
+      "resposta_padrao": "A Cemig é a concessionária, agente externo: a Lux não tem controle direto sobre ela. O Administrativo faz o pedido e recebe o parecer, e a Equipe Técnica mantém o Administrativo informado.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 11 e §3 Est. 20"
+    },
+    {
+      "id": "perg_11_4",
+      "setor_id": "setor_11",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que a Cemig precisa receber antes de homologar?",
+      "resposta_padrao": "Precisa do pedido de ligação e homologação enviado pelo Administrativo, com o sistema instalado e a vistoria técnica realizada.",
+      "origem": "documentado",
+      "fundamento": "Relatório §3 Est. 18, 20 e 21"
+    },
+    {
+      "id": "perg_11_5",
+      "setor_id": "setor_11",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência de trabalho da Cemig?",
+      "resposta_padrao": "Realiza a vistoria externa, recebe o pedido de ligação, processa a ligação e a homologação, libera a usina e comunica o resultado ao Administrativo.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 11 e §3 Est. 18, 20 e 21"
+    },
+    {
+      "id": "perg_11_6",
+      "setor_id": "setor_11",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Como a Cemig decide e qual é o risco para a Lux?",
+      "resposta_padrao": "Projeto aprovado: homologa e comunica ao Administrativo. Projeto reprovado: emite parecer de inconformidade com os ajustes necessários. Na vistoria, inconformidade sanável: indica ajustes e reagenda; insanável: emite parecer definitivo negativo. A dependência da Cemig é o principal risco de prazo de toda a operação.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Cemig × Est. 18 e 21 (IF/ELSE); Relatório §2 Setor 11"
+    },
+    {
+      "id": "perg_11_7",
+      "setor_id": "setor_11",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais a Cemig usa?",
+      "resposta_padrao": "Os processos seguem os canais da própria concessionária, que os documentos não detalham. O Administrativo informa o canal usado para fazer o pedido.",
+      "origem": "sugerido",
+      "fundamento": "Ausência de canal da Cemig nos documentos"
+    },
+    {
+      "id": "perg_11_8",
+      "setor_id": "setor_11",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como a Lux acompanha o desempenho da Cemig?",
+      "resposta_padrao": "Por indicadores de acompanhamento, porque a Lux não controla o setor: Vistorias e homologações concluídas, Tempo de resposta da Cemig e Homologações sem ajuste. A meta é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs da Cemig (indicadores de acompanhamento, sugeridos)"
+    },
+    {
+      "id": "perg_11_9",
+      "setor_id": "setor_11",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que a Lux registra sobre a Cemig e como usa o registro para melhorar?",
+      "resposta_padrao": "Registra os pareceres com ajustes e as negativas. Usa o registro para o Administrativo antecipar as correções nos próximos projetos.",
+      "origem": "sugerido",
+      "fundamento": "Matriz, Cemig × Est. 21; documentos de parecer"
+    },
+
+    {
+      "id": "perg_12_1",
+      "setor_id": "setor_12",
+      "secao": 1,
+      "tema": "Objetivo",
+      "pergunta": "Qual é o papel do Cliente no ciclo de serviço?",
+      "resposta_padrao": "Informar os dados críticos para a simulação, avaliar e decidir sobre a proposta e o contrato, realizar os pagamentos, aprovar o projeto conforme os termos contratuais, receber o material e a Equipe Técnica, participar do treinamento e dar o feedback final.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 12 — Cliente"
+    },
+    {
+      "id": "perg_12_2",
+      "setor_id": "setor_12",
+      "secao": 2,
+      "tema": "Abrangência",
+      "pergunta": "Em quais momentos do ciclo o Cliente participa?",
+      "resposta_padrao": "Participa do Atendimento até o Fechamento, da Aprovação e da Pós-aprovação do contrato, dos Pagamentos, da Aprovação conjunta, da Compra e da Entrega de material, do Agendamento, da Instalação, da Vistoria, do Treinamento e do Pós-venda.",
+      "origem": "documentado",
+      "fundamento": "Matriz, células do Cliente nos Est. 2 a 9, 13 a 19 e 22"
+    },
+    {
+      "id": "perg_12_3",
+      "setor_id": "setor_12",
+      "secao": 3,
+      "tema": "Responsáveis",
+      "pergunta": "Com quem o Cliente fala em cada momento?",
+      "resposta_padrao": "O Cliente é agente externo. Fala com o Vendedor até o contrato e, depois do fechamento, com o Administrativo pelo Grupo de Fluxo (WhatsApp), canal temporário.",
+      "origem": "documentado",
+      "fundamento": "Relatório §4 (Canal temporário — Grupo de Fluxo)"
+    },
+    {
+      "id": "perg_12_4",
+      "setor_id": "setor_12",
+      "secao": 5,
+      "tema": "Pré-requisitos",
+      "pergunta": "O que o Cliente precisa fornecer para o processo andar?",
+      "resposta_padrao": "Precisa fornecer a conta de energia, ou a estimativa de consumo, e as informações do imóvel para a simulação e o projeto.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Cliente × Est. 2 e 3; Vendas × Est. 2 (conta de energia)"
+    },
+    {
+      "id": "perg_12_5",
+      "setor_id": "setor_12",
+      "secao": 6,
+      "tema": "Procedimento",
+      "pergunta": "Qual é a sequência de participação do Cliente?",
+      "resposta_padrao": "Informa os dados, avalia a proposta e o contrato e decide, realiza os pagamentos, aprova o projeto, recebe o material e a equipe, participa do treinamento, assina o comprovante e presta o feedback.",
+      "origem": "documentado",
+      "fundamento": "Relatório §2 Setor 12"
+    },
+    {
+      "id": "perg_12_6",
+      "setor_id": "setor_12",
+      "secao": 7,
+      "tema": "Escalonamento",
+      "pergunta": "Quais decisões o Cliente toma e como escala uma insatisfação?",
+      "resposta_padrao": "Proposta ou contrato aceitos: segue; recusados: solicita revisão ou encerra a negociação. Inconformidade no imóvel: resolve o que estiver ao alcance e comunica; fora do alcance, escala ao Administrativo. Insatisfação registrada com o Vendedor e não resolvida segue ao CEO.",
+      "origem": "documentado",
+      "fundamento": "Matriz, Cliente × Est. 5, 7, 17, 18 e 22 (IF/ELSE)"
+    },
+    {
+      "id": "perg_12_7",
+      "setor_id": "setor_12",
+      "secao": 8,
+      "tema": "Ferramentas",
+      "pergunta": "Quais ferramentas e canais o Cliente usa?",
+      "resposta_padrao": "Fala pelo Grupo de Fluxo (WhatsApp), paga pelas plataformas financeiras parceiras ou pela plataforma especializada de cartão e assina o contrato de forma digital.",
+      "origem": "sugerido",
+      "fundamento": "Relatório §4; Anotações do CEO (formas de pagamento); assinatura digital é sugerida"
+    },
+    {
+      "id": "perg_12_8",
+      "setor_id": "setor_12",
+      "secao": 9,
+      "tema": "Métricas",
+      "pergunta": "Como a Lux acompanha a participação do Cliente?",
+      "resposta_padrao": "Por indicadores de acompanhamento, porque a Lux não controla o cliente: Decisões do cliente concluídas, Pagamentos realizados nas datas e Tempo de resposta do cliente. A meta é definida pela Lux.",
+      "origem": "sugerido",
+      "fundamento": "Biblioteca de KPIs do Cliente (indicadores de acompanhamento, sugeridos)"
+    },
+    {
+      "id": "perg_12_9",
+      "setor_id": "setor_12",
+      "secao": 10,
+      "tema": "Melhoria contínua",
+      "pergunta": "O que o Cliente registra e como a Lux usa o retorno dele?",
+      "resposta_padrao": "Registra a insatisfação com o Vendedor e responde ao formulário de feedback. A Lux usa esse retorno para melhorar o atendimento e o pós-venda.",
+      "origem": "sugerido",
+      "fundamento": "Matriz, Cliente × Est. 22; formulário de feedback é sugerido"
+    }
+  ]
+}

@@ -266,3 +266,72 @@ export interface DocumentoFichas {
   meta: { versao_matriz: string; gerado_de: string[]; fases_autoradas: number[]; total: number };
   fichas: Ficha5w1h[];
 }
+
+/** Biblioteca completa (documentos, ferramentas, investimentos, KPIs) como o POP e o XLSX a leem. */
+export interface Bibliotecas {
+  documentos: Documento[];
+  ferramentas: Ferramenta[];
+  investimentos: Investimento[];
+  kpis: Kpi[];
+}
+
+// ---------------------------------------------------------------------------------------------
+// POP (docs/06 §5): template fixo de 11 seções; perguntas estratégicas com resposta-padrão; seção 11 jurídica.
+// ---------------------------------------------------------------------------------------------
+
+/** Seções do POP que uma pergunta pode alimentar (a 4 vem do glossário e a 11 das observações jurídicas). */
+export type SecaoPergunta = 1 | 2 | 3 | 5 | 6 | 7 | 8 | 9 | 10;
+
+export interface PerguntaPop {
+  id: string; // "perg_<setor>_<n>"
+  setor_id: string;
+  secao: SecaoPergunta;
+  tema: string;
+  pergunta: string;
+  /** texto pré-preenchido e editável na tela; só usa o que os documentos dizem. */
+  resposta_padrao: string;
+  origem: OrigemConteudo;
+  fundamento: string;
+}
+
+export interface DocumentoPerguntasPop {
+  meta: { descricao: string; secoes_alimentadas: number[] };
+  perguntas: PerguntaPop[];
+}
+
+export interface SecaoTemplatePop {
+  numero: number;
+  chave: string;
+  titulo: string;
+}
+
+export interface TermoGlossarioPop {
+  termo: string;
+  definicao: string;
+  /** expressão regular (texto): o termo entra no POP do setor se ela casar com o texto das fichas/documentos dele. Vazio = sempre. */
+  busca: string;
+}
+
+export interface PopTemplates {
+  meta: { descricao: string };
+  secoes: SecaoTemplatePop[];
+  /** frases de ligação; `{chave}` é substituída por um valor calculado dos dados. */
+  textos: Record<string, string>;
+  formulario_campos: Record<CampoFormularioKpi, string>;
+  glossario: TermoGlossarioPop[];
+}
+
+export interface ObservacaoJuridica {
+  id: string; // "obs_01"..
+  /** diretriz do CEO, reproduzida fielmente. */
+  diretriz: string;
+  revisar: string;
+  /** palavra que tem de aparecer no POP gerado (o validador confere). */
+  palavra_chave: string;
+}
+
+export interface ObservacoesJuridicasPop {
+  meta: { descricao: string };
+  aviso: string;
+  itens: ObservacaoJuridica[];
+}

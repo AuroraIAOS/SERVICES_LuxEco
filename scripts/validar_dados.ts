@@ -1,9 +1,9 @@
 // Regras de integridade de docs/02_MODELO_DE_DADOS.md. Ativas: 1, 2, 8 (01.4), 3 — V08 (02.1), 4–5 — fichas (02.2–02.5),
-// 6–7 — bibliotecas (02.6), + integridade referencial e mapa de condicionais. Falta só o POP (`--pop`, 03.1).
+// 6–7 — bibliotecas (02.6), + integridade referencial e mapa de condicionais, + POP (`--pop`, 03.1).
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Condicional, Documento, Estagio, Ferramenta, Investimento, Kpi, Matriz, MatrizV08, Setor } from '../src/dados/tipos.ts';
+import type { Bibliotecas, Condicional, Documento, DocumentoPerguntasPop, Estagio, Ferramenta, Investimento, Kpi, Matriz, MatrizV08, ObservacoesJuridicasPop, PopTemplates, Setor } from '../src/dados/tipos.ts';
 import { faseDoEstagio } from '../src/dados/tipos.ts';
 import { comparar, HTML_LEGADO, lerJson, lerLegado } from './comparar_mmo_legado.ts';
 import { compor, JSON_ANOTACOES, JSON_MAPA, JSON_MMO, JSON_V08 } from './compor_v08.ts';
@@ -301,12 +301,7 @@ export function validarFichas(v08: MatrizV08, doc: DocumentoFichas, autoria: Aut
   return erros;
 }
 
-export interface Bibliotecas {
-  documentos: Documento[];
-  ferramentas: Ferramenta[];
-  investimentos: Investimento[];
-  kpis: Kpi[];
-}
+export type { Bibliotecas };
 
 /** Documentos que docs/06 §4 (6.d) e as fontes citam: cada padrão tem de casar com ≥ 1 documento `documentado`. */
 const DOCUMENTOS_OBRIGATORIOS: [string, RegExp][] = [
@@ -441,6 +436,97 @@ export function validarBibliotecas(v08: MatrizV08, b: Bibliotecas): string[] {
   return erros;
 }
 
+const SECOES_POP = 11;
+const PERGUNTAS_MIN_POR_SETOR = 8;
+const PERGUNTA_MAX = 180;
+const RESPOSTA_MAX = 800;
+/** Chaves que os textos do template podem usar entre chaves (o gerador informa exatamente estas). */
+const CHAVES_TEXTO_POP = ['setor', 'tipo', 'n_estagios_setor', 'n_setores', 'n_estagios'];
+const CAMPOS_KPI: string[] = ['indicador', 'periodo', 'meta', 'realizado', 'responsavel', 'observacoes'];
+
+/**
+ * POP (docs/06 §5, subetapa 03.1): perguntas estratégicas (≥ 8 por setor, resposta-padrão pré-preenchida, cada seção alimentável
+ * coberta), template com as 11 seções fixas (a 11 = revisão jurídica, sempre por último) e os 4 itens obrigatórios da seção 11.
+ * A geração dos 13 POPs em si é provada por `npm test -- pop` (src/pop/gerar.test.ts).
+ */
+export function validarPop(v08: MatrizV08, doc: DocumentoPerguntasPop, templates: PopTemplates, obs: ObservacoesJuridicasPop): string[] {
+  const erros: string[] = [];
+  const setores = new Set(v08.setores.map((s) => s.id));
+  const secoesAlimentadas = doc.meta.secoes_alimentadas;
+  const sujo = (rotulo: string, valor: string) => {
+    if (traz_cifra_ou_prazo(valor)) erros.push(`Conteúdo: ${rotulo} traz cifra em R$ ou prazo numérico ("${valor}")`);
+    if (NOMES_INTERNOS_PROIBIDOS.test(valor)) erros.push(`Conteúdo: ${rotulo} cita pessoa interna da Lux`);
+  };
+
+  // Perguntas
+  const ids = doc.perguntas.map((p) => p.id);
+  const dup = duplicados(ids);
+  if (dup.length) erros.push(`perguntas: ids duplicados: ${[...new Set(dup)].join(', ')}`);
+  for (const p of doc.perguntas) {
+    if (!/^perg_\d{2}_\d+$/.test(p.id)) erros.push(`${p.id}: id fora do padrão perg_<setor>_<n>`);
+    if (!setores.has(p.setor_id)) erros.push(`${p.id}: setor "${p.setor_id}" inexistente`);
+    else if (!p.id.startsWith(`perg_${p.setor_id.slice('setor_'.length)}_`)) erros.push(`${p.id}: o id não corresponde ao setor ${p.setor_id}`);
+    if (!secoesAlimentadas.includes(p.secao)) erros.push(`${p.id}: seção ${p.secao} não é alimentada por pergunta (use ${secoesAlimentadas.join(', ')})`);
+    if (!ORIGENS.includes(p.origem) || p.origem === 'manual') erros.push(`${p.id}: origem deve ser documentado ou sugerido`);
+    for (const campo of ['tema', 'pergunta', 'resposta_padrao', 'fundamento'] as const) {
+      if (!p[campo]?.trim()) erros.push(`${p.id}: ${campo} vazio`);
+      else sujo(`${p.id}.${campo}`, p[campo]);
+    }
+    if (p.pergunta?.length > PERGUNTA_MAX) erros.push(`${p.id}: pergunta acima de ${PERGUNTA_MAX} caracteres`);
+    if (p.resposta_padrao?.length > RESPOSTA_MAX) erros.push(`${p.id}: resposta-padrão acima de ${RESPOSTA_MAX} caracteres (texto curto)`);
+  }
+  for (const s of v08.setores) {
+    const dele = doc.perguntas.filter((p) => p.setor_id === s.id);
+    if (dele.length < PERGUNTAS_MIN_POR_SETOR) erros.push(`perguntas: o setor ${s.nome} tem ${dele.length}, o mínimo é ${PERGUNTAS_MIN_POR_SETOR}`);
+    for (const secao of secoesAlimentadas) {
+      if (!dele.some((p) => p.secao === secao)) erros.push(`perguntas: o setor ${s.nome} não tem pergunta para a seção ${secao} do POP`);
+    }
+  }
+
+  // Template
+  const secoes = templates.secoes;
+  if (secoes.length !== SECOES_POP) erros.push(`template: ${secoes.length} seções, o POP tem ${SECOES_POP}`);
+  secoes.forEach((s, i) => {
+    if (s.numero !== i + 1) erros.push(`template: a seção da posição ${i + 1} tem numero ${s.numero}`);
+    if (!s.titulo?.trim() || !s.chave?.trim()) erros.push(`template: seção ${i + 1} sem título ou chave`);
+  });
+  const chaves = secoes.map((s) => s.chave);
+  if (duplicados(chaves).length) erros.push('template: chaves de seção duplicadas');
+  const ultima = secoes[secoes.length - 1];
+  if (ultima?.chave !== 'revisao_juridica' || !ultima.titulo.startsWith('Observações para revisão jurídica')) erros.push('template: a seção 11 deve ser “Observações para revisão jurídica”, sempre por último');
+  for (const [chave, valor] of Object.entries(templates.textos)) {
+    sujo(`template.textos.${chave}`, valor);
+    for (const m of valor.matchAll(/\{(\w+)\}/g)) {
+      if (!CHAVES_TEXTO_POP.includes(m[1] ?? '')) erros.push(`template.textos.${chave}: usa {${m[1]}}, que o gerador não informa`);
+    }
+  }
+  for (const c of CAMPOS_KPI) if (!templates.formulario_campos?.[c as keyof PopTemplates['formulario_campos']]?.trim()) erros.push(`template: formulario_campos sem “${c}”`);
+  if (!templates.glossario.length) erros.push('template: glossário vazio');
+  for (const g of templates.glossario) {
+    if (!g.termo?.trim() || !g.definicao?.trim()) erros.push(`glossário: termo ou definição vazios ("${g.termo}")`);
+    else sujo(`glossário “${g.termo}”`, g.definicao);
+    try {
+      new RegExp(g.busca);
+    } catch {
+      erros.push(`glossário “${g.termo}”: busca não é expressão regular válida`);
+    }
+  }
+  if (duplicados(templates.glossario.map((g) => g.termo)).length) erros.push('glossário: termos duplicados');
+
+  // Seção 11 — os 4 itens de docs/06 §5, com a palavra-chave dentro da diretriz (fidelidade ao que o CEO disse).
+  const esperadas = ['boleto', 'parcela', 'IBS', 'telhado'];
+  if (obs.itens.length !== esperadas.length) erros.push(`observações jurídicas: ${obs.itens.length} itens, o docs/06 §5 exige ${esperadas.length}`);
+  esperadas.forEach((palavra, i) => {
+    const o = obs.itens[i];
+    if (!o) return;
+    if (o.id !== `obs_0${i + 1}`) erros.push(`observações jurídicas: o item ${i + 1} deve ter id obs_0${i + 1}`);
+    if (o.palavra_chave !== palavra || !o.diretriz.includes(palavra)) erros.push(`observações jurídicas: o item ${o.id} deve reproduzir a diretriz sobre “${palavra}”`);
+    if (!o.diretriz.trim() || !o.revisar.trim()) erros.push(`observações jurídicas: ${o.id} com diretriz ou “revisar” vazio`);
+  });
+  if (!obs.aviso?.trim()) erros.push('observações jurídicas: falta o aviso “sinalização ao contratante, não parecer jurídico”');
+  return erros;
+}
+
 const lerJsonArquivo = <T>(caminho: string): T => JSON.parse(readFileSync(caminho, 'utf8')) as T;
 
 /** `--v08`: valida a V08 gravada contra a V07, o mapa e o overlay. Devolve a linha final (OK ou os erros). */
@@ -539,6 +625,35 @@ function rodarBibliotecas(): number {
   return 0;
 }
 
+/** `--pop`: valida as perguntas estratégicas, o template de 11 seções e as observações jurídicas (03.1). */
+function rodarPop(): number {
+  const arquivos = {
+    perguntas: resolve(RAIZ, 'data/conteudo/perguntas_pop.json'),
+    templates: resolve(RAIZ, 'data/conteudo/pop_templates.json'),
+    observacoes: resolve(RAIZ, 'data/conteudo/pop_observacoes_juridicas.json'),
+  };
+  for (const c of [JSON_V08, ...Object.values(arquivos)]) {
+    if (!existsSync(c)) {
+      console.log(`ERRO: ${c.slice(RAIZ.length + 1).replace(/\\/g, '/')} não existe (subetapa 03.1).`);
+      return 1;
+    }
+  }
+  const v08 = lerJsonArquivo<MatrizV08>(JSON_V08);
+  const doc = lerJsonArquivo<DocumentoPerguntasPop>(arquivos.perguntas);
+  const templates = lerJsonArquivo<PopTemplates>(arquivos.templates);
+  const obs = lerJsonArquivo<ObservacoesJuridicasPop>(arquivos.observacoes);
+  const erros = validarPop(v08, doc, templates, obs);
+  if (erros.length) {
+    erros.forEach((e) => console.log(`ERRO: ${e}`));
+    return 1;
+  }
+  const sugeridas = doc.perguntas.filter((p) => p.origem === 'sugerido').length;
+  console.log(`pop: perguntas=${doc.perguntas.length} (sugeridas=${sugeridas}) glossario=${templates.glossario.length} observacoes=${obs.itens.length}`);
+  // A linha final afirma o piso verificado (≥ 8 perguntas em cada um dos 12 setores) e as 11 seções do template.
+  console.log(`OK pop: setores=${v08.setores.length} perguntas>=${v08.setores.length * PERGUNTAS_MIN_POR_SETOR} secoes=${templates.secoes.length}`);
+  return 0;
+}
+
 /** Sem flags: valida a V07 (planilha ↔ JSON ↔ MMO legado ↔ mapa). */
 function rodarV07(): number {
   const erros: string[] = [];
@@ -567,9 +682,6 @@ function rodarV07(): number {
 
 function principal(): number {
   const args = process.argv.slice(2);
-  const pendentes: Record<string, [string, string]> = {
-    '--pop': ['data/conteudo/perguntas_pop.json', 'subetapa 03.1'],
-  };
   if (args.length === 0) return rodarV07();
 
   const argFase = args.find((a) => a.startsWith('--fase='));
@@ -598,13 +710,12 @@ function principal(): number {
       codigo |= rodarBibliotecas();
       continue;
     }
-    if (flag === '--fase') continue; // parâmetro de --fichas
-    const p = pendentes[flag];
-    if (p && !existsSync(resolve(RAIZ, p[0]))) {
-      console.log(`ERRO: ${a} indisponível — ${p[0]} ainda não existe (${p[1]}).`);
-    } else {
-      console.log(`ERRO: validação de ${a} ainda não implementada.`);
+    if (flag === '--pop') {
+      codigo |= rodarPop();
+      continue;
     }
+    if (flag === '--fase') continue; // parâmetro de --fichas
+    console.log(`ERRO: validação de ${a} ainda não implementada.`);
     codigo = 1;
   }
   return codigo;
