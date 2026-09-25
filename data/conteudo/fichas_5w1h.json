@@ -9,9 +9,10 @@
     "fases_autoradas": [
       1,
       2,
-      3
+      3,
+      4
     ],
-    "total": 208
+    "total": 236
   },
   "fichas": [
     {
@@ -90,6 +91,34 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 01 — Marketing"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_01_22_1",
+      "acao_id": "acao_01_22_1",
+      "setor_id": "setor_01",
+      "estagio_id": 22,
+      "what": "Define abordagem e tom do pós-venda",
+      "why": "O Marketing define a abordagem e o tom do pós-venda.",
+      "where": "Rotina interna do Marketing",
+      "when": "Est. 22 — Pós-venda: após a homologação da usina (Est. 21), no encerramento do serviço",
+      "who": "Marketing",
+      "how": "Define a abordagem e o tom de comunicação do pós-venda com o cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula W2 — Marketing × Est. 22"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -538,6 +567,34 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 19 — Treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_22_1",
+      "acao_id": "acao_02_22_1",
+      "setor_id": "setor_02",
+      "estagio_id": 22,
+      "what": "Solicita feedback e avaliação ao cliente",
+      "why": "O Vendedor solicita ao cliente o feedback e a avaliação ao final do ciclo.",
+      "where": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 22 — Pós-venda: após a homologação da usina (Est. 21), no encerramento do serviço",
+      "who": "Vendas (Vendedor)",
+      "how": "Pede ao cliente o feedback e a avaliação sobre a execução do serviço e do produto.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula W5 — Vendas × Est. 22"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -1555,6 +1612,90 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_03_20_1",
+      "acao_id": "acao_03_20_1",
+      "setor_id": "setor_03",
+      "estagio_id": 20,
+      "what": "Solicita à concessionária a homologação e ligação da estrutura",
+      "why": "Iniciar a ligação e a homologação do sistema junto à concessionária: o Administrativo solicita à Cemig.",
+      "where": "Solicitação do Administrativo à Cemig (concessionária)",
+      "when": "Est. 20 — Solicitação de ligação: após o treinamento do cliente (Est. 19)",
+      "who": "Administrativo",
+      "how": "Solicita à Cemig a homologação e a ligação da estrutura, por meio do pedido de ligação e homologação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula U11 — Administrativo × Est. 20"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 20 — Solicitação de ligação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_21_1",
+      "acao_id": "acao_03_21_1",
+      "setor_id": "setor_03",
+      "estagio_id": 21,
+      "what": "Comunica a homologação a todos os setores envolvidos",
+      "why": "Manter todos os setores informados de que a homologação foi concedida e de que a usina está liberada para geração.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 21 — Homologação: quando a Cemig aprova e homologa o projeto",
+      "who": "Administrativo",
+      "how": "Comunica a todos os setores envolvidos que a Cemig homologou o projeto.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula V11 — Administrativo × Est. 21"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 21 — Homologação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_22_1",
+      "acao_id": "acao_03_22_1",
+      "setor_id": "setor_03",
+      "estagio_id": 22,
+      "what": "Monitora métricas gerais e finais do serviço prestado",
+      "why": "O Administrativo monitora as métricas gerais e finais do serviço prestado.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 22 — Pós-venda: após a homologação da usina (Est. 21), no encerramento do serviço",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas gerais e finais do serviço prestado.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula W11 — Administrativo × Est. 22"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_03_03_2",
       "acao_id": "acao_03_03_2",
       "setor_id": "setor_03",
@@ -1947,6 +2088,62 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_03_20_2",
+      "acao_id": "acao_03_20_2",
+      "setor_id": "setor_03",
+      "estagio_id": 20,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 20 — Solicitação de ligação por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 20 — Solicitação de ligação: após o treinamento do cliente (Est. 19)",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula U12 — Administrativo × Est. 20"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 20 — Solicitação de ligação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_21_2",
+      "acao_id": "acao_03_21_2",
+      "setor_id": "setor_03",
+      "estagio_id": 21,
+      "what": "Solicita à Engenharia a emissão do CAT",
+      "why": "A Engenharia emite o CAT ao final do processo; o Administrativo o solicita.",
+      "where": "Comunicação entre o Administrativo e a Engenharia terceirizada",
+      "when": "Est. 21 — Homologação: após a homologação",
+      "who": "Administrativo",
+      "how": "Solicita à Engenharia a emissão do CAT.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula V12 — Administrativo × Est. 21"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 21 — Homologação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_03_03_3",
       "acao_id": "acao_03_03_3",
       "setor_id": "setor_03",
@@ -2171,6 +2368,62 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_03_20_3",
+      "acao_id": "acao_03_20_3",
+      "setor_id": "setor_03",
+      "estagio_id": 20,
+      "what": "Solicita parecer negativo de homologação e inicia tratamento de resolutividade",
+      "why": "Em caso de negativa de homologação, o Administrativo solicita o parecer negativo e inicia o tratamento para resolver.",
+      "where": "Solicitação do Administrativo à Cemig (concessionária)",
+      "when": "Est. 20 — Solicitação de ligação: quando a Cemig nega a homologação",
+      "who": "Administrativo",
+      "how": "Solicita à Cemig o parecer negativo de homologação, com os ajustes necessários, e inicia o tratamento de resolutividade. Condicional: se “Rejeição sanável”, corrige e reencaminha; se “Rejeição insanável”, comunica CEO e cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula U13 — Administrativo × Est. 20"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 20 — Solicitação de ligação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_21_3",
+      "acao_id": "acao_03_21_3",
+      "setor_id": "setor_03",
+      "estagio_id": 21,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 21 — Homologação por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 21 — Homologação: após o pedido de ligação e homologação (Est. 20)",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula V13 — Administrativo × Est. 21"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 21 — Homologação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_03_07_4",
       "acao_id": "acao_03_07_4",
       "setor_id": "setor_03",
@@ -2226,6 +2479,34 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_21_4",
+      "acao_id": "acao_03_21_4",
+      "setor_id": "setor_03",
+      "estagio_id": 21,
+      "what": "Comunica ao Administrativo para substituição pelo CRM quando disponível (GRUPO DE FLUXO)",
+      "why": "O Grupo de Fluxo é uma solução temporária que será substituída pelo CRM próprio da Lux.",
+      "where": "Grupo de Fluxo no WhatsApp (canal temporário com o cliente, criado pelo Administrativo no Est. 07; será substituído pelo CRM próprio)",
+      "when": "Est. 21 — Homologação: após o pedido de ligação e homologação (Est. 20)",
+      "who": "Administrativo",
+      "how": "Registra, ao concluir o processo, que o Grupo de Fluxo deve ser substituído pelo CRM quando este estiver disponível (o CRM próprio é futuro e está fora do escopo deste projeto).",
+      "origem": "sugerido",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula V14 — Administrativo × Est. 21"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 21 — Homologação"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -2459,6 +2740,34 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_04_22_1",
+      "acao_id": "acao_04_22_1",
+      "setor_id": "setor_04",
+      "estagio_id": 22,
+      "what": "Finaliza os processos financeiros do serviço e contrato",
+      "why": "O Financeiro finaliza os processos financeiros do serviço e do contrato.",
+      "where": "Rotina interna do Financeiro",
+      "when": "Est. 22 — Pós-venda: após a homologação da usina (Est. 21), no encerramento do serviço",
+      "who": "Financeiro",
+      "how": "Conclui os processos financeiros do serviço e do contrato.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula W15 — Financeiro × Est. 22"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_04_17_2",
       "acao_id": "acao_04_17_2",
       "setor_id": "setor_04",
@@ -2646,6 +2955,34 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 17 — Instalação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 05 — Contabilidade"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_05_22_1",
+      "acao_id": "acao_05_22_1",
+      "setor_id": "setor_05",
+      "estagio_id": 22,
+      "what": "Finaliza os processos fiscais e contábeis do serviço e contrato",
+      "why": "A Contabilidade finaliza os processos fiscais e contábeis do serviço e do contrato.",
+      "where": "Rotina interna da Contabilidade",
+      "when": "Est. 22 — Pós-venda: após a homologação da usina (Est. 21), no encerramento do serviço",
+      "who": "Contabilidade",
+      "how": "Conclui os processos fiscais e contábeis do serviço e do contrato.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula W17 — Contabilidade × Est. 22"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -3215,6 +3552,90 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_06_20_1",
+      "acao_id": "acao_06_20_1",
+      "setor_id": "setor_06",
+      "estagio_id": 20,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 20 — Solicitação de ligação na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 20 — Solicitação de ligação: após o treinamento do cliente (Est. 19)",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula U19 — CEO × Est. 20"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 20 — Solicitação de ligação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_21_1",
+      "acao_id": "acao_06_21_1",
+      "setor_id": "setor_06",
+      "estagio_id": 21,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 21 — Homologação na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 21 — Homologação: após o pedido de ligação e homologação (Est. 20)",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula V19 — CEO × Est. 21"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 21 — Homologação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_22_1",
+      "acao_id": "acao_06_22_1",
+      "setor_id": "setor_06",
+      "estagio_id": 22,
+      "what": "Analisa métricas gerais e finais do serviço prestado",
+      "why": "O CEO analisa as métricas gerais e finais do serviço prestado.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 22 — Pós-venda: após a homologação da usina (Est. 21), no encerramento do serviço",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais e finais do serviço prestado.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula W19 — CEO × Est. 22"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_06_01_2",
       "acao_id": "acao_06_01_2",
       "setor_id": "setor_06",
@@ -3635,6 +4056,62 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_06_20_2",
+      "acao_id": "acao_06_20_2",
+      "setor_id": "setor_06",
+      "estagio_id": 20,
+      "what": "Acompanha a emissão de negativa de homologação e apoia ações de resolutividade",
+      "why": "O CEO acompanha a emissão de negativa de homologação e apoia as ações de resolutividade.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 20 — Solicitação de ligação: quando há negativa de homologação",
+      "who": "CEO",
+      "how": "Acompanha a emissão da negativa de homologação pela Cemig e apoia as ações para resolvê-la. Condicional: se “Negativa sanável”, apoia correção; se “Negativa insanável”, informa cliente e encerra processo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula U20 — CEO × Est. 20"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 20 — Solicitação de ligação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_22_2",
+      "acao_id": "acao_06_22_2",
+      "setor_id": "setor_06",
+      "estagio_id": 22,
+      "what": "Recepciona e trata insatisfação do cliente não resolvida pelo Vendedor",
+      "why": "O CEO trata as insatisfações do cliente que o Vendedor não conseguiu resolver.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 22 — Pós-venda: quando o Vendedor não resolve a insatisfação do cliente",
+      "who": "CEO",
+      "how": "Recebe a insatisfação escalada pelo Vendedor e a trata, seguindo o caminho previsto. Condicional: se “Insatisfação resolvível internamente”, soluciona e registra; se “Insatisfação com impacto contratual”, aciona garantia e formaliza encerramento.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula W20 — CEO × Est. 22"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_06_06_3",
       "acao_id": "acao_06_06_3",
       "setor_id": "setor_06",
@@ -3878,6 +4355,34 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 19 — Treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 07 — Engenharia"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_07_21_1",
+      "acao_id": "acao_07_21_1",
+      "setor_id": "setor_07",
+      "estagio_id": 21,
+      "what": "Emite o CAT e encaminha ao Administrativo para arquivo",
+      "why": "A Engenharia emite o CAT ao final do processo.",
+      "where": "Comunicação entre o Administrativo e a Engenharia terceirizada",
+      "when": "Est. 21 — Homologação: após a solicitação do Administrativo",
+      "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)",
+      "how": "Emite o CAT e o encaminha ao Administrativo para arquivo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula V23 — Engenharia × Est. 21"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 21 — Homologação"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -4531,6 +5036,34 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_10_20_1",
+      "acao_id": "acao_10_20_1",
+      "setor_id": "setor_10",
+      "estagio_id": 20,
+      "what": "Mantém o Administrativo informado sobre dados críticos do projeto executado",
+      "why": "A Equipe Técnica mantém o Administrativo informado sobre os dados críticos do projeto executado.",
+      "where": "Comunicação entre o Administrativo e a Equipe Técnica",
+      "when": "Est. 20 — Solicitação de ligação: após o treinamento do cliente (Est. 19)",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Informa ao Administrativo os dados críticos do projeto executado.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula U32 — Equipe Técnica × Est. 20"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 20 — Solicitação de ligação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_10_15_2",
       "acao_id": "acao_10_15_2",
       "setor_id": "setor_10",
@@ -4718,6 +5251,62 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 18 — Vistoria técnica"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 11 — Cemig"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_11_20_1",
+      "acao_id": "acao_11_20_1",
+      "setor_id": "setor_11",
+      "estagio_id": 20,
+      "what": "Recepciona o pedido de ligação e homologação",
+      "why": "A Cemig recepciona o pedido para, em seguida, processar a ligação e a homologação (Est. 21).",
+      "where": "Cemig (concessionária, agente externo)",
+      "when": "Est. 20 — Solicitação de ligação: quando o Administrativo envia o pedido de ligação e homologação",
+      "who": "Cemig (concessionária)",
+      "how": "Recebe o pedido de ligação e homologação enviado pelo Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula U35 — Cemig × Est. 20"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 20 — Solicitação de ligação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 11 — Cemig"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_11_21_1",
+      "acao_id": "acao_11_21_1",
+      "setor_id": "setor_11",
+      "estagio_id": 21,
+      "what": "Processa a ligação e homologação do projeto",
+      "why": "A Cemig libera (ou reprova) a usina para gerar energia; a Lux não controla esse agente e a dependência dele é o principal risco de prazo de toda a operação.",
+      "where": "Cemig (concessionária, agente externo)",
+      "when": "Est. 21 — Homologação: após o pedido de ligação e homologação (Est. 20)",
+      "who": "Cemig (concessionária)",
+      "how": "Analisa o pedido, processa a ligação e a homologação do projeto e segue o caminho previsto para cada resultado. Condicional: se “Projeto aprovado”, homologa e comunica ao Administrativo; se “Projeto reprovado”, emite parecer de inconformidade e comunica ajustes necessários.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula V35 — Cemig × Est. 21"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 21 — Homologação"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -5203,6 +5792,34 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_12_22_1",
+      "acao_id": "acao_12_22_1",
+      "setor_id": "setor_12",
+      "estagio_id": 22,
+      "what": "Presta feedback final ao Vendedor sobre a execução do serviço e produto",
+      "why": "O cliente devolve à Lux a sua avaliação final da experiência.",
+      "where": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 22 — Pós-venda: quando o Vendedor solicita o feedback",
+      "who": "Cliente",
+      "how": "Responde ao pedido de feedback do Vendedor, avaliando a execução do serviço e do produto.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula W38 — Cliente × Est. 22"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_12_08_2",
       "acao_id": "acao_12_08_2",
       "setor_id": "setor_12",
@@ -5306,6 +5923,34 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 19 — Treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_22_2",
+      "acao_id": "acao_12_22_2",
+      "setor_id": "setor_12",
+      "estagio_id": 22,
+      "what": "Registra insatisfação ao Vendedor; escala ao CEO se não resolvida",
+      "why": "O cliente registra eventuais insatisfações; se o Vendedor não as resolve, elas escalam ao CEO.",
+      "where": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 22 — Pós-venda: após a homologação da usina (Est. 21), no encerramento do serviço",
+      "who": "Cliente",
+      "how": "Registra ao Vendedor a insatisfação com o serviço ou o produto e segue o caminho previsto. Condicional: se “Insatisfação resolvida pelo Vendedor”, registra e encerra; se “Insatisfação não resolvida”, escala ao CEO para tratamento formal.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula W39 — Cliente × Est. 22"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -5842,6 +6487,146 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_22_2",
+      "acao_id": "acao_02_22_2",
+      "setor_id": "setor_02",
+      "estagio_id": 22,
+      "what": "Identifica oportunidades de pós-venda: ampliação, retrofit, manutenção preventiva, monitoramento, limpeza técnica, seguro e atendimento de outras unidades consumidoras",
+      "why": "Toda conversa deve resultar em ao menos uma oportunidade; no pós-venda, o cliente que já tem o sistema abre oportunidades de ampliação, retrofit, manutenção, monitoramento, limpeza técnica, seguro e de outras unidades consumidoras.",
+      "where": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 22 — Pós-venda: durante o relacionamento pós-venda",
+      "who": "Vendas (Vendedor)",
+      "how": "Identifica, no relacionamento pós-venda, as oportunidades: ampliação, retrofit, manutenção preventiva, monitoramento, limpeza técnica, seguro e atendimento de outras unidades consumidoras.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1.1.2; 1.4"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_22_3",
+      "acao_id": "acao_02_22_3",
+      "setor_id": "setor_02",
+      "estagio_id": 22,
+      "what": "Solicita indicações ao cliente",
+      "why": "As indicações são uma das oportunidades identificadas e alimentam a prospecção por indicação (Est. 01).",
+      "where": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 22 — Pós-venda: durante o relacionamento pós-venda",
+      "who": "Vendas (Vendedor)",
+      "how": "Pede ao cliente que indique a Lux a clientes e parceiros; as indicações recebidas seguem para a captação de leads por indicação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.4"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_22_4",
+      "acao_id": "acao_02_22_4",
+      "setor_id": "setor_02",
+      "estagio_id": 22,
+      "what": "Classifica a prioridade da oportunidade identificada",
+      "why": "A prioridade define o tratamento: compra em curto prazo (alta), potencial que exige acompanhamento (média) ou relacionamento de longo prazo (baixa).",
+      "where": "Rotina interna de Vendas",
+      "when": "Est. 22 — Pós-venda: ao identificar uma oportunidade",
+      "who": "Vendas (Vendedor)",
+      "how": "Classifica cada oportunidade identificada como de alta, média ou baixa prioridade. Condicional: se “Alta prioridade”, conduz a proposta, pois há compra em curto prazo; se “Média ou baixa prioridade”, mantém o acompanhamento e o relacionamento de longo prazo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.4"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_22_2",
+      "acao_id": "acao_03_22_2",
+      "setor_id": "setor_03",
+      "estagio_id": 22,
+      "what": "Registra as oportunidades identificadas e o acompanhamento por prioridade",
+      "why": "Manter o registro das oportunidades e do acompanhamento conforme a prioridade.",
+      "where": "Comunicação interna entre Vendas e Administrativo",
+      "when": "Est. 22 — Pós-venda: após o Vendas identificar e classificar as oportunidades",
+      "who": "Administrativo",
+      "how": "Registra as oportunidades identificadas pelo Vendas e o acompanhamento de cada uma conforme a prioridade.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.4"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_22_3",
+      "acao_id": "acao_06_22_3",
+      "setor_id": "setor_06",
+      "estagio_id": 22,
+      "what": "Registra as decisões sobre situações não previstas para futura padronização",
+      "why": "Documentar aprendizados para a melhoria contínua e a futura padronização de procedimentos.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 22 — Pós-venda: após decidir sobre uma situação sem procedimento definido",
+      "who": "CEO",
+      "how": "Registra as decisões tomadas em situações sem procedimento definido, para padronizá-las depois.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.5"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 22 — Pós-venda"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
         }
       ],
       "atualizado_em": "2026-09-24"

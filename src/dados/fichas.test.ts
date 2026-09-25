@@ -47,10 +47,17 @@ describe('Fichas 5W1H das fases autoradas', () => {
     }
   });
 
-  it('cobre as fases já feitas nos números do plano (fase 1 = 110 fichas, fase 2 = 36)', () => {
+  it('cobre as fases nos números do plano (fase 1 = 110 fichas, 2 = 36, 3 = 62, 4 = 28)', () => {
     const por = (fase: number) => doc.fichas.filter((f) => faseDoEstagio(f.estagio_id) === fase).length;
-    expect(por(1)).toBe(110);
-    if (fasesAutoradas().includes(2)) expect(por(2)).toBe(36);
+    const esperado: Record<number, number> = { 1: 110, 2: 36, 3: 62, 4: 28 };
+    for (const fase of fasesAutoradas()) expect(por(fase), `fase ${fase}`).toBe(esperado[fase]);
+  });
+
+  it('com as 4 fases autoradas há uma ficha por ação da V08 (236) e a validação total passa', () => {
+    expect(fasesAutoradas().slice().sort()).toEqual([1, 2, 3, 4]);
+    expect(doc.fichas).toHaveLength(v08.acoes.length);
+    expect(v08.acoes).toHaveLength(236);
+    expect(erros(doc)).toEqual([]);
   });
 
   it('nenhum campo 5W1H fica vazio e `what` é o texto da ação, sem reescrever', () => {
@@ -166,8 +173,8 @@ describe('validarFichas detecta erro (sensibilidade)', () => {
     dup.fichas.push(clone(dup.fichas[0]!));
     expect(erros(dup).some((e) => e.includes('duplicad') || e.includes('mais de uma ficha'))).toBe(true);
     const falta = clone(doc);
-    falta.fichas.pop();
-    expect(erros(falta, 1).some((e) => e.includes('sem ficha'))).toBe(true);
+    const removida = falta.fichas.shift()!;
+    expect(erros(falta, faseDoEstagio(removida.estagio_id)).some((e) => e.includes('sem ficha'))).toBe(true);
   });
 
   it('fonte sem trecho ou de arquivo inexistente; origem e data inválidas', () => {
@@ -191,10 +198,16 @@ describe('validarFichas detecta erro (sensibilidade)', () => {
     expect(erros(d).some((e) => e.includes('desatualizado'))).toBe(true);
   });
 
-  it('fase ainda não autorada', () => {
-    const fase = [1, 2, 3, 4].find((f) => !fasesAutoradas().includes(f));
-    if (fase === undefined) return; // todas autoradas (fim da 02.5)
-    expect(erros(doc, fase).some((e) => e.includes('ainda não foi autorada'))).toBe(true);
+  it('fase ainda não autorada (meta.fases_autoradas não a lista)', () => {
+    const d = clone(doc);
+    d.meta.fases_autoradas = [1];
+    expect(validarFichas(v08, d, autoria, 2).some((e) => e.includes('ainda não foi autorada'))).toBe(true);
+  });
+
+  it('sem --fase, exige uma ficha por ação de TODAS as fases', () => {
+    const d = clone(doc);
+    d.fichas = d.fichas.filter((f) => faseDoEstagio(f.estagio_id) !== 4);
+    expect(erros(d).some((e) => e.includes('sem ficha'))).toBe(true);
   });
 });
 

@@ -5,7 +5,8 @@
     "fases_autoradas": [
       1,
       2,
-      3
+      3,
+      4
     ]
   },
   "setores": {
@@ -165,6 +166,21 @@
       "objetivo": "A Equipe Técnica e o Vendedor treinam o cliente no uso e cuidados dos equipamentos instalados; o cliente assina o comprovante de treinamento; o Fornecedor compartilha informações técnicas; a Equipe Técnica mantém o Administrativo informado sobre dados críticos do projeto executado.",
       "gatilho": "após a instalação e a vistoria técnica",
       "trecho": "§3 Est. 19 — Treinamento"
+    },
+    "20": {
+      "objetivo": "O Administrativo solicita à concessionária a homologação e a ligação da estrutura; a Cemig recepciona o pedido; a Equipe Técnica mantém o Administrativo informado; o CEO e o Administrativo monitoram métricas.",
+      "gatilho": "após o treinamento do cliente (Est. 19)",
+      "trecho": "§3 Est. 20 — Solicitação de ligação"
+    },
+    "21": {
+      "objetivo": "A Cemig processa a ligação e a homologação do projeto (aprova ou reprova); o Administrativo comunica a homologação; a Engenharia emite o CAT e o encaminha ao Administrativo; o CEO acompanha a emissão de negativa e apoia ações de resolutividade.",
+      "gatilho": "após o pedido de ligação e homologação (Est. 20)",
+      "trecho": "§3 Est. 21 — Homologação"
+    },
+    "22": {
+      "objetivo": "Feedback do cliente, tratamento de insatisfações, encerramento financeiro e fiscal e, pelas Anotações do CEO, identificação de oportunidades de pós-venda.",
+      "gatilho": "após a homologação da usina (Est. 21), no encerramento do serviço",
+      "trecho": "§3 Est. 22 — Pós-venda"
     }
   },
   "locais": {
@@ -181,7 +197,8 @@
     "local_entrega": "No local de instalação, no local e horário definidos com o cliente",
     "adm_equipe": "Comunicação entre o Administrativo e a Equipe Técnica",
     "adm_cemig": "Solicitação do Administrativo à Cemig (concessionária)",
-    "rotina_equipe": "Rotina da Equipe Técnica (terceirizada)"
+    "rotina_equipe": "Rotina da Equipe Técnica (terceirizada)",
+    "interno_vendas": "Rotina interna de Vendas"
   },
   "modelos": {
     "Monitora métricas do setor": {
@@ -961,6 +978,129 @@
     "acao_12_19_2": {
       "why": "A assinatura registra que o cliente recebeu o treinamento.",
       "how": "Assina o comprovante de treinamento e os informes."
+    },
+    "acao_03_20_1": {
+      "why": "Iniciar a ligação e a homologação do sistema junto à concessionária: o Administrativo solicita à Cemig.",
+      "how": "Solicita à Cemig a homologação e a ligação da estrutura, por meio do pedido de ligação e homologação.",
+      "onde": "adm_cemig"
+    },
+    "acao_03_20_3": {
+      "why": "Em caso de negativa de homologação, o Administrativo solicita o parecer negativo e inicia o tratamento para resolver.",
+      "how": "Solicita à Cemig o parecer negativo de homologação, com os ajustes necessários, e inicia o tratamento de resolutividade.",
+      "onde": "adm_cemig",
+      "quando": "quando a Cemig nega a homologação"
+    },
+    "acao_06_20_2": {
+      "why": "O CEO acompanha a emissão de negativa de homologação e apoia as ações de resolutividade.",
+      "how": "Acompanha a emissão da negativa de homologação pela Cemig e apoia as ações para resolvê-la.",
+      "quando": "quando há negativa de homologação"
+    },
+    "acao_10_20_1": {
+      "why": "A Equipe Técnica mantém o Administrativo informado sobre os dados críticos do projeto executado.",
+      "how": "Informa ao Administrativo os dados críticos do projeto executado.",
+      "onde": "adm_equipe"
+    },
+    "acao_11_20_1": {
+      "why": "A Cemig recepciona o pedido para, em seguida, processar a ligação e a homologação (Est. 21).",
+      "how": "Recebe o pedido de ligação e homologação enviado pelo Administrativo.",
+      "quando": "quando o Administrativo envia o pedido de ligação e homologação"
+    },
+    "acao_03_21_1": {
+      "why": "Manter todos os setores informados de que a homologação foi concedida e de que a usina está liberada para geração.",
+      "how": "Comunica a todos os setores envolvidos que a Cemig homologou o projeto.",
+      "quando": "quando a Cemig aprova e homologa o projeto"
+    },
+    "acao_03_21_2": {
+      "why": "A Engenharia emite o CAT ao final do processo; o Administrativo o solicita.",
+      "how": "Solicita à Engenharia a emissão do CAT.",
+      "onde": "adm_engenharia",
+      "quando": "após a homologação"
+    },
+    "acao_03_21_4": {
+      "why": "O Grupo de Fluxo é uma solução temporária que será substituída pelo CRM próprio da Lux.",
+      "how": "Registra, ao concluir o processo, que o Grupo de Fluxo deve ser substituído pelo CRM quando este estiver disponível (o CRM próprio é futuro e está fora do escopo deste projeto).",
+      "onde": "wa",
+      "origem": "sugerido"
+    },
+    "acao_07_21_1": {
+      "why": "A Engenharia emite o CAT ao final do processo.",
+      "how": "Emite o CAT e o encaminha ao Administrativo para arquivo.",
+      "onde": "adm_engenharia",
+      "quando": "após a solicitação do Administrativo"
+    },
+    "acao_11_21_1": {
+      "why": "A Cemig libera (ou reprova) a usina para gerar energia; a Lux não controla esse agente e a dependência dele é o principal risco de prazo de toda a operação.",
+      "how": "Analisa o pedido, processa a ligação e a homologação do projeto e segue o caminho previsto para cada resultado."
+    },
+    "acao_01_22_1": {
+      "why": "O Marketing define a abordagem e o tom do pós-venda.",
+      "how": "Define a abordagem e o tom de comunicação do pós-venda com o cliente."
+    },
+    "acao_02_22_1": {
+      "why": "O Vendedor solicita ao cliente o feedback e a avaliação ao final do ciclo.",
+      "how": "Pede ao cliente o feedback e a avaliação sobre a execução do serviço e do produto.",
+      "onde": "contato_pos"
+    },
+    "acao_03_22_1": {
+      "why": "O Administrativo monitora as métricas gerais e finais do serviço prestado.",
+      "how": "Acompanha as métricas gerais e finais do serviço prestado."
+    },
+    "acao_04_22_1": {
+      "why": "O Financeiro finaliza os processos financeiros do serviço e do contrato.",
+      "how": "Conclui os processos financeiros do serviço e do contrato."
+    },
+    "acao_05_22_1": {
+      "why": "A Contabilidade finaliza os processos fiscais e contábeis do serviço e do contrato.",
+      "how": "Conclui os processos fiscais e contábeis do serviço e do contrato."
+    },
+    "acao_06_22_1": {
+      "why": "O CEO analisa as métricas gerais e finais do serviço prestado.",
+      "how": "Analisa as métricas gerais e finais do serviço prestado."
+    },
+    "acao_06_22_2": {
+      "why": "O CEO trata as insatisfações do cliente que o Vendedor não conseguiu resolver.",
+      "how": "Recebe a insatisfação escalada pelo Vendedor e a trata, seguindo o caminho previsto.",
+      "quando": "quando o Vendedor não resolve a insatisfação do cliente"
+    },
+    "acao_12_22_1": {
+      "why": "O cliente devolve à Lux a sua avaliação final da experiência.",
+      "how": "Responde ao pedido de feedback do Vendedor, avaliando a execução do serviço e do produto.",
+      "onde": "contato_pos",
+      "quando": "quando o Vendedor solicita o feedback"
+    },
+    "acao_12_22_2": {
+      "why": "O cliente registra eventuais insatisfações; se o Vendedor não as resolve, elas escalam ao CEO.",
+      "how": "Registra ao Vendedor a insatisfação com o serviço ou o produto e segue o caminho previsto.",
+      "onde": "contato_pos"
+    },
+    "acao_02_22_2": {
+      "why": "Toda conversa deve resultar em ao menos uma oportunidade; no pós-venda, o cliente que já tem o sistema abre oportunidades de ampliação, retrofit, manutenção, monitoramento, limpeza técnica, seguro e de outras unidades consumidoras.",
+      "how": "Identifica, no relacionamento pós-venda, as oportunidades: ampliação, retrofit, manutenção preventiva, monitoramento, limpeza técnica, seguro e atendimento de outras unidades consumidoras.",
+      "onde": "contato_pos",
+      "quando": "durante o relacionamento pós-venda"
+    },
+    "acao_02_22_3": {
+      "why": "As indicações são uma das oportunidades identificadas e alimentam a prospecção por indicação (Est. 01).",
+      "how": "Pede ao cliente que indique a Lux a clientes e parceiros; as indicações recebidas seguem para a captação de leads por indicação.",
+      "onde": "contato_pos",
+      "quando": "durante o relacionamento pós-venda"
+    },
+    "acao_02_22_4": {
+      "why": "A prioridade define o tratamento: compra em curto prazo (alta), potencial que exige acompanhamento (média) ou relacionamento de longo prazo (baixa).",
+      "how": "Classifica cada oportunidade identificada como de alta, média ou baixa prioridade.",
+      "quando": "ao identificar uma oportunidade",
+      "onde": "interno_vendas"
+    },
+    "acao_03_22_2": {
+      "why": "Manter o registro das oportunidades e do acompanhamento conforme a prioridade.",
+      "how": "Registra as oportunidades identificadas pelo Vendas e o acompanhamento de cada uma conforme a prioridade.",
+      "onde": "comunicacao_adm",
+      "quando": "após o Vendas identificar e classificar as oportunidades"
+    },
+    "acao_06_22_3": {
+      "why": "Documentar aprendizados para a melhoria contínua e a futura padronização de procedimentos.",
+      "how": "Registra as decisões tomadas em situações sem procedimento definido, para padronizá-las depois.",
+      "quando": "após decidir sobre uma situação sem procedimento definido"
     }
   }
 }
