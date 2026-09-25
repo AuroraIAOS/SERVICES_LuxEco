@@ -20,7 +20,8 @@
     "dados:validar": "tsx scripts/validar_dados.ts",
     "spike:fluxo": "tsx scripts/spike_fluxo.ts",
     "deploy": "tsx scripts/deploy_ftp.ts",
-    "backup:provar": "node -e \"console.error('backup:provar: ainda não implementado (subetapa 03.5).');process.exit(1)\"",
+    "backup:provar": "node scripts/provar_backup.mjs",
+    "php:preparar": "node scripts/preparar_php_local.mjs",
     "dados:comparar": "tsx scripts/comparar_mmo_legado.ts",
     "prepare": "node scripts/instalar_hooks.mjs",
     "hooks:instalar": "node scripts/instalar_hooks.mjs"

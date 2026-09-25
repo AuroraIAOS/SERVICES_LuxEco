@@ -62,3 +62,42 @@ export function divergencias(locais: Record<string, number>, remotos: Record<str
     .filter(([arq, tam]) => remotos[arq] !== tam)
     .map(([arquivo, local]) => ({ arquivo, local, remoto: remotos[arquivo] ?? null }));
 }
+
+// ---------------------------------------------------------------------------------------------
+// API de backups (03.5): api/config.php é GERADO aqui a partir do .env e nunca fica no repositório nem no dist.
+// ---------------------------------------------------------------------------------------------
+
+const CAMINHO_SEGURO = /^\/[\w./-]+$/;
+
+/**
+ * Pasta dos backups no servidor, como caminho ABSOLUTO. Relativo (ex.: `../lux_backups`) é resolvido a partir de
+ * `CPANEL_DIRETORIO` (o docroot do subdomínio). Tem de ficar FORA desse docroot: backup nunca é servido direto pelo site.
+ */
+export function pastaDeBackups(env: Record<string, string | undefined>): string {
+  const bruto = (env.BACKUP_DIR_SERVIDOR ?? '').trim();
+  const docroot = (env.CPANEL_DIRETORIO ?? '').trim().replace(/\/+$/, '');
+  if (bruto === '') throw new Error('BACKUP_DIR_SERVIDOR ausente no .env.');
+  if (!bruto.startsWith('/') && !docroot.startsWith('/')) throw new Error('BACKUP_DIR_SERVIDOR relativo exige CPANEL_DIRETORIO absoluto no .env.');
+  const partes: string[] = [];
+  for (const p of `${bruto.startsWith('/') ? '' : `${docroot}/`}${bruto}`.split('/')) {
+    if (p === '' || p === '.') continue;
+    if (p === '..') partes.pop();
+    else partes.push(p);
+  }
+  const absoluto = `/${partes.join('/')}`;
+  if (!CAMINHO_SEGURO.test(absoluto) || absoluto === '/') throw new Error('BACKUP_DIR_SERVIDOR resolveu para um caminho inválido.');
+  if (docroot.startsWith('/') && (absoluto === docroot || absoluto.startsWith(`${docroot}/`))) {
+    throw new Error('BACKUP_DIR_SERVIDOR ficaria dentro da raiz web: os backups precisam de uma pasta FORA dela (ex.: ../lux_backups).');
+  }
+  return absoluto;
+}
+
+/** Conteúdo de api/config.php (só pasta, limite e fuso; nenhum segredo). O limite tem teto rígido de 10 (o PHP repete o teto). */
+export function gerarConfigPhp(env: Record<string, string | undefined>): string {
+  const limite = Number((env.BACKUP_LIMITE_MAX ?? '10').trim());
+  if (!Number.isInteger(limite) || limite < 1 || limite > 10) throw new Error('BACKUP_LIMITE_MAX deve ser um inteiro de 1 a 10 (o teto do projeto é 10).');
+  const fuso = (env.FUSO_HORARIO ?? 'America/Sao_Paulo').trim();
+  if (!/^[A-Za-z_]+\/[A-Za-z_]+(\/[A-Za-z_]+)?$/.test(fuso)) throw new Error('FUSO_HORARIO inválido (ex.: America/Sao_Paulo).');
+  const dir = pastaDeBackups(env);
+  return `<?php\n// Gerado por scripts/deploy_ftp.ts a partir do .env. Não editar nem versionar.\nreturn [\n  'diretorio' => '${dir}',\n  'limite' => ${limite},\n  'fuso' => '${fuso}',\n];\n`;
+}

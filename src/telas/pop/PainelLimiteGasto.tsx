@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { ConfigLlm } from '../../llm/config';
 import { normalizarModelos } from '../../llm/config';
 import type { ErrosDeConfig, PedidoDeConfig } from '../../llm/limite_gasto';
@@ -29,6 +29,11 @@ export function PainelLimiteGasto({ llm }: { llm: EstadoLlm }) {
   const [modelos, setModelos] = useState<string[]>(() => [...llm.config.modelos, '', ''].slice(0, 3));
   const [erros, setErros] = useState<ErrosDeConfig & { modelos?: string }>({});
   const [salvo, setSalvo] = useState(false);
+  // A config pode chegar depois da tela (a do servidor, se mais recente): o formulário passa a mostrá-la.
+  useEffect(() => {
+    setPedido(doConfig(llm.config));
+    setModelos([...llm.config.modelos, '', ''].slice(0, 3));
+  }, [llm.config]);
   const agora = new Date();
   const uso = usoDeHoje(llm.uso, agora);
   const nivel = nivelDeAlerta(llm.config, uso, llm.modo, agora);
@@ -162,7 +167,7 @@ export function PainelLimiteGasto({ llm }: { llm: EstadoLlm }) {
         </div>
         {salvo && (
           <p role="status" className="pop-aviso">
-            Limite de gasto salvo neste navegador.
+            {llm.noServidor === 'sim' ? 'Limite de gasto salvo neste navegador e no servidor.' : 'Limite de gasto salvo neste navegador.'}
           </p>
         )}
         {!llm.persistindo && (

@@ -35,10 +35,13 @@ const pergunta = PERGUNTAS_POP.perguntas.find((p) => p.setor_id === 'setor_01')!
 const campo = () => screen.getByRole('textbox', { name: pergunta.pergunta }) as HTMLTextAreaElement;
 const REDIGIDO = 'Gerar e encaminhar leads ao setor de Vendas e cuidar da propaganda e da publicidade da marca.';
 
-function tela(f: ReturnType<typeof fetchFalso> | null, storage = falsoStorage(), ambiente = AMBIENTE) {
+/** o servidor de backups de mentira: sem PHP por perto (404), como no `npm run dev`. */
+const SEM_SERVIDOR = (async () => new Response('não existe', { status: 404 })) as unknown as typeof fetch;
+
+function tela(f: ReturnType<typeof fetchFalso> | null, storage = falsoStorage(), ambiente = AMBIENTE, servidor: typeof fetch = SEM_SERVIDOR) {
   render(
     <MemoryRouter>
-      <TelaPop armazenamento={storage} ambienteLlm={ambiente} fetchLlm={f?.fn} />
+      <TelaPop armazenamento={storage} ambienteLlm={ambiente} fetchLlm={f?.fn} fetchServidor={servidor} />
     </MemoryRouter>,
   );
   return storage;
@@ -296,5 +299,57 @@ describe('painel “Limite de gasto da IA”', () => {
     await user.click(screen.getByRole('button', { name: 'Zerar contador do mês' }));
     expect(screen.getByText(/Gasto estimado do mês/)).toHaveTextContent('R$ 0,00');
     expect(JSON.parse(s.dados.get(CHAVE_LLM_USO)!)).toMatchObject({ gasto_estimado_brl: 0, tokens_entrada: 0, tokens_saida: 0, requisicoes_dia: 4 });
+  });
+});
+
+describe('config_llm no servidor (03.5)', () => {
+  const doServidor = { schema_versao: 1, teto_mensal_brl: 40, alerta_percentual: 80, limite_diario_requisicoes: 20, modelos: ['x/novo:free'], atualizado_em: '2999-01-01T00:00:00.000Z' };
+  const json = (corpo: unknown, status = 200) => new Response(JSON.stringify(corpo), { status, headers: { 'Content-Type': 'application/json' } });
+
+  it('a config do servidor, se mais recente, vale e é copiada para o navegador', async () => {
+    const user = userEvent.setup();
+    const servidor = (async (url: string) => (String(url).includes('config_ler') ? json({ existe: true, config: doServidor }) : json({}, 404))) as unknown as typeof fetch;
+    const s = tela(null, falsoStorage(), AMBIENTE, servidor);
+    await user.click(screen.getByRole('button', { name: /Limite de gasto da IA/ }));
+    await waitFor(() => expect(screen.getByLabelText('Teto mensal (R$)')).toHaveValue('40'));
+    expect(JSON.parse(s.dados.get(CHAVE_LLM_CONFIG)!)).toMatchObject({ teto_mensal_brl: 40, modelos: ['x/novo:free'] });
+  });
+
+  it('config do servidor mais antiga que a local não a substitui', async () => {
+    const user = userEvent.setup();
+    const local = { schema_versao: 1, teto_mensal_brl: 7, alerta_percentual: 90, limite_diario_requisicoes: 50, modelos: MODELOS, atualizado_em: '2026-09-26T00:00:00.000Z' };
+    const antiga = { ...doServidor, atualizado_em: '2026-01-01T00:00:00.000Z' };
+    const servidor = (async () => json({ existe: true, config: antiga })) as unknown as typeof fetch;
+    tela(null, falsoStorage({ [CHAVE_LLM_CONFIG]: JSON.stringify(local) }), AMBIENTE, servidor);
+    await user.click(screen.getByRole('button', { name: /Limite de gasto da IA/ }));
+    await new Promise((r) => setTimeout(r, 30));
+    expect(screen.getByLabelText('Teto mensal (R$)')).toHaveValue('7');
+  });
+
+  it('salvar grava no navegador e no servidor (com X-Lux-Requisicao e sem chave) e avisa', async () => {
+    const user = userEvent.setup();
+    const posts: RequestInit[] = [];
+    const servidor = (async (url: string, init?: RequestInit) => {
+      if (String(url).includes('config_gravar')) {
+        posts.push(init ?? {});
+        return json({ config: JSON.parse(String(init?.body)) });
+      }
+      return json({ existe: false, config: null });
+    }) as unknown as typeof fetch;
+    tela(null, falsoStorage(), AMBIENTE, servidor);
+    await user.click(screen.getByRole('button', { name: /Limite de gasto da IA/ }));
+    await user.click(screen.getByRole('button', { name: 'Salvar limite de gasto' }));
+    expect(await screen.findByText('Limite de gasto salvo neste navegador e no servidor.')).toBeInTheDocument();
+    expect(posts).toHaveLength(1);
+    expect(posts[0]!.headers).toMatchObject({ 'X-Lux-Requisicao': '1' });
+    expect(String(posts[0]!.body)).not.toMatch(/chave|api_key|sk-/i);
+  });
+
+  it('sem servidor, salvar continua funcionando só no navegador', async () => {
+    const user = userEvent.setup();
+    tela(null);
+    await user.click(screen.getByRole('button', { name: /Limite de gasto da IA/ }));
+    await user.click(screen.getByRole('button', { name: 'Salvar limite de gasto' }));
+    expect(await screen.findByText('Limite de gasto salvo neste navegador.')).toBeInTheDocument();
   });
 });

@@ -143,3 +143,6 @@ backups_servidor/
 
 # Cópias do .htaccess remoto guardadas pelo deploy (podem conter caminhos do servidor). Nunca versionar.
 .deploy_backup/
+
+# PHP portátil só para testar a API de backups localmente (03.5); nunca versionar
+tools_locais/

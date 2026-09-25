@@ -43,6 +43,7 @@ export function TelaPop({
   armazenamentoFpe,
   ambienteLlm,
   fetchLlm,
+  fetchServidor,
 }: {
   dados?: MatrizV08;
   fichas?: DocumentoFichas;
@@ -56,9 +57,11 @@ export function TelaPop({
   /** só nos testes: ambiente e `fetch` da IA (a tela real lê o .env do build e usa o fetch do navegador). */
   ambienteLlm?: Ambiente;
   fetchLlm?: typeof fetch;
+  /** só nos testes: o `fetch` da API de backups (config_llm). */
+  fetchServidor?: typeof fetch;
 }) {
   const { estado, persistindo, responder, restaurar } = useEstadoPop(armazenamento);
-  const llm = useLlm({ armazenamento, ambiente: ambienteLlm, fetchFn: fetchLlm });
+  const llm = useLlm({ armazenamento, ambiente: ambienteLlm, fetchFn: fetchLlm, fetchServidor });
   // As edições do FPE são lidas ao abrir a tela: quem edita uma ficha e volta ao POP já as vê no procedimento.
   const [edicoesFpe] = useState(() => lerEstadoFpe(armazenamentoFpe === undefined ? armazenamento : armazenamentoFpe).estado);
   const fpe = useMemo(() => montarFpe(dados, fichas, edicoesFpe), [dados, fichas, edicoesFpe]);

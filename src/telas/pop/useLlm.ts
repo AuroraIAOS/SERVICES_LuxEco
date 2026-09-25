@@ -1,4 +1,5 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { gravarConfigServidor, lerConfigServidor, maisRecente } from '../../backup/servidor';
 import type { ArmazenamentoTexto } from '../../estado/armazenamento';
 import { armazenamentoDoNavegador } from '../../estado/armazenamento';
 import type { Ambiente } from '../../llm/ambiente';
@@ -25,6 +26,8 @@ export interface EstadoLlm {
   pausas: Pausas;
   /** `false` quando o navegador não guardou a configuração ou o uso (valem só até fechar a página). */
   persistindo: boolean;
+  /** a config está guardada também no servidor (`sim`), só neste navegador (`nao`) ou ainda não se sabe (`verificando`). */
+  noServidor: 'verificando' | 'sim' | 'nao';
   /** a IA pode ser usada agora (build normal e chave do modo escolhido preenchida). */
   pronta: boolean;
   mudarModo: (m: ModoLlm) => void;
@@ -41,7 +44,7 @@ export interface EstadoLlm {
  * Estado da IA (03.3): config e uso no navegador, consentimento, modo padrão/particular e a chamada com failover.
  * A chave particular vive só em `useState`. `armazenamento`: `undefined` = localStorage, `null` = sem storage.
  */
-export function useLlm(opcoes: { armazenamento?: ArmazenamentoTexto | null; ambiente?: Ambiente; fetchFn?: typeof fetch; agora?: () => Date } = {}): EstadoLlm {
+export function useLlm(opcoes: { armazenamento?: ArmazenamentoTexto | null; ambiente?: Ambiente; fetchFn?: typeof fetch; fetchServidor?: typeof fetch; agora?: () => Date } = {}): EstadoLlm {
   const [storage] = useState<ArmazenamentoTexto | null>(() => (opcoes.armazenamento === undefined ? armazenamentoDoNavegador() : opcoes.armazenamento));
   const [ambiente] = useState(() => opcoes.ambiente ?? lerAmbiente());
   const relogio = opcoes.agora ?? (() => new Date());
@@ -54,10 +57,30 @@ export function useLlm(opcoes: { armazenamento?: ArmazenamentoTexto | null; ambi
   const [urlParticular, setUrl] = useState('');
   const [pausas, setPausas] = useState<Pausas>({});
   const [persistindo, setPersistindo] = useState(storage !== null);
+  const [noServidor, setNoServidor] = useState<'verificando' | 'sim' | 'nao'>('verificando');
 
   // O `redigir` é assíncrono: sempre parte do estado mais recente, não do capturado na renderização.
   const vivo = useRef({ config, uso, pausas, consentimento, modo, chaveParticular, modeloParticular, urlParticular });
   vivo.current = { config, uso, pausas, consentimento, modo, chaveParticular, modeloParticular, urlParticular };
+
+  // Ao abrir: a config do servidor (a mesma para quem usa a ferramenta em outro computador) vale se for mais recente que a local.
+  useEffect(() => {
+    let ativo = true;
+    void lerConfigServidor(opcoes.fetchServidor).then((doServidor) => {
+      if (!ativo) return;
+      setNoServidor(doServidor ? 'sim' : 'nao');
+      if (!doServidor) return;
+      const vencedora = maisRecente(vivo.current.config, doServidor);
+      if (vencedora !== vivo.current.config) {
+        setConfig(vencedora);
+        gravarConfigLocal(vencedora, storage);
+      }
+    });
+    return () => {
+      ativo = false;
+    };
+    // só na montagem
+  }, []);
 
   const guardarUso = useCallback(
     (novo: UsoLlm) => {
@@ -71,7 +94,9 @@ export function useLlm(opcoes: { armazenamento?: ArmazenamentoTexto | null; ambi
     (c: ConfigLlm) => {
       setConfig(c);
       if (!gravarConfigLocal(c, storage)) setPersistindo(false);
+      void gravarConfigServidor(c, opcoes.fetchServidor).then((guardou) => setNoServidor(guardou ? 'sim' : 'nao'));
     },
+    // eslint-disable-next-line
     [storage],
   );
 
@@ -118,6 +143,7 @@ export function useLlm(opcoes: { armazenamento?: ArmazenamentoTexto | null; ambi
     urlParticular,
     pausas,
     persistindo,
+    noServidor,
     pronta: ambiente.llmDisponivel && (modo === 'padrao' ? ambiente.chave !== '' : chaveParticular.trim() !== ''),
     mudarModo: setModo,
     mudarConsentimento,

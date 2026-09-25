@@ -1,0 +1,14 @@
+# API de backups (03.5). Nada de listagem de pasta, nada de cache, e a configuração gerada no deploy nunca é lida direto.
+Options -Indexes
+<IfModule mod_headers.c>
+Header set Cache-Control "no-store"
+</IfModule>
+<FilesMatch "^(config\.php|.*\.(json|tmp|log))$">
+<IfModule mod_authz_core.c>
+Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+Order allow,deny
+Deny from all
+</IfModule>
+</FilesMatch>

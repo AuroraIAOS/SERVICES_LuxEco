@@ -9,7 +9,7 @@
 import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync, existsSync } from 'node:fs';
 import { basename, join, relative, resolve } from 'node:path';
 import { Client } from 'basic-ftp';
-import { destinoRemoto, divergencias, lerEnv, mesclarHtaccess, temSenha } from './deploy_lib.ts';
+import { destinoRemoto, divergencias, gerarConfigPhp, lerEnv, mesclarHtaccess, temSenha } from './deploy_lib.ts';
 
 const RAIZ = resolve(import.meta.dirname, '..');
 const DIST = join(RAIZ, 'dist');
@@ -29,6 +29,7 @@ if (!appUrl.startsWith('https://')) falhar('APP_URL precisa ser https.');
 if (/^ftp\./i.test(env.HOSTGATOR_FTP_HOST as string)) falhar('HOSTGATOR_FTP_HOST parece ftp.<dominio>: use o host real do servidor (instrucoes.md §6).');
 if (env.HOSTGATOR_FTP_TLS === 'false') falhar('HOSTGATOR_FTP_TLS=false recusado: os dados da Lux nunca vão em claro.');
 const destino = destinoRemoto(env.HOSTGATOR_REMOTE_DIR as string, appUrl);
+const configPhp = gerarConfigPhp(env); // valida BACKUP_* antes de conectar; a pasta tem de ficar fora da raiz web
 const basic = `Basic ${Buffer.from(`${env.SMOKE_BASIC_USER}:${env.SMOKE_BASIC_PASS}`).toString('base64')}`;
 
 const http = async (url: string, comSenha: boolean) => (await fetch(url, { redirect: 'manual', headers: comSenha ? { Authorization: basic } : {} })).status;
@@ -97,7 +98,12 @@ async function main() {
 
     // envio (1 conexão; 3 tentativas por arquivo, sempre sob TLS)
     const locais: Record<string, number> = {};
-    const envios = arquivos(DIST).map((f) => ({ origem: basename(f) === '.htaccess' && f === join(DIST, '.htaccess') ? mescladoLocal : f, rel: posix(relative(DIST, f)) }));
+    const configLocal = join(COPIAS, 'config_php_para_enviar.tmp');
+    writeFileSync(configLocal, configPhp);
+    const envios = [
+      ...arquivos(DIST).map((f) => ({ origem: basename(f) === '.htaccess' && f === join(DIST, '.htaccess') ? mescladoLocal : f, rel: posix(relative(DIST, f)) })),
+      { origem: configLocal, rel: 'api/config.php' }, // gerado do .env: nunca está no dist nem no Git
+    ];
     for (const { origem, rel } of envios) {
       locais[rel] = statSync(origem).size;
       const remotoPath = `${destino}/${rel}`;
@@ -137,6 +143,15 @@ async function main() {
     if (com !== 200) falhar(`com senha voltou ${com} (esperado 200).`);
     const http80 = (await fetch(appUrl.replace('https://', 'http://'), { redirect: 'manual' })).status;
     console.log(`http:// → ${http80} (esperado 301 ou 401)`);
+    // a API de backups: sem senha → 401; com senha → 200 (JSON); a configuração gerada nunca é lida direto
+    const api = `${appUrl}api/backups.php?acao=listar`;
+    const apiSem = await http(api, false);
+    const apiCom = await http(api, true);
+    const cfgDireto = await http(`${appUrl}api/config.php`, true);
+    console.log(`api: sem senha → ${apiSem}; com SMOKE_BASIC → ${apiCom}; config.php direto → ${cfgDireto}`);
+    if (apiSem !== 401) falhar(`a API respondeu ${apiSem} sem senha (esperado 401).`);
+    if (apiCom !== 200) falhar(`a API respondeu ${apiCom} com senha (esperado 200).`);
+    if (![200, 403, 404].includes(cfgDireto) || (cfgDireto === 200 && (await (await fetch(`${appUrl}api/config.php`, { headers: { Authorization: basic } })).text()).includes('diretorio'))) falhar('api/config.php está legível pela web.');
     console.log('DEPLOY OK');
   } finally {
     cliente.close();
