@@ -99,6 +99,10 @@ dados/
 *.p12
 *.token
 *token*.json
+# Exceções deliberadas (não são segredo): tokens de MARCA e o módulo de dados do código-fonte.
+# Sem elas, `dados/` e `*token*.json` deixavam src/dados/ e design/tokens.json fora do Git (clone novo não compilava).
+!design/tokens.json
+!src/dados/
 service-account*.json
 *serviceaccount*.json
 

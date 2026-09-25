@@ -29,6 +29,9 @@ investimento     { id, categoria, setor_ids[], descricao, valor_estimado_brl: nu
 kpi              { id, setor_id, tipo: "produtividade"|"eficiencia", nome, formula_descricao, meta: null, formulario: [campo...] }
 oportunidade     { id, nome, prioridade_padrao: "alta"|"media"|"baixa", estagio_id }   // Anotações §1.4
 perfil_cliente   { id, nome, criterios, proxima_acao }                                  // Anotações §1.1
+classificacao_lead { id: "lead_quente"|"lead_morno"|"lead_frio", nome, criterios: string[] }   // Anotações §1.1.1.7
+resposta_padrao  { id, tema, texto, revisao_juridica: bool }                                   // Anotações §2 (texto fiel; true = vai à seção 11 do POP)
+// matriz_v08.json = { meta{…, base_v07, overlay, origem_doc}, fases, setores, estagios, acoes, condicionais (com situacao_id), perfis_cliente, classificacao_lead, oportunidades, respostas_padrao }
 pop_secao        { id, ordem, titulo, campos[] }
 pop_gerado       { id, escopo: "setor"|"geral", setor_id?, texto_por_secao{}, gerado_com: "template"|"llm", criado_em }
 versao_backup    { id: "bk_AAAAMMDD_HHMMSS_<8hex>", rotulo, escopo: "fpe"|"pop"|"completo", criado_em, tamanho_bytes, sha256, versao_app, protegido: bool }   // metadados no servidor (sem Drive)

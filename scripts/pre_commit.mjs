@@ -8,7 +8,9 @@ const erros = [];
 
 const staged = git('diff', '--cached', '--name-only', '--diff-filter=ACMR').stdout.split('\n').filter(Boolean);
 const proibido = /^(\.env(\..*)?|referencias_privadas\/.*|screenshots\/.*)$|\.(pem|key|p12|pfx)$|token.*\.json$|service-?account.*\.json$/i;
-for (const f of staged) if (proibido.test(f)) erros.push(`arquivo proibido no commit: ${f}`);
+// Única exceção a `token.*\.json`: os tokens de MARCA (cores/tipografia), que não são credencial.
+const EXCECOES = new Set(['design/tokens.json']);
+for (const f of staged) if (!EXCECOES.has(f) && proibido.test(f)) erros.push(`arquivo proibido no commit: ${f}`);
 
 // Dados pessoais do contrato (CPF/CNPJ) não podem entrar nas linhas adicionadas (exceto lockfile).
 const dif = git('diff', '--cached', '-U0', '--diff-filter=ACMR', '--', '.', ':!package-lock.json').stdout;

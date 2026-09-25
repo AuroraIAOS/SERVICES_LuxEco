@@ -7,7 +7,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 
 | Item | Título | Modo · função · LLM | Status | Observação / prova |
 |---|---|---|---|---|
-| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ✅ CONCLUÍDA | Portão 01→02 verde (ver `handoffs/HANDOFF_BUILD.md`). Próxima: **02.1**. |
+| **Etapa 01** | PLANEJAMENTO E ESTRUTURAS |  | ✅ CONCLUÍDA | Portão 01→02 verde (ver `handoffs/HANDOFF_BUILD.md`). |
 | 01.0 | Varrer repositórios de referência e preencher instrucoes.md | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | 10/10 repositórios com status (o plano dizia 9; a tabela tem 10); 4 entradas na seção 4 e 5 novas na seção 6 de `instrucoes.md`; achados aplicados às subetapas 02.11 e 03.5. |
 | 01.1 | Validar ambiente e `.env`; emitir checklist único de ações manuais | [Plan] [LLM: Sonnet] | ✅ CONCLUÍDA | `node scripts/checar_env.mjs` → `OBRIGATÓRIAS v01: 17/17 preenchidas` (exit 0); `.env` fora do Git (0); `curl` sem senha → `401`. |
 | 01.2 | Plano de Ação e aprovação | [Plan] [Accept] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "^APROVADO EM:" docs/PLANO_DE_ACAO.md` → `1`. Modo autônomo ativo. |
@@ -16,8 +16,8 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run spike:fluxo \| tail -1` → `DECISAO: raias_svg`. Mermaid 3/16 (máx 12.219 px); raias 16/16 (máx 1.972 px), fonte A3 ≥ 8,1 pt. 38 testes. |
 | 01.6 | Varredura de segredos e blindagem do repositório | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `gitleaks detect` → `no leaks found`; `.env`/`referencias_privadas`/`screenshots` = 0 versionados; xlsx versionável (1). Pré-commit (segredo + arquivo proibido + CPF/CNPJ) provado com 3 commits de teste bloqueados (exit 1) e commit legítimo aprovado. |
 | 01.7 | HANDOFF_BUILD | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "status: verde" handoffs/HANDOFF_BUILD.md` → `12` (≥ 5); portão 01→02 verde com saídas reais. |
-| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER |  |
-| 02.1 | Compor a Matriz V08 (Anotações integradas) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER | Em andamento: 02.1 ✅. Próxima: **02.2**. |
+| 02.1 | Compor a Matriz V08 (Anotações integradas) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --v08` → `OK v08: setores=12 estagios=22 celulas=236 if_else=37 novos=24`; V07 intacta (validador + testes de mutação); 68 testes. **Achado:** `.gitignore` escondia `src/dados/` e `design/tokens.json` do Git — corrigido (ver `instrucoes.md` §6). |
 | 02.2 | Fichas 5W1H, Fase 1 Comercial (Est. 01–09) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 02.3 | Fichas 5W1H, Fase 2 Técnica/Projeto (Est. 10–14) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 02.4 | Fichas 5W1H, Fase 3 Execução (Est. 15–19) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -184,7 +184,7 @@ Portão de entrada: portão 01→02 verde (repetido).
 Observações: coletar evidências; commit + push por subetapa; conteúdo gerado segue `docs/06` (nunca inventar; sem selo visível; sem R$/SLA).
 
 ### Subetapa 02.1 — Compor a Matriz V08 (Anotações integradas) [Auto] [Goal] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: `matriz_v08.json` = V07 + overlay das Anotações do CEO.
 Arquivos tocados: `data/conteudo/anotacoes_v08.json`, `scripts/compor_v08.ts`, `data/matriz_v08.json`, `src/dados/v08.test.ts`.
 Passos: 1) Ler `data/fontes/Anotacoes_CEO_2026-09-24.md` inteiro. 2) Escrever `anotacoes_v08.json` seguindo `docs/06` §3 (ações e IF/ELSE novos com `origem_doc: "anotacoes_ceo_2026-09-24"`; `perfil_cliente`; `oportunidade`). 3) `compor_v08.ts`: aplicar o overlay sobre `matriz_v07.json` sem alterar o que já existe. 4) Estender `validar_dados.ts` com `--v08` (regra 3). 5) Testes.

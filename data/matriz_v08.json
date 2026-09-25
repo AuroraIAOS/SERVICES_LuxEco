@@ -1,0 +1,3070 @@
+{
+  "meta": {
+    "fonte": "data/fontes/Matriz_Operacional.xlsx",
+    "versao_matriz": "V08",
+    "leitura_encerra_em": "LEGENDA DE CORES (linha 42, excluída)",
+    "base_v07": "data/matriz_v07.json",
+    "overlay": "data/conteudo/anotacoes_v08.json",
+    "origem_doc": "anotacoes_ceo_2026-09-24"
+  },
+  "fases": [
+    {
+      "id": 1,
+      "nome": "Comercial"
+    },
+    {
+      "id": 2,
+      "nome": "Técnica/Projeto"
+    },
+    {
+      "id": 3,
+      "nome": "Execução"
+    },
+    {
+      "id": 4,
+      "nome": "Homologação e Encerramento"
+    }
+  ],
+  "setores": [
+    {
+      "id": "setor_01",
+      "numero": 1,
+      "nome": "Marketing",
+      "cor_token": "setor-marketing"
+    },
+    {
+      "id": "setor_02",
+      "numero": 2,
+      "nome": "Vendas",
+      "cor_token": "setor-vendas"
+    },
+    {
+      "id": "setor_03",
+      "numero": 3,
+      "nome": "Administrativo",
+      "cor_token": "setor-administrativo"
+    },
+    {
+      "id": "setor_04",
+      "numero": 4,
+      "nome": "Financeiro",
+      "cor_token": "setor-financeiro"
+    },
+    {
+      "id": "setor_05",
+      "numero": 5,
+      "nome": "Contabilidade",
+      "cor_token": "setor-contabilidade"
+    },
+    {
+      "id": "setor_06",
+      "numero": 6,
+      "nome": "CEO",
+      "cor_token": "setor-ceo"
+    },
+    {
+      "id": "setor_07",
+      "numero": 7,
+      "nome": "Engenharia",
+      "cor_token": "setor-engenharia"
+    },
+    {
+      "id": "setor_08",
+      "numero": 8,
+      "nome": "Fornecedores",
+      "cor_token": "setor-fornecedores"
+    },
+    {
+      "id": "setor_09",
+      "numero": 9,
+      "nome": "Logística",
+      "cor_token": "setor-logistica"
+    },
+    {
+      "id": "setor_10",
+      "numero": 10,
+      "nome": "Equipe Técnica",
+      "cor_token": "setor-equipe-tecnica"
+    },
+    {
+      "id": "setor_11",
+      "numero": 11,
+      "nome": "Cemig",
+      "cor_token": "setor-cemig"
+    },
+    {
+      "id": "setor_12",
+      "numero": 12,
+      "nome": "Cliente",
+      "cor_token": "setor-cliente"
+    }
+  ],
+  "estagios": [
+    {
+      "id": 1,
+      "numero": 1,
+      "nome": "Prospecção",
+      "fase_id": 1
+    },
+    {
+      "id": 2,
+      "numero": 2,
+      "nome": "Atendimento",
+      "fase_id": 1
+    },
+    {
+      "id": 3,
+      "numero": 3,
+      "nome": "Simulação",
+      "fase_id": 1
+    },
+    {
+      "id": 4,
+      "numero": 4,
+      "nome": "Proposta",
+      "fase_id": 1
+    },
+    {
+      "id": 5,
+      "numero": 5,
+      "nome": "Pré-aprovação",
+      "fase_id": 1
+    },
+    {
+      "id": 6,
+      "numero": 6,
+      "nome": "Fechamento",
+      "fase_id": 1
+    },
+    {
+      "id": 7,
+      "numero": 7,
+      "nome": "Aprovação do contrato",
+      "fase_id": 1
+    },
+    {
+      "id": 8,
+      "numero": 8,
+      "nome": "Pós-aprovação do contrato",
+      "fase_id": 1
+    },
+    {
+      "id": 9,
+      "numero": 9,
+      "nome": "Pagamentos",
+      "fase_id": 1
+    },
+    {
+      "id": 10,
+      "numero": 10,
+      "nome": "Projeto",
+      "fase_id": 2
+    },
+    {
+      "id": 11,
+      "numero": 11,
+      "nome": "Engenharia",
+      "fase_id": 2
+    },
+    {
+      "id": 12,
+      "numero": 12,
+      "nome": "Recepção do projeto",
+      "fase_id": 2
+    },
+    {
+      "id": 13,
+      "numero": 13,
+      "nome": "Aprovação conjunta do projeto",
+      "fase_id": 2
+    },
+    {
+      "id": 14,
+      "numero": 14,
+      "nome": "Compra de material",
+      "fase_id": 2
+    },
+    {
+      "id": 15,
+      "numero": 15,
+      "nome": "Entrega de material",
+      "fase_id": 3
+    },
+    {
+      "id": 16,
+      "numero": 16,
+      "nome": "Agendamento",
+      "fase_id": 3
+    },
+    {
+      "id": 17,
+      "numero": 17,
+      "nome": "Instalação",
+      "fase_id": 3
+    },
+    {
+      "id": 18,
+      "numero": 18,
+      "nome": "Vistoria técnica",
+      "fase_id": 3
+    },
+    {
+      "id": 19,
+      "numero": 19,
+      "nome": "Treinamento",
+      "fase_id": 3
+    },
+    {
+      "id": 20,
+      "numero": 20,
+      "nome": "Solicitação de ligação",
+      "fase_id": 4
+    },
+    {
+      "id": 21,
+      "numero": 21,
+      "nome": "Homologação",
+      "fase_id": 4
+    },
+    {
+      "id": 22,
+      "numero": 22,
+      "nome": "Pós-venda",
+      "fase_id": 4
+    }
+  ],
+  "acoes": [
+    {
+      "id": "acao_01_01_1",
+      "setor_id": "setor_01",
+      "estagio_id": 1,
+      "ordem": 1,
+      "texto": "Gerencia propaganda e publicidade da marca",
+      "e_condicional": false,
+      "celula": "B2"
+    },
+    {
+      "id": "acao_01_02_1",
+      "setor_id": "setor_01",
+      "estagio_id": 2,
+      "ordem": 1,
+      "texto": "Orienta comportamentos e comunicação da equipe",
+      "e_condicional": false,
+      "celula": "C2"
+    },
+    {
+      "id": "acao_01_03_1",
+      "setor_id": "setor_01",
+      "estagio_id": 3,
+      "ordem": 1,
+      "texto": "Cria e edita layouts e cenários de simulação",
+      "e_condicional": false,
+      "celula": "D2"
+    },
+    {
+      "id": "acao_01_22_1",
+      "setor_id": "setor_01",
+      "estagio_id": 22,
+      "ordem": 1,
+      "texto": "Define abordagem e tom do pós-venda",
+      "e_condicional": false,
+      "celula": "W2"
+    },
+    {
+      "id": "acao_01_01_2",
+      "setor_id": "setor_01",
+      "estagio_id": 1,
+      "ordem": 2,
+      "texto": "Opera campanhas de tráfego pago",
+      "e_condicional": false,
+      "celula": "B3"
+    },
+    {
+      "id": "acao_01_01_3",
+      "setor_id": "setor_01",
+      "estagio_id": 1,
+      "ordem": 3,
+      "texto": "Gera e encaminha leads ao setor de Vendas",
+      "e_condicional": false,
+      "celula": "B4"
+    },
+    {
+      "id": "acao_02_01_1",
+      "setor_id": "setor_02",
+      "estagio_id": 1,
+      "ordem": 1,
+      "texto": "Realiza prospecção ativa",
+      "e_condicional": false,
+      "celula": "B5"
+    },
+    {
+      "id": "acao_02_02_1",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 1,
+      "texto": "Aborda o lead rapidamente",
+      "e_condicional": false,
+      "celula": "C5"
+    },
+    {
+      "id": "acao_02_03_1",
+      "setor_id": "setor_02",
+      "estagio_id": 3,
+      "ordem": 1,
+      "texto": "Mantém contato ativo com o cliente",
+      "e_condicional": false,
+      "celula": "D5"
+    },
+    {
+      "id": "acao_02_04_1",
+      "setor_id": "setor_02",
+      "estagio_id": 4,
+      "ordem": 1,
+      "texto": "Mantém contato ativo com o cliente",
+      "e_condicional": false,
+      "celula": "E5"
+    },
+    {
+      "id": "acao_02_05_1",
+      "setor_id": "setor_02",
+      "estagio_id": 5,
+      "ordem": 1,
+      "texto": "Mantém contato ativo com o cliente",
+      "e_condicional": false,
+      "celula": "F5"
+    },
+    {
+      "id": "acao_02_06_1",
+      "setor_id": "setor_02",
+      "estagio_id": 6,
+      "ordem": 1,
+      "texto": "Mantém contato ativo com o cliente",
+      "e_condicional": false,
+      "celula": "G5"
+    },
+    {
+      "id": "acao_02_07_1",
+      "setor_id": "setor_02",
+      "estagio_id": 7,
+      "ordem": 1,
+      "texto": "Mantém contato ativo com o cliente",
+      "e_condicional": false,
+      "celula": "H5"
+    },
+    {
+      "id": "acao_02_08_1",
+      "setor_id": "setor_02",
+      "estagio_id": 8,
+      "ordem": 1,
+      "texto": "Encerra o ciclo de contato com o cliente",
+      "e_condicional": false,
+      "celula": "I5"
+    },
+    {
+      "id": "acao_02_13_1",
+      "setor_id": "setor_02",
+      "estagio_id": 13,
+      "ordem": 1,
+      "texto": "Aprova o projeto conforme os termos comerciais da venda",
+      "e_condicional": false,
+      "celula": "N5"
+    },
+    {
+      "id": "acao_02_14_1",
+      "setor_id": "setor_02",
+      "estagio_id": 14,
+      "ordem": 1,
+      "texto": "Agenda com o cliente local e horário de entrega do material",
+      "e_condicional": false,
+      "celula": "O5"
+    },
+    {
+      "id": "acao_02_15_1",
+      "setor_id": "setor_02",
+      "estagio_id": 15,
+      "ordem": 1,
+      "texto": "Monitora a entrega do material conforme os termos da venda",
+      "e_condicional": false,
+      "celula": "P5"
+    },
+    {
+      "id": "acao_02_16_1",
+      "setor_id": "setor_02",
+      "estagio_id": 16,
+      "ordem": 1,
+      "texto": "Apura, com o Administrativo, disponibilidade da Equipe Técnica",
+      "e_condicional": false,
+      "celula": "Q5"
+    },
+    {
+      "id": "acao_02_17_1",
+      "setor_id": "setor_02",
+      "estagio_id": 17,
+      "ordem": 1,
+      "texto": "Acompanha a instalação com visitas presenciais",
+      "e_condicional": false,
+      "celula": "R5"
+    },
+    {
+      "id": "acao_02_19_1",
+      "setor_id": "setor_02",
+      "estagio_id": 19,
+      "ordem": 1,
+      "texto": "Treina o cliente no uso e cuidados dos equipamentos instalados",
+      "e_condicional": false,
+      "celula": "T5"
+    },
+    {
+      "id": "acao_02_22_1",
+      "setor_id": "setor_02",
+      "estagio_id": 22,
+      "ordem": 1,
+      "texto": "Solicita feedback e avaliação ao cliente",
+      "e_condicional": false,
+      "celula": "W5"
+    },
+    {
+      "id": "acao_02_01_2",
+      "setor_id": "setor_02",
+      "estagio_id": 1,
+      "ordem": 2,
+      "texto": "Capta leads por indicação",
+      "e_condicional": false,
+      "celula": "B6"
+    },
+    {
+      "id": "acao_02_02_2",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 2,
+      "texto": "Contorna objeções do cliente",
+      "e_condicional": false,
+      "celula": "C6"
+    },
+    {
+      "id": "acao_02_03_2",
+      "setor_id": "setor_02",
+      "estagio_id": 3,
+      "ordem": 2,
+      "texto": "Apoia o Administrativo na coleta e organização dos dados",
+      "e_condicional": false,
+      "celula": "D6"
+    },
+    {
+      "id": "acao_02_04_2",
+      "setor_id": "setor_02",
+      "estagio_id": 4,
+      "ordem": 2,
+      "texto": "Comunica alterações ao Administrativo e ao cliente",
+      "e_condicional": false,
+      "celula": "E6"
+    },
+    {
+      "id": "acao_02_05_2",
+      "setor_id": "setor_02",
+      "estagio_id": 5,
+      "ordem": 2,
+      "texto": "Comunica alterações ao Administrativo e ao cliente",
+      "e_condicional": false,
+      "celula": "F6"
+    },
+    {
+      "id": "acao_02_06_2",
+      "setor_id": "setor_02",
+      "estagio_id": 6,
+      "ordem": 2,
+      "texto": "Comunica alterações ao Administrativo e ao cliente",
+      "e_condicional": false,
+      "celula": "G6"
+    },
+    {
+      "id": "acao_02_07_2",
+      "setor_id": "setor_02",
+      "estagio_id": 7,
+      "ordem": 2,
+      "texto": "Comunica alterações ao Administrativo e ao cliente",
+      "e_condicional": false,
+      "celula": "H6"
+    },
+    {
+      "id": "acao_02_08_2",
+      "setor_id": "setor_02",
+      "estagio_id": 8,
+      "ordem": 2,
+      "texto": "Solicita feedback sobre a experiência de venda",
+      "e_condicional": false,
+      "celula": "I6"
+    },
+    {
+      "id": "acao_02_15_2",
+      "setor_id": "setor_02",
+      "estagio_id": 15,
+      "ordem": 2,
+      "texto": "Confere o material entregue",
+      "e_condicional": true,
+      "celula": "P6"
+    },
+    {
+      "id": "acao_02_16_2",
+      "setor_id": "setor_02",
+      "estagio_id": 16,
+      "ordem": 2,
+      "texto": "Agenda com o cliente horário e condições de instalação",
+      "e_condicional": false,
+      "celula": "Q6"
+    },
+    {
+      "id": "acao_02_19_2",
+      "setor_id": "setor_02",
+      "estagio_id": 19,
+      "ordem": 2,
+      "texto": "Solicita assinatura do comprovante de treinamento",
+      "e_condicional": false,
+      "celula": "T6"
+    },
+    {
+      "id": "acao_02_01_3",
+      "setor_id": "setor_02",
+      "estagio_id": 1,
+      "ordem": 3,
+      "texto": "Capta leads gerados pelo Marketing",
+      "e_condicional": false,
+      "celula": "B7"
+    },
+    {
+      "id": "acao_02_02_3",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 3,
+      "texto": "Coleta dados do cliente (nome, cidade, conta de energia, tipo de imóvel)",
+      "e_condicional": false,
+      "celula": "C7"
+    },
+    {
+      "id": "acao_02_08_3",
+      "setor_id": "setor_02",
+      "estagio_id": 8,
+      "ordem": 3,
+      "texto": "Transfere os dados coletados ao Administrativo",
+      "e_condicional": false,
+      "celula": "I7"
+    },
+    {
+      "id": "acao_02_02_4",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 4,
+      "texto": "Registra e informa o Administrativo sobre o lead",
+      "e_condicional": false,
+      "celula": "C8"
+    },
+    {
+      "id": "acao_02_02_5",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 5,
+      "texto": "Verifica disponibilidade da conta de energia",
+      "e_condicional": true,
+      "celula": "C9"
+    },
+    {
+      "id": "acao_02_02_6",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 6,
+      "texto": "Confirma identidade e titularidade do contato",
+      "e_condicional": true,
+      "celula": "C10"
+    },
+    {
+      "id": "acao_03_01_1",
+      "setor_id": "setor_03",
+      "estagio_id": 1,
+      "ordem": 1,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "B11"
+    },
+    {
+      "id": "acao_03_02_1",
+      "setor_id": "setor_03",
+      "estagio_id": 2,
+      "ordem": 1,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "C11"
+    },
+    {
+      "id": "acao_03_03_1",
+      "setor_id": "setor_03",
+      "estagio_id": 3,
+      "ordem": 1,
+      "texto": "Articula comunicação com fornecedores",
+      "e_condicional": false,
+      "celula": "D11"
+    },
+    {
+      "id": "acao_03_04_1",
+      "setor_id": "setor_03",
+      "estagio_id": 4,
+      "ordem": 1,
+      "texto": "Elabora a proposta comercial",
+      "e_condicional": false,
+      "celula": "E11"
+    },
+    {
+      "id": "acao_03_05_1",
+      "setor_id": "setor_03",
+      "estagio_id": 5,
+      "ordem": 1,
+      "texto": "Cobra resolução da venda e da proposta",
+      "e_condicional": false,
+      "celula": "F11"
+    },
+    {
+      "id": "acao_03_06_1",
+      "setor_id": "setor_03",
+      "estagio_id": 6,
+      "ordem": 1,
+      "texto": "Elabora o contrato",
+      "e_condicional": false,
+      "celula": "G11"
+    },
+    {
+      "id": "acao_03_07_1",
+      "setor_id": "setor_03",
+      "estagio_id": 7,
+      "ordem": 1,
+      "texto": "Cobra resolução da venda e do contrato",
+      "e_condicional": false,
+      "celula": "H11"
+    },
+    {
+      "id": "acao_03_08_1",
+      "setor_id": "setor_03",
+      "estagio_id": 8,
+      "ordem": 1,
+      "texto": "Envia guias e solicitações de pagamento",
+      "e_condicional": false,
+      "celula": "I11"
+    },
+    {
+      "id": "acao_03_09_1",
+      "setor_id": "setor_03",
+      "estagio_id": 9,
+      "ordem": 1,
+      "texto": "Acompanha e cobra datas e pagamentos",
+      "e_condicional": false,
+      "celula": "J11"
+    },
+    {
+      "id": "acao_03_10_1",
+      "setor_id": "setor_03",
+      "estagio_id": 10,
+      "ordem": 1,
+      "texto": "Envia o projeto à Engenharia",
+      "e_condicional": false,
+      "celula": "K11"
+    },
+    {
+      "id": "acao_03_11_1",
+      "setor_id": "setor_03",
+      "estagio_id": 11,
+      "ordem": 1,
+      "texto": "Cobra resolução do projeto",
+      "e_condicional": false,
+      "celula": "L11"
+    },
+    {
+      "id": "acao_03_12_1",
+      "setor_id": "setor_03",
+      "estagio_id": 12,
+      "ordem": 1,
+      "texto": "Recepciona o projeto e encaminha para aprovação multissetorial",
+      "e_condicional": false,
+      "celula": "M11"
+    },
+    {
+      "id": "acao_03_13_1",
+      "setor_id": "setor_03",
+      "estagio_id": 13,
+      "ordem": 1,
+      "texto": "Aprova o projeto conforme os termos documentais",
+      "e_condicional": false,
+      "celula": "N11"
+    },
+    {
+      "id": "acao_03_14_1",
+      "setor_id": "setor_03",
+      "estagio_id": 14,
+      "ordem": 1,
+      "texto": "Emite a ordem de compra ao Fornecedor",
+      "e_condicional": false,
+      "celula": "O11"
+    },
+    {
+      "id": "acao_03_15_1",
+      "setor_id": "setor_03",
+      "estagio_id": 15,
+      "ordem": 1,
+      "texto": "Confere o material entregue conforme a documentação",
+      "e_condicional": false,
+      "celula": "P11"
+    },
+    {
+      "id": "acao_03_16_1",
+      "setor_id": "setor_03",
+      "estagio_id": 16,
+      "ordem": 1,
+      "texto": "Apura e estabelece o calendário de disponibilidade da Equipe Técnica",
+      "e_condicional": false,
+      "celula": "Q11"
+    },
+    {
+      "id": "acao_03_17_1",
+      "setor_id": "setor_03",
+      "estagio_id": 17,
+      "ordem": 1,
+      "texto": "Solicita a vistoria técnica externa à Cemig",
+      "e_condicional": false,
+      "celula": "R11"
+    },
+    {
+      "id": "acao_03_18_1",
+      "setor_id": "setor_03",
+      "estagio_id": 18,
+      "ordem": 1,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "S11"
+    },
+    {
+      "id": "acao_03_19_1",
+      "setor_id": "setor_03",
+      "estagio_id": 19,
+      "ordem": 1,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "T11"
+    },
+    {
+      "id": "acao_03_20_1",
+      "setor_id": "setor_03",
+      "estagio_id": 20,
+      "ordem": 1,
+      "texto": "Solicita à concessionária a homologação e ligação da estrutura",
+      "e_condicional": false,
+      "celula": "U11"
+    },
+    {
+      "id": "acao_03_21_1",
+      "setor_id": "setor_03",
+      "estagio_id": 21,
+      "ordem": 1,
+      "texto": "Comunica a homologação a todos os setores envolvidos",
+      "e_condicional": false,
+      "celula": "V11"
+    },
+    {
+      "id": "acao_03_22_1",
+      "setor_id": "setor_03",
+      "estagio_id": 22,
+      "ordem": 1,
+      "texto": "Monitora métricas gerais e finais do serviço prestado",
+      "e_condicional": false,
+      "celula": "W11"
+    },
+    {
+      "id": "acao_03_03_2",
+      "setor_id": "setor_03",
+      "estagio_id": 3,
+      "ordem": 2,
+      "texto": "Gera simulações de consumo e dimensionamento",
+      "e_condicional": false,
+      "celula": "D12"
+    },
+    {
+      "id": "acao_03_04_2",
+      "setor_id": "setor_03",
+      "estagio_id": 4,
+      "ordem": 2,
+      "texto": "Envia a proposta ao cliente",
+      "e_condicional": false,
+      "celula": "E12"
+    },
+    {
+      "id": "acao_03_05_2",
+      "setor_id": "setor_03",
+      "estagio_id": 5,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "F12"
+    },
+    {
+      "id": "acao_03_06_2",
+      "setor_id": "setor_03",
+      "estagio_id": 6,
+      "ordem": 2,
+      "texto": "Envia o contrato ao cliente",
+      "e_condicional": false,
+      "celula": "G12"
+    },
+    {
+      "id": "acao_03_07_2",
+      "setor_id": "setor_03",
+      "estagio_id": 7,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "H12"
+    },
+    {
+      "id": "acao_03_08_2",
+      "setor_id": "setor_03",
+      "estagio_id": 8,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "I12"
+    },
+    {
+      "id": "acao_03_09_2",
+      "setor_id": "setor_03",
+      "estagio_id": 9,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "J12"
+    },
+    {
+      "id": "acao_03_10_2",
+      "setor_id": "setor_03",
+      "estagio_id": 10,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "K12"
+    },
+    {
+      "id": "acao_03_11_2",
+      "setor_id": "setor_03",
+      "estagio_id": 11,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "L12"
+    },
+    {
+      "id": "acao_03_12_2",
+      "setor_id": "setor_03",
+      "estagio_id": 12,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "M12"
+    },
+    {
+      "id": "acao_03_13_2",
+      "setor_id": "setor_03",
+      "estagio_id": 13,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "N12"
+    },
+    {
+      "id": "acao_03_15_2",
+      "setor_id": "setor_03",
+      "estagio_id": 15,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "P12"
+    },
+    {
+      "id": "acao_03_16_2",
+      "setor_id": "setor_03",
+      "estagio_id": 16,
+      "ordem": 2,
+      "texto": "Acompanha o agendamento de instalação entre Vendedor e Cliente",
+      "e_condicional": false,
+      "celula": "Q12"
+    },
+    {
+      "id": "acao_03_17_2",
+      "setor_id": "setor_03",
+      "estagio_id": 17,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "R12"
+    },
+    {
+      "id": "acao_03_20_2",
+      "setor_id": "setor_03",
+      "estagio_id": 20,
+      "ordem": 2,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "U12"
+    },
+    {
+      "id": "acao_03_21_2",
+      "setor_id": "setor_03",
+      "estagio_id": 21,
+      "ordem": 2,
+      "texto": "Solicita à Engenharia a emissão do CAT",
+      "e_condicional": false,
+      "celula": "V12"
+    },
+    {
+      "id": "acao_03_03_3",
+      "setor_id": "setor_03",
+      "estagio_id": 3,
+      "ordem": 3,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "D13"
+    },
+    {
+      "id": "acao_03_05_3",
+      "setor_id": "setor_03",
+      "estagio_id": 5,
+      "ordem": 3,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "F13"
+    },
+    {
+      "id": "acao_03_07_3",
+      "setor_id": "setor_03",
+      "estagio_id": 7,
+      "ordem": 3,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "H13"
+    },
+    {
+      "id": "acao_03_08_3",
+      "setor_id": "setor_03",
+      "estagio_id": 8,
+      "ordem": 3,
+      "texto": "Envia proposta, contrato e documentos no Grupo de Fluxo (GRUPO DE FLUXO)",
+      "e_condicional": false,
+      "celula": "I13",
+      "canal": "whatsapp_grupo_fluxo"
+    },
+    {
+      "id": "acao_03_09_3",
+      "setor_id": "setor_03",
+      "estagio_id": 9,
+      "ordem": 3,
+      "texto": "Comunica orientações de pagamento no Grupo de Fluxo (GRUPO DE FLUXO)",
+      "e_condicional": false,
+      "celula": "J13",
+      "canal": "whatsapp_grupo_fluxo"
+    },
+    {
+      "id": "acao_03_15_3",
+      "setor_id": "setor_03",
+      "estagio_id": 15,
+      "ordem": 3,
+      "texto": "Trata e emite resolução sobre atrasos, desvios e avarias na entrega",
+      "e_condicional": true,
+      "celula": "P13"
+    },
+    {
+      "id": "acao_03_16_3",
+      "setor_id": "setor_03",
+      "estagio_id": 16,
+      "ordem": 3,
+      "texto": "Comunica o agendamento à Equipe Técnica",
+      "e_condicional": false,
+      "celula": "Q13"
+    },
+    {
+      "id": "acao_03_17_3",
+      "setor_id": "setor_03",
+      "estagio_id": 17,
+      "ordem": 3,
+      "texto": "Trata e resolve inconformidades relacionadas à documentação",
+      "e_condicional": true,
+      "celula": "R13"
+    },
+    {
+      "id": "acao_03_20_3",
+      "setor_id": "setor_03",
+      "estagio_id": 20,
+      "ordem": 3,
+      "texto": "Solicita parecer negativo de homologação e inicia tratamento de resolutividade",
+      "e_condicional": true,
+      "celula": "U13"
+    },
+    {
+      "id": "acao_03_21_3",
+      "setor_id": "setor_03",
+      "estagio_id": 21,
+      "ordem": 3,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "V13"
+    },
+    {
+      "id": "acao_03_07_4",
+      "setor_id": "setor_03",
+      "estagio_id": 7,
+      "ordem": 4,
+      "texto": "Cria o Grupo de Fluxo no WhatsApp com o cliente (canal temporário) (GRUPO DE FLUXO)",
+      "e_condicional": false,
+      "celula": "H14",
+      "canal": "whatsapp_grupo_fluxo"
+    },
+    {
+      "id": "acao_03_17_4",
+      "setor_id": "setor_03",
+      "estagio_id": 17,
+      "ordem": 4,
+      "texto": "Monitora métricas do setor",
+      "e_condicional": false,
+      "celula": "R14"
+    },
+    {
+      "id": "acao_03_21_4",
+      "setor_id": "setor_03",
+      "estagio_id": 21,
+      "ordem": 4,
+      "texto": "Comunica ao Administrativo para substituição pelo CRM quando disponível (GRUPO DE FLUXO)",
+      "e_condicional": false,
+      "celula": "V14",
+      "canal": "whatsapp_grupo_fluxo"
+    },
+    {
+      "id": "acao_04_03_1",
+      "setor_id": "setor_04",
+      "estagio_id": 3,
+      "ordem": 1,
+      "texto": "Verifica pré-aprovação de crédito para boleto parcelado",
+      "e_condicional": true,
+      "celula": "D15"
+    },
+    {
+      "id": "acao_04_04_1",
+      "setor_id": "setor_04",
+      "estagio_id": 4,
+      "ordem": 1,
+      "texto": "Estabelece cálculos e premissas básicas da proposta",
+      "e_condicional": false,
+      "celula": "E15"
+    },
+    {
+      "id": "acao_04_06_1",
+      "setor_id": "setor_04",
+      "estagio_id": 6,
+      "ordem": 1,
+      "texto": "Estabelece cálculos e premissas básicas do contrato",
+      "e_condicional": false,
+      "celula": "G15"
+    },
+    {
+      "id": "acao_04_08_1",
+      "setor_id": "setor_04",
+      "estagio_id": 8,
+      "ordem": 1,
+      "texto": "Presta orientações e cálculos financeiros",
+      "e_condicional": false,
+      "celula": "I15"
+    },
+    {
+      "id": "acao_04_13_1",
+      "setor_id": "setor_04",
+      "estagio_id": 13,
+      "ordem": 1,
+      "texto": "Aprova o projeto conforme os termos financeiros",
+      "e_condicional": false,
+      "celula": "N15"
+    },
+    {
+      "id": "acao_04_14_1",
+      "setor_id": "setor_04",
+      "estagio_id": 14,
+      "ordem": 1,
+      "texto": "Efetiva a compra dos materiais",
+      "e_condicional": false,
+      "celula": "O15"
+    },
+    {
+      "id": "acao_04_15_1",
+      "setor_id": "setor_04",
+      "estagio_id": 15,
+      "ordem": 1,
+      "texto": "Trata movimentos financeiros relativos a atrasos, desvios e avarias na entrega",
+      "e_condicional": true,
+      "celula": "P15"
+    },
+    {
+      "id": "acao_04_17_1",
+      "setor_id": "setor_04",
+      "estagio_id": 17,
+      "ordem": 1,
+      "texto": "Processa movimentações financeiras de serviços e insumos",
+      "e_condicional": false,
+      "celula": "R15"
+    },
+    {
+      "id": "acao_04_22_1",
+      "setor_id": "setor_04",
+      "estagio_id": 22,
+      "ordem": 1,
+      "texto": "Finaliza os processos financeiros do serviço e contrato",
+      "e_condicional": false,
+      "celula": "W15"
+    },
+    {
+      "id": "acao_04_17_2",
+      "setor_id": "setor_04",
+      "estagio_id": 17,
+      "ordem": 2,
+      "texto": "Trata e resolve inconformidades financeiras",
+      "e_condicional": true,
+      "celula": "R16"
+    },
+    {
+      "id": "acao_05_04_1",
+      "setor_id": "setor_05",
+      "estagio_id": 4,
+      "ordem": 1,
+      "texto": "Indica movimentos contábeis básicos da proposta",
+      "e_condicional": false,
+      "celula": "E17"
+    },
+    {
+      "id": "acao_05_06_1",
+      "setor_id": "setor_05",
+      "estagio_id": 6,
+      "ordem": 1,
+      "texto": "Indica movimentos contábeis básicos do contrato",
+      "e_condicional": false,
+      "celula": "G17"
+    },
+    {
+      "id": "acao_05_08_1",
+      "setor_id": "setor_05",
+      "estagio_id": 8,
+      "ordem": 1,
+      "texto": "Presta orientações e cálculos contábeis e fiscais",
+      "e_condicional": false,
+      "celula": "I17"
+    },
+    {
+      "id": "acao_05_13_1",
+      "setor_id": "setor_05",
+      "estagio_id": 13,
+      "ordem": 1,
+      "texto": "Aprova o projeto conforme os termos fiscais",
+      "e_condicional": false,
+      "celula": "N17"
+    },
+    {
+      "id": "acao_05_14_1",
+      "setor_id": "setor_05",
+      "estagio_id": 14,
+      "ordem": 1,
+      "texto": "Processa informações fiscais da compra e translado de material (ICMS)",
+      "e_condicional": false,
+      "celula": "O17"
+    },
+    {
+      "id": "acao_05_17_1",
+      "setor_id": "setor_05",
+      "estagio_id": 17,
+      "ordem": 1,
+      "texto": "Processa informações fiscais relativas à obra (ISSQN)",
+      "e_condicional": false,
+      "celula": "R17"
+    },
+    {
+      "id": "acao_05_22_1",
+      "setor_id": "setor_05",
+      "estagio_id": 22,
+      "ordem": 1,
+      "texto": "Finaliza os processos fiscais e contábeis do serviço e contrato",
+      "e_condicional": false,
+      "celula": "W17"
+    },
+    {
+      "id": "acao_05_17_2",
+      "setor_id": "setor_05",
+      "estagio_id": 17,
+      "ordem": 2,
+      "texto": "Trata e resolve inconformidades fiscais",
+      "e_condicional": true,
+      "celula": "R18"
+    },
+    {
+      "id": "acao_06_01_1",
+      "setor_id": "setor_06",
+      "estagio_id": 1,
+      "ordem": 1,
+      "texto": "Orienta e alinha as ações da equipe",
+      "e_condicional": false,
+      "celula": "B19"
+    },
+    {
+      "id": "acao_06_02_1",
+      "setor_id": "setor_06",
+      "estagio_id": 2,
+      "ordem": 1,
+      "texto": "Orienta e alinha as ações da equipe",
+      "e_condicional": false,
+      "celula": "C19"
+    },
+    {
+      "id": "acao_06_03_1",
+      "setor_id": "setor_06",
+      "estagio_id": 3,
+      "ordem": 1,
+      "texto": "Orienta e alinha as ações da equipe",
+      "e_condicional": false,
+      "celula": "D19"
+    },
+    {
+      "id": "acao_06_04_1",
+      "setor_id": "setor_06",
+      "estagio_id": 4,
+      "ordem": 1,
+      "texto": "Acompanha o envio de proposta",
+      "e_condicional": false,
+      "celula": "E19"
+    },
+    {
+      "id": "acao_06_05_1",
+      "setor_id": "setor_06",
+      "estagio_id": 5,
+      "ordem": 1,
+      "texto": "Cobra resolução da venda e da proposta",
+      "e_condicional": false,
+      "celula": "F19"
+    },
+    {
+      "id": "acao_06_06_1",
+      "setor_id": "setor_06",
+      "estagio_id": 6,
+      "ordem": 1,
+      "texto": "Assina o contrato",
+      "e_condicional": false,
+      "celula": "G19"
+    },
+    {
+      "id": "acao_06_07_1",
+      "setor_id": "setor_06",
+      "estagio_id": 7,
+      "ordem": 1,
+      "texto": "Cobra resolução da venda e do contrato",
+      "e_condicional": false,
+      "celula": "H19"
+    },
+    {
+      "id": "acao_06_08_1",
+      "setor_id": "setor_06",
+      "estagio_id": 8,
+      "ordem": 1,
+      "texto": "Orienta e alinha as ações da equipe",
+      "e_condicional": false,
+      "celula": "I19"
+    },
+    {
+      "id": "acao_06_09_1",
+      "setor_id": "setor_06",
+      "estagio_id": 9,
+      "ordem": 1,
+      "texto": "Acompanha e cobra datas e pagamentos",
+      "e_condicional": false,
+      "celula": "J19"
+    },
+    {
+      "id": "acao_06_10_1",
+      "setor_id": "setor_06",
+      "estagio_id": 10,
+      "ordem": 1,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "K19"
+    },
+    {
+      "id": "acao_06_11_1",
+      "setor_id": "setor_06",
+      "estagio_id": 11,
+      "ordem": 1,
+      "texto": "Cobra resolução do projeto",
+      "e_condicional": false,
+      "celula": "L19"
+    },
+    {
+      "id": "acao_06_12_1",
+      "setor_id": "setor_06",
+      "estagio_id": 12,
+      "ordem": 1,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "M19"
+    },
+    {
+      "id": "acao_06_13_1",
+      "setor_id": "setor_06",
+      "estagio_id": 13,
+      "ordem": 1,
+      "texto": "Aprova o projeto em termos gerais",
+      "e_condicional": false,
+      "celula": "N19"
+    },
+    {
+      "id": "acao_06_14_1",
+      "setor_id": "setor_06",
+      "estagio_id": 14,
+      "ordem": 1,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "O19"
+    },
+    {
+      "id": "acao_06_15_1",
+      "setor_id": "setor_06",
+      "estagio_id": 15,
+      "ordem": 1,
+      "texto": "Cobra resolução da entrega e documentações",
+      "e_condicional": false,
+      "celula": "P19"
+    },
+    {
+      "id": "acao_06_16_1",
+      "setor_id": "setor_06",
+      "estagio_id": 16,
+      "ordem": 1,
+      "texto": "Apoia a mobilização da Equipe Técnica",
+      "e_condicional": false,
+      "celula": "Q19"
+    },
+    {
+      "id": "acao_06_17_1",
+      "setor_id": "setor_06",
+      "estagio_id": 17,
+      "ordem": 1,
+      "texto": "Apoia a Equipe Técnica durante a instalação",
+      "e_condicional": false,
+      "celula": "R19"
+    },
+    {
+      "id": "acao_06_18_1",
+      "setor_id": "setor_06",
+      "estagio_id": 18,
+      "ordem": 1,
+      "texto": "Acompanha e cobra resolução da vistoria técnica",
+      "e_condicional": false,
+      "celula": "S19"
+    },
+    {
+      "id": "acao_06_19_1",
+      "setor_id": "setor_06",
+      "estagio_id": 19,
+      "ordem": 1,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "T19"
+    },
+    {
+      "id": "acao_06_20_1",
+      "setor_id": "setor_06",
+      "estagio_id": 20,
+      "ordem": 1,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "U19"
+    },
+    {
+      "id": "acao_06_21_1",
+      "setor_id": "setor_06",
+      "estagio_id": 21,
+      "ordem": 1,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "V19"
+    },
+    {
+      "id": "acao_06_22_1",
+      "setor_id": "setor_06",
+      "estagio_id": 22,
+      "ordem": 1,
+      "texto": "Analisa métricas gerais e finais do serviço prestado",
+      "e_condicional": false,
+      "celula": "W19"
+    },
+    {
+      "id": "acao_06_01_2",
+      "setor_id": "setor_06",
+      "estagio_id": 1,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "B20"
+    },
+    {
+      "id": "acao_06_02_2",
+      "setor_id": "setor_06",
+      "estagio_id": 2,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "C20"
+    },
+    {
+      "id": "acao_06_03_2",
+      "setor_id": "setor_06",
+      "estagio_id": 3,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "D20"
+    },
+    {
+      "id": "acao_06_04_2",
+      "setor_id": "setor_06",
+      "estagio_id": 4,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "E20"
+    },
+    {
+      "id": "acao_06_05_2",
+      "setor_id": "setor_06",
+      "estagio_id": 5,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "F20"
+    },
+    {
+      "id": "acao_06_06_2",
+      "setor_id": "setor_06",
+      "estagio_id": 6,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "G20"
+    },
+    {
+      "id": "acao_06_07_2",
+      "setor_id": "setor_06",
+      "estagio_id": 7,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "H20"
+    },
+    {
+      "id": "acao_06_08_2",
+      "setor_id": "setor_06",
+      "estagio_id": 8,
+      "ordem": 2,
+      "texto": "Cobra resolução",
+      "e_condicional": false,
+      "celula": "I20"
+    },
+    {
+      "id": "acao_06_09_2",
+      "setor_id": "setor_06",
+      "estagio_id": 9,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "J20"
+    },
+    {
+      "id": "acao_06_11_2",
+      "setor_id": "setor_06",
+      "estagio_id": 11,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "L20"
+    },
+    {
+      "id": "acao_06_13_2",
+      "setor_id": "setor_06",
+      "estagio_id": 13,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "N20"
+    },
+    {
+      "id": "acao_06_15_2",
+      "setor_id": "setor_06",
+      "estagio_id": 15,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "P20"
+    },
+    {
+      "id": "acao_06_16_2",
+      "setor_id": "setor_06",
+      "estagio_id": 16,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "Q20"
+    },
+    {
+      "id": "acao_06_17_2",
+      "setor_id": "setor_06",
+      "estagio_id": 17,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "R20"
+    },
+    {
+      "id": "acao_06_18_2",
+      "setor_id": "setor_06",
+      "estagio_id": 18,
+      "ordem": 2,
+      "texto": "Analisa métricas gerais",
+      "e_condicional": false,
+      "celula": "S20"
+    },
+    {
+      "id": "acao_06_20_2",
+      "setor_id": "setor_06",
+      "estagio_id": 20,
+      "ordem": 2,
+      "texto": "Acompanha a emissão de negativa de homologação e apoia ações de resolutividade",
+      "e_condicional": true,
+      "celula": "U20"
+    },
+    {
+      "id": "acao_06_22_2",
+      "setor_id": "setor_06",
+      "estagio_id": 22,
+      "ordem": 2,
+      "texto": "Recepciona e trata insatisfação do cliente não resolvida pelo Vendedor",
+      "e_condicional": true,
+      "celula": "W20"
+    },
+    {
+      "id": "acao_06_06_3",
+      "setor_id": "setor_06",
+      "estagio_id": 6,
+      "ordem": 3,
+      "texto": "Reasina o contrato após renegociação",
+      "e_condicional": true,
+      "celula": "G21"
+    },
+    {
+      "id": "acao_06_15_3",
+      "setor_id": "setor_06",
+      "estagio_id": 15,
+      "ordem": 3,
+      "texto": "Trata e apoia a resolução de casos de atrasos, desvios e avarias na entrega",
+      "e_condicional": true,
+      "celula": "P21"
+    },
+    {
+      "id": "acao_06_17_3",
+      "setor_id": "setor_06",
+      "estagio_id": 17,
+      "ordem": 3,
+      "texto": "Trata e resolve inconformidades gerais da instalação",
+      "e_condicional": true,
+      "celula": "R21"
+    },
+    {
+      "id": "acao_07_02_1",
+      "setor_id": "setor_07",
+      "estagio_id": 2,
+      "ordem": 1,
+      "texto": "Realiza visita técnica facultativa ao imóvel",
+      "e_condicional": false,
+      "celula": "C23"
+    },
+    {
+      "id": "acao_07_03_1",
+      "setor_id": "setor_07",
+      "estagio_id": 3,
+      "ordem": 1,
+      "texto": "Edita layouts e cenários do projeto",
+      "e_condicional": false,
+      "celula": "D23"
+    },
+    {
+      "id": "acao_07_10_1",
+      "setor_id": "setor_07",
+      "estagio_id": 10,
+      "ordem": 1,
+      "texto": "Recepciona o pedido de projeto enviado pelo Administrativo",
+      "e_condicional": false,
+      "celula": "K23"
+    },
+    {
+      "id": "acao_07_11_1",
+      "setor_id": "setor_07",
+      "estagio_id": 11,
+      "ordem": 1,
+      "texto": "Elabora o projeto técnico",
+      "e_condicional": false,
+      "celula": "L23"
+    },
+    {
+      "id": "acao_07_13_1",
+      "setor_id": "setor_07",
+      "estagio_id": 13,
+      "ordem": 1,
+      "texto": "Avalia e comunica impedimento técnico ou necessidade de adequação no imóvel",
+      "e_condicional": true,
+      "celula": "N23"
+    },
+    {
+      "id": "acao_07_19_1",
+      "setor_id": "setor_07",
+      "estagio_id": 19,
+      "ordem": 1,
+      "texto": "Mantém o Administrativo atualizado sobre tecnologias de produtos e serviços",
+      "e_condicional": false,
+      "celula": "T23"
+    },
+    {
+      "id": "acao_07_21_1",
+      "setor_id": "setor_07",
+      "estagio_id": 21,
+      "ordem": 1,
+      "texto": "Emite o CAT e encaminha ao Administrativo para arquivo",
+      "e_condicional": false,
+      "celula": "V23"
+    },
+    {
+      "id": "acao_07_11_2",
+      "setor_id": "setor_07",
+      "estagio_id": 11,
+      "ordem": 2,
+      "texto": "Envia o projeto ao Administrativo",
+      "e_condicional": false,
+      "celula": "L24"
+    },
+    {
+      "id": "acao_08_03_1",
+      "setor_id": "setor_08",
+      "estagio_id": 3,
+      "ordem": 1,
+      "texto": "Envia dados para simulação de consumo e dimensionamento",
+      "e_condicional": false,
+      "celula": "D25"
+    },
+    {
+      "id": "acao_08_04_1",
+      "setor_id": "setor_08",
+      "estagio_id": 4,
+      "ordem": 1,
+      "texto": "Reenvia dados para simulação após ajuste de proposta",
+      "e_condicional": true,
+      "celula": "E25"
+    },
+    {
+      "id": "acao_08_14_1",
+      "setor_id": "setor_08",
+      "estagio_id": 14,
+      "ordem": 1,
+      "texto": "Recepciona o pedido de compra do Administrativo",
+      "e_condicional": false,
+      "celula": "O25"
+    },
+    {
+      "id": "acao_08_15_1",
+      "setor_id": "setor_08",
+      "estagio_id": 15,
+      "ordem": 1,
+      "texto": "Trata atrasos, desvios e avarias em conjunto com a Logística",
+      "e_condicional": true,
+      "celula": "P25"
+    },
+    {
+      "id": "acao_08_17_1",
+      "setor_id": "setor_08",
+      "estagio_id": 17,
+      "ordem": 1,
+      "texto": "Trata e resolve inconformidades relacionadas aos materiais",
+      "e_condicional": true,
+      "celula": "R25"
+    },
+    {
+      "id": "acao_08_19_1",
+      "setor_id": "setor_08",
+      "estagio_id": 19,
+      "ordem": 1,
+      "texto": "Compartilha informações técnicas sobre uso e cuidados dos produtos",
+      "e_condicional": false,
+      "celula": "T25"
+    },
+    {
+      "id": "acao_08_14_2",
+      "setor_id": "setor_08",
+      "estagio_id": 14,
+      "ordem": 2,
+      "texto": "Separa os produtos conforme o pedido",
+      "e_condicional": false,
+      "celula": "O26"
+    },
+    {
+      "id": "acao_08_14_3",
+      "setor_id": "setor_08",
+      "estagio_id": 14,
+      "ordem": 3,
+      "texto": "Comunica a separação à equipe de Logística",
+      "e_condicional": false,
+      "celula": "O27"
+    },
+    {
+      "id": "acao_08_14_4",
+      "setor_id": "setor_08",
+      "estagio_id": 14,
+      "ordem": 4,
+      "texto": "Despacha o pedido",
+      "e_condicional": false,
+      "celula": "O28"
+    },
+    {
+      "id": "acao_08_14_5",
+      "setor_id": "setor_08",
+      "estagio_id": 14,
+      "ordem": 5,
+      "texto": "Comunica o despacho ao Administrativo",
+      "e_condicional": false,
+      "celula": "O29"
+    },
+    {
+      "id": "acao_09_14_1",
+      "setor_id": "setor_09",
+      "estagio_id": 14,
+      "ordem": 1,
+      "texto": "Recepciona os produtos do Fornecedor",
+      "e_condicional": false,
+      "celula": "O30"
+    },
+    {
+      "id": "acao_09_15_1",
+      "setor_id": "setor_09",
+      "estagio_id": 15,
+      "ordem": 1,
+      "texto": "Entrega o material no local e horário definidos",
+      "e_condicional": false,
+      "celula": "P30"
+    },
+    {
+      "id": "acao_09_14_2",
+      "setor_id": "setor_09",
+      "estagio_id": 14,
+      "ordem": 2,
+      "texto": "Emite as guias de translado",
+      "e_condicional": false,
+      "celula": "O31"
+    },
+    {
+      "id": "acao_09_15_2",
+      "setor_id": "setor_09",
+      "estagio_id": 15,
+      "ordem": 2,
+      "texto": "Comunica possíveis atrasos, desvios e avarias",
+      "e_condicional": true,
+      "celula": "P31"
+    },
+    {
+      "id": "acao_10_02_1",
+      "setor_id": "setor_10",
+      "estagio_id": 2,
+      "ordem": 1,
+      "texto": "Realiza visita técnica facultativa ao imóvel",
+      "e_condicional": false,
+      "celula": "C32"
+    },
+    {
+      "id": "acao_10_03_1",
+      "setor_id": "setor_10",
+      "estagio_id": 3,
+      "ordem": 1,
+      "texto": "Esclarece dúvidas técnicas sobre o projeto",
+      "e_condicional": false,
+      "celula": "D32"
+    },
+    {
+      "id": "acao_10_13_1",
+      "setor_id": "setor_10",
+      "estagio_id": 13,
+      "ordem": 1,
+      "texto": "Aprova o projeto conforme os termos técnicos",
+      "e_condicional": false,
+      "celula": "N32"
+    },
+    {
+      "id": "acao_10_15_1",
+      "setor_id": "setor_10",
+      "estagio_id": 15,
+      "ordem": 1,
+      "texto": "Confere o material entregue conforme os termos técnicos",
+      "e_condicional": false,
+      "celula": "P32"
+    },
+    {
+      "id": "acao_10_16_1",
+      "setor_id": "setor_10",
+      "estagio_id": 16,
+      "ordem": 1,
+      "texto": "Informa disponibilidade de agenda, insumos, ferramentas e necessidades de suporte",
+      "e_condicional": false,
+      "celula": "Q32"
+    },
+    {
+      "id": "acao_10_17_1",
+      "setor_id": "setor_10",
+      "estagio_id": 17,
+      "ordem": 1,
+      "texto": "Executa a instalação com qualidade e dentro do prazo",
+      "e_condicional": false,
+      "celula": "R32"
+    },
+    {
+      "id": "acao_10_18_1",
+      "setor_id": "setor_10",
+      "estagio_id": 18,
+      "ordem": 1,
+      "texto": "Realiza a vistoria técnica interna",
+      "e_condicional": false,
+      "celula": "S32"
+    },
+    {
+      "id": "acao_10_19_1",
+      "setor_id": "setor_10",
+      "estagio_id": 19,
+      "ordem": 1,
+      "texto": "Treina o cliente no uso e cuidados dos equipamentos",
+      "e_condicional": false,
+      "celula": "T32"
+    },
+    {
+      "id": "acao_10_20_1",
+      "setor_id": "setor_10",
+      "estagio_id": 20,
+      "ordem": 1,
+      "texto": "Mantém o Administrativo informado sobre dados críticos do projeto executado",
+      "e_condicional": false,
+      "celula": "U32"
+    },
+    {
+      "id": "acao_10_15_2",
+      "setor_id": "setor_10",
+      "estagio_id": 15,
+      "ordem": 2,
+      "texto": "Trata e apoia a resolução de atrasos, desvios e avarias na entrega",
+      "e_condicional": true,
+      "celula": "P33"
+    },
+    {
+      "id": "acao_10_17_2",
+      "setor_id": "setor_10",
+      "estagio_id": 17,
+      "ordem": 2,
+      "texto": "Trata e resolve inconformidades da instalação",
+      "e_condicional": true,
+      "celula": "R33"
+    },
+    {
+      "id": "acao_10_18_2",
+      "setor_id": "setor_10",
+      "estagio_id": 18,
+      "ordem": 2,
+      "texto": "Emite laudo de vistoria técnica interna",
+      "e_condicional": false,
+      "celula": "S33"
+    },
+    {
+      "id": "acao_10_19_2",
+      "setor_id": "setor_10",
+      "estagio_id": 19,
+      "ordem": 2,
+      "texto": "Solicita assinatura do comprovante de treinamento",
+      "e_condicional": false,
+      "celula": "T33"
+    },
+    {
+      "id": "acao_10_16_2",
+      "setor_id": "setor_10",
+      "estagio_id": 16,
+      "ordem": 2,
+      "texto": "Comunica indisponibilidade de agenda ao Administrativo",
+      "e_condicional": true,
+      "celula": "Q34"
+    },
+    {
+      "id": "acao_10_18_3",
+      "setor_id": "setor_10",
+      "estagio_id": 18,
+      "ordem": 3,
+      "texto": "Comunica situações, problemas e necessidades ao Administrativo",
+      "e_condicional": true,
+      "celula": "S34"
+    },
+    {
+      "id": "acao_11_18_1",
+      "setor_id": "setor_11",
+      "estagio_id": 18,
+      "ordem": 1,
+      "texto": "Realiza a vistoria técnica externa",
+      "e_condicional": false,
+      "celula": "S35"
+    },
+    {
+      "id": "acao_11_20_1",
+      "setor_id": "setor_11",
+      "estagio_id": 20,
+      "ordem": 1,
+      "texto": "Recepciona o pedido de ligação e homologação",
+      "e_condicional": false,
+      "celula": "U35"
+    },
+    {
+      "id": "acao_11_21_1",
+      "setor_id": "setor_11",
+      "estagio_id": 21,
+      "ordem": 1,
+      "texto": "Processa a ligação e homologação do projeto",
+      "e_condicional": true,
+      "celula": "V35"
+    },
+    {
+      "id": "acao_11_18_2",
+      "setor_id": "setor_11",
+      "estagio_id": 18,
+      "ordem": 2,
+      "texto": "Emite o laudo de vistoria técnica externa",
+      "e_condicional": false,
+      "celula": "S36"
+    },
+    {
+      "id": "acao_11_18_3",
+      "setor_id": "setor_11",
+      "estagio_id": 18,
+      "ordem": 3,
+      "texto": "Comunica situações de inconformidade e necessidade de reajuste",
+      "e_condicional": true,
+      "celula": "S37"
+    },
+    {
+      "id": "acao_12_02_1",
+      "setor_id": "setor_12",
+      "estagio_id": 2,
+      "ordem": 1,
+      "texto": "Informa dados críticos ao Vendedor",
+      "e_condicional": false,
+      "celula": "C38"
+    },
+    {
+      "id": "acao_12_03_1",
+      "setor_id": "setor_12",
+      "estagio_id": 3,
+      "ordem": 1,
+      "texto": "Mantém o fornecimento de dados críticos atualizado",
+      "e_condicional": false,
+      "celula": "D38"
+    },
+    {
+      "id": "acao_12_04_1",
+      "setor_id": "setor_12",
+      "estagio_id": 4,
+      "ordem": 1,
+      "texto": "Recepciona a proposta",
+      "e_condicional": false,
+      "celula": "E38"
+    },
+    {
+      "id": "acao_12_05_1",
+      "setor_id": "setor_12",
+      "estagio_id": 5,
+      "ordem": 1,
+      "texto": "Avalia a proposta e decide",
+      "e_condicional": true,
+      "celula": "F38"
+    },
+    {
+      "id": "acao_12_06_1",
+      "setor_id": "setor_12",
+      "estagio_id": 6,
+      "ordem": 1,
+      "texto": "Recepciona o contrato",
+      "e_condicional": false,
+      "celula": "G38"
+    },
+    {
+      "id": "acao_12_07_1",
+      "setor_id": "setor_12",
+      "estagio_id": 7,
+      "ordem": 1,
+      "texto": "Avalia o contrato e decide",
+      "e_condicional": true,
+      "celula": "H38"
+    },
+    {
+      "id": "acao_12_08_1",
+      "setor_id": "setor_12",
+      "estagio_id": 8,
+      "ordem": 1,
+      "texto": "Responde ao feedback de venda",
+      "e_condicional": false,
+      "celula": "I38"
+    },
+    {
+      "id": "acao_12_09_1",
+      "setor_id": "setor_12",
+      "estagio_id": 9,
+      "ordem": 1,
+      "texto": "Realiza o pagamento ao fornecedor",
+      "e_condicional": false,
+      "celula": "J38"
+    },
+    {
+      "id": "acao_12_13_1",
+      "setor_id": "setor_12",
+      "estagio_id": 13,
+      "ordem": 1,
+      "texto": "Aprova o projeto conforme os termos contratuais",
+      "e_condicional": false,
+      "celula": "N38"
+    },
+    {
+      "id": "acao_12_14_1",
+      "setor_id": "setor_12",
+      "estagio_id": 14,
+      "ordem": 1,
+      "texto": "Reafirma local e horário de entrega do material",
+      "e_condicional": false,
+      "celula": "O38"
+    },
+    {
+      "id": "acao_12_15_1",
+      "setor_id": "setor_12",
+      "estagio_id": 15,
+      "ordem": 1,
+      "texto": "Recepciona a entrega do material",
+      "e_condicional": false,
+      "celula": "P38"
+    },
+    {
+      "id": "acao_12_16_1",
+      "setor_id": "setor_12",
+      "estagio_id": 16,
+      "ordem": 1,
+      "texto": "Comunica disponibilidade de agenda para a instalação",
+      "e_condicional": false,
+      "celula": "Q38"
+    },
+    {
+      "id": "acao_12_17_1",
+      "setor_id": "setor_12",
+      "estagio_id": 17,
+      "ordem": 1,
+      "texto": "Recepciona a Equipe Técnica para a instalação",
+      "e_condicional": false,
+      "celula": "R38"
+    },
+    {
+      "id": "acao_12_18_1",
+      "setor_id": "setor_12",
+      "estagio_id": 18,
+      "ordem": 1,
+      "texto": "Comunica ao Administrativo ou Vendedor situações, problemas e necessidades supervenientes",
+      "e_condicional": true,
+      "celula": "S38"
+    },
+    {
+      "id": "acao_12_19_1",
+      "setor_id": "setor_12",
+      "estagio_id": 19,
+      "ordem": 1,
+      "texto": "Recepciona o treinamento de uso dos equipamentos",
+      "e_condicional": false,
+      "celula": "T38"
+    },
+    {
+      "id": "acao_12_22_1",
+      "setor_id": "setor_12",
+      "estagio_id": 22,
+      "ordem": 1,
+      "texto": "Presta feedback final ao Vendedor sobre a execução do serviço e produto",
+      "e_condicional": false,
+      "celula": "W38"
+    },
+    {
+      "id": "acao_12_08_2",
+      "setor_id": "setor_12",
+      "estagio_id": 8,
+      "ordem": 2,
+      "texto": "Recepciona guias de pagamento",
+      "e_condicional": false,
+      "celula": "I39"
+    },
+    {
+      "id": "acao_12_09_2",
+      "setor_id": "setor_12",
+      "estagio_id": 9,
+      "ordem": 2,
+      "texto": "Realiza o pagamento à Lux",
+      "e_condicional": false,
+      "celula": "J39"
+    },
+    {
+      "id": "acao_12_17_2",
+      "setor_id": "setor_12",
+      "estagio_id": 17,
+      "ordem": 2,
+      "texto": "Trata e resolve inconformidades relacionadas ao imóvel",
+      "e_condicional": true,
+      "celula": "R39"
+    },
+    {
+      "id": "acao_12_19_2",
+      "setor_id": "setor_12",
+      "estagio_id": 19,
+      "ordem": 2,
+      "texto": "Assina o comprovante de treinamento e informes",
+      "e_condicional": false,
+      "celula": "T39"
+    },
+    {
+      "id": "acao_12_22_2",
+      "setor_id": "setor_12",
+      "estagio_id": 22,
+      "ordem": 2,
+      "texto": "Registra insatisfação ao Vendedor; escala ao CEO se não resolvida",
+      "e_condicional": true,
+      "celula": "W39"
+    },
+    {
+      "id": "acao_02_02_7",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 7,
+      "texto": "Inicia o atendimento com pergunta aberta sobre como o cliente resolve hoje a questão da energia",
+      "e_condicional": false,
+      "celula": "V08-001",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_8",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 8,
+      "texto": "Aprofunda a situação de energia: se paga só a distribuidora, se possui solar neste ou em outro imóvel que compensa a unidade, se compra energia por assinatura ou usa outro modelo de geração",
+      "e_condicional": false,
+      "celula": "V08-002",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_9",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 9,
+      "texto": "Identifica o perfil do cliente: paga só a distribuidora, já possui solar, compra energia por assinatura ou está em imóvel alugado",
+      "e_condicional": false,
+      "celula": "V08-003",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_10",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 10,
+      "texto": "Levanta o contexto do cliente: valor da conta, consumo médio, tipo de imóvel, imóvel próprio ou alugado, atividade, previsão de aumento de consumo, outras unidades consumidoras, situação financeira, urgência, objetivo principal, experiências anteriores e objeções",
+      "e_condicional": false,
+      "celula": "V08-004",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_11",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 11,
+      "texto": "Trata imóvel alugado sem considerá-lo objeção e prossegue o atendimento normalmente",
+      "e_condicional": false,
+      "celula": "V08-005",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_12",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 12,
+      "texto": "Verifica se o cliente já possui energia solar",
+      "e_condicional": true,
+      "celula": "V08-006",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_13",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 13,
+      "texto": "Verifica se o cliente compra energia por assinatura",
+      "e_condicional": true,
+      "celula": "V08-007",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_14",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 14,
+      "texto": "Avalia se o cliente quer e consegue instalar o sistema fotovoltaico",
+      "e_condicional": true,
+      "celula": "V08-008",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_15",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 15,
+      "texto": "Identifica a condição financeira do cliente",
+      "e_condicional": true,
+      "celula": "V08-009",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_16",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 16,
+      "texto": "Classifica o lead como quente, morno ou frio conforme o interesse demonstrado",
+      "e_condicional": false,
+      "celula": "V08-010",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_17",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 17,
+      "texto": "Responde às objeções com informações técnicas e exemplos práticos, sem competir apenas por preço ao comparar concorrentes",
+      "e_condicional": false,
+      "celula": "V08-011",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_18",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 18,
+      "texto": "Responde dúvidas de garantia, formas de pagamento e qualidade dos equipamentos com as respostas-padrão",
+      "e_condicional": false,
+      "celula": "V08-012",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_19",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 19,
+      "texto": "Identifica ao menos uma oportunidade na conversa e a classifica em alta, média ou baixa prioridade",
+      "e_condicional": false,
+      "celula": "V08-013",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_02_20",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "ordem": 20,
+      "texto": "Conduz ao próximo passo da venda: simulação, análise da conta ou agendamento de visita",
+      "e_condicional": false,
+      "celula": "V08-014",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_06_02_3",
+      "setor_id": "setor_06",
+      "estagio_id": 2,
+      "ordem": 3,
+      "texto": "Define a estratégia comercial conforme o cenário identificado no atendimento",
+      "e_condicional": false,
+      "celula": "V08-015",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_06_02_4",
+      "setor_id": "setor_06",
+      "estagio_id": 2,
+      "ordem": 4,
+      "texto": "Decide sobre situação sem procedimento definido",
+      "e_condicional": true,
+      "celula": "V08-016",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_03_3",
+      "setor_id": "setor_02",
+      "estagio_id": 3,
+      "ordem": 3,
+      "texto": "Apresenta as formas de pagamento: financiamento (“boleto”), cartão em até 21 vezes por plataforma especializada, à vista e em etapas",
+      "e_condicional": false,
+      "celula": "V08-017",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_04_03_2",
+      "setor_id": "setor_04",
+      "estagio_id": 3,
+      "ordem": 2,
+      "texto": "Apoia as modalidades de pagamento: cartão por plataforma especializada, à vista e em etapas (equipamentos primeiro; instalação após a montagem)",
+      "e_condicional": false,
+      "celula": "V08-018",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_05_3",
+      "setor_id": "setor_02",
+      "estagio_id": 5,
+      "ordem": 3,
+      "texto": "Informa que a aprovação do financiamento depende de análise de crédito e que a parcela pode ficar próxima ou inferior à conta de energia, conforme o projeto e o crédito aprovado",
+      "e_condicional": false,
+      "celula": "V08-019",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_22_2",
+      "setor_id": "setor_02",
+      "estagio_id": 22,
+      "ordem": 2,
+      "texto": "Identifica oportunidades de pós-venda: ampliação, retrofit, manutenção preventiva, monitoramento, limpeza técnica, seguro e atendimento de outras unidades consumidoras",
+      "e_condicional": false,
+      "celula": "V08-020",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_22_3",
+      "setor_id": "setor_02",
+      "estagio_id": 22,
+      "ordem": 3,
+      "texto": "Solicita indicações ao cliente",
+      "e_condicional": false,
+      "celula": "V08-021",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_02_22_4",
+      "setor_id": "setor_02",
+      "estagio_id": 22,
+      "ordem": 4,
+      "texto": "Classifica a prioridade da oportunidade identificada",
+      "e_condicional": true,
+      "celula": "V08-022",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_03_22_2",
+      "setor_id": "setor_03",
+      "estagio_id": 22,
+      "ordem": 2,
+      "texto": "Registra as oportunidades identificadas e o acompanhamento por prioridade",
+      "e_condicional": false,
+      "celula": "V08-023",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    },
+    {
+      "id": "acao_06_22_3",
+      "setor_id": "setor_06",
+      "estagio_id": 22,
+      "ordem": 3,
+      "texto": "Registra as decisões sobre situações não previstas para futura padronização",
+      "e_condicional": false,
+      "celula": "V08-024",
+      "origem_doc": "anotacoes_ceo_2026-09-24"
+    }
+  ],
+  "condicionais": [
+    {
+      "id": "cond_02_15_2",
+      "acao_id": "acao_02_15_2",
+      "pergunta": "Confere o material entregue",
+      "se_sim": {
+        "rotulo": "Conformidade",
+        "texto": "informa ao Administrativo"
+      },
+      "se_nao": {
+        "rotulo": "Inconformidade",
+        "texto": "comunica atrasos, desvios ou avarias ao Administrativo e ao cliente"
+      },
+      "situacao_id": "sit_07"
+    },
+    {
+      "id": "cond_02_02_5",
+      "acao_id": "acao_02_02_5",
+      "pergunta": "Verifica disponibilidade da conta de energia",
+      "se_sim": {
+        "rotulo": "Conta disponível",
+        "texto": "segue para simulação"
+      },
+      "se_nao": {
+        "rotulo": "Conta indisponível",
+        "texto": "solicita estimativa de consumo e projeta o dimensionamento"
+      },
+      "situacao_id": "sit_01"
+    },
+    {
+      "id": "cond_02_02_6",
+      "acao_id": "acao_02_02_6",
+      "pergunta": "Confirma identidade e titularidade do contato",
+      "se_sim": {
+        "rotulo": "Contato correto",
+        "texto": "prossegue o atendimento"
+      },
+      "se_nao": {
+        "rotulo": "Contato incorreto",
+        "texto": "solicita redirecionamento e registra a ocorrência"
+      },
+      "situacao_id": "sit_02"
+    },
+    {
+      "id": "cond_03_15_3",
+      "acao_id": "acao_03_15_3",
+      "pergunta": "Trata e emite resolução sobre atrasos, desvios e avarias na entrega",
+      "se_sim": {
+        "rotulo": "Inconformidade resolvida internamente",
+        "texto": "registra e comunica"
+      },
+      "se_nao": {
+        "rotulo": "Inconformidade não resolvida",
+        "texto": "escala ao CEO"
+      },
+      "situacao_id": "sit_07"
+    },
+    {
+      "id": "cond_03_17_3",
+      "acao_id": "acao_03_17_3",
+      "pergunta": "Trata e resolve inconformidades relacionadas à documentação",
+      "se_sim": {
+        "rotulo": "Documentação regularizável",
+        "texto": "corrige e reemite"
+      },
+      "se_nao": {
+        "rotulo": "Documentação com impedimento",
+        "texto": "escala ao CEO"
+      },
+      "situacao_id": "sit_09"
+    },
+    {
+      "id": "cond_03_20_3",
+      "acao_id": "acao_03_20_3",
+      "pergunta": "Solicita parecer negativo de homologação e inicia tratamento de resolutividade",
+      "se_sim": {
+        "rotulo": "Rejeição sanável",
+        "texto": "corrige e reencaminha"
+      },
+      "se_nao": {
+        "rotulo": "Rejeição insanável",
+        "texto": "comunica CEO e cliente"
+      },
+      "situacao_id": "sit_14"
+    },
+    {
+      "id": "cond_04_03_1",
+      "acao_id": "acao_04_03_1",
+      "pergunta": "Verifica pré-aprovação de crédito para boleto parcelado",
+      "se_sim": {
+        "rotulo": "Crédito aprovado",
+        "texto": "prossegue com o boleto parcelado"
+      },
+      "se_nao": {
+        "rotulo": "Crédito negado",
+        "texto": "oferece alternativa de pagamento ao cliente"
+      },
+      "situacao_id": "sit_03"
+    },
+    {
+      "id": "cond_04_15_1",
+      "acao_id": "acao_04_15_1",
+      "pergunta": "Trata movimentos financeiros relativos a atrasos, desvios e avarias na entrega",
+      "se_sim": {
+        "rotulo": "Ajuste financeiro viável",
+        "texto": "processa internamente"
+      },
+      "se_nao": {
+        "rotulo": "Impacto financeiro relevante",
+        "texto": "escala ao CEO"
+      },
+      "situacao_id": "sit_08"
+    },
+    {
+      "id": "cond_04_17_2",
+      "acao_id": "acao_04_17_2",
+      "pergunta": "Trata e resolve inconformidades financeiras",
+      "se_sim": {
+        "rotulo": "Inconformidade resolvível",
+        "texto": "regulariza e registra"
+      },
+      "se_nao": {
+        "rotulo": "Inconformidade crítica",
+        "texto": "escala ao CEO"
+      },
+      "situacao_id": "sit_12"
+    },
+    {
+      "id": "cond_05_17_2",
+      "acao_id": "acao_05_17_2",
+      "pergunta": "Trata e resolve inconformidades fiscais",
+      "se_sim": {
+        "rotulo": "Inconformidade regularizável",
+        "texto": "corrige e registra"
+      },
+      "se_nao": {
+        "rotulo": "Inconformidade crítica",
+        "texto": "escala ao CEO"
+      },
+      "situacao_id": "sit_13"
+    },
+    {
+      "id": "cond_06_20_2",
+      "acao_id": "acao_06_20_2",
+      "pergunta": "Acompanha a emissão de negativa de homologação e apoia ações de resolutividade",
+      "se_sim": {
+        "rotulo": "Negativa sanável",
+        "texto": "apoia correção"
+      },
+      "se_nao": {
+        "rotulo": "Negativa insanável",
+        "texto": "informa cliente e encerra processo"
+      },
+      "situacao_id": "sit_14"
+    },
+    {
+      "id": "cond_06_22_2",
+      "acao_id": "acao_06_22_2",
+      "pergunta": "Recepciona e trata insatisfação do cliente não resolvida pelo Vendedor",
+      "se_sim": {
+        "rotulo": "Insatisfação resolvível internamente",
+        "texto": "soluciona e registra"
+      },
+      "se_nao": {
+        "rotulo": "Insatisfação com impacto contratual",
+        "texto": "aciona garantia e formaliza encerramento"
+      },
+      "situacao_id": "sit_15"
+    },
+    {
+      "id": "cond_06_06_3",
+      "acao_id": "acao_06_06_3",
+      "pergunta": "Reasina o contrato após renegociação",
+      "se_sim": {
+        "rotulo": "Ajuste dentro da margem autorizada",
+        "texto": "assina e registra"
+      },
+      "se_nao": {
+        "rotulo": "Ajuste fora da margem",
+        "texto": "recusa e define próxima ação com o cliente"
+      },
+      "situacao_id": "sit_05"
+    },
+    {
+      "id": "cond_06_15_3",
+      "acao_id": "acao_06_15_3",
+      "pergunta": "Trata e apoia a resolução de casos de atrasos, desvios e avarias na entrega",
+      "se_sim": {
+        "rotulo": "Situação gerenciável",
+        "texto": "orienta e monitora"
+      },
+      "se_nao": {
+        "rotulo": "Situação crítica",
+        "texto": "assume gestão direta"
+      },
+      "situacao_id": "sit_09"
+    },
+    {
+      "id": "cond_06_17_3",
+      "acao_id": "acao_06_17_3",
+      "pergunta": "Trata e resolve inconformidades gerais da instalação",
+      "se_sim": {
+        "rotulo": "Inconformidade resolvível",
+        "texto": "orienta setores responsáveis"
+      },
+      "se_nao": {
+        "rotulo": "Inconformidade crítica",
+        "texto": "assume gestão direta"
+      },
+      "situacao_id": "sit_09"
+    },
+    {
+      "id": "cond_07_13_1",
+      "acao_id": "acao_07_13_1",
+      "pergunta": "Avalia e comunica impedimento técnico ou necessidade de adequação no imóvel",
+      "se_sim": {
+        "rotulo": "Impedimento sanável",
+        "texto": "propõe solução técnica alternativa"
+      },
+      "se_nao": {
+        "rotulo": "Impedimento insanável",
+        "texto": "emite parecer de inviabilidade e comunica CEO e cliente"
+      },
+      "situacao_id": "sit_06"
+    },
+    {
+      "id": "cond_08_04_1",
+      "acao_id": "acao_08_04_1",
+      "pergunta": "Reenvia dados para simulação após ajuste de proposta",
+      "se_sim": {
+        "rotulo": "Proposta ajustada",
+        "texto": "reenvia dados revisados"
+      },
+      "se_nao": {
+        "rotulo": "Proposta mantida",
+        "texto": "confirma dados anteriores"
+      },
+      "situacao_id": "sit_04"
+    },
+    {
+      "id": "cond_08_15_1",
+      "acao_id": "acao_08_15_1",
+      "pergunta": "Trata atrasos, desvios e avarias em conjunto com a Logística",
+      "se_sim": {
+        "rotulo": "Inconformidade resolvível",
+        "texto": "regulariza e comunica Administrativo"
+      },
+      "se_nao": {
+        "rotulo": "Inconformidade crítica",
+        "texto": "escala ao CEO"
+      },
+      "situacao_id": "sit_10"
+    },
+    {
+      "id": "cond_08_17_1",
+      "acao_id": "acao_08_17_1",
+      "pergunta": "Trata e resolve inconformidades relacionadas aos materiais",
+      "se_sim": {
+        "rotulo": "Inconformidade sanável",
+        "texto": "substitui ou repara"
+      },
+      "se_nao": {
+        "rotulo": "Inconformidade insanável",
+        "texto": "escala ao CEO"
+      },
+      "situacao_id": "sit_10"
+    },
+    {
+      "id": "cond_09_15_2",
+      "acao_id": "acao_09_15_2",
+      "pergunta": "Comunica possíveis atrasos, desvios e avarias",
+      "se_sim": {
+        "rotulo": "Ocorrência identificada",
+        "texto": "notifica Fornecedor e Administrativo imediatamente"
+      },
+      "se_nao": {
+        "rotulo": "Entrega conforme",
+        "texto": "registra conclusão"
+      },
+      "situacao_id": "sit_07"
+    },
+    {
+      "id": "cond_10_15_2",
+      "acao_id": "acao_10_15_2",
+      "pergunta": "Trata e apoia a resolução de atrasos, desvios e avarias na entrega",
+      "se_sim": {
+        "rotulo": "Situação gerenciável",
+        "texto": "orienta e registra"
+      },
+      "se_nao": {
+        "rotulo": "Situação crítica",
+        "texto": "escala ao Administrativo"
+      },
+      "situacao_id": "sit_07"
+    },
+    {
+      "id": "cond_10_17_2",
+      "acao_id": "acao_10_17_2",
+      "pergunta": "Trata e resolve inconformidades da instalação",
+      "se_sim": {
+        "rotulo": "Inconformidade técnica resolvível",
+        "texto": "corrige no ato"
+      },
+      "se_nao": {
+        "rotulo": "Inconformidade crítica",
+        "texto": "escala ao Administrativo e CEO"
+      },
+      "situacao_id": "sit_09"
+    },
+    {
+      "id": "cond_10_16_2",
+      "acao_id": "acao_10_16_2",
+      "pergunta": "Comunica indisponibilidade de agenda ao Administrativo",
+      "se_sim": {
+        "rotulo": "Reagendamento aceito pelo cliente",
+        "texto": "confirma nova data"
+      },
+      "se_nao": {
+        "rotulo": "Reagendamento não aceito",
+        "texto": "escala ao Administrativo para mobilização de equipe reserva"
+      },
+      "situacao_id": "sit_11"
+    },
+    {
+      "id": "cond_10_18_3",
+      "acao_id": "acao_10_18_3",
+      "pergunta": "Comunica situações, problemas e necessidades ao Administrativo",
+      "se_sim": {
+        "rotulo": "Situação gerenciável",
+        "texto": "registra e resolve com suporte do Administrativo"
+      },
+      "se_nao": {
+        "rotulo": "Situação crítica",
+        "texto": "escala ao CEO"
+      }
+    },
+    {
+      "id": "cond_11_21_1",
+      "acao_id": "acao_11_21_1",
+      "pergunta": "Processa a ligação e homologação do projeto",
+      "se_sim": {
+        "rotulo": "Projeto aprovado",
+        "texto": "homologa e comunica ao Administrativo"
+      },
+      "se_nao": {
+        "rotulo": "Projeto reprovado",
+        "texto": "emite parecer de inconformidade e comunica ajustes necessários"
+      },
+      "situacao_id": "sit_14"
+    },
+    {
+      "id": "cond_11_18_3",
+      "acao_id": "acao_11_18_3",
+      "pergunta": "Comunica situações de inconformidade e necessidade de reajuste",
+      "se_sim": {
+        "rotulo": "Inconformidade sanável",
+        "texto": "indica ajustes e reagenda vistoria"
+      },
+      "se_nao": {
+        "rotulo": "Inconformidade insanável",
+        "texto": "emite parecer definitivo negativo"
+      }
+    },
+    {
+      "id": "cond_12_05_1",
+      "acao_id": "acao_12_05_1",
+      "pergunta": "Avalia a proposta e decide",
+      "se_sim": {
+        "rotulo": "Proposta aceita",
+        "texto": "confirma e segue para o contrato"
+      },
+      "se_nao": {
+        "rotulo": "Proposta recusada",
+        "texto": "solicita revisão ou encerra negociação"
+      },
+      "situacao_id": "sit_04"
+    },
+    {
+      "id": "cond_12_07_1",
+      "acao_id": "acao_12_07_1",
+      "pergunta": "Avalia o contrato e decide",
+      "se_sim": {
+        "rotulo": "Contrato aceito",
+        "texto": "assina e segue para pagamento"
+      },
+      "se_nao": {
+        "rotulo": "Contrato recusado",
+        "texto": "solicita revisão ou encerra negociação"
+      },
+      "situacao_id": "sit_05"
+    },
+    {
+      "id": "cond_12_18_1",
+      "acao_id": "acao_12_18_1",
+      "pergunta": "Comunica ao Administrativo ou Vendedor situações, problemas e necessidades supervenientes",
+      "se_sim": {
+        "rotulo": "Situação gerenciável",
+        "texto": "Vendedor ou Administrativo trata e resolve"
+      },
+      "se_nao": {
+        "rotulo": "Situação crítica",
+        "texto": "escala ao CEO"
+      }
+    },
+    {
+      "id": "cond_12_17_2",
+      "acao_id": "acao_12_17_2",
+      "pergunta": "Trata e resolve inconformidades relacionadas ao imóvel",
+      "se_sim": {
+        "rotulo": "Inconformidade resolvível pelo cliente",
+        "texto": "resolve e comunica"
+      },
+      "se_nao": {
+        "rotulo": "Inconformidade fora do alcance do cliente",
+        "texto": "escala ao Administrativo"
+      },
+      "situacao_id": "sit_09"
+    },
+    {
+      "id": "cond_12_22_2",
+      "acao_id": "acao_12_22_2",
+      "pergunta": "Registra insatisfação ao Vendedor; escala ao CEO se não resolvida",
+      "se_sim": {
+        "rotulo": "Insatisfação resolvida pelo Vendedor",
+        "texto": "registra e encerra"
+      },
+      "se_nao": {
+        "rotulo": "Insatisfação não resolvida",
+        "texto": "escala ao CEO para tratamento formal"
+      },
+      "situacao_id": "sit_15"
+    },
+    {
+      "id": "cond_02_02_12",
+      "acao_id": "acao_02_02_12",
+      "pergunta": "Verifica se o cliente já possui energia solar",
+      "se_sim": {
+        "rotulo": "Possui solar",
+        "texto": "avalia ampliação, manutenção, retrofit e monitoramento"
+      },
+      "se_nao": {
+        "rotulo": "Não possui solar",
+        "texto": "segue com a proposta de sistema fotovoltaico"
+      }
+    },
+    {
+      "id": "cond_02_02_13",
+      "acao_id": "acao_02_02_13",
+      "pergunta": "Verifica se o cliente compra energia por assinatura",
+      "se_sim": {
+        "rotulo": "Compra por assinatura",
+        "texto": "explica que o investimento no sistema próprio gera patrimônio e avalia migrar para sistema fotovoltaico"
+      },
+      "se_nao": {
+        "rotulo": "Não compra por assinatura",
+        "texto": "segue o atendimento pelo perfil identificado"
+      }
+    },
+    {
+      "id": "cond_02_02_14",
+      "acao_id": "acao_02_02_14",
+      "pergunta": "Avalia se o cliente quer e consegue instalar o sistema fotovoltaico",
+      "se_sim": {
+        "rotulo": "Quer e consegue instalar",
+        "texto": "prossegue com a venda do sistema fotovoltaico"
+      },
+      "se_nao": {
+        "rotulo": "Não quer ou não consegue instalar",
+        "texto": "oferece Energia por Assinatura da Lux"
+      }
+    },
+    {
+      "id": "cond_02_02_15",
+      "acao_id": "acao_02_02_15",
+      "pergunta": "Identifica a condição financeira do cliente",
+      "se_sim": {
+        "rotulo": "Capital disponível",
+        "texto": "prioriza o pagamento à vista"
+      },
+      "se_nao": {
+        "rotulo": "Sem capital disponível",
+        "texto": "prioriza o financiamento, usando preferencialmente o termo “boleto”"
+      }
+    },
+    {
+      "id": "cond_06_02_4",
+      "acao_id": "acao_06_02_4",
+      "pergunta": "Decide sobre situação sem procedimento definido",
+      "se_sim": {
+        "rotulo": "Situação prevista",
+        "texto": "segue o procedimento definido"
+      },
+      "se_nao": {
+        "rotulo": "Situação não prevista",
+        "texto": "ouve o cliente, identifica a causa, avalia impactos técnicos, comerciais e financeiros, busca solução personalizada e registra a decisão para padronização"
+      }
+    },
+    {
+      "id": "cond_02_22_4",
+      "acao_id": "acao_02_22_4",
+      "pergunta": "Classifica a prioridade da oportunidade identificada",
+      "se_sim": {
+        "rotulo": "Alta prioridade",
+        "texto": "conduz a proposta, pois há compra em curto prazo"
+      },
+      "se_nao": {
+        "rotulo": "Média ou baixa prioridade",
+        "texto": "mantém o acompanhamento e o relacionamento de longo prazo"
+      }
+    }
+  ],
+  "perfis_cliente": [
+    {
+      "id": "perfil_01",
+      "nome": "Paga somente a distribuidora",
+      "criterios": "Cliente que paga apenas a conta da distribuidora; altamente qualificado para implantação de sistema fotovoltaico.",
+      "proxima_acao": "Identificar valor da conta, consumo médio, tipo de imóvel e modalidade de pagamento ideal; priorizar a venda do sistema fotovoltaico."
+    },
+    {
+      "id": "perfil_02",
+      "nome": "Já possui energia solar",
+      "criterios": "Cliente com solar instalada neste imóvel ou em outro que compensa a unidade; a ausência de venda de sistema não significa ausência de oportunidade.",
+      "proxima_acao": "Avaliar se o sistema atende a demanda, aumento de consumo, ampliação, outras unidades consumidoras e necessidade de manutenção ou modernização."
+    },
+    {
+      "id": "perfil_03",
+      "nome": "Compra energia por assinatura",
+      "criterios": "Cliente que compra energia com desconto de terceiros; continuará pagando a terceiros durante toda a vida.",
+      "proxima_acao": "Explicar que o sistema fotovoltaico gera patrimônio próprio; se não quiser ou não puder instalar, oferecer Energia por Assinatura da Lux."
+    },
+    {
+      "id": "perfil_04",
+      "nome": "Imóvel alugado",
+      "criterios": "Cliente que informa operar em imóvel alugado; a informação não é tratada como objeção.",
+      "proxima_acao": "Prosseguir normalmente e usar a explicação das Anotações sobre a autorização do proprietário (ver observações para revisão jurídica)."
+    },
+    {
+      "id": "perfil_05",
+      "nome": "Com capital disponível",
+      "criterios": "Cliente com disponibilidade financeira para investir.",
+      "proxima_acao": "Priorizar pagamento à vista, argumentando a eliminação da despesa definitiva com energia."
+    },
+    {
+      "id": "perfil_06",
+      "nome": "Sem capital disponível",
+      "criterios": "Cliente sem disponibilidade financeira ou que prefere preservar caixa e parcelar.",
+      "proxima_acao": "Priorizar financiamento, usando preferencialmente o termo “boleto” na comunicação comercial."
+    }
+  ],
+  "classificacao_lead": [
+    {
+      "id": "lead_quente",
+      "nome": "Lead Quente",
+      "criterios": [
+        "Pergunta sobre valores",
+        "Pergunta sobre economia",
+        "Solicita proposta",
+        "Envia a conta rapidamente",
+        "Demonstra interesse nas formas de pagamento",
+        "Pergunta prazo de instalação"
+      ]
+    },
+    {
+      "id": "lead_morno",
+      "nome": "Lead Morno",
+      "criterios": [
+        "Faz poucas perguntas",
+        "Demonstra curiosidade",
+        "Solicita proposta para analisar posteriormente"
+      ]
+    },
+    {
+      "id": "lead_frio",
+      "nome": "Lead Frio",
+      "criterios": [
+        "Não responde perguntas",
+        "Não fornece informações",
+        "Demonstra resistência sem ouvir",
+        "Não possui abertura para negociação"
+      ]
+    }
+  ],
+  "oportunidades": [
+    {
+      "id": "oport_01",
+      "nome": "Implantação de sistema fotovoltaico",
+      "prioridade_padrao": "alta",
+      "estagio_id": 2,
+      "origem": "sugerido"
+    },
+    {
+      "id": "oport_02",
+      "nome": "Energia por Assinatura da Lux",
+      "prioridade_padrao": "media",
+      "estagio_id": 2,
+      "origem": "sugerido"
+    },
+    {
+      "id": "oport_03",
+      "nome": "Ampliação do sistema",
+      "prioridade_padrao": "media",
+      "estagio_id": 22,
+      "origem": "sugerido"
+    },
+    {
+      "id": "oport_04",
+      "nome": "Retrofit",
+      "prioridade_padrao": "media",
+      "estagio_id": 22,
+      "origem": "sugerido"
+    },
+    {
+      "id": "oport_05",
+      "nome": "Manutenção preventiva",
+      "prioridade_padrao": "media",
+      "estagio_id": 22,
+      "origem": "sugerido"
+    },
+    {
+      "id": "oport_06",
+      "nome": "Monitoramento",
+      "prioridade_padrao": "baixa",
+      "estagio_id": 22,
+      "origem": "sugerido"
+    },
+    {
+      "id": "oport_07",
+      "nome": "Limpeza técnica",
+      "prioridade_padrao": "baixa",
+      "estagio_id": 22,
+      "origem": "sugerido"
+    },
+    {
+      "id": "oport_08",
+      "nome": "Seguro",
+      "prioridade_padrao": "baixa",
+      "estagio_id": 22,
+      "origem": "sugerido"
+    },
+    {
+      "id": "oport_09",
+      "nome": "Atendimento de outras unidades consumidoras",
+      "prioridade_padrao": "media",
+      "estagio_id": 22,
+      "origem": "sugerido"
+    },
+    {
+      "id": "oport_10",
+      "nome": "Indicações",
+      "prioridade_padrao": "baixa",
+      "estagio_id": 22,
+      "origem": "sugerido"
+    }
+  ],
+  "respostas_padrao": [
+    {
+      "id": "resp_01",
+      "tema": "Garantia dos equipamentos",
+      "texto": "A Lux trabalha exclusivamente com equipamentos de alta qualidade e oferece múltiplas camadas de garantia: garantia da Lux referente à instalação e ao suporte; garantia dos fabricantes dos equipamentos; garantia dos fornecedores oficiais; empresa credenciada junto ao IBS (Instituto Brasileiro de Energia Solar), seguindo padrões técnicos reconhecidos pelo mercado. Esse conjunto proporciona maior segurança e confiabilidade ao investimento.",
+      "revisao_juridica": true
+    },
+    {
+      "id": "resp_02",
+      "tema": "Formas de pagamento",
+      "texto": "A Lux disponibiliza diferentes modalidades de pagamento para atender cada perfil de cliente. Financiamento (“boleto”): diversas plataformas financeiras parceiras; aprovação mediante análise de crédito; parcelamento facilitado; em muitos casos, a parcela fica próxima ou inferior ao valor atualmente pago na conta de energia, dependendo do projeto e da aprovação de crédito. Cartão de crédito: plataforma especializada para o setor fotovoltaico, em até 21 vezes, com taxas reduzidas quando comparadas às máquinas convencionais. Pagamento à vista: elimina os custos financeiros do parcelamento e dá maior rentabilidade ao investimento. Pagamento em etapas, quando aplicável: pagar inicialmente os equipamentos e a instalação após a conclusão da montagem.",
+      "revisao_juridica": true
+    },
+    {
+      "id": "resp_03",
+      "tema": "Qualidade dos equipamentos",
+      "texto": "A Lux trabalha exclusivamente com equipamentos de alto padrão, selecionados entre fabricantes reconhecidos mundialmente, por alta eficiência, elevada confiabilidade, longa vida útil, garantia do fabricante e desempenho comprovado. Além disso, a empresa é credenciada junto ao IBS (Instituto Brasileiro de Energia Solar), reforçando seu compromisso com qualidade, atualização técnica e boas práticas do setor.",
+      "revisao_juridica": true
+    },
+    {
+      "id": "resp_04",
+      "tema": "Diretriz para IA e equipe comercial",
+      "texto": "Responder de forma objetiva e clara; transmitir segurança e credibilidade; adaptar a linguagem ao perfil do cliente; destacar benefícios antes de características técnicas; conduzir naturalmente para o próximo passo da venda (simulação, análise da conta ou agendamento de visita).",
+      "revisao_juridica": false
+    }
+  ]
+}

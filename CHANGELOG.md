@@ -3,6 +3,9 @@
 Convenção: `+0.1` = correções/melhorias · `+1.0` = novas funcionalidades/serviços.
 Registra **o que mudou para o usuário**; o *como resolvemos* fica em `handoffs/instrucoes.md`.
 
+## [+0.1] - 2026-09-24 (Etapa 02 — em andamento)
+- Matriz V08 composta: as Anotações do CEO entram no MMO como 24 ações novas e 6 condicionais IF/ELSE novas (atendimento por perfil de cliente, formas de pagamento, pós-venda), mais perfis de cliente, classificação de lead (quente/morno/frio), 10 oportunidades e respostas-padrão de atendimento. Os 12 setores, os 22 estágios e as 212 ações da V07 seguem iguais.
+
 ## [+0.1] - 2026-09-24 (Etapa 01 — fundação técnica)
 - Projeto Vite + React + TypeScript criado, com as rotas `#/mmo`, `#/fpe`, `#/pop` e `#/versoes` (ainda em construção), tema e fonte da marca Lux.
 - Matriz Operacional V07 lida da planilha (12 setores, 22 estágios, 212 ações, 31 condicionais IF/ELSE) e conferida contra o MMO_v01 legado.

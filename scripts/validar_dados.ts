@@ -1,10 +1,12 @@
-// Regras de integridade de docs/02_MODELO_DE_DADOS.md. Ativas na 01.4: 1, 2, 8 (+ integridade referencial e mapa de condicionais).
-// As regras de V08 (3), fichas (4–5) e bibliotecas (6–7) ficam inativas até existirem os arquivos delas.
+// Regras de integridade de docs/02_MODELO_DE_DADOS.md. Ativas: 1, 2, 8 (01.4) e 3 — V08 (02.1), + integridade referencial e mapa de condicionais.
+// As regras de fichas (4–5) e bibliotecas (6–7) ficam inativas até existirem os arquivos delas.
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Matriz } from '../src/dados/tipos.ts';
+import type { Condicional, Matriz, MatrizV08 } from '../src/dados/tipos.ts';
 import { comparar, HTML_LEGADO, lerJson, lerLegado } from './comparar_mmo_legado.ts';
+import { compor, JSON_ANOTACOES, JSON_MAPA, JSON_V08 } from './compor_v08.ts';
+import type { AnotacoesV08 } from './compor_v08.ts';
 import { JSON_V07, lerMatriz, serializar, textoOriginalIfElse } from './xlsx_para_json.ts';
 
 const RAIZ = resolve(fileURLToPath(import.meta.url), '../..');
@@ -26,10 +28,9 @@ export interface MapaCondicionais {
 
 const duplicados = (ids: string[]) => ids.filter((x, i) => ids.indexOf(x) !== i);
 
-/** Regras 1 e 2 + integridade referencial da V07. Devolve a lista de erros (vazia = ok). */
-export function validarV07(m: Matriz): string[] {
+/** Regra 1 — 12 setores, 22 estágios, ids únicos (vale para V07 e V08). */
+function validarRegra1(m: Matriz): string[] {
   const erros: string[] = [];
-  // Regra 1 — 12 setores, 22 estágios, ids únicos
   if (m.setores.length !== ESPERADO_V07.setores) erros.push(`Regra 1: esperados ${ESPERADO_V07.setores} setores, achou ${m.setores.length}`);
   if (m.estagios.length !== ESPERADO_V07.estagios) erros.push(`Regra 1: esperados ${ESPERADO_V07.estagios} estágios, achou ${m.estagios.length}`);
   for (const [nome, ids] of [
@@ -41,13 +42,12 @@ export function validarV07(m: Matriz): string[] {
     const d = duplicados([...ids]);
     if (d.length) erros.push(`Regra 1: ids duplicados em ${nome}: ${[...new Set(d)].join(', ')}`);
   }
-  // Regra 2 — V07: 212 células e 31 IF/ELSE
-  if (m.acoes.length !== ESPERADO_V07.celulas) erros.push(`Regra 2: esperadas ${ESPERADO_V07.celulas} células, achou ${m.acoes.length}`);
-  const ifElse = m.acoes.filter((a) => a.e_condicional).length;
-  if (ifElse !== ESPERADO_V07.if_else) erros.push(`Regra 2: esperados ${ESPERADO_V07.if_else} IF/ELSE, achou ${ifElse}`);
-  if (m.condicionais.length !== ifElse) erros.push(`Regra 2: ${m.condicionais.length} condicionais para ${ifElse} ações IF/ELSE`);
+  return erros;
+}
 
-  // Integridade referencial
+/** Integridade referencial (setor/estágio existentes, ordem 1..n, condicional ↔ ação). Vale para V07 e V08. */
+function validarIntegridade(m: Matriz): string[] {
+  const erros: string[] = [];
   const setores = new Set(m.setores.map((s) => s.id));
   const estagios = new Set(m.estagios.map((e) => e.id));
   const acoes = new Map(m.acoes.map((a) => [a.id, a]));
@@ -69,6 +69,108 @@ export function validarV07(m: Matriz): string[] {
     if (!c.se_sim.texto || !c.se_nao.texto) erros.push(`${c.id}: ramo vazio`);
   }
   for (const e of m.estagios) if (![1, 2, 3, 4].includes(e.fase_id)) erros.push(`Estágio ${e.id}: fase_id inválida`);
+  return erros;
+}
+
+/** Regras 1 e 2 + integridade referencial da V07. Devolve a lista de erros (vazia = ok). */
+export function validarV07(m: Matriz): string[] {
+  const erros: string[] = [...validarRegra1(m)];
+  // Regra 2 — V07: 212 células e 31 IF/ELSE
+  if (m.acoes.length !== ESPERADO_V07.celulas) erros.push(`Regra 2: esperadas ${ESPERADO_V07.celulas} células, achou ${m.acoes.length}`);
+  const ifElse = m.acoes.filter((a) => a.e_condicional).length;
+  if (ifElse !== ESPERADO_V07.if_else) erros.push(`Regra 2: esperados ${ESPERADO_V07.if_else} IF/ELSE, achou ${ifElse}`);
+  if (m.condicionais.length !== ifElse) erros.push(`Regra 2: ${m.condicionais.length} condicionais para ${ifElse} ações IF/ELSE`);
+  erros.push(...validarIntegridade(m));
+  return erros;
+}
+
+const SEM_CIFRA = /R\$\s*\d/;
+const SEM_PRAZO = /\b\d+\s*(?:dias?|horas?|minutos?|semanas?|meses|mês)\b/i;
+/** A V08 só acrescenta `situacao_id` às condicionais da V07; o resto tem de ficar idêntico. */
+const semSituacao = (c: Condicional | undefined) => {
+  if (!c) return undefined;
+  const { situacao_id: _ignorado, ...resto } = c;
+  return resto;
+};
+const traz_cifra_ou_prazo =(t: string) => SEM_CIFRA.test(t) || SEM_PRAZO.test(t);
+
+/**
+ * Regra 3 (V08): `células_v08 > células_v07`, `condicionais_v08 > condicionais_v07`, toda ação nova com `origem_doc`,
+ * nada da V07 alterado (posição, texto, ramos) e conteúdo novo sem cifra em R$ nem prazo numérico (docs/06 §4).
+ * `esperado` é o que o overlay produz hoje (compor); se o arquivo divergir dele, está desatualizado.
+ */
+export function validarV08(v08: MatrizV08, v07: Matriz, mapa: MapaCondicionais, esperado?: MatrizV08): string[] {
+  const erros: string[] = [...validarRegra1(v08), ...validarIntegridade(v08)];
+  if (v08.meta.versao_matriz !== 'V08') erros.push(`Regra 3: meta.versao_matriz deveria ser "V08" (achou "${v08.meta.versao_matriz}")`);
+  if (v08.acoes.length <= v07.acoes.length) erros.push(`Regra 3: células_v08 (${v08.acoes.length}) deve superar as ${v07.acoes.length} da V07`);
+  if (v08.condicionais.length <= v07.condicionais.length) erros.push(`Regra 3: condicionais_v08 (${v08.condicionais.length}) deve superar as ${v07.condicionais.length} da V07`);
+  const ifElse = v08.acoes.filter((a) => a.e_condicional).length;
+  if (v08.condicionais.length !== ifElse) erros.push(`Regra 3: ${v08.condicionais.length} condicionais para ${ifElse} ações IF/ELSE`);
+
+  // Nada da V07 mudou: mesmas estruturas, mesmas ações na mesma posição, mesmas condicionais (só ganham situacao_id).
+  if (JSON.stringify(v08.fases) !== JSON.stringify(v07.fases)) erros.push('Regra 3: as fases da V08 diferem da V07');
+  if (JSON.stringify(v08.setores) !== JSON.stringify(v07.setores)) erros.push('Regra 3: os setores da V08 diferem da V07 (não renomear nem reordenar)');
+  if (JSON.stringify(v08.estagios) !== JSON.stringify(v07.estagios)) erros.push('Regra 3: os estágios da V08 diferem da V07 (não renomear nem reordenar)');
+  v07.acoes.forEach((a, i) => {
+    if (JSON.stringify(v08.acoes[i]) !== JSON.stringify(a)) erros.push(`Regra 3: a ação ${a.id} da V07 foi alterada ou mudou de posição`);
+  });
+  v07.condicionais.forEach((c, i) => {
+    if (JSON.stringify(semSituacao(v08.condicionais[i])) !== JSON.stringify(semSituacao(c))) erros.push(`Regra 3: a condicional ${c.id} da V07 foi alterada ou mudou de posição`);
+  });
+
+  // Toda ação nova tem origem_doc; nenhuma ação da V07 ganhou origem_doc.
+  const idsV07 = new Set(v07.acoes.map((a) => a.id));
+  const novas = v08.acoes.filter((a) => !idsV07.has(a.id));
+  for (const a of novas) if (!a.origem_doc) erros.push(`Regra 3: a ação nova ${a.id} não tem origem_doc`);
+  for (const a of v08.acoes) if (idsV07.has(a.id) && a.origem_doc) erros.push(`Regra 3: a ação ${a.id} é da V07 e não pode ter origem_doc`);
+
+  // Conteúdo novo: nenhuma cifra em R$ e nenhum prazo numérico (SLA) que os documentos não tragam.
+  const idsNovas = new Set(novas.map((a) => a.id));
+  for (const a of novas) if (traz_cifra_ou_prazo(a.texto)) erros.push(`Conteúdo: ${a.id} traz cifra em R$ ou prazo numérico ("${a.texto}")`);
+  for (const c of v08.condicionais) {
+    if (!idsNovas.has(c.acao_id)) continue;
+    for (const t of [c.se_sim.rotulo, c.se_sim.texto, c.se_nao.rotulo, c.se_nao.texto]) {
+      if (traz_cifra_ou_prazo(t)) erros.push(`Conteúdo: ${c.id} traz cifra em R$ ou prazo numérico ("${t}")`);
+    }
+  }
+
+  // situacao_id vem do mapa das 15 situações (vínculo direto + participantes) e só existe no que o mapa cobre.
+  const situacaoDoMapa = new Map<string, string>();
+  for (const s of mapa.situacoes) {
+    for (const id of s.condicionais_ids) situacaoDoMapa.set(id, s.id);
+    for (const p of s.participantes) situacaoDoMapa.set(p.condicional_id, s.id);
+  }
+  const idsCondV07 = new Set(v07.condicionais.map((c) => c.id));
+  for (const c of v08.condicionais) {
+    const esperada = idsCondV07.has(c.id) ? situacaoDoMapa.get(c.id) : undefined;
+    if (c.situacao_id !== esperada) erros.push(`Regra 3: ${c.id} com situacao_id "${c.situacao_id ?? '—'}" (o mapa manda "${esperada ?? '—'}")`);
+  }
+
+  // Blocos do overlay que não são células (perfis, leads, oportunidades, respostas-padrão).
+  const unicos = (nome: string, ids: string[]) => {
+    const d = duplicados(ids);
+    if (d.length) erros.push(`V08: ids duplicados em ${nome}: ${[...new Set(d)].join(', ')}`);
+  };
+  if (v08.perfis_cliente.length < 4) erros.push(`V08: esperados ≥ 4 perfis de cliente (Anotações §1.1), achou ${v08.perfis_cliente.length}`);
+  unicos('perfis_cliente', v08.perfis_cliente.map((p) => p.id));
+  for (const p of v08.perfis_cliente) if (!p.nome || !p.criterios || !p.proxima_acao) erros.push(`V08: perfil ${p.id} com campo vazio`);
+  if (v08.classificacao_lead.map((l) => l.id).sort().join() !== 'lead_frio,lead_morno,lead_quente') erros.push('V08: classificacao_lead deve ter exatamente Quente, Morno e Frio');
+  for (const l of v08.classificacao_lead) if (l.criterios.length === 0) erros.push(`V08: ${l.id} sem critérios`);
+  unicos('oportunidades', v08.oportunidades.map((o) => o.id));
+  const estagios = new Set(v08.estagios.map((e) => e.id));
+  for (const o of v08.oportunidades) {
+    if (!['alta', 'media', 'baixa'].includes(o.prioridade_padrao)) erros.push(`V08: ${o.id} com prioridade_padrao inválida`);
+    if (!estagios.has(o.estagio_id)) erros.push(`V08: ${o.id} com estagio_id inexistente`);
+    if (!['documentado', 'sugerido', 'manual'].includes(o.origem)) erros.push(`V08: ${o.id} com origem inválida`);
+  }
+  if (v08.oportunidades.length < 10) erros.push(`V08: esperadas ≥ 10 oportunidades (Anotações §1.4), achou ${v08.oportunidades.length}`);
+  unicos('respostas_padrao', v08.respostas_padrao.map((r) => r.id));
+  for (const r of v08.respostas_padrao) if (!r.tema || !r.texto) erros.push(`V08: resposta ${r.id} com campo vazio`);
+
+  // O arquivo tem que ser exatamente o que o overlay produz hoje.
+  if (esperado && serializar(esperado) !== serializar(v08)) {
+    erros.push('Regra 3: matriz_v08.json está desatualizada em relação a matriz_v07.json + anotacoes_v08.json — rode `npm run dados:compor`.');
+  }
   return erros;
 }
 
@@ -105,26 +207,33 @@ export function validarMapa(m: Matriz, mapa: MapaCondicionais): string[] {
 
 const lerJsonArquivo = <T>(caminho: string): T => JSON.parse(readFileSync(caminho, 'utf8')) as T;
 
-function principal(): number {
-  const args = process.argv.slice(2);
-  const pendentes: Record<string, [string, string]> = {
-    '--v08': ['data/matriz_v08.json', 'subetapa 02.1'],
-    '--fichas': ['data/conteudo/fichas_5w1h.json', 'subetapas 02.2–02.5'],
-    '--bibliotecas': ['data/conteudo/documentos.json', 'subetapa 02.6'],
-    '--pop': ['data/conteudo/perguntas_pop.json', 'subetapa 03.1'],
-  };
-  for (const a of args) {
-    const p = pendentes[a.split('=')[0] ?? ''];
-    if (p && !existsSync(resolve(RAIZ, p[0]))) {
-      console.log(`ERRO: ${a} indisponível — ${p[0]} ainda não existe (${p[1]}).`);
+/** `--v08`: valida a V08 gravada contra a V07, o mapa e o overlay. Devolve a linha final (OK ou os erros). */
+function rodarV08(): number {
+  for (const [caminho, dica] of [
+    [JSON_V07, '`npm run dados:gerar`'],
+    [JSON_V08, '`npm run dados:compor`'],
+  ] as const) {
+    if (!existsSync(caminho)) {
+      console.log(`ERRO: ${caminho.slice(RAIZ.length + 1).replace(/\\/g, '/')} não existe — rode ${dica}.`);
       return 1;
     }
   }
-  if (args.length) {
-    console.log(`ERRO: validação de ${args.join(' ')} ainda não implementada.`);
+  const v07 = lerJsonArquivo<Matriz>(JSON_V07);
+  const v08 = lerJsonArquivo<MatrizV08>(JSON_V08);
+  const mapa = lerJsonArquivo<MapaCondicionais>(JSON_MAPA);
+  const esperado = compor(v07, lerJsonArquivo<AnotacoesV08>(JSON_ANOTACOES), mapa);
+  const erros = [...validarV07(v07), ...validarV08(v08, v07, mapa, esperado)];
+  if (erros.length) {
+    erros.forEach((e) => console.log(`ERRO: ${e}`));
     return 1;
   }
+  const novos = v08.acoes.filter((a) => a.origem_doc).length;
+  console.log(`OK v08: setores=${v08.setores.length} estagios=${v08.estagios.length} celulas=${v08.acoes.length} if_else=${v08.condicionais.length} novos=${novos}`);
+  return 0;
+}
 
+/** Sem flags: valida a V07 (planilha ↔ JSON ↔ MMO legado ↔ mapa). */
+function rodarV07(): number {
   const erros: string[] = [];
   if (!existsSync(JSON_V07)) {
     console.log('ERRO: data/matriz_v07.json não existe — rode `npm run dados:gerar`.');
@@ -147,6 +256,34 @@ function principal(): number {
   }
   console.log(`OK v07: setores=${m.setores.length} estagios=${m.estagios.length} celulas=${m.acoes.length} if_else=${m.condicionais.length}`);
   return 0;
+}
+
+function principal(): number {
+  const args = process.argv.slice(2);
+  const pendentes: Record<string, [string, string]> = {
+    '--fichas': ['data/conteudo/fichas_5w1h.json', 'subetapas 02.2–02.5'],
+    '--bibliotecas': ['data/conteudo/documentos.json', 'subetapa 02.6'],
+    '--pop': ['data/conteudo/perguntas_pop.json', 'subetapa 03.1'],
+  };
+  if (args.length === 0) return rodarV07();
+
+  let codigo = 0;
+  for (const a of args) {
+    const flag = a.split('=')[0] ?? '';
+    if (flag === '--v08') {
+      codigo |= rodarV08();
+      continue;
+    }
+    if (flag === '--fase') continue; // parâmetro de --fichas (02.2)
+    const p = pendentes[flag];
+    if (p && !existsSync(resolve(RAIZ, p[0]))) {
+      console.log(`ERRO: ${a} indisponível — ${p[0]} ainda não existe (${p[1]}).`);
+    } else {
+      console.log(`ERRO: validação de ${a} ainda não implementada.`);
+    }
+    codigo = 1;
+  }
+  return codigo;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) process.exit(principal());

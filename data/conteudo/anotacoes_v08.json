@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "fonte": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+    "origem_doc": "anotacoes_ceo_2026-09-24",
+    "regra": "Overlay sobre a Matriz V07 (docs/06 §3). Só acrescenta: nenhuma ação, condicional, setor ou estágio da V07 é alterado. Executor comercial = Vendas; instância de decisão = CEO. Textos derivados das Anotações; nada foi inventado (sem prazos e sem valores em R$).",
+    "decisoes": [
+      "Itens 1–3, 5 e 9 das Anotações entram no Est. 02 (Vendas executa, CEO decide); pagamento toca também o Est. 03 (Vendas e Financeiro) e o Est. 05 (Vendas).",
+      "Itens 6–8 entram no Est. 22 (Vendas, Administrativo e CEO); Energia por Assinatura da Lux é o desfecho alternativo do funil, a partir do Est. 02.",
+      "Toda célula nova acrescenta-se ao final do par setor × estágio já existente na V07 (nenhum par novo).",
+      "Prioridade padrão das oportunidades (alta/média/baixa) é inferência do consultor: origem = sugerido. As Anotações classificam a prioridade por cenário, não por oportunidade."
+    ]
+  },
+  "celulas_novas": [
+    { "setor_id": "setor_02", "estagio_id": 2, "texto": "Inicia o atendimento com pergunta aberta sobre como o cliente resolve hoje a questão da energia", "fonte_secao": "1.1" },
+    { "setor_id": "setor_02", "estagio_id": 2, "texto": "Aprofunda a situação de energia: se paga só a distribuidora, se possui solar neste ou em outro imóvel que compensa a unidade, se compra energia por assinatura ou usa outro modelo de geração", "fonte_secao": "1.1" },
+    { "setor_id": "setor_02", "estagio_id": 2, "texto": "Identifica o perfil do cliente: paga só a distribuidora, já possui solar, compra energia por assinatura ou está em imóvel alugado", "fonte_secao": "1.1.1" },
+    { "setor_id": "setor_02", "estagio_id": 2, "texto": "Levanta o contexto do cliente: valor da conta, consumo médio, tipo de imóvel, imóvel próprio ou alugado, atividade, previsão de aumento de consumo, outras unidades consumidoras, situação financeira, urgência, objetivo principal, experiências anteriores e objeções", "fonte_secao": "1.2" },
+    { "setor_id": "setor_02", "estagio_id": 2, "texto": "Trata imóvel alugado sem considerá-lo objeção e prossegue o atendimento normalmente", "fonte_secao": "1.1.1.4; 1.3.5" },
+    {
+      "setor_id": "setor_02", "estagio_id": 2, "texto": "Verifica se o cliente já possui energia solar",
+      "se_sim": { "rotulo": "Possui solar", "texto": "avalia ampliação, manutenção, retrofit e monitoramento" },
+      "se_nao": { "rotulo": "Não possui solar", "texto": "segue com a proposta de sistema fotovoltaico" },
+      "fonte_secao": "1.1.1.2; 1.3.2"
+    },
+    {
+      "setor_id": "setor_02", "estagio_id": 2, "texto": "Verifica se o cliente compra energia por assinatura",
+      "se_sim": { "rotulo": "Compra por assinatura", "texto": "explica que o investimento no sistema próprio gera patrimônio e avalia migrar para sistema fotovoltaico" },
+      "se_nao": { "rotulo": "Não compra por assinatura", "texto": "segue o atendimento pelo perfil identificado" },
+      "fonte_secao": "1.1.1.3; 1.3.1"
+    },
+    {
+      "setor_id": "setor_02", "estagio_id": 2, "texto": "Avalia se o cliente quer e consegue instalar o sistema fotovoltaico",
+      "se_sim": { "rotulo": "Quer e consegue instalar", "texto": "prossegue com a venda do sistema fotovoltaico" },
+      "se_nao": { "rotulo": "Não quer ou não consegue instalar", "texto": "oferece Energia por Assinatura da Lux" },
+      "fonte_secao": "1.1.1.3; 4 (Energia por Assinatura)"
+    },
+    {
+      "setor_id": "setor_02", "estagio_id": 2, "texto": "Identifica a condição financeira do cliente",
+      "se_sim": { "rotulo": "Capital disponível", "texto": "prioriza o pagamento à vista" },
+      "se_nao": { "rotulo": "Sem capital disponível", "texto": "prioriza o financiamento, usando preferencialmente o termo “boleto”" },
+      "fonte_secao": "1.1.1.5; 1.1.1.6; 1.3.3; 1.3.4"
+    },
+    { "setor_id": "setor_02", "estagio_id": 2, "texto": "Classifica o lead como quente, morno ou frio conforme o interesse demonstrado", "fonte_secao": "1.1.1.7" },
+    { "setor_id": "setor_02", "estagio_id": 2, "texto": "Responde às objeções com informações técnicas e exemplos práticos, sem competir apenas por preço ao comparar concorrentes", "fonte_secao": "1.1.2.2; 1.3.6" },
+    { "setor_id": "setor_02", "estagio_id": 2, "texto": "Responde dúvidas de garantia, formas de pagamento e qualidade dos equipamentos com as respostas-padrão", "fonte_secao": "2.1; 2.2; 2.3" },
+    { "setor_id": "setor_02", "estagio_id": 2, "texto": "Identifica ao menos uma oportunidade na conversa e a classifica em alta, média ou baixa prioridade", "fonte_secao": "1.4" },
+    { "setor_id": "setor_02", "estagio_id": 2, "texto": "Conduz ao próximo passo da venda: simulação, análise da conta ou agendamento de visita", "fonte_secao": "2.4" },
+
+    { "setor_id": "setor_06", "estagio_id": 2, "texto": "Define a estratégia comercial conforme o cenário identificado no atendimento", "fonte_secao": "1.3" },
+    {
+      "setor_id": "setor_06", "estagio_id": 2, "texto": "Decide sobre situação sem procedimento definido",
+      "se_sim": { "rotulo": "Situação prevista", "texto": "segue o procedimento definido" },
+      "se_nao": { "rotulo": "Situação não prevista", "texto": "ouve o cliente, identifica a causa, avalia impactos técnicos, comerciais e financeiros, busca solução personalizada e registra a decisão para padronização" },
+      "fonte_secao": "1.5"
+    },
+
+    { "setor_id": "setor_02", "estagio_id": 3, "texto": "Apresenta as formas de pagamento: financiamento (“boleto”), cartão em até 21 vezes por plataforma especializada, à vista e em etapas", "fonte_secao": "2.2" },
+    { "setor_id": "setor_04", "estagio_id": 3, "texto": "Apoia as modalidades de pagamento: cartão por plataforma especializada, à vista e em etapas (equipamentos primeiro; instalação após a montagem)", "fonte_secao": "2.2.1; 2.2.2; 2.2.3" },
+    { "setor_id": "setor_02", "estagio_id": 5, "texto": "Informa que a aprovação do financiamento depende de análise de crédito e que a parcela pode ficar próxima ou inferior à conta de energia, conforme o projeto e o crédito aprovado", "fonte_secao": "1.1.1.6; 2.2" },
+
+    { "setor_id": "setor_02", "estagio_id": 22, "texto": "Identifica oportunidades de pós-venda: ampliação, retrofit, manutenção preventiva, monitoramento, limpeza técnica, seguro e atendimento de outras unidades consumidoras", "fonte_secao": "1.1.1.2; 1.4" },
+    { "setor_id": "setor_02", "estagio_id": 22, "texto": "Solicita indicações ao cliente", "fonte_secao": "1.4" },
+    {
+      "setor_id": "setor_02", "estagio_id": 22, "texto": "Classifica a prioridade da oportunidade identificada",
+      "se_sim": { "rotulo": "Alta prioridade", "texto": "conduz a proposta, pois há compra em curto prazo" },
+      "se_nao": { "rotulo": "Média ou baixa prioridade", "texto": "mantém o acompanhamento e o relacionamento de longo prazo" },
+      "fonte_secao": "1.4"
+    },
+    { "setor_id": "setor_03", "estagio_id": 22, "texto": "Registra as oportunidades identificadas e o acompanhamento por prioridade", "fonte_secao": "1.4" },
+    { "setor_id": "setor_06", "estagio_id": 22, "texto": "Registra as decisões sobre situações não previstas para futura padronização", "fonte_secao": "1.5" }
+  ],
+  "perfis_cliente": [
+    { "id": "perfil_01", "nome": "Paga somente a distribuidora", "criterios": "Cliente que paga apenas a conta da distribuidora; altamente qualificado para implantação de sistema fotovoltaico.", "proxima_acao": "Identificar valor da conta, consumo médio, tipo de imóvel e modalidade de pagamento ideal; priorizar a venda do sistema fotovoltaico." },
+    { "id": "perfil_02", "nome": "Já possui energia solar", "criterios": "Cliente com solar instalada neste imóvel ou em outro que compensa a unidade; a ausência de venda de sistema não significa ausência de oportunidade.", "proxima_acao": "Avaliar se o sistema atende a demanda, aumento de consumo, ampliação, outras unidades consumidoras e necessidade de manutenção ou modernização." },
+    { "id": "perfil_03", "nome": "Compra energia por assinatura", "criterios": "Cliente que compra energia com desconto de terceiros; continuará pagando a terceiros durante toda a vida.", "proxima_acao": "Explicar que o sistema fotovoltaico gera patrimônio próprio; se não quiser ou não puder instalar, oferecer Energia por Assinatura da Lux." },
+    { "id": "perfil_04", "nome": "Imóvel alugado", "criterios": "Cliente que informa operar em imóvel alugado; a informação não é tratada como objeção.", "proxima_acao": "Prosseguir normalmente e usar a explicação das Anotações sobre a autorização do proprietário (ver observações para revisão jurídica)." },
+    { "id": "perfil_05", "nome": "Com capital disponível", "criterios": "Cliente com disponibilidade financeira para investir.", "proxima_acao": "Priorizar pagamento à vista, argumentando a eliminação da despesa definitiva com energia." },
+    { "id": "perfil_06", "nome": "Sem capital disponível", "criterios": "Cliente sem disponibilidade financeira ou que prefere preservar caixa e parcelar.", "proxima_acao": "Priorizar financiamento, usando preferencialmente o termo “boleto” na comunicação comercial." }
+  ],
+  "classificacao_lead": [
+    { "id": "lead_quente", "nome": "Lead Quente", "criterios": ["Pergunta sobre valores", "Pergunta sobre economia", "Solicita proposta", "Envia a conta rapidamente", "Demonstra interesse nas formas de pagamento", "Pergunta prazo de instalação"] },
+    { "id": "lead_morno", "nome": "Lead Morno", "criterios": ["Faz poucas perguntas", "Demonstra curiosidade", "Solicita proposta para analisar posteriormente"] },
+    { "id": "lead_frio", "nome": "Lead Frio", "criterios": ["Não responde perguntas", "Não fornece informações", "Demonstra resistência sem ouvir", "Não possui abertura para negociação"] }
+  ],
+  "oportunidades": [
+    { "id": "oport_01", "nome": "Implantação de sistema fotovoltaico", "prioridade_padrao": "alta", "estagio_id": 2, "origem": "sugerido" },
+    { "id": "oport_02", "nome": "Energia por Assinatura da Lux", "prioridade_padrao": "media", "estagio_id": 2, "origem": "sugerido" },
+    { "id": "oport_03", "nome": "Ampliação do sistema", "prioridade_padrao": "media", "estagio_id": 22, "origem": "sugerido" },
+    { "id": "oport_04", "nome": "Retrofit", "prioridade_padrao": "media", "estagio_id": 22, "origem": "sugerido" },
+    { "id": "oport_05", "nome": "Manutenção preventiva", "prioridade_padrao": "media", "estagio_id": 22, "origem": "sugerido" },
+    { "id": "oport_06", "nome": "Monitoramento", "prioridade_padrao": "baixa", "estagio_id": 22, "origem": "sugerido" },
+    { "id": "oport_07", "nome": "Limpeza técnica", "prioridade_padrao": "baixa", "estagio_id": 22, "origem": "sugerido" },
+    { "id": "oport_08", "nome": "Seguro", "prioridade_padrao": "baixa", "estagio_id": 22, "origem": "sugerido" },
+    { "id": "oport_09", "nome": "Atendimento de outras unidades consumidoras", "prioridade_padrao": "media", "estagio_id": 22, "origem": "sugerido" },
+    { "id": "oport_10", "nome": "Indicações", "prioridade_padrao": "baixa", "estagio_id": 22, "origem": "sugerido" }
+  ],
+  "respostas_padrao": [
+    { "id": "resp_01", "tema": "Garantia dos equipamentos", "texto": "A Lux trabalha exclusivamente com equipamentos de alta qualidade e oferece múltiplas camadas de garantia: garantia da Lux referente à instalação e ao suporte; garantia dos fabricantes dos equipamentos; garantia dos fornecedores oficiais; empresa credenciada junto ao IBS (Instituto Brasileiro de Energia Solar), seguindo padrões técnicos reconhecidos pelo mercado. Esse conjunto proporciona maior segurança e confiabilidade ao investimento.", "revisao_juridica": true },
+    { "id": "resp_02", "tema": "Formas de pagamento", "texto": "A Lux disponibiliza diferentes modalidades de pagamento para atender cada perfil de cliente. Financiamento (“boleto”): diversas plataformas financeiras parceiras; aprovação mediante análise de crédito; parcelamento facilitado; em muitos casos, a parcela fica próxima ou inferior ao valor atualmente pago na conta de energia, dependendo do projeto e da aprovação de crédito. Cartão de crédito: plataforma especializada para o setor fotovoltaico, em até 21 vezes, com taxas reduzidas quando comparadas às máquinas convencionais. Pagamento à vista: elimina os custos financeiros do parcelamento e dá maior rentabilidade ao investimento. Pagamento em etapas, quando aplicável: pagar inicialmente os equipamentos e a instalação após a conclusão da montagem.", "revisao_juridica": true },
+    { "id": "resp_03", "tema": "Qualidade dos equipamentos", "texto": "A Lux trabalha exclusivamente com equipamentos de alto padrão, selecionados entre fabricantes reconhecidos mundialmente, por alta eficiência, elevada confiabilidade, longa vida útil, garantia do fabricante e desempenho comprovado. Além disso, a empresa é credenciada junto ao IBS (Instituto Brasileiro de Energia Solar), reforçando seu compromisso com qualidade, atualização técnica e boas práticas do setor.", "revisao_juridica": true },
+    { "id": "resp_04", "tema": "Diretriz para IA e equipe comercial", "texto": "Responder de forma objetiva e clara; transmitir segurança e credibilidade; adaptar a linguagem ao perfil do cliente; destacar benefícios antes de características técnicas; conduzir naturalmente para o próximo passo da venda (simulação, análise da conta ou agendamento de visita).", "revisao_juridica": false }
+  ]
+}

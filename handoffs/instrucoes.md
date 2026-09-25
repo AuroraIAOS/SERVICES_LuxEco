@@ -122,7 +122,25 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** sem essa parada, a contagem dá 216 células (e o setor Cliente aparece com célula no Est. 01); com a parada, dá **212 células, 31 IF/ELSE**, e a presença setor × estágio bate com o MMO_v01.
 - **Fonte:** estágio criativo (aurora-criativa), 24/09/2026.
 
+### V08 é overlay puro: compor, nunca editar a V07 (e a V08 gravada tem de bater com o que o overlay produz)
+- **Gatilho:** `scripts/compor_v08.ts` / `npm run dados:compor` (02.1) e qualquer mudança em `data/conteudo/anotacoes_v08.json`.
+- **Ação:** `matriz_v08.json` = `matriz_v07.json` + `celulas_novas` (ao fim do par setor × estágio; id `acao_<setor>_<est>_<ordem>`, `celula: "V08-NNN"`, `origem_doc`) + `situacao_id` das condicionais da V07 lido do mapa (direto + participante). Célula com `se_sim`/`se_nao` vira ação IF/ELSE **e** condicional. `validarV08` reprova: ação/condicional da V07 alterada ou fora de posição, setor/estágio renomeado, item novo sem `origem_doc`, R$ ou prazo numérico no conteúdo novo, `situacao_id` diferente do mapa e **arquivo desatualizado** (recompõe em memória e compara). Nunca editar `matriz_v08.json` à mão: mexeu no overlay → `npm run dados:compor`.
+- **Evidência:** `npm run dados:compor && npm run dados:validar -- --v08 | tail -1` → `OK v08: setores=12 estagios=22 celulas=236 if_else=37 novos=24`; `npm test -- v08` → `0 failed` (30 testes, 14 deles de sensibilidade: provam que o validador e o `compor` acusam erro).
+- **Fonte:** decisão técnica de 24/09/2026 (02.1); `docs/06` §3 (resultado da integração).
+
 ## 6. Armadilhas conhecidas (não repetir)
+
+### `.gitignore` escondia código e marca: `dados/` pegava `src/dados/`, `*token*.json` pegava `design/tokens.json`
+- **Gatilho:** `git status` limpo e `git ls-files src/dados design/tokens.json` **vazio** — os arquivos existiam no disco (testes e build passavam) mas **nunca foram commitados** desde a 01.3/01.4; um clone novo não compilaria (`scripts/*.ts` importam `src/dados/tipos.ts`; `tokens:gerar` lê `design/tokens.json`). Descoberto na 02.1 ao ver que `src/dados/v08.test.ts` não aparecia no `git status`.
+- **Ação:** os padrões de sigilo (`dados/`, `*token*.json`, `*chave*`…) casam com nomes do próprio código. Acrescentadas exceções **estreitas** no `.gitignore` (`!src/dados/`, `!design/tokens.json`) e a mesma exceção no `scripts/pre_commit.mjs` (regex `token.*\.json`, que também barrava o arquivo). Regra geral: **todo arquivo novo de código/dado que crie pasta ou nome “sensível” deve ser conferido com `git status` antes do commit — “build verde” não prova que está versionado.** Conferir também com `git status --ignored --short | grep '^!!'` (só devem aparecer `.env`, `dist*`, `node_modules`, `referencias_privadas`, `screenshots`, `test-results`).
+- **Evidência:** `git status --ignored --short | grep '^!!'` → sem `src/dados/` nem `design/tokens.json`; `git ls-files src/dados design/tokens.json | wc -l` → `4` (`tipos.ts`, `validar.test.ts`, `v08.test.ts`, `tokens.json`); `.env`/`referencias_privadas/` seguem ignorados.
+- **Fonte:** erro real da 02.1 (24/09/2026); CLAUDE.md §4 (“Revisar `.gitignore` sempre”).
+
+### Shell do CODE nesta máquina: heredoc com `'`/`\$` quebra; escrever arquivo com Write/Edit
+- **Gatilho:** `bash -c` com heredoc longo contendo aspas, `$` ou barras invertidas (JSON com “ ”, regex com `\$`) falha com `unexpected EOF while looking for matching`.
+- **Ação:** criar/alterar arquivos com as ferramentas Write/Edit (não por heredoc nem por `node -e "..."` com template literal); reservar o shell para rodar comandos.
+- **Evidência:** dois heredocs de ~100 linhas falharam com exit 2 na 02.1; os mesmos conteúdos via Write funcionaram.
+- **Fonte:** erro real da 02.1.
 
 ### Diagrama: números não bastam — olhar a imagem (e o contraste)
 - **Gatilho:** ao gerar diagramas/SVG que entram no PDF (01.5 e 02.9).
