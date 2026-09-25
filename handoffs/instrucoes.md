@@ -185,6 +185,13 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm test -- llm` / `limite_gasto` / `llm_texto` → 0 failed; `grep -rEl "sk-ant|sk-proj" dist | wc -l` → `0`; `grep -rn "apiKey\|api_key" src/llm/limite_gasto.ts | wc -l` → `0`; `npm run e2e -- pop` → 6 passed.
 - **Fonte:** decisão técnica de 25/09/2026 (03.3); doc OpenRouter (chat completions, model fallbacks, limits); OS_Affiliate e ECC (circuit breaker, roteamento).
 
+### SheetJS vendorizado (0.20.3) e .xlsx só de texto, com abas conferidas lendo o arquivo de volta
+- **Gatilho:** qualquer mudança em `src/exportar/xlsx*.ts`, atualização do SheetJS, novo clone/migração (03.8) ou `npm install` que reclame do `xlsx`.
+- **Ação:** o registro do npm está parado na 0.18.5 (vulnerável) e o npm desta máquina recusa tarball remoto (`allow-remote = none`); decisão de Max (25/09/2026): **vendorizar**. `vendor/xlsx-0.20.3.tgz` (2,4 MB; baixado de `https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz`; SHA-256 `8dc73fc3b00203e72d176e85b50938627c7b086e607c682e8d3c22c02bb99fe8`; Apache-2.0) é versionado e `package.json` usa `"xlsx": "file:vendor/xlsx-0.20.3.tgz"` (o lock guarda o `integrity`). Atualizar = baixar a nova versão do CDN oficial, conferir o pacote (`tar -tzf`), trocar o arquivo, `npm i ./vendor/<novo>.tgz` e rodar `npm test -- xlsx`. Estrutura pura em `xlsx_dados.ts` (17 abas: 12 setores em vigor + Documentos/Ferramentas/Investimentos/KPIs + POP geral achatado em linhas Seção/Setor/Tipo/Conteúdo); `xlsx.ts` grava (valida nome de aba: ≤ 31 caracteres, sem `\\ / ? * [ ] :`, sem repetição mesmo em caixa diferente); `xlsx_botao.ts`/`xlsx_exportar.ts` carregam tudo só no clique (chunk do SheetJS ~330 kB). Só há strings → toda célula é texto (`=1+1` não vira fórmula; o teste lê o arquivo e exige `t: 's'` e nenhum `f`). O SheetJS Community **não grava estilo de célula** (só o Pro): a marca está em cabeçalhos, larguras (`!cols`, 10–60), propriedades do arquivo e na nota no fim de cada aba. Ao ler de volta em teste: `cellStyles: true` para ver as larguras, e `XLSX.read(buffer)` (o `readFile` do SheetJS em ESM não acha o `fs`).
+- **Dívida vista (fora do xlsx):** `npm audit --omit=dev` acusa 5 altas em `lodash-es` ≤ 4.17.23 via `mermaid` → `chevrotain`; já existia antes; revisar quando o mermaid publicar correção.
+- **Evidência:** `npm test -- xlsx` → 23 passed (abas = 12 setores + 4 bibliotecas + 1 POP geral); `npm run e2e -- pop` → download real pelo FPE e pelo POP.
+- **Fonte:** decisão de Max (25/09/2026); doc oficial do SheetJS (instalação por tarball, `aoa_to_sheet`, `!cols`).
+
 ## 6. Armadilhas conhecidas (não repetir)
 
 ### `white-space: nowrap` em rótulo de pílula estoura a largura no celular
@@ -326,7 +333,7 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `curl -s -o /dev/null -w "%{http_code}" https://lux.strategicepiphany.com/intelligence/` → `401`; com `-u "$SMOKE_BASIC_USER:$SMOKE_BASIC_PASS"` → `200`.
 - **Fonte:** cPanel de Max (Privacidade de diretórios, 24/09/2026); complementa a entrada sobre `.htaccess` gerenciado.
 
-### `xlsx` do npm está defasado (0.18.5) e o npm bloqueia o pacote remoto do CDN
+### [OBSOLETA — resolvida na 03.4: SheetJS 0.20.3 vendorizado em `vendor/xlsx-0.20.3.tgz`; ver a entrada “SheetJS vendorizado” na seção 5] `xlsx` do npm está defasado (0.18.5) e o npm bloqueia o pacote remoto do CDN
 - **Gatilho:** instalar SheetJS na 01.3/03.4 com `npm i xlsx`.
 - **Ação:** o registro npm está parado na 0.18.5 (vulnerável); o oficial é a 0.20.3 no CDN da SheetJS (`https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz`). Nesta máquina o npm **recusou** dependência remota (`Fetching packages of type "remote" have been disabled`) — trava do próprio npm, **não contornada**. `xlsx` foi **adiado para a 03.4** (só lá é usado). Opções a decidir com Max na 03.4: habilitar a fonte remota conscientemente, ou vendorizar o `.tgz` verificado no repositório.
 - **Evidência:** `npm i https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz` → `npm error Refusing to fetch`; `npm view xlsx version` → `0.18.5`.

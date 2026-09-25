@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import * as XLSX from 'xlsx';
 import { execFileSync } from 'node:child_process';
 import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
@@ -177,4 +179,35 @@ test('POP + IA: sem ciência nada sai; com ciência a sugestão vem pelo failove
   expect(guardado).not.toMatch(/sk-or|Bearer|api_key/i);
   expect(erros.filter((e) => !/404/.test(e))).toEqual([]);
   await page.screenshot({ path: 'screenshots/pop_ia.png', fullPage: true });
+});
+
+test('XLSX: baixa a planilha de verdade pelo FPE e pelo POP, com 17 abas e as suas edições', async ({ page }) => {
+  const erros: string[] = [];
+  page.on('console', (m) => m.type() === 'error' && erros.push(m.text()));
+  page.on('pageerror', (e) => erros.push(String(e)));
+
+  // 1) edita uma ficha no FPE e baixa a planilha pelo painel do FPE
+  await page.goto('/#/fpe');
+  await page.getByRole('button', { name: /^Vendas/ }).first().click();
+  await page.getByRole('button', { name: /Atendimento/ }).first().click();
+  await page.getByRole('button', { name: /^Aborda o lead rapidamente/ }).first().click();
+  await page.getByLabel(/^O quê/).fill('Aborda o lead pelo WhatsApp em minutos');
+  const [d1] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: /^Exportar planilha .* em Excel \(\.xlsx\)$/ }).click()]);
+  expect(d1.suggestedFilename()).toMatch(/^lux_fpe-pop_\d{4}-\d{2}-\d{2}\.xlsx$/);
+  const wb1 = XLSX.read(readFileSync(await d1.path()), { type: 'buffer' });
+  expect(wb1.SheetNames).toHaveLength(17);
+  expect(wb1.SheetNames.slice(12)).toEqual(['Documentos', 'Ferramentas', 'Investimentos', 'KPIs', 'POP geral']);
+  const vendas = XLSX.utils.sheet_to_json<string[]>(wb1.Sheets['Vendas']!, { header: 1 });
+  expect(vendas.some((l) => l[3] === 'Aborda o lead pelo WhatsApp em minutos')).toBe(true);
+
+  // 2) responde uma pergunta no POP, gera o POP e baixa a planilha pelo painel do POP
+  await page.getByRole('link', { name: 'POP' }).click();
+  await page.getByRole('textbox', { name: 'Qual é o objetivo do Marketing no ciclo de serviço?' }).fill('Objetivo revisado para a planilha.');
+  await page.getByRole('button', { name: 'Gerar POP do setor Marketing' }).click();
+  const [d2] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: /^Exportar planilha .* em Excel \(\.xlsx\)$/ }).click()]);
+  const wb2 = XLSX.read(readFileSync(await d2.path()), { type: 'buffer' });
+  const pop = XLSX.utils.sheet_to_json<string[]>(wb2.Sheets['POP geral']!, { header: 1 });
+  expect(pop.some((l) => l[2] === 'Resposta' && l[3] === 'Objetivo revisado para a planilha.')).toBe(true);
+  expect(pop.some((l) => l[2] === 'Passo' && l[3]?.endsWith('Aborda o lead pelo WhatsApp em minutos'))).toBe(true); // a edição do FPE também chegou ao POP
+  expect(erros).toEqual([]);
 });

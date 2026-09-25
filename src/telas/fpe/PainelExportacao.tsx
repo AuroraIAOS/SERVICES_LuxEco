@@ -5,6 +5,8 @@ import { baixar, MIME, nomeArquivo } from '../../exportar/baixar';
 import { montarDocumentoFichas } from '../../exportar/documento';
 import { exportarJson, importarJson, TAMANHO_MAXIMO_BYTES } from '../../exportar/json';
 import { renderizarMd } from '../../exportar/md';
+import { baixarPlanilha, ESCOPO_XLSX } from '../../exportar/xlsx_botao';
+import { lerEstadoPop } from '../../estado/pop';
 import { htmlFichas, imprimir } from '../../exportar/pdf';
 import { Botao, BotaoExportar } from '../../ui';
 import type { Fpe } from './modelo';
@@ -64,6 +66,14 @@ export function PainelExportacao({
   const pdfGeral = () => {
     const agora = new Date();
     imprimir(htmlFichas(montarDocumentoFichas(fpe, dados), dataBR(agora)), 'a4', semExtensao(nomeArquivo('geral', 'pdf', agora)));
+  };
+  const xlsxGeral = async () => {
+    setAviso(null);
+    try {
+      await baixarPlanilha(estado, lerEstadoPop().estado);
+    } catch {
+      setAviso({ tipo: 'erro', texto: 'Não foi possível gerar a planilha. Tente de novo.' });
+    }
   };
   const jsonGeral = () => {
     const agora = new Date();
@@ -134,6 +144,12 @@ export function PainelExportacao({
           <div className="exportacao__botoes">
             <BotaoExportar formato="md" escopo="fichas de todos os setores" onExportar={mdGeral} />
             <BotaoExportar formato="pdf" escopo="fichas de todos os setores" onExportar={pdfGeral} />
+          </div>
+        </div>
+        <div role="group" aria-label="Planilha" className="exportacao__grupo">
+          <p className="exportacao__rotulo">Planilha (fichas, bibliotecas e POP geral)</p>
+          <div className="exportacao__botoes">
+            <BotaoExportar formato="xlsx" escopo={ESCOPO_XLSX} onExportar={() => void xlsxGeral()} />
           </div>
         </div>
         <div role="group" aria-label="Edições do FPE" className="exportacao__grupo">

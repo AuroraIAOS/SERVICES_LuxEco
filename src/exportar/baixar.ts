@@ -47,6 +47,11 @@ export function nomeArquivoPop(escopo: string, extensao: string, agora: Date): s
   return `pop_${slug(escopo)}_${dataLocal(agora)}.${extensao}`;
 }
 
+/** `lux_fpe-pop_<AAAA-MM-DD>.xlsx`: uma pasta com as fichas do FPE, as bibliotecas e o POP geral (03.4). */
+export function nomeArquivoXlsx(agora: Date): string {
+  return `lux_fpe-pop_${dataLocal(agora)}.xlsx`;
+}
+
 /** Baixa bytes já prontos (ex.: .docx). */
 export function baixarBytes(nome: string, bytes: Uint8Array, mime: string): void {
   baixarBlob(nome, new Blob([bytes as BlobPart], { type: mime }));
@@ -57,4 +62,5 @@ export const MIME = {
   md: 'text/markdown',
   mermaid: 'text/vnd.mermaid',
   docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 } as const;

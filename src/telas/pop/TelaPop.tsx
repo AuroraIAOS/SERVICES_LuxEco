@@ -147,7 +147,7 @@ export function TelaPop({
         {gerado ? (
           <>
             <PopGerado pop={gerado.pop} desatualizado={gerado.estado !== estado} />
-            <PainelExportacaoPop pop={gerado.pop} />
+            <PainelExportacaoPop pop={gerado.pop} estadoFpe={edicoesFpe} estadoPop={estado} />
           </>
         ) : (
           <p className="pop-resultado__vazio">O POP gerado aparece aqui, com as {templates.secoes.length} seções.</p>
