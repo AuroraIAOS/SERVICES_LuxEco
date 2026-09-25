@@ -27,7 +27,7 @@ test('offline: MMO, FPE e POP abrem do disco, sem erro e sem pedir nada à rede'
   const pedidos: string[] = [];
   page.on('request', (r) => !r.url().startsWith('file:') && !r.url().startsWith('data:') && pedidos.push(r.url()));
   const erros = await abrir(page, '/mmo');
-  await expect(page.getByRole('heading', { level: 1, name: 'MMO v02' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'MMO' })).toBeVisible();
   await page.getByRole('link', { name: 'FPE', exact: true }).click();
   await expect(page.getByRole('list', { name: 'Resumo' })).toContainText('236 fichas');
   await page.getByRole('link', { name: 'POP', exact: true }).click();
@@ -42,7 +42,7 @@ test('offline: sem IA (painéis e botões somem) e sem chave no arquivo', async 
   await abrir(page, '/pop');
   await expect(page.getByRole('heading', { level: 1, name: 'POP' })).toBeVisible();
   await expect(page.getByRole('button', { name: /Redigir com IA/ })).toHaveCount(0);
-  await expect(page.getByRole('button', { name: /Redação com IA|Limite de gasto da IA/ })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /IA \(opcional\)/ })).toHaveCount(0);
   const html = readFileSync(ARQUIVO, 'utf8');
   expect(html).not.toMatch(/\bsk-(?:or|ant|proj)[\w-]{6,}/);
   expect(html).not.toMatch(/HOSTGATOR_FTP|SMOKE_BASIC/);

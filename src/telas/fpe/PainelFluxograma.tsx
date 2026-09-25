@@ -59,34 +59,38 @@ export function PainelFluxograma({ matriz, setor, faseSugerida, revisao }: { mat
         Fluxograma
       </h2>
       <p className="fluxo-painel__dica">Gere o fluxograma a partir das fichas, com as suas edições: uma coluna por estágio e os dois caminhos de cada decisão.</p>
-      <div className="fluxo-painel__acoes">
-        <Botao variante="primario" onClick={gerarSetor}>
-          {`Gerar fluxograma do setor ${setor.nome}`}
-        </Botao>
-        <div className="fluxo-painel__fase">
-          <CampoSeletor
-            rotulo="Fase do fluxograma geral"
-            value={String(fase)}
-            onChange={(e) => setFaseEscolhida(Number(e.target.value))}
-            opcoes={matriz.fases.map((f) => ({ valor: String(f.id), rotulo: `${f.id}. ${f.nome}` }))}
-          />
-          <Botao onClick={gerarFase}>Gerar fluxograma geral da fase</Botao>
-        </div>
-      </div>
 
-      <div className="fluxo-painel__exportar">
-        <div role="group" aria-label="Exportar o fluxo do setor" className="exportacao__grupo">
-          <p className="exportacao__rotulo">{`Exportar o fluxo do setor ${setor.nome}`}</p>
-          <div className="exportacao__botoes">
-            <BotaoExportar formato="mermaid" escopo={`fluxo do setor ${setor.nome}`} onExportar={mermaidDoSetor} />
-            <BotaoExportar formato="pdf" escopo={`fluxo do setor ${setor.nome}`} onExportar={pdfDoSetor} />
+      {/* Dois blocos: o do setor selecionado e o geral por fase. Cada um reúne gerar + exportar, sem se sobrepor. */}
+      <div className="fluxo-painel__blocos">
+        <div className="fluxo-bloco" role="group" aria-label={`Fluxograma do setor ${setor.nome}`}>
+          <Botao variante="primario" onClick={gerarSetor}>
+            {`Gerar fluxograma do setor ${setor.nome}`}
+          </Botao>
+          <div className="fluxo-bloco__exportar">
+            <p className="exportacao__rotulo">{`Exportar o fluxo do setor ${setor.nome}`}</p>
+            <div className="exportacao__botoes">
+              <BotaoExportar formato="mermaid" escopo={`fluxo do setor ${setor.nome}`} onExportar={mermaidDoSetor} />
+              <BotaoExportar formato="pdf" escopo={`fluxo do setor ${setor.nome}`} onExportar={pdfDoSetor} />
+            </div>
           </div>
         </div>
-        <div role="group" aria-label="Exportar o fluxo geral da fase" className="exportacao__grupo">
-          <p className="exportacao__rotulo">{`Exportar o fluxo geral da Fase ${fase}`}</p>
-          <div className="exportacao__botoes">
-            <BotaoExportar formato="mermaid" escopo={`fluxo geral da Fase ${fase}`} onExportar={mermaidDaFase} />
-            <BotaoExportar formato="pdf" escopo={`fluxo geral da Fase ${fase}`} onExportar={pdfDaFase} />
+
+        <div className="fluxo-bloco" role="group" aria-label="Fluxograma geral por fase">
+          <div className="fluxo-bloco__fase">
+            <CampoSeletor
+              rotulo="Fase do fluxograma geral"
+              value={String(fase)}
+              onChange={(e) => setFaseEscolhida(Number(e.target.value))}
+              opcoes={matriz.fases.map((f) => ({ valor: String(f.id), rotulo: `${f.id}. ${f.nome}` }))}
+            />
+            <Botao onClick={gerarFase}>Gerar fluxograma geral da fase</Botao>
+          </div>
+          <div className="fluxo-bloco__exportar">
+            <p className="exportacao__rotulo">{`Exportar o fluxo geral da Fase ${fase}`}</p>
+            <div className="exportacao__botoes">
+              <BotaoExportar formato="mermaid" escopo={`fluxo geral da Fase ${fase}`} onExportar={mermaidDaFase} />
+              <BotaoExportar formato="pdf" escopo={`fluxo geral da Fase ${fase}`} onExportar={pdfDaFase} />
+            </div>
           </div>
         </div>
       </div>

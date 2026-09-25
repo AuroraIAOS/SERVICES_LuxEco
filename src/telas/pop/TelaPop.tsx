@@ -109,7 +109,7 @@ export function TelaPop({
           <p id="pop-setor-titulo" className="fpe-nav__titulo">
             Setor
           </p>
-          <ul className="chips">
+          <ul className="grade-setores">
             {dados.setores.map((s) => (
               <li key={s.id}>
                 <button type="button" className="chip chip--setor" style={estiloDoSetor(s.cor_token)} aria-current={s.id === setorId ? 'true' : undefined} onClick={() => setSetorId(s.id)}>
@@ -125,14 +125,20 @@ export function TelaPop({
 
       {llm.ambiente.llmDisponivel && (
         <div className="pop-llm">
-          <Pilula nome="Redação com IA (opcional)" resumo="o POP sai igual sem ela" nivel={2}>
-            <div className="pop-secao">
-              <SeletorLlm llm={llm} />
-            </div>
-          </Pilula>
-          <Pilula nome="Limite de gasto da IA" resumo={llm.config.teto_mensal_brl === 0 ? 'teto R$ 0,00' : undefined} nivel={2}>
-            <div className="pop-secao">
-              <PainelLimiteGasto llm={llm} />
+          <Pilula nome="IA (opcional)" resumo="o POP sai igual sem ela" nivel={2}>
+            <div className="pop-secao pop-llm__quadro">
+              <section className="pop-llm__bloco" aria-labelledby="pop-llm-redacao">
+                <h3 id="pop-llm-redacao" className="pop-llm__subtitulo">
+                  Redação com IA
+                </h3>
+                <SeletorLlm llm={llm} />
+              </section>
+              <section className="pop-llm__bloco" aria-labelledby="pop-llm-limite">
+                <h3 id="pop-llm-limite" className="pop-llm__subtitulo">
+                  Limite de gasto da IA
+                </h3>
+                <PainelLimiteGasto llm={llm} />
+              </section>
             </div>
           </Pilula>
         </div>

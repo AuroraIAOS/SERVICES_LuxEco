@@ -23,7 +23,7 @@ interface DefinicaoTela extends ItemNavegacao {
 }
 
 export const TELAS: readonly DefinicaoTela[] = [
-  { caminho: '/mmo', rotulo: 'MMO v02', tela: () => <TelaMmo /> },
+  { caminho: '/mmo', rotulo: 'MMO', tela: () => <TelaMmo /> },
   {
     caminho: '/fpe',
     rotulo: 'FPE',

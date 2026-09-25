@@ -4,7 +4,7 @@ import { AppEmMemoria } from './app';
 
 describe('rotas da fundação', () => {
   it.each([
-    ['/mmo', 'MMO v02'],
+    ['/mmo', 'MMO'],
     ['/fpe', 'FPE'],
     ['/pop', 'POP'],
     ['/versoes', 'Versões salvas'],
@@ -15,7 +15,7 @@ describe('rotas da fundação', () => {
 
   it('rota desconhecida cai no MMO', () => {
     render(<AppEmMemoria inicial="/nao-existe" />);
-    expect(screen.getByRole('heading', { level: 1, name: 'MMO v02' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: 'MMO' })).toBeInTheDocument();
   });
 
   it('a navegação lista as 4 telas', () => {

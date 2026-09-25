@@ -5,10 +5,10 @@ Para quem vai usar a ferramenta no dia a dia. Sem termos técnicos.
 ## 1. Como entrar
 Abra o endereço da ferramenta no navegador (Chrome, Edge ou Firefox) e digite o **usuário e a senha** que você recebeu. Sem a senha, nada abre. Guarde o endereço nos favoritos.
 
-No topo há quatro telas: **MMO v02**, **FPE**, **POP** e **Versões salvas**.
+No topo há quatro telas: **MMO**, **FPE**, **POP** e **Versões salvas**.
 
 ## 2. O que cada tela faz
-- **MMO v02** — o mapa da operação: as 4 fases, os 22 estágios, o que cada um dos 12 setores faz e as decisões de “se… então…”. É só para ler.
+- **MMO** — o mapa da operação: as 4 fases, os 22 estágios, o que cada um dos 12 setores faz e as decisões de “se… então…”. É só para ler.
 - **FPE** — uma ficha por ação (o quê, por quê, onde, quando, quem, como). Já vêm preenchidas. Escolha o setor, o estágio e a ficha e **corrija o que for diferente na prática**. Tudo o que você escreve fica guardado neste navegador na hora. “Restaurar padrão” volta ao texto original. Também gera o **fluxograma** do setor.
 - **POP** — o procedimento de cada setor e o geral. Escolha o setor, leia as perguntas (cada uma já vem respondida com o que os documentos dizem) e **ajuste as respostas**. Depois clique em **Gerar POP do setor** ou **Gerar POP geral**.
 

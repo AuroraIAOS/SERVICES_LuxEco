@@ -1,4 +1,4 @@
-// Modelo de visão do MMO v02: transforma a Matriz V08 (data/matriz_v08.json) no que a tela desenha.
+// Modelo de visão do MMO: transforma a Matriz V08 (data/matriz_v08.json) no que a tela desenha.
 // Puro (sem React): nenhum número, lista ou texto de negócio mora na tela — tudo vem do JSON e é calculado aqui.
 import type { Acao, ClassificacaoLead, Condicional, Estagio, Fase, JornadaEtapa, MapaSituacoes, MatrizV08, Oportunidade, PerfilCliente, RamoCondicional, Setor } from '../../dados/tipos';
 import { FASES } from '../../dados/tipos';

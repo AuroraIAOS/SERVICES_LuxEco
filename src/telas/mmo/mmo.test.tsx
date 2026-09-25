@@ -132,11 +132,11 @@ describe('modelo de visão (montarMmo): tudo calculado da Matriz V08', () => {
   });
 });
 
-describe('tela MMO v02 renderizada', () => {
-  it('abre com o título, o subtítulo com a versão da Matriz e os números calculados (nenhum número aproximado digitado no código)', () => {
+describe('tela MMO renderizada', () => {
+  it('abre com o título, o subtítulo e os números calculados (nenhum número aproximado digitado no código)', () => {
     telaMmo();
-    expect(screen.getByRole('heading', { level: 1, name: 'MMO v02' })).toBeInTheDocument();
-    expect(screen.getByText(`Mapa Mental Organizacional, Matriz ${MATRIZ_V08.meta.versao_matriz}`)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: 'MMO' })).toBeInTheDocument();
+    expect(screen.getByText('Mapa Mental Organizacional')).toBeInTheDocument();
     const resumo = screen.getByRole('list', { name: 'Resumo' });
     expect(resumo).toHaveTextContent(`${MATRIZ_V08.setores.length} setores`);
     expect(resumo).toHaveTextContent(`${MATRIZ_V08.estagios.length} estágios`);

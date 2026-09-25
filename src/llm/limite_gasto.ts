@@ -73,6 +73,10 @@ export const zerarMes = (uso: UsoLlm): UsoLlm => ({ ...uso, tokens_entrada: 0, t
 /** Uso do teto em % (0 quando o teto é R$ 0: não há barra a encher). */
 export const percentualDoTeto = (config: ConfigLlm, uso: UsoLlm) => (config.teto_mensal_brl > 0 ? Math.min(100, (uso.gasto_estimado_brl / config.teto_mensal_brl) * 100) : 0);
 
+/** Uso do limite diário de chamadas em % (0 quando o limite é 0; teto 100%). É o que a barra de “Chamadas hoje” mostra. */
+export const percentualDoLimiteDiario = (config: ConfigLlm, uso: UsoLlm) =>
+  config.limite_diario_requisicoes > 0 ? Math.min(100, (uso.requisicoes_dia / config.limite_diario_requisicoes) * 100) : 0;
+
 export type NivelAlerta = 'ok' | 'alerta' | 'bloqueado';
 
 /** Estado para o aviso da tela: perto do teto (alerta), teto atingido, ou perto/no limite diário. */

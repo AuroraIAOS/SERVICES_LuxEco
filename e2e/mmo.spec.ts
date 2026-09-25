@@ -4,12 +4,12 @@ import type { Page } from '@playwright/test';
 const abrirMmo = async (page: Page) => {
   const inicio = Date.now();
   await page.goto('/#/mmo');
-  await expect(page.getByRole('heading', { level: 1, name: 'MMO v02' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'MMO' })).toBeVisible();
   await expect(page.getByRole('button', { name: /^\d{2} / })).toHaveCount(22);
   return Date.now() - inicio;
 };
 
-test('MMO v02: renderiza em menos de 2 s, com números calculados e sem erro no console', async ({ page }) => {
+test('MMO: renderiza em menos de 2 s, com números calculados e sem erro no console', async ({ page }) => {
   const erros: string[] = [];
   page.on('console', (m) => m.type() === 'error' && erros.push(m.text()));
   page.on('pageerror', (e) => erros.push(String(e)));
@@ -30,7 +30,7 @@ test('MMO v02: renderiza em menos de 2 s, com números calculados e sem erro no 
   expect(erros).toEqual([]);
 });
 
-test('MMO v02: 4 fases com os 22 estágios; abrir o Est. 02 mostra as ramificações da V08 (perfis, Energia por Assinatura)', async ({ page }) => {
+test('MMO: 4 fases com os 22 estágios; abrir o Est. 02 mostra as ramificações da V08 (perfis, Energia por Assinatura)', async ({ page }) => {
   await abrirMmo(page);
   await expect(page.getByRole('group')).toHaveCount(4);
 
@@ -49,7 +49,7 @@ test('MMO v02: 4 fases com os 22 estágios; abrir o Est. 02 mostra as ramificaç
   await page.screenshot({ path: 'screenshots/mmo_desktop_estagios_abertos.png', fullPage: true });
 });
 
-test('MMO v02: cada fase mantém um estágio aberto por vez e o Grupo de Fluxo sai com a etiqueta WhatsApp', async ({ page }) => {
+test('MMO: cada fase mantém um estágio aberto por vez e o Grupo de Fluxo sai com a etiqueta WhatsApp', async ({ page }) => {
   await abrirMmo(page);
   const b1 = page.getByRole('button', { name: /^01 Prospecção/ });
   const b2 = page.getByRole('button', { name: /^02 Atendimento/ });
@@ -66,7 +66,7 @@ test('MMO v02: cada fase mantém um estágio aberto por vez e o Grupo de Fluxo s
   expect(await page.locator('body').innerText()).not.toMatch(/\(GRUPO DE FLUXO\)/);
 });
 
-test('MMO v02: só pelo teclado (Tab até o estágio, Enter abre, Espaço fecha) e foco visível', async ({ page }) => {
+test('MMO: só pelo teclado (Tab até o estágio, Enter abre, Espaço fecha) e foco visível', async ({ page }) => {
   await abrirMmo(page);
   const botao = page.getByRole('button', { name: /^01 Prospecção/ });
   await botao.focus();
@@ -82,7 +82,7 @@ test('MMO v02: só pelo teclado (Tab até o estágio, Enter abre, Espaço fecha)
   await expect(botao).toHaveAttribute('aria-expanded', 'false');
 });
 
-test('MMO v02: 12 setores (um aberto por vez), 21 decisões IF/ELSE e a jornada de 10 fases', async ({ page }) => {
+test('MMO: 12 setores (um aberto por vez), 21 decisões IF/ELSE e a jornada de 10 fases', async ({ page }) => {
   await abrirMmo(page);
   const setores = page.getByRole('button', { name: /^S\d{2} / });
   await expect(setores).toHaveCount(12);
@@ -97,7 +97,7 @@ test('MMO v02: 12 setores (um aberto por vez), 21 decisões IF/ELSE e a jornada 
   await expect(page.getByRole('region', { name: /Jornada do cliente em 10 fases/ }).getByRole('listitem')).toHaveCount(10);
 });
 
-test('MMO v02: no celular (390 px) não há rolagem horizontal e os estágios continuam abrindo', async ({ page }) => {
+test('MMO: no celular (390 px) não há rolagem horizontal e os estágios continuam abrindo', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await abrirMmo(page);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);

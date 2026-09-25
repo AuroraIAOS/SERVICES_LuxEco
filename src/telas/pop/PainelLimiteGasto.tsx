@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { ConfigLlm } from '../../llm/config';
 import { normalizarModelos } from '../../llm/config';
 import type { ErrosDeConfig, PedidoDeConfig } from '../../llm/limite_gasto';
-import { aplicarPedidoDeConfig, nivelDeAlerta, numeroDoCampo, percentualDoTeto, usoDeHoje } from '../../llm/limite_gasto';
+import { aplicarPedidoDeConfig, nivelDeAlerta, numeroDoCampo, percentualDoLimiteDiario, percentualDoTeto, usoDeHoje } from '../../llm/limite_gasto';
 import { Botao, CampoMarcacao, CampoTexto } from '../../ui';
 import type { EstadoLlm } from './useLlm';
 
@@ -38,6 +38,7 @@ export function PainelLimiteGasto({ llm }: { llm: EstadoLlm }) {
   const uso = usoDeHoje(llm.uso, agora);
   const nivel = nivelDeAlerta(llm.config, uso, llm.modo, agora);
   const barra = percentualDoTeto(llm.config, uso);
+  const barraDiaria = percentualDoLimiteDiario(llm.config, uso);
 
   const aumentando = numeroDoCampo(pedido.teto_mensal_brl) > llm.config.teto_mensal_brl;
   const mudar = (campo: keyof PedidoDeConfig, valor: string | boolean) => {
@@ -65,13 +66,35 @@ export function PainelLimiteGasto({ llm }: { llm: EstadoLlm }) {
   return (
     <div className="llm-limite">
       <div className="llm-limite__uso" aria-live="polite">
-        <p>
-          Gasto estimado do mês: <strong>{brl(uso.gasto_estimado_brl)}</strong> de {brl(llm.config.teto_mensal_brl)}.{' '}
-          {llm.config.teto_mensal_brl === 0 ? 'Teto R$ 0,00: nenhuma chamada paga.' : `${Math.round(barra)}% do teto.`}
-        </p>
-        <progress className="llm-limite__barra" max={100} value={barra} aria-label="Uso do teto mensal" />
-        <p>
-          Chamadas hoje: <strong>{uso.requisicoes_dia}</strong> de {llm.config.limite_diario_requisicoes}. Tokens no mês: {uso.tokens_entrada.toLocaleString('pt-BR')} de entrada e {uso.tokens_saida.toLocaleString('pt-BR')} de saída.
+        {/* Chamadas do dia: a barra reflete requisicoes_dia / limite_diario (não o gasto em R$). */}
+        <div className="llm-limite__medida">
+          <p>
+            Chamadas hoje: <strong>{uso.requisicoes_dia}</strong> de {llm.config.limite_diario_requisicoes}.
+          </p>
+          <progress
+            className={`llm-limite__barra${nivel.diario !== 'ok' ? ' llm-limite__barra--alerta' : ''}`}
+            max={100}
+            value={barraDiaria}
+            aria-label={`${uso.requisicoes_dia} de ${llm.config.limite_diario_requisicoes} chamadas hoje`}
+            aria-valuetext={`${uso.requisicoes_dia} de ${llm.config.limite_diario_requisicoes} chamadas hoje`}
+          />
+        </div>
+        {/* Gasto do mês: separado e rotulado; 0 quando o teto é R$ 0 (IA padrão gratuita). */}
+        <div className="llm-limite__medida">
+          <p>
+            Gasto estimado do mês: <strong>{brl(uso.gasto_estimado_brl)}</strong> de {brl(llm.config.teto_mensal_brl)}.{' '}
+            {llm.config.teto_mensal_brl === 0 ? 'Teto R$ 0,00: nenhuma chamada paga.' : `${Math.round(barra)}% do teto.`}
+          </p>
+          <progress
+            className={`llm-limite__barra${nivel.teto !== 'ok' ? ' llm-limite__barra--alerta' : ''}`}
+            max={100}
+            value={barra}
+            aria-label="Uso do teto mensal de gasto"
+            aria-valuetext={llm.config.teto_mensal_brl === 0 ? 'Teto R$ 0,00: nenhuma chamada paga' : `${Math.round(barra)}% do teto mensal`}
+          />
+        </div>
+        <p className="llm-limite__tokens">
+          Tokens no mês: {uso.tokens_entrada.toLocaleString('pt-BR')} de entrada e {uso.tokens_saida.toLocaleString('pt-BR')} de saída.
         </p>
         {nivel.teto === 'bloqueado' && (
           <p role="alert" className="pop-aviso">

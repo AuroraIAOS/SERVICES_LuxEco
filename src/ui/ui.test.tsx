@@ -38,9 +38,9 @@ describe('navegação e estrutura da página', () => {
     render(<AppEmMemoria inicial="/fpe" />);
     const nav = screen.getByRole('navigation', { name: 'Telas' });
     const links = within(nav).getAllByRole('link');
-    expect(links.map((l) => l.textContent)).toEqual(['MMO v02', 'FPE', 'POP', 'Versões salvas']);
+    expect(links.map((l) => l.textContent)).toEqual(['MMO', 'FPE', 'POP', 'Versões salvas']);
     expect(within(nav).getByRole('link', { name: 'FPE' })).toHaveAttribute('aria-current', 'page');
-    expect(within(nav).getByRole('link', { name: 'MMO v02' })).not.toHaveAttribute('aria-current');
+    expect(within(nav).getByRole('link', { name: 'MMO' })).not.toHaveAttribute('aria-current');
   });
 
   it('tem os marcos de página (banner, navegação, conteúdo, rodapé) e um único h1 por tela', () => {
@@ -85,7 +85,7 @@ describe('navegação e estrutura da página', () => {
   it('o título da aba muda com a tela', async () => {
     const user = userEvent.setup();
     render(<AppEmMemoria inicial="/mmo" />);
-    expect(document.title).toBe('MMO v02 — LUX ECO SOLUTIONS');
+    expect(document.title).toBe('MMO — LUX ECO SOLUTIONS');
     await user.click(screen.getByRole('link', { name: 'Versões salvas' }));
     expect(document.title).toBe('Versões salvas — LUX ECO SOLUTIONS');
   });
@@ -98,7 +98,7 @@ describe('navegação e estrutura da página', () => {
       await user.tab();
       ordem.push(document.activeElement?.textContent?.trim() ?? '');
     }
-    expect(ordem.slice(0, 6)).toEqual(['Pular para o conteúdo', 'LUX ECO SOLUTIONS', 'MMO v02', 'FPE', 'POP', 'Versões salvas']);
+    expect(ordem.slice(0, 6)).toEqual(['Pular para o conteúdo', 'LUX ECO SOLUTIONS', 'MMO', 'FPE', 'POP', 'Versões salvas']);
   });
 
   it('sem servidor de versões, a tela diz o que houve, que nada se perdeu e oferece tentar de novo', async () => {
@@ -111,9 +111,9 @@ describe('navegação e estrutura da página', () => {
 
 describe('Hero e resumo numérico', () => {
   it('o título vira h1 e nomeia a região; o subtítulo aparece', () => {
-    render(<Hero titulo="MMO v02" subtitulo="Mapa Mental Organizacional" />);
-    const regiao = screen.getByRole('region', { name: 'MMO v02' });
-    expect(within(regiao).getByRole('heading', { level: 1 })).toHaveTextContent('MMO v02');
+    render(<Hero titulo="MMO" subtitulo="Mapa Mental Organizacional" />);
+    const regiao = screen.getByRole('region', { name: 'MMO' });
+    expect(within(regiao).getByRole('heading', { level: 1 })).toHaveTextContent('MMO');
     expect(within(regiao).getByText('Mapa Mental Organizacional')).toBeInTheDocument();
   });
 
@@ -372,6 +372,17 @@ describe('marca: nenhum valor de cor ou tipografia fora dos tokens', () => {
 
   it('a página declara o idioma pt-BR', () => {
     expect(indexHtml).toMatch(/<html lang="pt-BR">/);
+  });
+
+  it('há uma regra reutilizável de texto justificado (justify + hyphens: auto, com quebra segura de palavra)', () => {
+    const bloco = /\.texto-justificado[^{]*\{[^}]*\}/.exec(uiCss)?.[0] ?? '';
+    expect(bloco).toMatch(/text-align:\s*justify/);
+    expect(bloco).toMatch(/hyphens:\s*auto/);
+    expect(bloco).toMatch(/overflow-wrap:\s*break-word/);
+    // aplicada a caixas de texto longo (parágrafos de cartões, avisos, ajudas, respostas)
+    expect(bloco).toContain('.pop-secao p');
+    expect(bloco).toContain('.pop-aviso');
+    expect(bloco).toContain('.campo__ajuda');
   });
 });
 

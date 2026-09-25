@@ -1,5 +1,5 @@
 /*
- * Tela MMO v02. Só tokens da marca (ver ui.css): nenhuma cor, fonte ou peso literal.
+ * Tela MMO. Só tokens da marca (ver ui.css): nenhuma cor, fonte ou peso literal.
  * Painel plano: 4 fases lado a lado, setores e decisões em grades de 2px, o setor só como filete lateral.
  */
 .mmo-secao {
@@ -142,15 +142,22 @@
 }
 
 /* ── Setores ───────────────────────────────────────────────────────── */
+/* Quadro 4×3 harmônico: 4 colunas em telas largas, 3 em ~900px, 2 em ~600px, 1 no celular.
+ * `align-items: start` garante que abrir um cartão (uma pílula por vez) NÃO estica a altura dos irmãos da linha.
+ * O cartão FECHADO tem altura uniforme por causa do `min-height` do botão (cabe o rótulo de tipo em duas linhas). */
 .setores-grade {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--vao);
   align-items: start;
 }
 
 .setores-grade > .pilula + .pilula {
   margin-top: 0;
+}
+
+.setores-grade .pilula__botao {
+  min-height: 4rem;
 }
 
 .setor-detalhe {
@@ -242,13 +249,31 @@
   }
 }
 
+/* Setores: 4 → 3 (~900px) → 2 (~600px) → 1 (celular), como a grade compartilhada do FPE/POP. */
+@media (max-width: 56.25rem) {
+  .setores-grade {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .setores-grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 40rem) {
   .fases {
     grid-template-columns: 1fr;
   }
 
-  .setores-grade,
   .decisoes-grade {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 30rem) {
+  .setores-grade {
     grid-template-columns: 1fr;
   }
 }

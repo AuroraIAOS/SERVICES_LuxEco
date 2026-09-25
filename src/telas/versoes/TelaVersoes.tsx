@@ -196,7 +196,7 @@ export function TelaVersoes({ cliente: clienteExterno, armazenamento, agora = ()
       }
     >
       <div ref={tituloRef} tabIndex={-1} className="versoes__topo">
-        <SalvarVersao escopoPadrao="completo" cliente={cliente} aoSalvar={() => void carregar()} />
+        <SalvarVersao escopoPadrao="completo" cliente={cliente} aoSalvar={() => void carregar()} mostrarLinkParaVersoes={false} />
         {podeDesfazer && (
           <div className="versoes__desfazer">
             <Botao variante="secundario" onClick={desfazer}>

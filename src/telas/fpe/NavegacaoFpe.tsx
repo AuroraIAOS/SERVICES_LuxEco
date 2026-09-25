@@ -21,7 +21,7 @@ export function NavegacaoFpe({ fpe, selecao, aoSelecionar }: { fpe: Fpe; selecao
         <p id={idSetor} className="fpe-nav__titulo">
           Setor
         </p>
-        <ul className="chips">
+        <ul className="grade-setores">
           {fpe.setores.map((s) => (
             <li key={s.setor.id}>
               <button
@@ -56,7 +56,7 @@ export function NavegacaoFpe({ fpe, selecao, aoSelecionar }: { fpe: Fpe; selecao
           <p id={idEstagio} className="fpe-nav__titulo">
             Estágio
           </p>
-          <ul className="chips">
+          <ul className="grade-estagios">
             {setor.estagios.map((e) => (
               <li key={e.estagio.id}>
                 <button type="button" className="chip" aria-current={e.estagio.id === selecao.estagioId ? 'true' : undefined} onClick={() => aoSelecionar({ setorId: setor.setor.id, estagioId: e.estagio.id })}>

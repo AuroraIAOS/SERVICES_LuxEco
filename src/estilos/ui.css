@@ -499,6 +499,66 @@ html {
   font-weight: var(--peso-titulo);
 }
 
+/* ── Grade de setores (compartilhada: FPE e POP) ───────────────────────
+ * Os 12 setores num quadro regular: 4 colunas em telas largas, 3 em ~900px, 2 em ~600px.
+ * Mesma altura em todas as células (as células esticam); filete de cor do setor e aria-current preservados.
+ * O MMO tem a sua própria grade de cartões em mmo.css (cartões expansíveis, não chips). */
+.grade-setores {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--vao);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+.grade-setores > li {
+  display: flex;
+}
+
+.grade-setores > li > .chip {
+  width: 100%;
+}
+
+@media (max-width: 56.25rem) {
+  .grade-setores {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .grade-setores {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ── Texto corrido justificado ─────────────────────────────────────────
+ * Só caixas de texto longo (parágrafos, avisos, ajudas, respostas, sugestões, descrições).
+ * Com lang="pt-BR" no <html>, hyphens: auto hifeniza apenas onde a palavra não cabe.
+ * NÃO usar em títulos, botões, chips, rótulos, células estreitas nem listas de itens curtos. */
+.texto-justificado,
+.campo__ajuda,
+.vazio__texto,
+.mmo-secao__dica,
+.estagio__descricao,
+.jornada__descricao,
+.setor-detalhe__atuacao,
+.setor-detalhe__equipes,
+.fluxo-painel__dica,
+.exportacao__dica,
+.pop-perguntas__dica,
+.pop-secao p,
+.pop-aviso,
+.pop-sugestao__texto,
+.pop-respostas dd {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
 /* ── Estado vazio ──────────────────────────────────────────────────── */
 .vazio {
   padding: 1.75rem var(--gutter) 2rem;

@@ -47,22 +47,25 @@ function tela(f: ReturnType<typeof fetchFalso> | null, storage = falsoStorage(),
   return storage;
 }
 const abrir = async (user: ReturnType<typeof userEvent.setup>, nome: RegExp) => user.click(screen.getByRole('button', { name: nome }));
+/** a IA vive num único acordeão “IA (opcional)” (redação + limite de gasto no mesmo quadro). */
+const abrirIa = async (user: ReturnType<typeof userEvent.setup>) => abrir(user, /IA \(opcional\)/);
 const ciente = async (user: ReturnType<typeof userEvent.setup>) => {
-  await abrir(user, /Redação com IA/);
+  await abrirIa(user);
   await user.click(screen.getByRole('checkbox', { name: /Entendo que o texto será enviado a um provedor externo/ }));
 };
 const redigir = (user: ReturnType<typeof userEvent.setup>) => user.click(screen.getByRole('button', { name: `Redigir com IA: ${pergunta.pergunta}` }));
 
 describe('redação com IA na tela POP', () => {
-  it('as duas seções da IA existem e o aviso de provedor externo aparece com o checkbox de ciência', async () => {
+  it('as duas seções da IA (redação e limite de gasto) existem no mesmo quadro, com o aviso de provedor externo e o checkbox de ciência', async () => {
     const user = userEvent.setup();
     tela(null);
-    await abrir(user, /Redação com IA/);
+    await abrirIa(user);
     expect(screen.getByRole('note')).toHaveTextContent('enviado a um provedor externo');
     expect(screen.getByRole('checkbox', { name: /Entendo que o texto será enviado/ })).not.toBeChecked();
     expect(screen.getByRole('radio', { name: /LLM padrão/ })).toBeChecked();
     expect(screen.getByRole('radio', { name: /LLM particular/ })).not.toBeChecked();
-    expect(screen.getByRole('button', { name: /Limite de gasto da IA/ })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Redação com IA/ })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Limite de gasto da IA/ })).toBeInTheDocument();
   });
 
   it('sem a ciência marcada NENHUMA chamada sai e a resposta não muda', async () => {
@@ -140,7 +143,7 @@ describe('redação com IA na tela POP', () => {
     const user = userEvent.setup();
     const f = fetchFalso(() => ok(REDIGIDO));
     tela(f, falsoStorage(), { ...AMBIENTE, chave: '' });
-    await abrir(user, /Redação com IA/);
+    await abrirIa(user);
     expect(screen.getByText(/Não há chave da IA padrão configurada/)).toBeInTheDocument();
     await user.click(screen.getByRole('checkbox', { name: /Entendo que o texto será enviado/ }));
     await redigir(user);
@@ -162,10 +165,11 @@ describe('redação com IA na tela POP', () => {
     expect(f.modelos).toHaveLength(0);
   });
 
-  it('modo indisponível (arquivo único): sem botão de IA e sem painéis', () => {
+  it('modo indisponível (arquivo único): sem botão de IA e sem o quadro da IA', () => {
     tela(null, falsoStorage(), { ...AMBIENTE, llmDisponivel: false });
     expect(screen.queryByRole('button', { name: /Redigir com IA/ })).not.toBeInTheDocument();
-    expect(screen.queryByRole('button', { name: /Limite de gasto da IA/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /IA \(opcional\)/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: /Limite de gasto da IA/ })).not.toBeInTheDocument();
   });
 });
 
@@ -174,13 +178,13 @@ describe('IA particular', () => {
     const user = userEvent.setup();
     const f = fetchFalso(() => ok(REDIGIDO));
     const s = tela(f);
-    await abrir(user, /Redação com IA/);
+    await abrirIa(user);
     await user.click(screen.getByRole('radio', { name: /LLM particular/ }));
     await user.type(screen.getByLabelText(/Chave da API/), 'sk-particular-super-secreta');
     await user.type(screen.getByLabelText(/^Modelo/), 'provedor/meu-modelo');
     await user.click(screen.getByRole('checkbox', { name: /Entendo que o texto será enviado/ }));
     expect(screen.getByLabelText(/Chave da API/)).toHaveAttribute('type', 'password');
-    await abrir(user, /Limite de gasto da IA/);
+    // redação e limite de gasto vivem no mesmo quadro: “Salvar limite de gasto” já está visível.
     await user.click(screen.getByRole('button', { name: 'Salvar limite de gasto' }));
     for (const valor of s.dados.values()) {
       expect(valor).not.toContain('sk-particular-super-secreta');
@@ -192,7 +196,7 @@ describe('IA particular', () => {
     const user = userEvent.setup();
     const f = fetchFalso(() => ok(REDIGIDO));
     tela(f);
-    await abrir(user, /Redação com IA/);
+    await abrirIa(user);
     await user.click(screen.getByRole('radio', { name: /LLM particular/ }));
     await user.type(screen.getByLabelText(/Chave da API/), 'chave');
     await user.type(screen.getByLabelText(/^Modelo/), 'provedor/meu-modelo');
@@ -204,7 +208,7 @@ describe('IA particular', () => {
 });
 
 describe('painel “Limite de gasto da IA”', () => {
-  const abrirPainel = async (user: ReturnType<typeof userEvent.setup>) => abrir(user, /Limite de gasto da IA/);
+  const abrirPainel = async (user: ReturnType<typeof userEvent.setup>) => abrirIa(user);
   const digitar = async (user: ReturnType<typeof userEvent.setup>, rotulo: string | RegExp, valor: string) => {
     const c = screen.getByLabelText(rotulo);
     await user.clear(c);
@@ -310,7 +314,7 @@ describe('config_llm no servidor (03.5)', () => {
     const user = userEvent.setup();
     const servidor = (async (url: string) => (String(url).includes('config_ler') ? json({ existe: true, config: doServidor }) : json({}, 404))) as unknown as typeof fetch;
     const s = tela(null, falsoStorage(), AMBIENTE, servidor);
-    await user.click(screen.getByRole('button', { name: /Limite de gasto da IA/ }));
+    await user.click(screen.getByRole('button', { name: /IA \(opcional\)/ }));
     await waitFor(() => expect(screen.getByLabelText('Teto mensal (R$)')).toHaveValue('40'));
     expect(JSON.parse(s.dados.get(CHAVE_LLM_CONFIG)!)).toMatchObject({ teto_mensal_brl: 40, modelos: ['x/novo:free'] });
   });
@@ -321,7 +325,7 @@ describe('config_llm no servidor (03.5)', () => {
     const antiga = { ...doServidor, atualizado_em: '2026-01-01T00:00:00.000Z' };
     const servidor = (async () => json({ existe: true, config: antiga })) as unknown as typeof fetch;
     tela(null, falsoStorage({ [CHAVE_LLM_CONFIG]: JSON.stringify(local) }), AMBIENTE, servidor);
-    await user.click(screen.getByRole('button', { name: /Limite de gasto da IA/ }));
+    await user.click(screen.getByRole('button', { name: /IA \(opcional\)/ }));
     await new Promise((r) => setTimeout(r, 30));
     expect(screen.getByLabelText('Teto mensal (R$)')).toHaveValue('7');
   });
@@ -337,7 +341,7 @@ describe('config_llm no servidor (03.5)', () => {
       return json({ existe: false, config: null });
     }) as unknown as typeof fetch;
     tela(null, falsoStorage(), AMBIENTE, servidor);
-    await user.click(screen.getByRole('button', { name: /Limite de gasto da IA/ }));
+    await user.click(screen.getByRole('button', { name: /IA \(opcional\)/ }));
     await user.click(screen.getByRole('button', { name: 'Salvar limite de gasto' }));
     expect(await screen.findByText('Limite de gasto salvo neste navegador e no servidor.')).toBeInTheDocument();
     expect(posts).toHaveLength(1);
@@ -348,7 +352,7 @@ describe('config_llm no servidor (03.5)', () => {
   it('sem servidor, salvar continua funcionando só no navegador', async () => {
     const user = userEvent.setup();
     tela(null);
-    await user.click(screen.getByRole('button', { name: /Limite de gasto da IA/ }));
+    await user.click(screen.getByRole('button', { name: /IA \(opcional\)/ }));
     await user.click(screen.getByRole('button', { name: 'Salvar limite de gasto' }));
     expect(await screen.findByText('Limite de gasto salvo neste navegador.')).toBeInTheDocument();
   });

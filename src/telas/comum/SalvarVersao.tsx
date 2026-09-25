@@ -34,6 +34,7 @@ export function SalvarVersao({
   estadoPop,
   cliente: clienteExterno,
   aoSalvar,
+  mostrarLinkParaVersoes = true,
 }: {
   escopoPadrao: EscopoBackup;
   /** o estado em memória da tela; sem ele, lê do navegador na hora de salvar. */
@@ -41,6 +42,8 @@ export function SalvarVersao({
   estadoPop?: EstadoPop;
   cliente?: ClienteBackups;
   aoSalvar?: () => void;
+  /** o atalho “Ver versões salvas” (FPE e POP). Na própria tela de versões é redundante: passe `false`. */
+  mostrarLinkParaVersoes?: boolean;
 }) {
   const [cliente] = useState(() => clienteExterno ?? criarCliente());
   const idExplicacao = useId();
@@ -135,9 +138,11 @@ export function SalvarVersao({
         <Botao variante="discreto" disabled={ocupado} onClick={() => void baixarArquivo()}>
           Baixar arquivo
         </Botao>
-        <Link to="/versoes" className="botao botao--discreto">
-          Ver versões salvas
-        </Link>
+        {mostrarLinkParaVersoes && (
+          <Link to="/versoes" className="botao botao--discreto">
+            Ver versões salvas
+          </Link>
+        )}
       </div>
       {servidor === 'nao' && (
         <p id={idExplicacao} className="campo__ajuda">

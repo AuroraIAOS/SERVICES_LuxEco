@@ -6,7 +6,7 @@ _Fechamento da Etapa 03 (subetapa 03.7), 25/09/2026. Ambiente: hospedagem de Max
 | Item do escopo (Cláusula 1) | Onde está na ferramenta | Arquivos-fonte |
 |---|---|---|
 | 1. Avaliação das informações e fluxos | Matriz V08 (12 setores, 22 estágios, 236 ações, 37 decisões IF/ELSE) | `data/matriz_v08.json`, `docs/06` |
-| 2. Mapa Mental Organizacional (MMO) | Tela **MMO v02** (`#/mmo`) | `src/telas/mmo/` |
+| 2. Mapa Mental Organizacional (MMO) | Tela **MMO** (`#/mmo`) | `src/telas/mmo/` |
 | 3. Fluxograma (FPE) | **FPE** (`#/fpe`): fluxograma por setor e por fase; exports `.mermaid` e PDF A3 | `src/telas/fpe/`, `src/fluxograma/` |
 | 4. Validação com a CONTRATANTE | **Não ocorreu** (pendência vigiada; ver 4) | — |
 | 5. Detalhamento do MMO | Descrições dos estágios, funções, equipes, jornada do cliente e Anotações do CEO no MMO | `data/conteudo/mmo_v02.json`, `anotacoes_v08.json` |

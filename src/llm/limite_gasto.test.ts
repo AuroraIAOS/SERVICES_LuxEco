@@ -8,7 +8,7 @@ import type { ConfigLlm } from './config';
 import { configPadrao, esquemaConfigLlm, lerConfig, normalizarModelos, TETO_SANIDADE_BRL } from './config';
 import { lerAmbiente, modelosPadrao } from './ambiente';
 import type { PedidoDeConfig } from './limite_gasto';
-import { aplicarPedidoDeConfig, decidirChamada, nivelDeAlerta, numeroDoCampo, percentualDoTeto, registrarRequisicao, registrarTokens, usoDeHoje, usoVazio, zerarMes } from './limite_gasto';
+import { aplicarPedidoDeConfig, decidirChamada, nivelDeAlerta, numeroDoCampo, percentualDoLimiteDiario, percentualDoTeto, registrarRequisicao, registrarTokens, usoDeHoje, usoVazio, zerarMes } from './limite_gasto';
 
 const MODELOS = ['google/gemma-4-31b-it:free', 'qwen/qwen3.8-27b:free', 'nvidia/nemotron-3-super-120b-a12b:free'];
 const DIA = new Date(2026, 8, 25, 10, 0, 0);
@@ -90,6 +90,13 @@ describe('alertas e barra de uso', () => {
     expect(percentualDoTeto(config(), usoVazio(DIA))).toBe(0);
     expect(percentualDoTeto(config({ teto_mensal_brl: 10 }), { ...usoVazio(DIA), gasto_estimado_brl: 2.5 })).toBe(25);
     expect(percentualDoTeto(config({ teto_mensal_brl: 10 }), { ...usoVazio(DIA), gasto_estimado_brl: 30 })).toBe(100);
+  });
+
+  it('percentual do limite diário de chamadas (0 quando o limite é 0; 4 de 50 = 8%; nunca passa de 100)', () => {
+    expect(percentualDoLimiteDiario(config({ limite_diario_requisicoes: 0 }), { ...usoVazio(DIA), requisicoes_dia: 3 })).toBe(0);
+    expect(percentualDoLimiteDiario(config({ limite_diario_requisicoes: 50 }), usoVazio(DIA))).toBe(0);
+    expect(percentualDoLimiteDiario(config({ limite_diario_requisicoes: 50 }), { ...usoVazio(DIA), requisicoes_dia: 4 })).toBe(8);
+    expect(percentualDoLimiteDiario(config({ limite_diario_requisicoes: 50 }), { ...usoVazio(DIA), requisicoes_dia: 80 })).toBe(100);
   });
 });
 

@@ -31,6 +31,25 @@
   list-style: none;
 }
 
+/* Grade de estágios: colunas uniformes alinhadas à largura da página, mesma altura por linha. */
+.grade-estagios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: var(--vao);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+.grade-estagios > li {
+  display: flex;
+}
+
+.grade-estagios > li > .chip {
+  width: 100%;
+}
+
 .chip {
   display: inline-flex;
   align-items: center;
@@ -78,11 +97,13 @@
   font-weight: var(--peso-titulo);
 }
 
+/* Fichas do estágio: 2 colunas alinhadas às bordas da página (1 no celular). A lista de um estágio pode
+ * ter 20+ fichas: rola dentro da sua própria caixa (com folga), e o formulário abaixo continua à vista. */
 .fichas-lista {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--vao);
-  max-height: 15rem; /* a lista de um estágio pode ter 20+ fichas: rola aqui e o formulário continua à vista */
+  max-height: 18rem;
   overflow-y: auto;
   margin: 0;
   padding: 0;
@@ -167,21 +188,28 @@
   color: var(--texto-suave);
 }
 
-.fluxo-painel__acoes {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 1rem 2.5rem;
+/* Dois blocos lado a lado (setor / geral), cada um com gerar + exportar. Vira uma coluna nas telas menores. */
+.fluxo-painel__blocos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2.5rem;
+  align-items: start;
 }
 
-.fluxo-painel__fase {
+.fluxo-bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fluxo-bloco__fase {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 0.75rem;
 }
 
-.fluxo-painel__fase .campo {
+.fluxo-bloco__fase .campo {
   min-width: 16rem;
   margin-bottom: 0;
 }
@@ -202,13 +230,6 @@
 }
 
 /* ── Exportar e importar ───────────────────────────────────────────── */
-.fluxo-painel__exportar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 2.5rem;
-  margin-top: 1.25rem;
-}
-
 .exportacao {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
@@ -226,10 +247,12 @@
   color: var(--texto-suave);
 }
 
+/* Quatro grupos de exportação em colunas alinhadas (fichas do setor, todos, planilha, edições .json). */
 .exportacao__grupos {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: 1.25rem 2.5rem;
+  align-items: start;
 }
 
 .exportacao__rotulo {
@@ -292,5 +315,15 @@
 
   .ficha-form {
     padding: 1rem 1rem 0.25rem;
+  }
+
+  .fluxo-painel__blocos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .fichas-lista {
+    grid-template-columns: 1fr;
   }
 }

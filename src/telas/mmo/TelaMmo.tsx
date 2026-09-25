@@ -9,14 +9,14 @@ import { SecaoJornada } from './SecaoJornada';
 import { SecaoSetores } from './SecaoSetores';
 
 /**
- * MMO v02: mapa da operação em painel (não radial), renderizado da Matriz V08.
+ * MMO: mapa da operação em painel (não radial), renderizado da Matriz V08.
  * Hero com números calculados → ciclo de serviço (4 fases, 22 estágios) → setores → decisões IF/ELSE → jornada do cliente.
  * `dados` e `mapa` existem para os testes; a tela real usa os JSON versionados.
  */
 export function TelaMmo({ dados = MATRIZ_V08, mapa = MAPA_SITUACOES }: { dados?: MatrizV08; mapa?: MapaSituacoes }) {
   const mmo = useMemo(() => montarMmo(dados, mapa), [dados, mapa]);
   return (
-    <Tela titulo="MMO v02" subtitulo={`Mapa Mental Organizacional, Matriz ${mmo.versao}`} resumo={<Numeros itens={mmo.numeros} />}>
+    <Tela titulo="MMO" subtitulo="Mapa Mental Organizacional" resumo={<Numeros itens={mmo.numeros} />}>
       <CicloDeServico fases={mmo.fases} />
       <SecaoSetores setores={mmo.setores} totalEstagios={dados.estagios.length} />
       <SecaoDecisoes decisoes={mmo.decisoes} />

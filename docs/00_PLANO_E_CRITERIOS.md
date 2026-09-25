@@ -439,6 +439,15 @@ Esforço máximo do /goal: 4 tentativas.
 Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
+#### Nota — Refinamento estético (pós-03.7, antes da migração) [Auto] [Goal] [LLM: Opus] — 25/09/2026
+Status: ✅ CONCLUÍDA. Não é subetapa nova (a contagem 03.1–03.8 não muda): só CSS/TSX de apresentação e textos visíveis, **sem** mudança de dados, regras, API ou fluxo. Base: `handoffs/HANDOFF_REFINAMENTO.md` e os prints `screenshots/evidencia_01..09.png`.
+- **Compartilhado:** grade única de setores 4×3 (`.grade-setores`, 3 col em ~900px, 2 em ~600px) no FPE e no POP; regra reutilizável de texto justificado (`.texto-justificado` + seletores dos contêineres de texto longo), com teste em `src/ui/ui.test.tsx`.
+- **MMO:** “MMO v02” → **“MMO”** em toda ocorrência visível (nav, `h1`, título da aba, guia, ENTREGA, testes/e2e; nomes/chaves internos `mmo_v02` preservados); subtítulo só “Mapa Mental Organizacional”; os 12 setores num quadro 4×3 de altura uniforme (abrir um cartão não deforma os irmãos — `align-items: start`).
+- **FPE:** setor/estágio em grade uniforme; fichas do estágio em 2 colunas (1 no celular); Fluxograma reorganizado em dois blocos (do setor / geral por fase) sem sobreposição; “Exportar e importar” em colunas alinhadas.
+- **POP:** setor na mesma grade 4×3; **barra das chamadas diárias** (`requisicoes_dia / limite_diario`, função pura `percentualDoLimiteDiario` com teste) separada da barra de gasto do mês; “Redação com IA” e “Limite de gasto da IA” reunidas num **único acordeão “IA (opcional)”** bem diagramado (testes ajustados).
+- **Versões salvas:** removido o atalho redundante “Ver versões salvas” **só na própria tela** (prop `mostrarLinkParaVersoes={false}`); mantido no FPE e no POP.
+Evidência (25/09/2026): `npm run typecheck` · `npm run lint` · `npm test` → **686 passed** · `npm run e2e` → **29 passed** · `grep -rn "MMO v02" src e2e | wc -l` → `0` · capturas antes/depois (1280 e 390 px) olhadas · `gitleaks` → `no leaks found` · `npm run build && npm run deploy` → `0 divergência(s)`, `401`/`200` no app e na API · `npm run backup:provar | tail -1` → `OK backup: … onze=409 config=200` · `smoke_remoto` verde (inclui “MMO abre”).
+
 ### Subetapa 03.8 — Migração para a hospedagem do contratante [Auto após aprovação] [LLM: Sonnet]
 Status: ⬜ A FAZER
 Objetivo: mover o sistema aprovado da hospedagem de Max para a do contratante, sem mudar código.

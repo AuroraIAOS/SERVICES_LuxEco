@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test('HashRouter abre as 4 rotas e a fonte da marca carrega', async ({ page }) => {
-  for (const [hash, titulo] of [['#/mmo', 'MMO v02'], ['#/fpe', 'FPE'], ['#/pop', 'POP'], ['#/versoes', 'Versões salvas']]) {
+  for (const [hash, titulo] of [['#/mmo', 'MMO'], ['#/fpe', 'FPE'], ['#/pop', 'POP'], ['#/versoes', 'Versões salvas']]) {
     await page.goto(`/${hash}`);
     await expect(page.getByRole('heading', { level: 1, name: titulo })).toBeVisible();
   }

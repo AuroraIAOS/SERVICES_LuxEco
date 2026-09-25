@@ -161,7 +161,7 @@ test('POP + IA: sem ciência nada sai; com ciência a sugestão vem pelo failove
   await expect(page.getByText('Marque a ciência de envio ao provedor externo')).toBeVisible();
   expect(pedidos).toHaveLength(0);
 
-  await page.getByRole('button', { name: /Redação com IA/ }).click();
+  await page.getByRole('button', { name: /IA \(opcional\)/ }).click();
   await expect(page.getByRole('note')).toContainText('provedor externo');
   await page.getByRole('checkbox', { name: /Entendo que o texto será enviado/ }).check();
   await botaoIa.click();
@@ -172,8 +172,7 @@ test('POP + IA: sem ciência nada sai; com ciência a sugestão vem pelo failove
   await sugestao.getByRole('button', { name: 'Usar esta redação' }).click();
   await expect(page.getByRole('textbox', { name: 'Qual é o objetivo do Marketing no ciclo de serviço?' })).toHaveValue('Gerar e encaminhar leads ao setor de Vendas e cuidar da propaganda da marca.');
 
-  // painel: uso guardado; sem chave no armazenamento do navegador
-  await page.getByRole('button', { name: /Limite de gasto da IA/ }).click();
+  // painel: uso guardado; sem chave no armazenamento do navegador (redação e limite no mesmo quadro, já aberto)
   await expect(page.getByText(/Chamadas hoje/)).toContainText('2 de 50');
   const guardado = await page.evaluate(() => Object.entries(localStorage).map(([k, v]) => `${k}=${v}`).join('\n'));
   expect(guardado).not.toMatch(/sk-or|Bearer|api_key/i);
