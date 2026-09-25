@@ -348,3 +348,6 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 
 - Pasta `data/` (fontes + conteúdo versionado) para projetos que são “ferramenta estática sobre dados curados”, sem banco — não existe no modelo de árvore da aurora-criativa.
 - Regra “ler a planilha parando na legenda” + contagem esperada como teste de dados.
+- Cores de texto derivadas dos tokens com contraste WCAG medido por teste (`src/fluxograma/cor.ts`), para marca com tema claro e escuro (promovido do FPE, 02.10).
+- Deploy FTPS lendo o destino só do `.env`, com mescla de `.htaccess` sem perder a senha do cPanel, prova 401/200 e modo `--sondar` (02.11).
+- Teste e2e do fluxo completo de importar/restaurar: o teste de unidade não pegou o formulário RHF desatualizado após importar (02.10).

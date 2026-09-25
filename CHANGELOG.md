@@ -3,6 +3,9 @@
 Convenção: `+0.1` = correções/melhorias · `+1.0` = novas funcionalidades/serviços.
 Registra **o que mudou para o usuário**; o *como resolvemos* fica em `handoffs/instrucoes.md`.
 
+## [+1.0] - 2026-09-25 (Lançamento do MVP: MMO v02 e FPE)
+- Primeira versão utilizável da ferramenta, no ar na hospedagem de homologação e protegida por senha: **MMO v02** (mapa da operação em painel, com as Anotações do CEO) e **FPE** (236 fichas 5W1H editáveis, fluxogramas por setor e por fase, exportação em Markdown, PDF, Mermaid e JSON, com importação das suas edições). O detalhe de cada parte está nas entradas +0.1 abaixo. Ainda não inclui a tela POP, a redação com IA, as exportações Excel/Word, os backups no servidor nem a migração (Etapa 03).
+
 ## [+0.1] - 2026-09-24 (Etapa 02 — em andamento)
 - Matriz V08 composta: as Anotações do CEO entram no MMO como 24 ações novas e 6 condicionais IF/ELSE novas (atendimento por perfil de cliente, formas de pagamento, pós-venda), mais perfis de cliente, classificação de lead (quente/morno/frio), 10 oportunidades e respostas-padrão de atendimento. Os 12 setores, os 22 estágios e as 212 ações da V07 seguem iguais.
 - Fichas 5W1H da Fase 1 — Comercial (Est. 01 a 09): 110 fichas, uma por ação, com quem, o quê, por quê, onde, quando e como (as condicionais IF/ELSE vêm descritas no “como”). Sem valores em R$ e sem prazos inventados; onde os documentos não definem algo (ex.: canal de contato antes do contrato), a ficha diz isso.

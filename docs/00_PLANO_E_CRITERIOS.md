@@ -3,8 +3,10 @@
 ## Tabela de Progresso
 _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §6). Status aparece aqui e logo abaixo do título de cada item._
 
->> Progresso Geral 
+>> **Progresso Geral**
+>>
 >> ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
+>>
 >> *baseado no número total de subetapas*
 
 **Legenda:** ✅ CONCLUÍDA (código, testes, deploy e verificação 100% verdes) · ⏸️ ADIADA (deixada para o futuro) · ⚠️ PENDENTE (em aberto, sem bloquear o avanço) · 🛑 ABANDONADA (permanece registrada) · ⬜ A FAZER (ainda não iniciada — estado inicial, anterior às quatro marcas do §6).
@@ -20,7 +22,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run spike:fluxo \| tail -1` → `DECISAO: raias_svg`. Mermaid 3/16 (máx 12.219 px); raias 16/16 (máx 1.972 px), fonte A3 ≥ 8,1 pt. 38 testes. |
 | 01.6 | Varredura de segredos e blindagem do repositório | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `gitleaks detect` → `no leaks found`; `.env`/`referencias_privadas`/`screenshots` = 0 versionados; xlsx versionável (1). Pré-commit (segredo + arquivo proibido + CPF/CNPJ) provado com 3 commits de teste bloqueados (exit 1) e commit legítimo aprovado. |
 | 01.7 | HANDOFF_BUILD | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "status: verde" handoffs/HANDOFF_BUILD.md` → `12` (≥ 5); portão 01→02 verde com saídas reais. |
-| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER | Em andamento: 02.1 ✅ · 02.2 ✅ · 02.3 ✅ · 02.4 ✅ · 02.5 ✅ · 02.6 ✅ · 02.7 ✅ · 02.8 ✅ · 02.9 ✅ · 02.10 ✅ · 02.11 ✅. Próxima: **02.12**. |
+| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ✅ CONCLUÍDA | 02.1 a 02.12 ✅. MVP no ar em `/intelligence/`, atrás de senha; portão 02→03 verde (ver `handoffs/HANDOFF_UPGRADE.md`). Próxima: **03.1**. |
 | 02.1 | Compor a Matriz V08 (Anotações integradas) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --v08` → `OK v08: setores=12 estagios=22 celulas=236 if_else=37 novos=24`; V07 intacta (validador + testes de mutação); 68 testes. **Achado:** `.gitignore` escondia `src/dados/` e `design/tokens.json` do Git — corrigido (ver `instrucoes.md` §6). |
 | 02.2 | Fichas 5W1H, Fase 1 Comercial (Est. 01–09) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --fichas --fase=1` → `OK fichas fase 1: 110/110` (2 `sugerido`); autoria + gerador determinístico + validador (regras 4–5); 24 testes. |
 | 02.3 | Fichas 5W1H, Fase 2 Técnica/Projeto (Est. 10–14) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --fichas --fase=2` → `OK fichas fase 2: 36/36`; fase 1 intacta (110 fichas idênticas às do commit anterior); 0 `sugerido` na fase. |
@@ -31,8 +33,8 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 02.8 | Tela MMO v02 | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- mmo` → 23 passed; `npm run e2e -- mmo` → 6 passed (renderização inicial < 2 s, medida no navegador); `grep -rn "210+" src \| wc -l` → `0`. Paridade com o MMO_v01 (pares setor × estágio idênticos à V07) + itens da V08 (perfis, Energia por Assinatura, pós-venda). V08 ganhou metadados do MMO (`mmo_v02.json`). |
 | 02.9 | Tela FPE: formulário 5W1H + fluxograma | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- fpe` → 17 passed (+19 de estado em `armazenamento`); `npm run e2e -- fpe` → 3 passed (editar → gerar fluxograma reflete a edição; recarregar mantém; restaurar padrão; teclado; celular). FPE carrega sob demanda (chunk próprio). |
 | 02.10 | Exportações do FPE (JSON, MD, MERMAID, PDF) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- exportar` → 0 failed (JSON ida e volta idêntica, MD, Mermaid validado pelo parser real, contraste AA nos 2 temas, UI); e2e `exportar` 3 passed (downloads reais; PDF A3 paisagem e A4 conferidos no MediaBox). 1ª tentativa (Sonnet). |
-| 02.11 | Deploy protegido e prova do portão | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run deploy` → 8 arquivos, `0 divergência(s)`; `curl` sem senha → 401, com SMOKE_BASIC → 200; MMO e FPE abrem no Chromium real sem erros (`scripts/smoke_remoto.ts`); 0 segredos no dist; gitleaks limpo. Spike PHP: 8.3.33, ZipArchive ok, REMOTE_USER visível, gravável fora do docroot. |
-| 02.12 | HANDOFF_UPGRADE e CHANGELOG do MVP | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.11 | Deploy protegido e prova do portão | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.12 | HANDOFF_UPGRADE e CHANGELOG do MVP | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `HANDOFF_UPGRADE.md` preenchido com as saídas reais; `grep -c "^## \[+1.0\]" CHANGELOG.md` → `1`; portão 02→03 verde (304 testes, e2e 13 passed, 3 `dados:validar` OK, 401/200, gitleaks limpo). |
 | **Etapa 03** | UPGRADES E VERSIONAMENTOS |  | ⬜ A FAZER |  |
 | 03.1 | Tela POP: perguntas estratégicas e geração por template | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 03.2 | Exportar POP em .docx e .pdf | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -308,7 +310,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.11 — Deploy protegido e prova do portão [Auto] [Goal] [LLM: Sonnet]
-Status: ✅ CONCLUÍDA
+Status: ⬜ A FAZER
 Objetivo: MVP no ar, atrás de senha.
 Arquivos tocados: `scripts/deploy_ftp.ts`, `public/.htaccess` (cache e HTTPS), `docs/CHECKLIST_MAX.md` (status).
 Passos: 1) `npm run build`. 2) `deploy_ftp.ts`: enviar `dist/` por FTPS para `HOSTGATOR_REMOTE_DIR` (**hospedagem particular de Max = homologação**), sem apagar o que não for do build — em particular **nunca** tocar em `BACKUP_DIR_SERVIDOR` nem em `api/config.php` (dados do usuário no servidor). O script lê o destino só do `.env`, para a migração da 03.8 não exigir mudança de código. **Regras herdadas (instrucoes §4/§6):** `HOSTGATOR_FTP_HOST` é o host real do servidor (não `ftp.<dominio>` atrás de CDN); baixar o `.htaccess` remoto, guardar cópia e **mesclar** sem apagar a proteção de senha; conferir tamanho local × remoto de cada arquivo (`0 divergência(s)`); nunca enviar dados em claro (sigilo) — em 451, reenviar sob TLS e, persistindo, consultar Max. 3) Verificar que a proteção de diretório do cPanel está ativa (feita por Max — ver checklist). 4) Rodar as provas do portão. Se a proteção não estiver ativa, **não** publicar conteúdo além de uma página vazia e avisar Max na mensagem consolidada (caso 4 do regime de autonomia).
@@ -320,7 +322,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis, incluindo FTP/TLS/permissões/`.htaccess` + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.12 — HANDOFF_UPGRADE e CHANGELOG do MVP [Auto] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: fechar a Etapa 02.
 Arquivos tocados: `handoffs/HANDOFF_UPGRADE.md`, `CHANGELOG.md`, `handoffs/instrucoes.md`.
 Passos: 1) Preencher o handoff com provas. 2) Registrar `+1.0` no CHANGELOG (lançamento do MVP: MMO v02 e FPE). 3) Promover candidatos (seção 7 do instrucoes).
