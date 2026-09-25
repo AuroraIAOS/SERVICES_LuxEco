@@ -160,6 +160,13 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm test -- exportar` → 0 failed; `npm run e2e -- exportar` → 3 passed.
 - **Fonte:** decisão técnica de 25/09/2026 (02.10).
 
+### Deploy: `scripts/deploy_ftp.ts` + `deploy_lib.ts` (destino só do .env; mescla o .htaccess; prova 401/200) — verificado no servidor de Max
+- **Gatilho:** `npm run deploy` (02.11), migração (03.8) e qualquer mudança em `public/.htaccess`.
+- **Ação:** destino = `HOSTGATOR_REMOTE_DIR` + caminho da `APP_URL` (recusa a raiz: sempre subpasta `/intelligence`). Antes de enviar exige 401 sem senha (proteção do pai ativa) e varre o dist por segredos (nomes e valores). FTPS obrigatório (`HOSTGATOR_FTP_TLS=false` recusado); 3 tentativas por arquivo, sempre sob TLS; nada é apagado no servidor. `.htaccess` da subpasta: baixa → cópia em `.deploy_backup/` (gitignorado) → nosso bloco `# BEGIN/END LUX APP` no TOPO + o resto preservado; aborta se a senha sumir; se o 401 não voltar, restaura a cópia. Depois: tamanho local × remoto (`0 divergência(s)`), 401 sem senha, 200 com `SMOKE_BASIC_*`. `npm run deploy -- --sondar` só lê. `npx tsx scripts/smoke_remoto.ts` abre MMO/FPE no Chromium com a senha. `npx tsx scripts/sonda_php.ts` (spike PHP; envia sonda temporária e a remove).
+- **Fatos verificados em 25/09/2026:** a raiz do FTP é o docroot do subdomínio (tem o `.htaccess` do pai com a senha, que o deploy nunca toca); host real `br1002`, FTPS explícito ok; PHP 8.3.33, `ZipArchive` presente, `REMOTE_USER` visível ao PHP, escrita possível fora do docroot (resolve as pendências de 03.5). HSTS `max-age=86400` e `no-cache` no index confirmados por `curl -I`. `http://` responde 401 (a senha vem antes do redirecionamento) — aceitável.
+- **Evidência:** `npm run deploy | tail -3` → `prova: sem senha → 401; com SMOKE_BASIC → 200` · `DEPLOY OK`; `npm test -- deploy_lib` → 9 passed.
+- **Fonte:** decisão técnica de 25/09/2026 (02.11); instrucoes §6 (FTP host, 451, .htaccess).
+
 ## 6. Armadilhas conhecidas (não repetir)
 
 ### `white-space: nowrap` em rótulo de pílula estoura a largura no celular

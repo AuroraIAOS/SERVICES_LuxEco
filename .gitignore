@@ -140,3 +140,6 @@ screenshots/
 public/api/config.php
 lux_backups/
 backups_servidor/
+
+# Cópias do .htaccess remoto guardadas pelo deploy (podem conter caminhos do servidor). Nunca versionar.
+.deploy_backup/
