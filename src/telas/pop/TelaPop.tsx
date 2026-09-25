@@ -10,10 +10,14 @@ import { respostasDoEstado } from '../../estado/pop';
 import type { EstadoPop } from '../../estado/pop';
 import type { EscopoPop, Pop } from '../../pop/gerar';
 import { gerarPop } from '../../pop/gerar';
-import { Botao, Numeros, Tela, estiloDoSetor } from '../../ui';
+import type { Ambiente } from '../../llm/ambiente';
+import { Botao, Numeros, Pilula, Tela, estiloDoSetor } from '../../ui';
 import { montarFpe } from '../fpe/modelo';
 import { PainelExportacaoPop } from './PainelExportacaoPop';
+import { PainelLimiteGasto } from './PainelLimiteGasto';
 import { PerguntasSetor } from './PerguntasSetor';
+import { SeletorLlm } from './SeletorLlm';
+import { useLlm } from './useLlm';
 import { PopGerado } from './PopGerado';
 import { useEstadoPop } from './useEstadoPop';
 
@@ -37,6 +41,8 @@ export function TelaPop({
   observacoes = POP_OBSERVACOES,
   armazenamento,
   armazenamentoFpe,
+  ambienteLlm,
+  fetchLlm,
 }: {
   dados?: MatrizV08;
   fichas?: DocumentoFichas;
@@ -47,8 +53,12 @@ export function TelaPop({
   armazenamento?: ArmazenamentoTexto | null;
   /** onde ler as edições do FPE; `undefined` = o mesmo do POP. */
   armazenamentoFpe?: ArmazenamentoTexto | null;
+  /** só nos testes: ambiente e `fetch` da IA (a tela real lê o .env do build e usa o fetch do navegador). */
+  ambienteLlm?: Ambiente;
+  fetchLlm?: typeof fetch;
 }) {
   const { estado, persistindo, responder, restaurar } = useEstadoPop(armazenamento);
+  const llm = useLlm({ armazenamento, ambiente: ambienteLlm, fetchFn: fetchLlm });
   // As edições do FPE são lidas ao abrir a tela: quem edita uma ficha e volta ao POP já as vê no procedimento.
   const [edicoesFpe] = useState(() => lerEstadoFpe(armazenamentoFpe === undefined ? armazenamento : armazenamentoFpe).estado);
   const fpe = useMemo(() => montarFpe(dados, fichas, edicoesFpe), [dados, fichas, edicoesFpe]);
@@ -107,7 +117,22 @@ export function TelaPop({
         </div>
       </nav>
 
-      {setor && <PerguntasSetor setor={setor} perguntas={perguntas.perguntas} templates={templates} estado={estado} aoResponder={(p, texto) => responder(p.id, p.resposta_padrao, texto)} aoRestaurar={(p) => restaurar(p.id)} />}
+      {setor && <PerguntasSetor setor={setor} perguntas={perguntas.perguntas} templates={templates} estado={estado} llm={llm} aoResponder={(p, texto) => responder(p.id, p.resposta_padrao, texto)} aoRestaurar={(p) => restaurar(p.id)} />}
+
+      {llm.ambiente.llmDisponivel && (
+        <div className="pop-llm">
+          <Pilula nome="Redação com IA (opcional)" resumo="o POP sai igual sem ela" nivel={2}>
+            <div className="pop-secao">
+              <SeletorLlm llm={llm} />
+            </div>
+          </Pilula>
+          <Pilula nome="Limite de gasto da IA" resumo={llm.config.teto_mensal_brl === 0 ? 'teto R$ 0,00' : undefined} nivel={2}>
+            <div className="pop-secao">
+              <PainelLimiteGasto llm={llm} />
+            </div>
+          </Pilula>
+        </div>
+      )}
 
       <div className="pop-acoes">
         <Botao variante="primario" disabled={!setor} onClick={() => setor && gerar({ tipo: 'setor', setorId: setor.id })}>

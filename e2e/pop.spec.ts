@@ -139,3 +139,42 @@ test('POP: exporta .docx de verdade (nome padrão, 11 seções) e PDF A4 com a m
   expect(info.paginas).toBeGreaterThan(1);
   expect(erros).toEqual([]);
 });
+
+test('POP + IA: sem ciência nada sai; com ciência a sugestão vem pelo failover (rede simulada) e o teto R$ 0 vale', async ({ page }) => {
+  const pedidos: string[] = [];
+  await page.route('https://openrouter.ai/**', async (rota) => {
+    const corpo = JSON.parse(rota.request().postData() ?? '{}') as { model: string };
+    pedidos.push(corpo.model);
+    // o 1º modelo está fora do ar; o 2º responde
+    if (pedidos.length === 1) return rota.fulfill({ status: 404, contentType: 'application/json', body: JSON.stringify({ error: { code: 404 } }) });
+    return rota.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ choices: [{ message: { content: 'Gerar e encaminhar leads ao setor de Vendas e cuidar da propaganda da marca.' } }], usage: { prompt_tokens: 90, completion_tokens: 25 } }) });
+  });
+  const erros: string[] = [];
+  page.on('console', (m) => m.type() === 'error' && erros.push(m.text()));
+  page.on('pageerror', (e) => erros.push(String(e)));
+
+  await abrirPop(page);
+  const botaoIa = page.getByRole('button', { name: /^Redigir com IA: Qual é o objetivo do Marketing/ });
+  await botaoIa.click();
+  await expect(page.getByText('Marque a ciência de envio ao provedor externo')).toBeVisible();
+  expect(pedidos).toHaveLength(0);
+
+  await page.getByRole('button', { name: /Redação com IA/ }).click();
+  await expect(page.getByRole('note')).toContainText('provedor externo');
+  await page.getByRole('checkbox', { name: /Entendo que o texto será enviado/ }).check();
+  await botaoIa.click();
+  const sugestao = page.getByRole('group', { name: /Sugestão da IA: Qual é o objetivo do Marketing/ });
+  await expect(sugestao).toContainText('Gerar e encaminhar leads ao setor de Vendas e cuidar da propaganda da marca.');
+  expect(pedidos).toHaveLength(2); // 404 no principal → reserva 1
+  expect(new Set(pedidos).size).toBe(2);
+  await sugestao.getByRole('button', { name: 'Usar esta redação' }).click();
+  await expect(page.getByRole('textbox', { name: 'Qual é o objetivo do Marketing no ciclo de serviço?' })).toHaveValue('Gerar e encaminhar leads ao setor de Vendas e cuidar da propaganda da marca.');
+
+  // painel: uso guardado; sem chave no armazenamento do navegador
+  await page.getByRole('button', { name: /Limite de gasto da IA/ }).click();
+  await expect(page.getByText(/Chamadas hoje/)).toContainText('2 de 50');
+  const guardado = await page.evaluate(() => Object.entries(localStorage).map(([k, v]) => `${k}=${v}`).join('\n'));
+  expect(guardado).not.toMatch(/sk-or|Bearer|api_key/i);
+  expect(erros.filter((e) => !/404/.test(e))).toEqual([]);
+  await page.screenshot({ path: 'screenshots/pop_ia.png', fullPage: true });
+});

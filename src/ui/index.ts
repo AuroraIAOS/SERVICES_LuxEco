@@ -3,7 +3,7 @@ export { Botao, BotaoExportar, BotaoLink } from './Botao';
 export type { BotaoProps, FormatoExportacao, VarianteBotao } from './Botao';
 export { Cabecalho } from './Cabecalho';
 export type { ItemNavegacao } from './Cabecalho';
-export { CampoAreaTexto, CampoSeletor, CampoTexto } from './Campo';
+export { CampoAreaTexto, CampoMarcacao, CampoSeletor, CampoTexto } from './Campo';
 export type { BaseCampo, OpcaoSeletor } from './Campo';
 export { Cartao, estiloDoSetor } from './Cartao';
 export type { CartaoProps } from './Cartao';

@@ -451,6 +451,28 @@ html {
   font: inherit;
 }
 
+.campo__marcacao {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.campo__caixa {
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--amarelo);
+}
+
+.campo__caixa:focus-visible {
+  outline: 3px solid var(--amarelo);
+  outline-offset: 2px;
+}
+
 .campo__controle--longo {
   resize: vertical;
   line-height: 1.5;

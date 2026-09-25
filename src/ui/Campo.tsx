@@ -106,3 +106,26 @@ export const CampoSeletor = forwardRef<HTMLSelectElement, BaseCampo & SelectHTML
     );
   },
 );
+
+/** Caixa de marcação ou opção (rádio) com o texto ao lado, clicável inteiro. `erro` em texto, nunca só cor. */
+export const CampoMarcacao = forwardRef<HTMLInputElement, { rotulo: ReactNode; erro?: string; tipo?: 'checkbox' | 'radio' } & Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>>(function CampoMarcacao(
+  { rotulo, erro, tipo = 'checkbox', id: idExterno, className, ...resto },
+  ref,
+) {
+  const gerado = useId();
+  const id = idExterno ?? gerado;
+  const idErro = `${id}-erro`;
+  return (
+    <div className={cls('campo', 'campo--marcacao', erro && 'campo--erro')}>
+      <label htmlFor={id} className="campo__marcacao">
+        <input ref={ref} id={id} type={tipo} className={cls('campo__caixa', className)} aria-invalid={erro ? true : undefined} aria-describedby={erro ? idErro : undefined} {...resto} />
+        <span>{rotulo}</span>
+      </label>
+      {erro && (
+        <p id={idErro} className="campo__erro" role="alert">
+          {erro}
+        </p>
+      )}
+    </div>
+  );
+});

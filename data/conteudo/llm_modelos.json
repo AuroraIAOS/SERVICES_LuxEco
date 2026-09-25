@@ -1,0 +1,7 @@
+{
+  "descricao": "Modelos gratuitos (:free) do OpenRouter para redigir texto do POP em português: principal + 2 reservas, de provedores diferentes para o failover fazer sentido. Ids públicos (não são segredo). VITE_OPENROUTER_MODELO_PADRAO, se preenchida com um id válido, substitui o principal.",
+  "verificado_em": "2026-09-25",
+  "fonte": "GET https://openrouter.ai/api/v1/models (18 modelos :free de texto na data); limites em https://openrouter.ai/api/docs/api-reference/limits",
+  "criterios": "qualidade em português (família multilíngue), contexto suficiente (262 mil tokens), disponibilidade atual e provedores diferentes",
+  "modelos": ["google/gemma-4-31b-it:free", "qwen/qwen3.8-27b:free", "nvidia/nemotron-3-super-120b-a12b:free"]
+}
