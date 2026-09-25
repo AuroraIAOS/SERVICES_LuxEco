@@ -24,10 +24,10 @@ acao             { id: "acao_<setor>_<estagio>_<ordem>", setor_id, estagio_id, o
 condicional      { id, acao_id, pergunta: string (= texto-base da ação), se_sim: {rotulo, texto}, se_nao: {rotulo, texto}, situacao_id? (preenchido pelo mapa/V08) }   // 1º ramo da célula = se_sim, 2º = se_nao; o texto original se reconstrói exatamente
 situacao         { id, nome, estagio_id, setor_id }        // as "15 situações" (agrupa células IF/ELSE)
 ficha_5w1h       { id: "ficha_<setor>_<estagio>_<ordem>" (= sufixo do id da ação), acao_id, setor_id, estagio_id, what, why, where, when, who, how, origem: "documentado"|"sugerido"|"manual", fontes: [{arquivo, trecho}], atualizado_em }   // fichas_5w1h.json = { meta{versao_matriz, gerado_de, fases_autoradas, total}, fichas[] }
-documento        { id, nome, estagio_ids[], setor_ids[], origem }
-ferramenta       { id, nome, setor_ids[], estagio_ids[], origem }
-investimento     { id, categoria, setor_ids[], descricao, valor_estimado_brl: null }   // sempre null no v01
-kpi              { id, setor_id, tipo: "produtividade"|"eficiencia", nome, formula_descricao, meta: null, formulario: [campo...] }
+documento        { id: "doc_NN", nome, estagio_ids[], setor_ids[], origem, fontes?: [{arquivo, trecho}] (obrigatório se documentado), justificativa? (obrigatória se sugerido) }
+ferramenta       { id: "fer_NN", nome, setor_ids[], estagio_ids[], origem, situacao: "em_uso"|"temporaria"|"futura", observacao?, fontes?, justificativa? }   // CRM próprio = futura (fora do escopo)
+investimento     { id: "inv_NN", categoria, setor_ids[], descricao, valor_estimado_brl: null, origem, fontes?, justificativa? }   // sempre null no v01
+kpi              { id: "kpi_<setor>_<n>", setor_id, tipo: "produtividade"|"eficiencia", nome (≤ 60 car.), formula_descricao (1 linha, ≤ 160 car.), meta: null, formulario: ["indicador","periodo","meta","realizado","responsavel","observacoes"], acompanhamento?: true (Cemig e Cliente), origem, fundamento (ação da Matriz que o sustenta) }   // kpis.json.meta.campos_formulario descreve cada campo
 oportunidade     { id, nome, prioridade_padrao: "alta"|"media"|"baixa", estagio_id }   // Anotações §1.4
 perfil_cliente   { id, nome, criterios, proxima_acao }                                  // Anotações §1.1
 classificacao_lead { id: "lead_quente"|"lead_morno"|"lead_frio", nome, criterios: string[] }   // Anotações §1.1.1.7

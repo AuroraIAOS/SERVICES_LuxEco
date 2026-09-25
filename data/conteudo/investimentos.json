@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "regra": "Biblioteca de investimentos (docs/06 §4, 6.f): só CATEGORIAS. valor_estimado_brl é sempre null — proibido inventar cifra em R$; a Lux informa os valores."
+  },
+  "investimentos": [
+    {
+      "id": "inv_01",
+      "categoria": "Ferramentas de gestão (CRM)",
+      "setor_ids": [
+        "setor_03",
+        "setor_02",
+        "setor_06"
+      ],
+      "descricao": "Sistema próprio para registrar leads, propostas e contratos e substituir o Grupo de Fluxo.",
+      "valor_estimado_brl": null,
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§1 Visão Geral (CRM próprio em fase futura de desenvolvimento)"
+        }
+      ]
+    },
+    {
+      "id": "inv_02",
+      "categoria": "Publicidade e tráfego pago",
+      "setor_ids": [
+        "setor_01"
+      ],
+      "descricao": "Campanhas de tráfego pago e materiais de comunicação da marca.",
+      "valor_estimado_brl": null,
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Mapa_Organizacional.md",
+          "trecho": "Setor 01 — Marketing (propaganda e publicidade; campanhas de tráfego pago)"
+        }
+      ]
+    },
+    {
+      "id": "inv_03",
+      "categoria": "Treinamento das equipes",
+      "setor_ids": [
+        "setor_06",
+        "setor_03",
+        "setor_02",
+        "setor_10"
+      ],
+      "descricao": "Treinamentos internos com base nos POPs e na lógica de decisão do CEO.",
+      "valor_estimado_brl": null,
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§3 Observação para o Max (fundamento para os POPs, treinamentos internos e a IA comercial)"
+        }
+      ]
+    },
+    {
+      "id": "inv_04",
+      "categoria": "Equipamentos de medição e ferramentas de instalação",
+      "setor_ids": [
+        "setor_10"
+      ],
+      "descricao": "Ferramentas, insumos e equipamentos de medição da Equipe Técnica.",
+      "valor_estimado_brl": null,
+      "origem": "sugerido",
+      "justificativa": "A Matriz cita insumos e ferramentas na disponibilidade da Equipe Técnica (Est. 16); “equipamentos de medição” é a categoria sugerida pelo consultor."
+    },
+    {
+      "id": "inv_05",
+      "categoria": "Estrutura de pós-venda",
+      "setor_ids": [
+        "setor_02",
+        "setor_10",
+        "setor_03"
+      ],
+      "descricao": "Manutenção preventiva, monitoramento e limpeza técnica ofertados depois da venda.",
+      "valor_estimado_brl": null,
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.4 Identificação de Oportunidades (manutenção, monitoramento, limpeza técnica, seguro)"
+        }
+      ]
+    },
+    {
+      "id": "inv_06",
+      "categoria": "Inteligência artificial comercial e operacional",
+      "setor_ids": [
+        "setor_06",
+        "setor_02"
+      ],
+      "descricao": "Construção da IA comercial e operacional prevista nas Anotações; fora do escopo deste projeto.",
+      "valor_estimado_brl": null,
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§3 Observação para o Max (construção da IA comercial e operacional da empresa)"
+        }
+      ]
+    }
+  ]
+}

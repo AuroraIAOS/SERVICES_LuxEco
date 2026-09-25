@@ -147,7 +147,8 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Gatilho:** `bash -c` com heredoc longo contendo aspas, `$` ou barras invertidas (JSON com “ ”, regex com `\$`) falha com `unexpected EOF while looking for matching`.
 - **Ação:** criar/alterar arquivos com as ferramentas Write/Edit (não por heredoc nem por `node -e "..."` com template literal); reservar o shell para rodar comandos.
 - **Evidência:** dois heredocs de ~100 linhas falharam com exit 2 na 02.1; os mesmos conteúdos via Write funcionaram.
-- **Fonte:** erro real da 02.1.
+- **Reincidência (02.6) — corrupção silenciosa:** um `node -e "…"` com template literals (`${…}`, crases) fez o bash expandir/apagar trechos **antes** do node ver o texto; o script “deu ok” e gravou `console.log();` vazio dentro de `validar_dados.ts`. Só o `tsc` (variáveis sem uso) denunciou. Depois de **qualquer** edição feita por shell: `npm run typecheck` e `git diff` do arquivo. Para mesclar JSON, usar um `.cjs` escrito com Write e rodado com `node <arquivo>`.
+- **Fonte:** erro real da 02.1 e da 02.6.
 
 ### Diagrama: números não bastam — olhar a imagem (e o contraste)
 - **Gatilho:** ao gerar diagramas/SVG que entram no PDF (01.5 e 02.9).

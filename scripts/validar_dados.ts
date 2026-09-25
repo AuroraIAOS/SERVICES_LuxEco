@@ -1,9 +1,9 @@
-// Regras de integridade de docs/02_MODELO_DE_DADOS.md. Ativas: 1, 2, 8 (01.4) e 3 — V08 (02.1), + integridade referencial e mapa de condicionais.
-// As regras de fichas (4–5) e bibliotecas (6–7) ficam inativas até existirem os arquivos delas.
+// Regras de integridade de docs/02_MODELO_DE_DADOS.md. Ativas: 1, 2, 8 (01.4), 3 — V08 (02.1), 4–5 — fichas (02.2–02.5),
+// 6–7 — bibliotecas (02.6), + integridade referencial e mapa de condicionais. Falta só o POP (`--pop`, 03.1).
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Condicional, Matriz, MatrizV08 } from '../src/dados/tipos.ts';
+import type { Condicional, Documento, Ferramenta, Investimento, Kpi, Matriz, MatrizV08 } from '../src/dados/tipos.ts';
 import { faseDoEstagio } from '../src/dados/tipos.ts';
 import { comparar, HTML_LEGADO, lerJson, lerLegado } from './comparar_mmo_legado.ts';
 import { compor, JSON_ANOTACOES, JSON_MAPA, JSON_V08 } from './compor_v08.ts';
@@ -273,6 +273,146 @@ export function validarFichas(v08: MatrizV08, doc: DocumentoFichas, autoria: Aut
   return erros;
 }
 
+export interface Bibliotecas {
+  documentos: Documento[];
+  ferramentas: Ferramenta[];
+  investimentos: Investimento[];
+  kpis: Kpi[];
+}
+
+/** Documentos que docs/06 §4 (6.d) e as fontes citam: cada padrão tem de casar com ≥ 1 documento `documentado`. */
+const DOCUMENTOS_OBRIGATORIOS: [string, RegExp][] = [
+  ['conta de energia do cliente', /conta de energia/i],
+  ['simulação de consumo', /simulação de consumo/i],
+  ['proposta comercial', /proposta comercial/i],
+  ['contrato (digital)', /contrato digital/i],
+  ['ordem de compra (OC)', /ordem de compra/i],
+  ['guias de translado', /guias de translado/i],
+  ['projeto técnico', /projeto técnico/i],
+  ['CAT', /^CAT$/],
+  ['laudo de vistoria', /laudo de vistoria/i],
+  ['comprovante de treinamento', /comprovante de treinamento/i],
+  ['pedido de ligação/homologação', /pedido de ligação/i],
+  ['parecer de inviabilidade', /parecer de inviabilidade/i],
+  ['parecer da Cemig com ajustes', /parecer da cemig/i],
+];
+/** Ferramentas documentadas (docs/06 §4, 6.e). */
+const FERRAMENTAS_OBRIGATORIAS: [string, RegExp][] = [
+  ['WhatsApp (Grupo de Fluxo)', /whatsapp/i],
+  ['Google Ads', /google ads/i],
+  ['plataformas financeiras parceiras', /plataformas financeiras/i],
+  ['plataforma de cartão (até 21x)', /cartão/i],
+  ['CRM próprio (futuro)', /crm próprio/i],
+];
+const CAMPOS_FORMULARIO_KPI = ['indicador', 'periodo', 'meta', 'realizado', 'responsavel', 'observacoes'];
+const ORIGENS = ['documentado', 'sugerido', 'manual'];
+const NOME_MAX = 60;
+const FORMULA_MAX = 160;
+
+/**
+ * Regras 6 e 7 (docs/02) + integridade das bibliotecas (docs/06 §4): investimentos só categorias (`valor_estimado_brl` null),
+ * KPIs sem meta, ≥ 1 KPI de produtividade e ≥ 1 de eficiência por setor (12), documentado com fonte, sugerido com justificativa.
+ */
+export function validarBibliotecas(v08: MatrizV08, b: Bibliotecas): string[] {
+  const erros: string[] = [];
+  const setores = new Set(v08.setores.map((s) => s.id));
+  const estagios = new Set(v08.estagios.map((e) => e.id));
+  const unicos = (nome: string, padrao: RegExp, ids: string[]) => {
+    const d = duplicados(ids);
+    if (d.length) erros.push(`${nome}: ids duplicados: ${[...new Set(d)].join(', ')}`);
+    for (const id of ids) if (!padrao.test(id)) erros.push(`${nome}: id "${id}" fora do padrão`);
+  };
+  unicos('documentos', /^doc_\d{2,}$/, b.documentos.map((d) => d.id));
+  unicos('ferramentas', /^fer_\d{2,}$/, b.ferramentas.map((d) => d.id));
+  unicos('investimentos', /^inv_\d{2,}$/, b.investimentos.map((d) => d.id));
+  unicos('kpis', /^kpi_\d{2}_\d+$/, b.kpis.map((d) => d.id));
+
+  const texto = (rotulo: string, valor: string | undefined, obrigatorio = true) => {
+    if (valor === undefined || !valor.trim()) {
+      if (obrigatorio) erros.push(`${rotulo}: vazio`);
+      return;
+    }
+    if (traz_cifra_ou_prazo(valor)) erros.push(`Conteúdo: ${rotulo} traz cifra em R$ ou prazo numérico ("${valor}")`);
+  };
+  const origemEFontes = (id: string, x: { origem: string; fontes?: { arquivo: string; trecho: string }[]; justificativa?: string }) => {
+    if (!ORIGENS.includes(x.origem)) erros.push(`${id}: origem inválida`);
+    if (x.origem === 'documentado') {
+      if (!x.fontes?.length) erros.push(`${id}: documentado sem fontes`);
+      for (const f of x.fontes ?? []) {
+        if (!f.arquivo || !f.trecho?.trim()) erros.push(`${id}: fonte sem arquivo ou trecho`);
+        else if (!existsSync(resolve(RAIZ, f.arquivo))) erros.push(`${id}: fonte "${f.arquivo}" não existe`);
+      }
+    }
+    if (x.origem === 'sugerido' && !x.justificativa?.trim()) erros.push(`${id}: sugerido sem justificativa`);
+    texto(`${id}.justificativa`, x.justificativa, false);
+  };
+  const refs = (id: string, setoresIds: string[], estagioIds?: number[]) => {
+    if (setoresIds.length === 0) erros.push(`${id}: sem setor_ids`);
+    for (const s of setoresIds) if (!setores.has(s)) erros.push(`${id}: setor "${s}" inexistente`);
+    if (estagioIds) {
+      if (estagioIds.length === 0) erros.push(`${id}: sem estagio_ids`);
+      for (const e of estagioIds) if (!estagios.has(e)) erros.push(`${id}: estágio ${e} inexistente`);
+    }
+  };
+
+  for (const d of b.documentos) {
+    if (!d.nome?.trim() || d.nome.length > NOME_MAX) erros.push(`${d.id}: nome vazio ou acima de ${NOME_MAX} caracteres`);
+    texto(`${d.id}.nome`, d.nome);
+    refs(d.id, d.setor_ids, d.estagio_ids);
+    origemEFontes(d.id, d);
+  }
+  for (const [rotulo, re] of DOCUMENTOS_OBRIGATORIOS) {
+    if (!b.documentos.some((d) => d.origem === 'documentado' && re.test(d.nome))) erros.push(`documentos: falta o documento documentado “${rotulo}” (docs/06 §4)`);
+  }
+
+  for (const f of b.ferramentas) {
+    if (!f.nome?.trim() || f.nome.length > NOME_MAX) erros.push(`${f.id}: nome vazio ou acima de ${NOME_MAX} caracteres`);
+    texto(`${f.id}.nome`, f.nome);
+    texto(`${f.id}.observacao`, f.observacao, false);
+    if (!['em_uso', 'temporaria', 'futura'].includes(f.situacao)) erros.push(`${f.id}: situacao inválida`);
+    if (/crm próprio/i.test(f.nome) && f.situacao !== 'futura') erros.push(`${f.id}: o CRM próprio é futuro e fora do escopo (situacao deve ser "futura")`);
+    refs(f.id, f.setor_ids, f.estagio_ids);
+    origemEFontes(f.id, f);
+  }
+  for (const [rotulo, re] of FERRAMENTAS_OBRIGATORIAS) {
+    if (!b.ferramentas.some((f) => f.origem === 'documentado' && re.test(f.nome))) erros.push(`ferramentas: falta a ferramenta documentada “${rotulo}” (docs/06 §4)`);
+  }
+
+  // Regra 6 — investimentos só categorias, sem cifra.
+  for (const i of b.investimentos) {
+    if (i.valor_estimado_brl !== null) erros.push(`Regra 6: ${i.id} com valor_estimado_brl diferente de null (proibido inventar cifra em R$)`);
+    if (!i.categoria?.trim() || i.categoria.length > NOME_MAX) erros.push(`${i.id}: categoria vazia ou acima de ${NOME_MAX} caracteres`);
+    texto(`${i.id}.categoria`, i.categoria);
+    texto(`${i.id}.descricao`, i.descricao);
+    refs(i.id, i.setor_ids);
+    origemEFontes(i.id, i);
+  }
+  if (b.investimentos.length === 0) erros.push('investimentos: biblioteca vazia');
+
+  // Regras 6 e 7 — KPIs sem meta; ≥ 1 de produtividade e ≥ 1 de eficiência por setor.
+  for (const k of b.kpis) {
+    if (k.meta !== null) erros.push(`Regra 6: ${k.id} com meta diferente de null (a meta é da Lux)`);
+    if (!['produtividade', 'eficiencia'].includes(k.tipo)) erros.push(`${k.id}: tipo inválido`);
+    if (!k.nome?.trim() || k.nome.length > NOME_MAX) erros.push(`${k.id}: nome vazio ou acima de ${NOME_MAX} caracteres`);
+    if (!k.formula_descricao?.trim() || k.formula_descricao.includes('\n') || k.formula_descricao.length > FORMULA_MAX) {
+      erros.push(`${k.id}: fórmula vazia, com quebra de linha ou acima de ${FORMULA_MAX} caracteres (uma linha)`);
+    }
+    texto(`${k.id}.nome`, k.nome);
+    texto(`${k.id}.formula_descricao`, k.formula_descricao);
+    texto(`${k.id}.fundamento`, k.fundamento);
+    if (!setores.has(k.setor_id)) erros.push(`${k.id}: setor "${k.setor_id}" inexistente`);
+    if (CAMPOS_FORMULARIO_KPI.some((c) => !(k.formulario as string[]).includes(c))) erros.push(`${k.id}: formulário sem algum dos campos ${CAMPOS_FORMULARIO_KPI.join(', ')}`);
+    if (!ORIGENS.includes(k.origem)) erros.push(`${k.id}: origem inválida`);
+    if (['setor_11', 'setor_12'].includes(k.setor_id) && !k.acompanhamento) erros.push(`${k.id}: KPI de Cemig/Cliente deve ser marcado como indicador de acompanhamento`);
+  }
+  for (const s of v08.setores) {
+    for (const tipo of ['produtividade', 'eficiencia'] as const) {
+      if (!b.kpis.some((k) => k.setor_id === s.id && k.tipo === tipo)) erros.push(`Regra 7: o setor ${s.nome} (${s.id}) não tem KPI de ${tipo}`);
+    }
+  }
+  return erros;
+}
+
 const lerJsonArquivo = <T>(caminho: string): T => JSON.parse(readFileSync(caminho, 'utf8')) as T;
 
 /** `--v08`: valida a V08 gravada contra a V07, o mapa e o overlay. Devolve a linha final (OK ou os erros). */
@@ -332,6 +472,45 @@ function rodarFichas(fase?: number): number {
   return 0;
 }
 
+/** `--bibliotecas`: valida documentos, ferramentas, investimentos e KPIs (regras 6 e 7). */
+function rodarBibliotecas(): number {
+  const arquivos = {
+    documentos: resolve(RAIZ, 'data/conteudo/documentos.json'),
+    ferramentas: resolve(RAIZ, 'data/conteudo/ferramentas.json'),
+    investimentos: resolve(RAIZ, 'data/conteudo/investimentos.json'),
+    kpis: resolve(RAIZ, 'data/conteudo/kpis.json'),
+  };
+  for (const c of [JSON_V08, ...Object.values(arquivos)]) {
+    if (!existsSync(c)) {
+      console.log(`ERRO: ${c.slice(RAIZ.length + 1).replace(/\\/g, '/')} não existe (subetapa 02.6).`);
+      return 1;
+    }
+  }
+  const v08 = lerJsonArquivo<MatrizV08>(JSON_V08);
+  const b: Bibliotecas = {
+    documentos: lerJsonArquivo<{ documentos: Documento[] }>(arquivos.documentos).documentos,
+    ferramentas: lerJsonArquivo<{ ferramentas: Ferramenta[] }>(arquivos.ferramentas).ferramentas,
+    investimentos: lerJsonArquivo<{ investimentos: Investimento[] }>(arquivos.investimentos).investimentos,
+    kpis: lerJsonArquivo<{ kpis: Kpi[] }>(arquivos.kpis).kpis,
+  };
+  const erros = validarBibliotecas(v08, b);
+  if (erros.length) {
+    erros.forEach((e) => console.log(`ERRO: ${e}`));
+    return 1;
+  }
+  const prod = b.kpis.filter((k) => k.tipo === 'produtividade').length;
+  const efic = b.kpis.filter((k) => k.tipo === 'eficiencia').length;
+  const valores = b.investimentos.filter((i) => i.valor_estimado_brl !== null).length + b.kpis.filter((k) => k.meta !== null).length;
+  const sugeridos = [...b.documentos, ...b.ferramentas, ...b.investimentos, ...b.kpis].filter((x) => x.origem === 'sugerido').length;
+  console.log(
+    `bibliotecas: documentos=${b.documentos.length} ferramentas=${b.ferramentas.length} investimentos=${b.investimentos.length} ` +
+      `kpis=${b.kpis.length} (produtividade=${prod}, eficiencia=${efic}) sugeridos=${sugeridos}`,
+  );
+  // A linha final afirma o piso verificado pela regra 7 (≥ 1 KPI de cada tipo em cada um dos 12 setores).
+  console.log(`OK bibliotecas: setores=${v08.setores.length} kpis_produtividade>=${v08.setores.length} kpis_eficiencia>=${v08.setores.length} valores_brl=${valores}`);
+  return 0;
+}
+
 /** Sem flags: valida a V07 (planilha ↔ JSON ↔ MMO legado ↔ mapa). */
 function rodarV07(): number {
   const erros: string[] = [];
@@ -361,7 +540,6 @@ function rodarV07(): number {
 function principal(): number {
   const args = process.argv.slice(2);
   const pendentes: Record<string, [string, string]> = {
-    '--bibliotecas': ['data/conteudo/documentos.json', 'subetapa 02.6'],
     '--pop': ['data/conteudo/perguntas_pop.json', 'subetapa 03.1'],
   };
   if (args.length === 0) return rodarV07();
@@ -386,6 +564,10 @@ function principal(): number {
     }
     if (flag === '--fichas') {
       codigo |= rodarFichas(fase);
+      continue;
+    }
+    if (flag === '--bibliotecas') {
+      codigo |= rodarBibliotecas();
       continue;
     }
     if (flag === '--fase') continue; // parâmetro de --fichas

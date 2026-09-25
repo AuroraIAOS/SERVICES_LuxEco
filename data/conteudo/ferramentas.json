@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "regra": "Biblioteca de ferramentas (docs/06 §4, 6.e). O CRM próprio é futuro e fica fora do escopo deste projeto (situacao = futura)."
+  },
+  "ferramentas": [
+    {
+      "id": "fer_01",
+      "nome": "WhatsApp — Grupo de Fluxo",
+      "setor_ids": [
+        "setor_03",
+        "setor_12"
+      ],
+      "estagio_ids": [
+        7,
+        8,
+        9,
+        21
+      ],
+      "origem": "documentado",
+      "situacao": "temporaria",
+      "observacao": "Canal temporário com o cliente após o fechamento, criado e gerido pelo Administrativo; será substituído pelo CRM próprio.",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Mapa_Organizacional.md",
+          "trecho": "Canal temporário — Grupo de Fluxo (WhatsApp)"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§4 Canal Temporário — Grupo de Fluxo (WhatsApp)"
+        }
+      ]
+    },
+    {
+      "id": "fer_02",
+      "nome": "Google Ads (tráfego pago)",
+      "setor_ids": [
+        "setor_01"
+      ],
+      "estagio_ids": [
+        1
+      ],
+      "origem": "documentado",
+      "situacao": "em_uso",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Mapa_Organizacional.md",
+          "trecho": "Setor 01 — Marketing (opera campanhas de tráfego pago — Google Ads)"
+        }
+      ]
+    },
+    {
+      "id": "fer_03",
+      "nome": "Plataformas financeiras parceiras",
+      "setor_ids": [
+        "setor_04",
+        "setor_02",
+        "setor_12"
+      ],
+      "estagio_ids": [
+        2,
+        3,
+        5
+      ],
+      "origem": "documentado",
+      "situacao": "em_uso",
+      "observacao": "Crédito para o financiamento (“boleto” parcelado); aprovação mediante análise de crédito.",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§2.2 Dúvida — Formas de pagamento (diversas plataformas financeiras parceiras)"
+        },
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Financeiro × Est. 03 — Verifica pré-aprovação de crédito para boleto parcelado"
+        }
+      ]
+    },
+    {
+      "id": "fer_04",
+      "nome": "Plataforma especializada de cartão de crédito",
+      "setor_ids": [
+        "setor_02",
+        "setor_04",
+        "setor_12"
+      ],
+      "estagio_ids": [
+        2,
+        3
+      ],
+      "origem": "documentado",
+      "situacao": "em_uso",
+      "observacao": "Parcelamento em até 21 vezes; plataforma especializada no setor fotovoltaico.",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§2.2.1 Cartão de crédito"
+        }
+      ]
+    },
+    {
+      "id": "fer_05",
+      "nome": "CRM próprio da Lux",
+      "setor_ids": [
+        "setor_03",
+        "setor_02",
+        "setor_06"
+      ],
+      "estagio_ids": [
+        7,
+        8,
+        9,
+        21
+      ],
+      "origem": "documentado",
+      "situacao": "futura",
+      "observacao": "Futuro e fora do escopo deste projeto; substituirá o Grupo de Fluxo.",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§1 Visão Geral (Grupo de Fluxo previsto para ser substituído por um CRM próprio)"
+        },
+        {
+          "arquivo": "data/fontes/Mapa_Organizacional.md",
+          "trecho": "Canal temporário — será substituído por CRM próprio"
+        }
+      ]
+    },
+    {
+      "id": "fer_06",
+      "nome": "Assinatura digital de contrato",
+      "setor_ids": [
+        "setor_03",
+        "setor_06",
+        "setor_12"
+      ],
+      "estagio_ids": [
+        6,
+        7
+      ],
+      "origem": "sugerido",
+      "situacao": "em_uso",
+      "observacao": "A ferramenta não é nomeada nos documentos.",
+      "justificativa": "Os documentos falam em contrato digital assinado pelo cliente e pelo CEO, mas não dizem com qual ferramenta; a Lux informa qual usa."
+    },
+    {
+      "id": "fer_07",
+      "nome": "Registro de leads e atendimentos",
+      "setor_ids": [
+        "setor_02",
+        "setor_03"
+      ],
+      "estagio_ids": [
+        2
+      ],
+      "origem": "sugerido",
+      "situacao": "em_uso",
+      "observacao": "Enquanto não há CRM, o lugar do registro do lead não é definido nos documentos.",
+      "justificativa": "A Matriz manda registrar e informar o Administrativo sobre o lead (Est. 02) sem citar onde; a Lux informa a ferramenta em uso até o CRM."
+    }
+  ]
+}

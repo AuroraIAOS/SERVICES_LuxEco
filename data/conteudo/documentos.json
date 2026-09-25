@@ -1,0 +1,578 @@
+{
+  "meta": {
+    "regra": "Biblioteca de documentos (docs/06 §4, 6.d). documentado = citado nas fontes (campo fontes); sugerido = inferência do consultor (campo justificativa). Nenhum valor em R$.",
+    "estagios": "ids 1..22 (docs/02); setores: setor_01..setor_12"
+  },
+  "documentos": [
+    {
+      "id": "doc_01",
+      "nome": "Conta de energia do cliente",
+      "estagio_ids": [
+        2,
+        3
+      ],
+      "setor_ids": [
+        "setor_12",
+        "setor_02",
+        "setor_03"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Vendas × Est. 02 — Verifica disponibilidade da conta de energia (IF/ELSE)"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§5 Situações Condicionais — Est. 02"
+        }
+      ]
+    },
+    {
+      "id": "doc_02",
+      "nome": "Estimativa de consumo",
+      "estagio_ids": [
+        2
+      ],
+      "setor_ids": [
+        "setor_02",
+        "setor_12"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Vendas × Est. 02 — conta indisponível: solicita estimativa de consumo (IF/ELSE)"
+        }
+      ]
+    },
+    {
+      "id": "doc_03",
+      "nome": "Simulação de consumo e dimensionamento",
+      "estagio_ids": [
+        3
+      ],
+      "setor_ids": [
+        "setor_03",
+        "setor_08",
+        "setor_02"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Administrativo × Est. 03 — Gera simulações de consumo e dimensionamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        }
+      ]
+    },
+    {
+      "id": "doc_04",
+      "nome": "Layouts e cenários de simulação",
+      "estagio_ids": [
+        3
+      ],
+      "setor_ids": [
+        "setor_01",
+        "setor_07"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Marketing × Est. 03 — Cria e edita layouts e cenários de simulação"
+        },
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Engenharia × Est. 03 — Edita layouts e cenários do projeto"
+        }
+      ]
+    },
+    {
+      "id": "doc_05",
+      "nome": "Proposta comercial",
+      "estagio_ids": [
+        4,
+        5
+      ],
+      "setor_ids": [
+        "setor_03",
+        "setor_04",
+        "setor_05",
+        "setor_06",
+        "setor_02",
+        "setor_12"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Administrativo × Est. 04 — Elabora a proposta comercial"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        }
+      ]
+    },
+    {
+      "id": "doc_06",
+      "nome": "Contrato digital",
+      "estagio_ids": [
+        6,
+        7
+      ],
+      "setor_ids": [
+        "setor_03",
+        "setor_04",
+        "setor_05",
+        "setor_06",
+        "setor_12"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Administrativo × Est. 06 — Elabora o contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§6 Jornada do Cliente — 3. Contrato (contrato digital)"
+        }
+      ]
+    },
+    {
+      "id": "doc_07",
+      "nome": "Guias e solicitações de pagamento",
+      "estagio_ids": [
+        8,
+        9
+      ],
+      "setor_ids": [
+        "setor_03",
+        "setor_04",
+        "setor_05",
+        "setor_12"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Administrativo × Est. 08 — Envia guias e solicitações de pagamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        }
+      ]
+    },
+    {
+      "id": "doc_08",
+      "nome": "Ordem de compra (OC)",
+      "estagio_ids": [
+        14
+      ],
+      "setor_ids": [
+        "setor_03",
+        "setor_04",
+        "setor_08"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Administrativo × Est. 14 — Emite a ordem de compra ao Fornecedor"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        }
+      ]
+    },
+    {
+      "id": "doc_09",
+      "nome": "Guias de translado",
+      "estagio_ids": [
+        14,
+        15
+      ],
+      "setor_ids": [
+        "setor_09",
+        "setor_05",
+        "setor_03"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Logística × Est. 14 — Emite as guias de translado"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 09 — Logística"
+        }
+      ]
+    },
+    {
+      "id": "doc_10",
+      "nome": "Projeto técnico",
+      "estagio_ids": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "setor_ids": [
+        "setor_07",
+        "setor_03",
+        "setor_02",
+        "setor_04",
+        "setor_05",
+        "setor_06",
+        "setor_10",
+        "setor_12"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Engenharia × Est. 11 — Elabora o projeto técnico"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 07 — Engenharia"
+        }
+      ]
+    },
+    {
+      "id": "doc_11",
+      "nome": "Parecer de inviabilidade",
+      "estagio_ids": [
+        13
+      ],
+      "setor_ids": [
+        "setor_07",
+        "setor_06",
+        "setor_12"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Engenharia × Est. 13 — impedimento insanável: emite parecer de inviabilidade (IF/ELSE)"
+        },
+        {
+          "arquivo": "data/fontes/Mapa_Organizacional.md",
+          "trecho": "Condicionais (IF/ELSE) — situação 6"
+        }
+      ]
+    },
+    {
+      "id": "doc_12",
+      "nome": "Resolução de atrasos, desvios e avarias",
+      "estagio_ids": [
+        15
+      ],
+      "setor_ids": [
+        "setor_03"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Administrativo × Est. 15 — Trata e emite resolução sobre atrasos, desvios e avarias na entrega"
+        }
+      ]
+    },
+    {
+      "id": "doc_13",
+      "nome": "Laudo de vistoria técnica interna",
+      "estagio_ids": [
+        18
+      ],
+      "setor_ids": [
+        "setor_10"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Equipe Técnica × Est. 18 — Emite laudo de vistoria técnica interna"
+        }
+      ]
+    },
+    {
+      "id": "doc_14",
+      "nome": "Laudo de vistoria técnica externa",
+      "estagio_ids": [
+        18
+      ],
+      "setor_ids": [
+        "setor_11"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Cemig × Est. 18 — Emite o laudo de vistoria técnica externa"
+        }
+      ]
+    },
+    {
+      "id": "doc_15",
+      "nome": "Parecer definitivo negativo da vistoria",
+      "estagio_ids": [
+        18
+      ],
+      "setor_ids": [
+        "setor_11"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Cemig × Est. 18 — inconformidade insanável: emite parecer definitivo negativo (IF/ELSE)"
+        }
+      ]
+    },
+    {
+      "id": "doc_16",
+      "nome": "Comprovante de treinamento",
+      "estagio_ids": [
+        19
+      ],
+      "setor_ids": [
+        "setor_10",
+        "setor_02",
+        "setor_12"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Equipe Técnica × Est. 19 — Solicita assinatura do comprovante de treinamento"
+        },
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Cliente × Est. 19 — Assina o comprovante de treinamento e informes"
+        }
+      ]
+    },
+    {
+      "id": "doc_17",
+      "nome": "Pedido de ligação e homologação",
+      "estagio_ids": [
+        20
+      ],
+      "setor_ids": [
+        "setor_03",
+        "setor_11"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Administrativo × Est. 20 — Solicita à concessionária a homologação e ligação da estrutura"
+        },
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Cemig × Est. 20 — Recepciona o pedido de ligação e homologação"
+        }
+      ]
+    },
+    {
+      "id": "doc_18",
+      "nome": "Parecer negativo de homologação",
+      "estagio_ids": [
+        20,
+        21
+      ],
+      "setor_ids": [
+        "setor_03",
+        "setor_11",
+        "setor_06"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Administrativo × Est. 20 — Solicita parecer negativo de homologação e inicia tratamento de resolutividade"
+        }
+      ]
+    },
+    {
+      "id": "doc_19",
+      "nome": "Parecer da Cemig com ajustes necessários",
+      "estagio_ids": [
+        18,
+        21
+      ],
+      "setor_ids": [
+        "setor_11",
+        "setor_03"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Cemig × Est. 21 — projeto reprovado: emite parecer de inconformidade e comunica ajustes necessários (IF/ELSE)"
+        },
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Cemig × Est. 18 — inconformidade sanável: indica ajustes e reagenda vistoria (IF/ELSE)"
+        }
+      ]
+    },
+    {
+      "id": "doc_20",
+      "nome": "CAT",
+      "estagio_ids": [
+        21
+      ],
+      "setor_ids": [
+        "setor_07",
+        "setor_03"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Engenharia × Est. 21 — Emite o CAT e encaminha ao Administrativo para arquivo"
+        }
+      ]
+    },
+    {
+      "id": "doc_21",
+      "nome": "Registro do lead",
+      "estagio_ids": [
+        2
+      ],
+      "setor_ids": [
+        "setor_02",
+        "setor_03"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Vendas × Est. 02 — Registra e informa o Administrativo sobre o lead"
+        }
+      ]
+    },
+    {
+      "id": "doc_22",
+      "nome": "Respostas-padrão de atendimento",
+      "estagio_ids": [
+        2
+      ],
+      "setor_ids": [
+        "setor_02",
+        "setor_06"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§2 Serviços e ações do empregado — 2.1 a 2.4 (garantia, pagamento, qualidade, diretriz para IA e equipe comercial)"
+        }
+      ]
+    },
+    {
+      "id": "doc_23",
+      "nome": "Registro de oportunidades e prioridade",
+      "estagio_ids": [
+        22
+      ],
+      "setor_ids": [
+        "setor_03",
+        "setor_02"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.4 Identificação de Oportunidades"
+        }
+      ]
+    },
+    {
+      "id": "doc_24",
+      "nome": "Registro de decisões em situações não previstas",
+      "estagio_ids": [
+        2,
+        22
+      ],
+      "setor_ids": [
+        "setor_06"
+      ],
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.5 Resolução de Situações Não Previstas"
+        }
+      ]
+    },
+    {
+      "id": "doc_25",
+      "nome": "Ficha de contexto do cliente",
+      "estagio_ids": [
+        2
+      ],
+      "setor_ids": [
+        "setor_02"
+      ],
+      "origem": "sugerido",
+      "justificativa": "Reúne em um só registro as 12 informações obrigatórias do contexto do cliente (Anotações §1.2); os documentos não trazem um formulário para isso."
+    },
+    {
+      "id": "doc_26",
+      "nome": "Checklist de conferência da entrega",
+      "estagio_ids": [
+        15
+      ],
+      "setor_ids": [
+        "setor_02",
+        "setor_03",
+        "setor_10",
+        "setor_08"
+      ],
+      "origem": "sugerido",
+      "justificativa": "Apoia a verificação de conformidade do material entregue (Est. 15), conferida por Vendas, Administrativo, Equipe Técnica e Fornecedor; os documentos não trazem um roteiro de conferência."
+    },
+    {
+      "id": "doc_27",
+      "nome": "Formulário de feedback do cliente",
+      "estagio_ids": [
+        8,
+        22
+      ],
+      "setor_ids": [
+        "setor_02",
+        "setor_12"
+      ],
+      "origem": "sugerido",
+      "justificativa": "Padroniza o feedback pedido ao cliente nos Est. 08 e 22; os documentos pedem o feedback, mas não definem o formato."
+    },
+    {
+      "id": "doc_28",
+      "nome": "Registro de ocorrências de entrega e instalação",
+      "estagio_ids": [
+        15,
+        16,
+        17
+      ],
+      "setor_ids": [
+        "setor_03",
+        "setor_10",
+        "setor_09",
+        "setor_08"
+      ],
+      "origem": "sugerido",
+      "justificativa": "Reúne atrasos, desvios e avarias tratados nos Est. 15 a 17, base para as escaladas ao CEO; os documentos descrevem o tratamento, mas não um registro."
+    }
+  ]
+}

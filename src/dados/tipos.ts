@@ -152,3 +152,62 @@ export interface Ficha5w1h {
   fontes: FonteFicha[];
   atualizado_em: string; // AAAA-MM-DD
 }
+
+// ---------------------------------------------------------------------------------------------
+// Bibliotecas (docs/02, docs/06 §4): documentos, ferramentas, investimentos (sem valor) e KPIs (sem meta).
+// ---------------------------------------------------------------------------------------------
+
+export interface Documento {
+  id: string; // "doc_01"..
+  nome: string;
+  estagio_ids: number[];
+  setor_ids: string[];
+  origem: OrigemConteudo;
+  /** obrigatório quando documentado. */
+  fontes?: FonteFicha[];
+  /** obrigatório quando sugerido: por que a Lux deveria ter este item. */
+  justificativa?: string;
+}
+
+export interface Ferramenta {
+  id: string; // "fer_01"..
+  nome: string;
+  setor_ids: string[];
+  estagio_ids: number[];
+  origem: OrigemConteudo;
+  situacao: 'em_uso' | 'temporaria' | 'futura';
+  observacao?: string;
+  fontes?: FonteFicha[];
+  justificativa?: string;
+}
+
+export interface Investimento {
+  id: string; // "inv_01"..
+  categoria: string;
+  setor_ids: string[];
+  descricao: string;
+  /** sempre null no v01: proibido inventar cifra em R$ (docs/06 §4). */
+  valor_estimado_brl: null;
+  origem: OrigemConteudo;
+  fontes?: FonteFicha[];
+  justificativa?: string;
+}
+
+export type CampoFormularioKpi = 'indicador' | 'periodo' | 'meta' | 'realizado' | 'responsavel' | 'observacoes';
+
+export interface Kpi {
+  id: string; // "kpi_<setor>_<n>"
+  setor_id: string;
+  tipo: 'produtividade' | 'eficiencia';
+  nome: string;
+  /** fórmula em uma linha. */
+  formula_descricao: string;
+  /** sempre null no v01: a meta é da Lux. */
+  meta: null;
+  formulario: CampoFormularioKpi[];
+  /** Cemig e Cliente: indicador de acompanhamento (a Lux não controla o setor). */
+  acompanhamento?: boolean;
+  origem: OrigemConteudo;
+  /** ação/estágio da Matriz que sustenta o indicador. */
+  fundamento: string;
+}

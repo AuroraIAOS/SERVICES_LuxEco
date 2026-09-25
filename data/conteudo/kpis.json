@@ -1,0 +1,693 @@
+{
+  "meta": {
+    "regra": "Biblioteca de KPIs-padrão por setor (docs/06 §4, 6.g produtividade e 6.h eficiência). Todos sugeridos (a Lux ainda não definiu indicadores); cada um aponta a ação da Matriz que o sustenta (fundamento). meta = null: a Lux define. Cemig e Cliente são indicadores de acompanhamento (a Lux não controla esses setores).",
+    "campos_formulario": {
+      "indicador": {
+        "rotulo": "Indicador",
+        "tipo": "texto",
+        "preenchimento": "nome do KPI"
+      },
+      "periodo": {
+        "rotulo": "Período",
+        "tipo": "texto",
+        "preenchimento": "livre (ex.: mês e ano)"
+      },
+      "meta": {
+        "rotulo": "Meta",
+        "tipo": "numero",
+        "preenchimento": "vazio — a Lux define"
+      },
+      "realizado": {
+        "rotulo": "Realizado",
+        "tipo": "numero",
+        "preenchimento": "valor apurado no período"
+      },
+      "responsavel": {
+        "rotulo": "Responsável",
+        "tipo": "texto",
+        "preenchimento": "função/setor"
+      },
+      "observacoes": {
+        "rotulo": "Observações",
+        "tipo": "texto_longo",
+        "preenchimento": "livre"
+      }
+    }
+  },
+  "kpis": [
+    {
+      "id": "kpi_01_1",
+      "setor_id": "setor_01",
+      "tipo": "produtividade",
+      "nome": "Leads gerados",
+      "formula_descricao": "Número de leads gerados pelo Marketing e encaminhados ao Vendas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Marketing × Est. 01 — Gera e encaminha leads ao setor de Vendas"
+    },
+    {
+      "id": "kpi_01_2",
+      "setor_id": "setor_01",
+      "tipo": "eficiencia",
+      "nome": "Leads aproveitados",
+      "formula_descricao": "Leads que viraram atendimento ÷ leads encaminhados ao Vendas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Marketing × Est. 01 — Gera e encaminha leads; Vendas × Est. 01 — Capta leads gerados pelo Marketing"
+    },
+    {
+      "id": "kpi_01_3",
+      "setor_id": "setor_01",
+      "tipo": "eficiencia",
+      "nome": "Custo por lead",
+      "formula_descricao": "Valor investido em tráfego pago ÷ leads gerados no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Marketing × Est. 01 — Opera campanhas de tráfego pago"
+    },
+    {
+      "id": "kpi_02_1",
+      "setor_id": "setor_02",
+      "tipo": "produtividade",
+      "nome": "Atendimentos realizados",
+      "formula_descricao": "Número de leads atendidos (com a primeira abordagem feita) no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Vendas × Est. 02 — Aborda o lead rapidamente"
+    },
+    {
+      "id": "kpi_02_2",
+      "setor_id": "setor_02",
+      "tipo": "produtividade",
+      "nome": "Contratos fechados",
+      "formula_descricao": "Número de contratos assinados pelos clientes no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Vendas conduz o cliente do primeiro contato à assinatura do contrato (Est. 02 a 07)"
+    },
+    {
+      "id": "kpi_02_3",
+      "setor_id": "setor_02",
+      "tipo": "eficiencia",
+      "nome": "Conversão de lead em contrato",
+      "formula_descricao": "Contratos assinados ÷ leads atendidos no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Vendas × Est. 02 a 07"
+    },
+    {
+      "id": "kpi_02_4",
+      "setor_id": "setor_02",
+      "tipo": "eficiencia",
+      "nome": "Tempo de resposta ao lead",
+      "formula_descricao": "Tempo médio entre a captação do lead e a primeira abordagem.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Vendas × Est. 02 — Aborda o lead rapidamente"
+    },
+    {
+      "id": "kpi_03_1",
+      "setor_id": "setor_03",
+      "tipo": "produtividade",
+      "nome": "Propostas e contratos enviados",
+      "formula_descricao": "Número de propostas e de contratos elaborados e enviados ao cliente no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Administrativo × Est. 04 e 06 — Elabora e envia proposta e contrato"
+    },
+    {
+      "id": "kpi_03_2",
+      "setor_id": "setor_03",
+      "tipo": "produtividade",
+      "nome": "Ordens de compra emitidas",
+      "formula_descricao": "Número de ordens de compra emitidas ao Fornecedor no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Administrativo × Est. 14 — Emite a ordem de compra ao Fornecedor"
+    },
+    {
+      "id": "kpi_03_3",
+      "setor_id": "setor_03",
+      "tipo": "eficiencia",
+      "nome": "Tempo entre estágios",
+      "formula_descricao": "Tempo médio entre a conclusão de um estágio e o início do seguinte, por projeto.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Administrativo × Est. 01 a 22 — Monitora métricas do setor"
+    },
+    {
+      "id": "kpi_03_4",
+      "setor_id": "setor_03",
+      "tipo": "eficiencia",
+      "nome": "Pendências documentais resolvidas",
+      "formula_descricao": "Pendências de documentação resolvidas ÷ pendências abertas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Administrativo × Est. 17 — Trata e resolve inconformidades relacionadas à documentação"
+    },
+    {
+      "id": "kpi_04_1",
+      "setor_id": "setor_04",
+      "tipo": "produtividade",
+      "nome": "Compras de material efetivadas",
+      "formula_descricao": "Número de compras de material efetivadas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Financeiro × Est. 14 — Efetiva a compra dos materiais"
+    },
+    {
+      "id": "kpi_04_2",
+      "setor_id": "setor_04",
+      "tipo": "eficiencia",
+      "nome": "Crédito pré-aprovado",
+      "formula_descricao": "Verificações com crédito pré-aprovado ÷ verificações de pré-aprovação realizadas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Financeiro × Est. 03 — Verifica pré-aprovação de crédito para boleto parcelado"
+    },
+    {
+      "id": "kpi_04_3",
+      "setor_id": "setor_04",
+      "tipo": "eficiencia",
+      "nome": "Inconformidades financeiras resolvidas no setor",
+      "formula_descricao": "Inconformidades financeiras resolvidas sem escalada ao CEO ÷ inconformidades financeiras tratadas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Financeiro × Est. 15, 17 e 18 — Trata inconformidades financeiras"
+    },
+    {
+      "id": "kpi_05_1",
+      "setor_id": "setor_05",
+      "tipo": "produtividade",
+      "nome": "Obrigações fiscais processadas",
+      "formula_descricao": "Número de processamentos de ICMS (compra e translado) e de ISSQN (obra) concluídos no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Contabilidade × Est. 14 e 17 — Processa ICMS e ISSQN"
+    },
+    {
+      "id": "kpi_05_2",
+      "setor_id": "setor_05",
+      "tipo": "eficiencia",
+      "nome": "Inconformidades fiscais regularizadas no setor",
+      "formula_descricao": "Inconformidades fiscais regularizadas sem escalada ao CEO ÷ inconformidades fiscais tratadas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Contabilidade × Est. 17 — Trata e resolve inconformidades fiscais"
+    },
+    {
+      "id": "kpi_06_1",
+      "setor_id": "setor_06",
+      "tipo": "produtividade",
+      "nome": "Escaladas tratadas",
+      "formula_descricao": "Número de casos escalados ao CEO que foram tratados no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "CEO × Est. 15 a 22 — Trata e resolve inconformidades escaladas"
+    },
+    {
+      "id": "kpi_06_2",
+      "setor_id": "setor_06",
+      "tipo": "eficiencia",
+      "nome": "Escaladas resolvidas",
+      "formula_descricao": "Escaladas resolvidas ÷ escaladas recebidas pelo CEO no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "CEO × Est. 15 a 22 — instância final de resolução de inconformidades"
+    },
+    {
+      "id": "kpi_06_3",
+      "setor_id": "setor_06",
+      "tipo": "eficiencia",
+      "nome": "Decisões padronizadas",
+      "formula_descricao": "Decisões sobre situações não previstas que viraram procedimento ÷ decisões registradas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "CEO × Est. 02 e 22 — Decide sobre situação sem procedimento definido e registra para padronização"
+    },
+    {
+      "id": "kpi_07_1",
+      "setor_id": "setor_07",
+      "tipo": "produtividade",
+      "nome": "Projetos técnicos entregues",
+      "formula_descricao": "Número de projetos técnicos enviados ao Administrativo no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Engenharia × Est. 11 — Envia o projeto ao Administrativo"
+    },
+    {
+      "id": "kpi_07_2",
+      "setor_id": "setor_07",
+      "tipo": "eficiencia",
+      "nome": "Projetos aprovados sem adequação",
+      "formula_descricao": "Projetos aprovados na aprovação conjunta sem impedimento técnico ÷ projetos enviados no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Engenharia × Est. 13 — Avalia e comunica impedimento técnico ou necessidade de adequação"
+    },
+    {
+      "id": "kpi_07_3",
+      "setor_id": "setor_07",
+      "tipo": "eficiencia",
+      "nome": "Tempo de elaboração do projeto",
+      "formula_descricao": "Tempo médio entre o recebimento do pedido de projeto e o envio ao Administrativo.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Engenharia × Est. 10 e 11 — Recepciona o pedido e elabora o projeto técnico"
+    },
+    {
+      "id": "kpi_08_1",
+      "setor_id": "setor_08",
+      "tipo": "produtividade",
+      "nome": "Pedidos despachados",
+      "formula_descricao": "Número de pedidos separados e despachados no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Fornecedores × Est. 14 — Separa os produtos e despacha o pedido"
+    },
+    {
+      "id": "kpi_08_2",
+      "setor_id": "setor_08",
+      "tipo": "eficiencia",
+      "nome": "Pedidos sem inconformidade",
+      "formula_descricao": "Pedidos entregues sem atraso, desvio ou avaria ÷ pedidos despachados no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Fornecedores × Est. 15 — Trata atrasos, desvios e avarias em conjunto com a Logística"
+    },
+    {
+      "id": "kpi_09_1",
+      "setor_id": "setor_09",
+      "tipo": "produtividade",
+      "nome": "Entregas realizadas",
+      "formula_descricao": "Número de entregas de material realizadas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Logística × Est. 15 — Entrega o material no local e horário definidos"
+    },
+    {
+      "id": "kpi_09_2",
+      "setor_id": "setor_09",
+      "tipo": "eficiencia",
+      "nome": "Entregas conformes",
+      "formula_descricao": "Entregas no local e horário definidos e sem avaria ÷ entregas realizadas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Logística × Est. 15 — Entrega o material no local e horário definidos; comunica atrasos, desvios e avarias"
+    },
+    {
+      "id": "kpi_10_1",
+      "setor_id": "setor_10",
+      "tipo": "produtividade",
+      "nome": "Instalações concluídas",
+      "formula_descricao": "Número de instalações concluídas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Equipe Técnica × Est. 17 — Executa a instalação"
+    },
+    {
+      "id": "kpi_10_2",
+      "setor_id": "setor_10",
+      "tipo": "produtividade",
+      "nome": "Vistorias internas realizadas",
+      "formula_descricao": "Número de vistorias técnicas internas realizadas, com laudo emitido, no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Equipe Técnica × Est. 18 — Realiza a vistoria técnica interna e emite o laudo"
+    },
+    {
+      "id": "kpi_10_3",
+      "setor_id": "setor_10",
+      "tipo": "eficiencia",
+      "nome": "Instalações sem inconformidade",
+      "formula_descricao": "Instalações concluídas sem inconformidade técnica ÷ instalações concluídas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Equipe Técnica × Est. 17 — Trata e resolve inconformidades da instalação"
+    },
+    {
+      "id": "kpi_10_4",
+      "setor_id": "setor_10",
+      "tipo": "eficiencia",
+      "nome": "Treinamentos comprovados",
+      "formula_descricao": "Comprovantes de treinamento assinados ÷ instalações concluídas no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "origem": "sugerido",
+      "fundamento": "Equipe Técnica × Est. 19 — Solicita assinatura do comprovante de treinamento"
+    },
+    {
+      "id": "kpi_11_1",
+      "setor_id": "setor_11",
+      "tipo": "produtividade",
+      "nome": "Vistorias e homologações concluídas",
+      "formula_descricao": "Número de vistorias externas e de homologações concluídas pela Cemig no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "acompanhamento": true,
+      "origem": "sugerido",
+      "fundamento": "Cemig × Est. 18 e 21 — Realiza a vistoria externa e processa a homologação"
+    },
+    {
+      "id": "kpi_11_2",
+      "setor_id": "setor_11",
+      "tipo": "eficiencia",
+      "nome": "Tempo de resposta da Cemig",
+      "formula_descricao": "Tempo médio entre o pedido de ligação e a homologação, por projeto.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "acompanhamento": true,
+      "origem": "sugerido",
+      "fundamento": "Cemig × Est. 20 e 21 — principal risco de prazo de toda a operação"
+    },
+    {
+      "id": "kpi_11_3",
+      "setor_id": "setor_11",
+      "tipo": "eficiencia",
+      "nome": "Homologações sem ajuste",
+      "formula_descricao": "Projetos homologados sem parecer de ajuste ÷ projetos analisados pela Cemig no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "acompanhamento": true,
+      "origem": "sugerido",
+      "fundamento": "Cemig × Est. 21 — Processa a ligação e homologação do projeto"
+    },
+    {
+      "id": "kpi_12_1",
+      "setor_id": "setor_12",
+      "tipo": "produtividade",
+      "nome": "Decisões do cliente concluídas",
+      "formula_descricao": "Número de propostas, contratos e aprovações de projeto respondidos pelo cliente no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "acompanhamento": true,
+      "origem": "sugerido",
+      "fundamento": "Cliente × Est. 05, 07 e 13 — Avalia e decide"
+    },
+    {
+      "id": "kpi_12_2",
+      "setor_id": "setor_12",
+      "tipo": "eficiencia",
+      "nome": "Pagamentos realizados nas datas",
+      "formula_descricao": "Pagamentos realizados nas datas previstas ÷ pagamentos previstos no período.",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "acompanhamento": true,
+      "origem": "sugerido",
+      "fundamento": "Cliente × Est. 09 — Realiza os pagamentos ao Fornecedor e à Lux"
+    },
+    {
+      "id": "kpi_12_3",
+      "setor_id": "setor_12",
+      "tipo": "eficiencia",
+      "nome": "Tempo de resposta do cliente",
+      "formula_descricao": "Tempo médio entre o envio à Lux e a resposta do cliente (proposta, contrato, aprovação).",
+      "meta": null,
+      "formulario": [
+        "indicador",
+        "periodo",
+        "meta",
+        "realizado",
+        "responsavel",
+        "observacoes"
+      ],
+      "acompanhamento": true,
+      "origem": "sugerido",
+      "fundamento": "Cliente × Est. 05, 07 e 13 — Avalia e decide"
+    }
+  ]
+}
