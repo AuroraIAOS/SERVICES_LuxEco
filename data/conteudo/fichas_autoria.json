@@ -2,32 +2,144 @@
   "meta": {
     "atualizado_em": "2026-09-24",
     "regra": "Autoria das fichas 5W1H (docs/06 §4). Cada ficha = o texto da ação (what) + o que está aqui (why, how, e onde/quando/quem quando fogem do padrão). Só o que os documentos sustentam: sem valores em R$, sem prazos numéricos, sem nomes de pessoas internas. origem = documentado, exceto onde marcado sugerido. Sem citações de fonte dentro dos textos: as fontes vivem no campo fontes de cada ficha.",
-    "fases_autoradas": [1]
+    "fases_autoradas": [
+      1,
+      2
+    ]
   },
   "setores": {
-    "setor_01": { "who": "Marketing", "onde_padrao": "Rotina interna do Marketing", "trecho": "§2 Setor 01 — Marketing" },
-    "setor_02": { "who": "Vendas (Vendedor)", "onde_padrao": "contato", "trecho": "§2 Setor 02 — Vendas" },
-    "setor_03": { "who": "Administrativo", "onde_padrao": "Rotina interna do Administrativo (hub central de coordenação)", "trecho": "§2 Setor 03 — Administrativo" },
-    "setor_04": { "who": "Financeiro", "onde_padrao": "Rotina interna do Financeiro", "trecho": "§2 Setor 04 — Financeiro" },
-    "setor_05": { "who": "Contabilidade", "onde_padrao": "Rotina interna da Contabilidade", "trecho": "§2 Setor 05 — Contabilidade" },
-    "setor_06": { "who": "CEO", "onde_padrao": "Rotina interna do CEO", "trecho": "§2 Setor 06 — CEO" },
-    "setor_07": { "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)", "onde_padrao": "Engenharia terceirizada (Galva Engenharia ou Telar Engenharia)", "trecho": "§2 Setor 07 — Engenharia" },
-    "setor_08": { "who": "Fornecedores", "onde_padrao": "Rotina do Fornecedor (parceiro externo)", "trecho": "§2 Setor 08 — Fornecedores" },
-    "setor_09": { "who": "Logística", "onde_padrao": "Do Fornecedor até o local de instalação", "trecho": "§2 Setor 09 — Logística" },
-    "setor_10": { "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)", "onde_padrao": "imovel", "trecho": "§2 Setor 10 — Equipe Técnica" },
-    "setor_11": { "who": "Cemig (concessionária)", "onde_padrao": "Cemig (concessionária, agente externo)", "trecho": "§2 Setor 11 — Cemig" },
-    "setor_12": { "who": "Cliente", "onde_padrao": "contato_lux", "trecho": "§2 Setor 12 — Cliente" }
+    "setor_01": {
+      "who": "Marketing",
+      "onde_padrao": "Rotina interna do Marketing",
+      "trecho": "§2 Setor 01 — Marketing"
+    },
+    "setor_02": {
+      "who": "Vendas (Vendedor)",
+      "onde_padrao": "contato",
+      "trecho": "§2 Setor 02 — Vendas"
+    },
+    "setor_03": {
+      "who": "Administrativo",
+      "onde_padrao": "Rotina interna do Administrativo (hub central de coordenação)",
+      "trecho": "§2 Setor 03 — Administrativo"
+    },
+    "setor_04": {
+      "who": "Financeiro",
+      "onde_padrao": "Rotina interna do Financeiro",
+      "trecho": "§2 Setor 04 — Financeiro"
+    },
+    "setor_05": {
+      "who": "Contabilidade",
+      "onde_padrao": "Rotina interna da Contabilidade",
+      "trecho": "§2 Setor 05 — Contabilidade"
+    },
+    "setor_06": {
+      "who": "CEO",
+      "onde_padrao": "Rotina interna do CEO",
+      "trecho": "§2 Setor 06 — CEO"
+    },
+    "setor_07": {
+      "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)",
+      "onde_padrao": "Engenharia terceirizada (Galva Engenharia ou Telar Engenharia)",
+      "trecho": "§2 Setor 07 — Engenharia"
+    },
+    "setor_08": {
+      "who": "Fornecedores",
+      "onde_padrao": "Rotina do Fornecedor (parceiro externo)",
+      "trecho": "§2 Setor 08 — Fornecedores"
+    },
+    "setor_09": {
+      "who": "Logística",
+      "onde_padrao": "Do Fornecedor até o local de instalação",
+      "trecho": "§2 Setor 09 — Logística"
+    },
+    "setor_10": {
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "onde_padrao": "imovel",
+      "trecho": "§2 Setor 10 — Equipe Técnica"
+    },
+    "setor_11": {
+      "who": "Cemig (concessionária)",
+      "onde_padrao": "Cemig (concessionária, agente externo)",
+      "trecho": "§2 Setor 11 — Cemig"
+    },
+    "setor_12": {
+      "who": "Cliente",
+      "onde_padrao": "contato_lux",
+      "trecho": "§2 Setor 12 — Cliente"
+    }
   },
   "estagios": {
-    "1": { "objetivo": "Captar potenciais clientes: prospecção ativa dos vendedores, leads do Marketing por tráfego pago e indicações de clientes e parceiros.", "gatilho": "abertura do ciclo de serviço, antes do primeiro contato com o lead", "trecho": "§3 Est. 01 — Prospecção" },
-    "2": { "objetivo": "Primeiro contato com o lead: abordagem rápida, coleta de dados, contorno de objeções e confirmação da identidade do contato.", "gatilho": "primeiro contato com o lead", "trecho": "§3 Est. 02 — Atendimento" },
-    "3": { "objetivo": "Gerar a simulação de consumo e o dimensionamento e verificar a pré-aprovação de crédito para boleto parcelado.", "gatilho": "após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)", "trecho": "§3 Est. 03 — Simulação" },
-    "4": { "objetivo": "Elaborar e enviar a proposta comercial personalizada.", "gatilho": "após a simulação", "trecho": "§3 Est. 04 — Proposta" },
-    "5": { "objetivo": "O cliente recepciona a proposta e decide se aceita ou solicita revisão.", "gatilho": "após o envio da proposta ao cliente", "trecho": "§3 Est. 05 — Pré-aprovação" },
-    "6": { "objetivo": "O cliente aprova a proposta e o processo avança para a contratação; o CEO assina o contrato.", "gatilho": "após o aceite da proposta pelo cliente", "trecho": "§3 Est. 06 — Fechamento" },
-    "7": { "objetivo": "Envio, avaliação e assinatura do contrato pelo cliente; criação do Grupo de Fluxo no WhatsApp.", "gatilho": "após o envio do contrato ao cliente", "trecho": "§3 Est. 07 — Aprovação do contrato" },
-    "8": { "objetivo": "Com o contrato assinado: envio de guias e solicitações de pagamento, encerramento do ciclo de contato comercial e início da comunicação pelo Grupo de Fluxo.", "gatilho": "após a assinatura do contrato", "trecho": "§3 Est. 08 — Pós-aprovação do contrato" },
-    "9": { "objetivo": "O cliente realiza dois pagamentos: ao Fornecedor (material) e à Lux (serviço).", "gatilho": "após o envio das guias e solicitações de pagamento", "trecho": "§3 Est. 09 — Pagamentos" }
+    "1": {
+      "objetivo": "Captar potenciais clientes: prospecção ativa dos vendedores, leads do Marketing por tráfego pago e indicações de clientes e parceiros.",
+      "gatilho": "abertura do ciclo de serviço, antes do primeiro contato com o lead",
+      "trecho": "§3 Est. 01 — Prospecção"
+    },
+    "2": {
+      "objetivo": "Primeiro contato com o lead: abordagem rápida, coleta de dados, contorno de objeções e confirmação da identidade do contato.",
+      "gatilho": "primeiro contato com o lead",
+      "trecho": "§3 Est. 02 — Atendimento"
+    },
+    "3": {
+      "objetivo": "Gerar a simulação de consumo e o dimensionamento e verificar a pré-aprovação de crédito para boleto parcelado.",
+      "gatilho": "após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "trecho": "§3 Est. 03 — Simulação"
+    },
+    "4": {
+      "objetivo": "Elaborar e enviar a proposta comercial personalizada.",
+      "gatilho": "após a simulação",
+      "trecho": "§3 Est. 04 — Proposta"
+    },
+    "5": {
+      "objetivo": "O cliente recepciona a proposta e decide se aceita ou solicita revisão.",
+      "gatilho": "após o envio da proposta ao cliente",
+      "trecho": "§3 Est. 05 — Pré-aprovação"
+    },
+    "6": {
+      "objetivo": "O cliente aprova a proposta e o processo avança para a contratação; o CEO assina o contrato.",
+      "gatilho": "após o aceite da proposta pelo cliente",
+      "trecho": "§3 Est. 06 — Fechamento"
+    },
+    "7": {
+      "objetivo": "Envio, avaliação e assinatura do contrato pelo cliente; criação do Grupo de Fluxo no WhatsApp.",
+      "gatilho": "após o envio do contrato ao cliente",
+      "trecho": "§3 Est. 07 — Aprovação do contrato"
+    },
+    "8": {
+      "objetivo": "Com o contrato assinado: envio de guias e solicitações de pagamento, encerramento do ciclo de contato comercial e início da comunicação pelo Grupo de Fluxo.",
+      "gatilho": "após a assinatura do contrato",
+      "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+    },
+    "9": {
+      "objetivo": "O cliente realiza dois pagamentos: ao Fornecedor (material) e à Lux (serviço).",
+      "gatilho": "após o envio das guias e solicitações de pagamento",
+      "trecho": "§3 Est. 09 — Pagamentos"
+    },
+    "10": {
+      "objetivo": "O Administrativo envia o projeto à Engenharia e monitora métricas; o processo de elaboração técnica é iniciado.",
+      "gatilho": "início da fase técnica, após o Est. 09 — Pagamentos",
+      "trecho": "§3 Est. 10 — Projeto"
+    },
+    "11": {
+      "objetivo": "A Engenharia elabora o projeto técnico e o envia ao Administrativo, que cobra a resolução e monitora métricas.",
+      "gatilho": "após o Administrativo enviar o projeto à Engenharia",
+      "trecho": "§3 Est. 11 — Engenharia"
+    },
+    "12": {
+      "objetivo": "O Administrativo recepciona o projeto da Engenharia e o encaminha para aprovação multissetorial.",
+      "gatilho": "após a Engenharia enviar o projeto técnico ao Administrativo",
+      "trecho": "§3 Est. 12 — Recepção do projeto"
+    },
+    "13": {
+      "objetivo": "Aprovação simultânea do projeto por todas as perspectivas envolvidas: Vendas (termos comerciais), Administrativo (documentação), Financeiro (termos financeiros), Contabilidade (termos fiscais), Engenharia (viabilidade técnica), Equipe Técnica (termos técnicos), CEO (aprovação geral) e Cliente (termos contratuais).",
+      "gatilho": "após o Administrativo encaminhar o projeto para aprovação multissetorial",
+      "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
+    },
+    "14": {
+      "objetivo": "O Administrativo emite a ordem de compra ao Fornecedor, o Financeiro efetiva a compra, a Contabilidade processa as informações fiscais (ICMS) e o Fornecedor separa, embala e despacha os produtos, comunicando o Administrativo.",
+      "gatilho": "após a aprovação conjunta do projeto",
+      "trecho": "§3 Est. 14 — Compra de material"
+    }
   },
   "locais": {
     "contato": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
@@ -36,7 +148,10 @@
     "wa": "Grupo de Fluxo no WhatsApp (canal temporário com o cliente, criado pelo Administrativo no Est. 07; será substituído pelo CRM próprio)",
     "imovel": "No imóvel do cliente",
     "ads": "Campanhas de tráfego pago (Google Ads)",
-    "pagamento": "Pagamento feito pelo cliente conforme as guias e orientações recebidas (orientações pelo Grupo de Fluxo no WhatsApp)"
+    "pagamento": "Pagamento feito pelo cliente conforme as guias e orientações recebidas (orientações pelo Grupo de Fluxo no WhatsApp)",
+    "adm_engenharia": "Comunicação entre o Administrativo e a Engenharia terceirizada",
+    "aprovacao": "Aprovação conjunta do projeto, coordenada pelo Administrativo",
+    "contato_pos": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)"
   },
   "modelos": {
     "Monitora métricas do setor": {
@@ -87,7 +202,6 @@
       "how": "Recebe do Marketing os leads gerados e os assume para o atendimento (Est. 02).",
       "quando": "quando o Marketing encaminha os leads gerados"
     },
-
     "acao_01_02_1": {
       "why": "Padronizar o comportamento e a comunicação da equipe no contato com o cliente: o Marketing define a abordagem e o tom de comunicação da marca.",
       "how": "Orienta a equipe sobre como se comportar e se comunicar no atendimento, em linha com a comunicação da marca.",
@@ -220,7 +334,6 @@
       "how": "Quando surge situação sem procedimento definido, o responsável pela decisão segue os cinco passos: ouvir completamente o cliente, identificar a causa, avaliar os impactos técnicos, comerciais e financeiros, buscar solução personalizada e registrar a decisão para futura padronização.",
       "quando": "quando surge situação sem procedimento definido"
     },
-
     "acao_01_03_1": {
       "why": "Apoiar a simulação com layouts e cenários: o Marketing cria materiais de comunicação e, segundo a Matriz, também cria e edita os layouts e cenários de simulação.",
       "how": "Cria e edita os layouts e os cenários usados na simulação; a Engenharia edita os layouts e cenários do projeto na sua ação correspondente."
@@ -271,7 +384,6 @@
       "why": "A simulação depende dos dados críticos informados pelo cliente.",
       "how": "Atualiza as informações críticas fornecidas ao Vendedor no atendimento sempre que elas mudarem."
     },
-
     "acao_03_04_1": {
       "why": "Formalizar ao cliente a oferta comercial personalizada.",
       "how": "Elabora a proposta a partir da simulação (Est. 03), das premissas de cálculo do Financeiro e dos movimentos contábeis indicados pela Contabilidade."
@@ -303,7 +415,6 @@
       "how": "Recebe a proposta enviada pela Lux e a analisa antes de decidir.",
       "quando": "quando a Lux envia a proposta"
     },
-
     "acao_02_05_3": {
       "why": "Alinhar a expectativa do cliente sobre o financiamento sem prometer condição genérica.",
       "how": "Explica que a aprovação do financiamento depende de análise de crédito e que, em muitos casos, a parcela fica próxima ou inferior à conta de energia, conforme o projeto e o crédito aprovado (uso preferencial do termo “boleto”: diretriz do CEO, sujeita à revisão jurídica).",
@@ -322,7 +433,6 @@
       "how": "Avalia a proposta recebida e decide, seguindo o caminho previsto para cada resposta.",
       "quando": "após receber a proposta"
     },
-
     "acao_03_06_1": {
       "why": "Com a proposta aprovada, o processo avança para a contratação.",
       "how": "Elabora o contrato com base na proposta aprovada, nas premissas do Financeiro e nos movimentos contábeis indicados pela Contabilidade."
@@ -354,7 +464,6 @@
       "how": "Recebe o contrato enviado pela Lux.",
       "quando": "quando a Lux envia o contrato"
     },
-
     "acao_03_07_1": {
       "why": "Acompanhar a resolução do contrato pelo cliente.",
       "how": "Cobra dos envolvidos a resolução da venda e do contrato, isto é, que o cliente decida entre aceitar (assinar) ou solicitar revisão."
@@ -364,7 +473,10 @@
       "how": "Cria no WhatsApp o grupo “Grupo de Fluxo — [Nome do Cliente]” com o cliente; o grupo passa a receber documentos, orientações de pagamento e alinhamentos pós-contrato.",
       "onde": "wa",
       "quando": "após a assinatura do contrato pelo cliente",
-      "fontes": ["mapa:Canal temporário — Grupo de Fluxo (WhatsApp)", "rel:§4 Canal Temporário — Grupo de Fluxo (WhatsApp)"]
+      "fontes": [
+        "mapa:Canal temporário — Grupo de Fluxo (WhatsApp)",
+        "rel:§4 Canal Temporário — Grupo de Fluxo (WhatsApp)"
+      ]
     },
     "acao_06_07_1": {
       "why": "Acompanhar a resolução do contrato pelo cliente.",
@@ -375,7 +487,6 @@
       "how": "Avalia o contrato recebido e decide, seguindo o caminho previsto para cada resposta.",
       "quando": "após receber o contrato"
     },
-
     "acao_02_08_1": {
       "why": "Com o contrato assinado, o Vendedor encerra o ciclo de contato comercial.",
       "how": "Conclui o contato comercial com o cliente; a comunicação passa a ser conduzida pelo Administrativo no Grupo de Fluxo."
@@ -423,7 +534,6 @@
       "onde": "wa",
       "quando": "quando o Administrativo envia as guias"
     },
-
     "acao_03_09_1": {
       "why": "O cliente realiza dois pagamentos e o Administrativo acompanha e cobra datas e pagamentos.",
       "how": "Acompanha as datas e a realização dos pagamentos ao Fornecedor (material) e à Lux (serviço) e cobra o cumprimento de datas e pagamentos."
@@ -446,6 +556,138 @@
       "why": "O cliente paga o serviço à Lux.",
       "how": "Paga a Lux pelo serviço, conforme as guias e orientações de pagamento recebidas.",
       "onde": "pagamento"
+    },
+    "acao_03_10_1": {
+      "why": "Iniciar a elaboração técnica: o processo começa quando o Administrativo envia o projeto à Engenharia.",
+      "how": "Encaminha à Engenharia o pedido de projeto, que ela recepciona na ação seguinte do estágio.",
+      "onde": "adm_engenharia"
+    },
+    "acao_07_10_1": {
+      "why": "Formalizar o início do trabalho da Engenharia sobre o projeto.",
+      "how": "Recebe o pedido de projeto enviado pelo Administrativo e inicia a elaboração técnica (Est. 11).",
+      "onde": "adm_engenharia"
+    },
+    "acao_03_11_1": {
+      "why": "O Administrativo cobra a resolução e monitora as métricas durante a elaboração técnica do projeto.",
+      "how": "Cobra da Engenharia a resolução do projeto técnico.",
+      "onde": "adm_engenharia"
+    },
+    "acao_06_11_1": {
+      "why": "O CEO orienta e supervisiona todos os 22 estágios; neste, cobra a resolução do projeto.",
+      "how": "Cobra a resolução do projeto junto ao Administrativo e à Engenharia."
+    },
+    "acao_07_11_1": {
+      "why": "A Engenharia é a parceria técnica terceirizada que elabora o projeto técnico.",
+      "how": "Elabora o projeto técnico a partir do pedido de projeto recebido do Administrativo."
+    },
+    "acao_07_11_2": {
+      "why": "Levar o projeto técnico à aprovação multissetorial, que o Administrativo coordena.",
+      "how": "Envia o projeto técnico elaborado ao Administrativo, que o recepciona e o encaminha para aprovação (Est. 12).",
+      "onde": "adm_engenharia",
+      "quando": "após concluir o projeto técnico"
+    },
+    "acao_03_12_1": {
+      "why": "Coordenar a aprovação simultânea do projeto por todos os setores envolvidos.",
+      "how": "Recebe o projeto técnico da Engenharia e o encaminha aos setores para a aprovação conjunta do Est. 13: Vendas, Administrativo, Financeiro, Contabilidade, Engenharia, Equipe Técnica, CEO e Cliente.",
+      "onde": "adm_engenharia"
+    },
+    "acao_02_13_1": {
+      "why": "Garantir que o projeto respeita o que foi vendido: Vendas aprova pela perspectiva dos termos comerciais.",
+      "how": "Compara o projeto com os termos comerciais da venda e dá a aprovação de Vendas.",
+      "quando": "simultaneamente com as demais perspectivas",
+      "onde": "aprovacao"
+    },
+    "acao_03_13_1": {
+      "why": "O Administrativo aprova pela perspectiva da documentação do projeto.",
+      "how": "Confere o projeto quanto aos termos documentais e dá a aprovação do Administrativo.",
+      "quando": "simultaneamente com as demais perspectivas",
+      "onde": "aprovacao"
+    },
+    "acao_04_13_1": {
+      "why": "O Financeiro aprova pela perspectiva dos termos financeiros.",
+      "how": "Confere o projeto quanto aos termos financeiros e dá a aprovação do Financeiro.",
+      "quando": "simultaneamente com as demais perspectivas",
+      "onde": "aprovacao"
+    },
+    "acao_05_13_1": {
+      "why": "A Contabilidade aprova pela perspectiva dos termos fiscais.",
+      "how": "Confere o projeto quanto aos termos fiscais e dá a aprovação da Contabilidade.",
+      "quando": "simultaneamente com as demais perspectivas",
+      "onde": "aprovacao"
+    },
+    "acao_06_13_1": {
+      "why": "O CEO aprova o projeto em termos gerais.",
+      "how": "Analisa o projeto no conjunto e dá a aprovação geral da Lux.",
+      "quando": "simultaneamente com as demais perspectivas",
+      "onde": "aprovacao"
+    },
+    "acao_07_13_1": {
+      "why": "A Engenharia aprova pela perspectiva da viabilidade técnica e identifica impedimentos ou necessidade de adequação no imóvel.",
+      "how": "Avalia a viabilidade técnica do projeto no imóvel e comunica qualquer impedimento técnico ou necessidade de adequação, seguindo o caminho previsto para cada resultado.",
+      "quando": "ao avaliar a viabilidade técnica do projeto",
+      "onde": "aprovacao"
+    },
+    "acao_10_13_1": {
+      "why": "A Equipe Técnica aprova pela perspectiva dos critérios técnicos.",
+      "how": "Confere o projeto quanto aos termos técnicos e dá a aprovação da Equipe Técnica.",
+      "onde": "aprovacao",
+      "quando": "simultaneamente com as demais perspectivas"
+    },
+    "acao_12_13_1": {
+      "why": "O cliente aprova o projeto pela perspectiva dos termos contratuais.",
+      "how": "Confere o projeto com os termos do contrato e dá a aprovação do cliente.",
+      "quando": "simultaneamente com as demais perspectivas",
+      "onde": "aprovacao"
+    },
+    "acao_02_14_1": {
+      "why": "Definir com o cliente onde e quando o material será entregue: a Logística entrega no local e no horário definidos.",
+      "how": "Combina com o cliente o local e o horário de entrega do material; o cliente reafirma essas informações na sua ação correspondente.",
+      "onde": "contato_pos"
+    },
+    "acao_03_14_1": {
+      "why": "Formalizar ao Fornecedor o pedido dos materiais do projeto aprovado.",
+      "how": "Emite a ordem de compra (OC) ao Fornecedor, que a recepciona como pedido de compra."
+    },
+    "acao_04_14_1": {
+      "why": "O Financeiro efetiva a compra dos materiais.",
+      "how": "Efetiva financeiramente a compra dos materiais indicados na ordem de compra."
+    },
+    "acao_05_14_1": {
+      "why": "A Contabilidade processa as obrigações de ICMS da compra e do translado de material.",
+      "how": "Processa as informações fiscais da compra e do translado do material (ICMS)."
+    },
+    "acao_08_14_1": {
+      "why": "Dar início ao atendimento do pedido pelo Fornecedor.",
+      "how": "Recebe a ordem de compra emitida pelo Administrativo."
+    },
+    "acao_08_14_2": {
+      "why": "Preparar o material exatamente como foi pedido, para a conferência na entrega (Est. 15).",
+      "how": "Separa e embala os produtos conforme o pedido."
+    },
+    "acao_08_14_3": {
+      "why": "Acionar a Logística, responsável pelo translado do Fornecedor até o local de instalação.",
+      "how": "Avisa a equipe de Logística de que os produtos foram separados."
+    },
+    "acao_08_14_4": {
+      "why": "Colocar o material em translado até o local de instalação.",
+      "how": "Despacha o pedido; a Logística recepciona os produtos do Fornecedor."
+    },
+    "acao_08_14_5": {
+      "why": "Manter o Administrativo, hub de coordenação, informado do despacho.",
+      "how": "Informa ao Administrativo que o pedido foi despachado."
+    },
+    "acao_09_14_1": {
+      "why": "A Logística responde pelo translado dos materiais do Fornecedor até o local de instalação e começa recebendo os produtos.",
+      "how": "Recebe os produtos do Fornecedor para o translado."
+    },
+    "acao_09_14_2": {
+      "why": "Formalizar o translado do material até o local de instalação.",
+      "how": "Emite as guias de translado dos produtos recebidos; a Contabilidade processa o ICMS do translado."
+    },
+    "acao_12_14_1": {
+      "why": "Confirmar com a Lux o local e o horário em que o material deve ser entregue.",
+      "how": "Reafirma o local e o horário de entrega combinados com o Vendedor.",
+      "onde": "contato_pos"
     }
   }
 }

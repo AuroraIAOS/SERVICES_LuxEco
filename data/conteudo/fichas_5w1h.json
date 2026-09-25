@@ -7,9 +7,10 @@
       "data/conteudo/anotacoes_v08.json"
     ],
     "fases_autoradas": [
-      1
+      1,
+      2
     ],
-    "total": 110
+    "total": 146
   },
   "fichas": [
     {
@@ -368,6 +369,62 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_13_1",
+      "acao_id": "acao_02_13_1",
+      "setor_id": "setor_02",
+      "estagio_id": 13,
+      "what": "Aprova o projeto conforme os termos comerciais da venda",
+      "why": "Garantir que o projeto respeita o que foi vendido: Vendas aprova pela perspectiva dos termos comerciais.",
+      "where": "Aprovação conjunta do projeto, coordenada pelo Administrativo",
+      "when": "Est. 13 — Aprovação conjunta do projeto: simultaneamente com as demais perspectivas",
+      "who": "Vendas (Vendedor)",
+      "how": "Compara o projeto com os termos comerciais da venda e dá a aprovação de Vendas.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula N5 — Vendas × Est. 13"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_14_1",
+      "acao_id": "acao_02_14_1",
+      "setor_id": "setor_02",
+      "estagio_id": 14,
+      "what": "Agenda com o cliente local e horário de entrega do material",
+      "why": "Definir com o cliente onde e quando o material será entregue: a Logística entrega no local e no horário definidos.",
+      "where": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Vendas (Vendedor)",
+      "how": "Combina com o cliente o local e o horário de entrega do material; o cliente reafirma essas informações na sua ação correspondente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O5 — Vendas × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -1021,6 +1078,146 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_03_10_1",
+      "acao_id": "acao_03_10_1",
+      "setor_id": "setor_03",
+      "estagio_id": 10,
+      "what": "Envia o projeto à Engenharia",
+      "why": "Iniciar a elaboração técnica: o processo começa quando o Administrativo envia o projeto à Engenharia.",
+      "where": "Comunicação entre o Administrativo e a Engenharia terceirizada",
+      "when": "Est. 10 — Projeto: início da fase técnica, após o Est. 09 — Pagamentos",
+      "who": "Administrativo",
+      "how": "Encaminha à Engenharia o pedido de projeto, que ela recepciona na ação seguinte do estágio.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula K11 — Administrativo × Est. 10"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 10 — Projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_11_1",
+      "acao_id": "acao_03_11_1",
+      "setor_id": "setor_03",
+      "estagio_id": 11,
+      "what": "Cobra resolução do projeto",
+      "why": "O Administrativo cobra a resolução e monitora as métricas durante a elaboração técnica do projeto.",
+      "where": "Comunicação entre o Administrativo e a Engenharia terceirizada",
+      "when": "Est. 11 — Engenharia: após o Administrativo enviar o projeto à Engenharia",
+      "who": "Administrativo",
+      "how": "Cobra da Engenharia a resolução do projeto técnico.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula L11 — Administrativo × Est. 11"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 11 — Engenharia"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_12_1",
+      "acao_id": "acao_03_12_1",
+      "setor_id": "setor_03",
+      "estagio_id": 12,
+      "what": "Recepciona o projeto e encaminha para aprovação multissetorial",
+      "why": "Coordenar a aprovação simultânea do projeto por todos os setores envolvidos.",
+      "where": "Comunicação entre o Administrativo e a Engenharia terceirizada",
+      "when": "Est. 12 — Recepção do projeto: após a Engenharia enviar o projeto técnico ao Administrativo",
+      "who": "Administrativo",
+      "how": "Recebe o projeto técnico da Engenharia e o encaminha aos setores para a aprovação conjunta do Est. 13: Vendas, Administrativo, Financeiro, Contabilidade, Engenharia, Equipe Técnica, CEO e Cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula M11 — Administrativo × Est. 12"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 12 — Recepção do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_13_1",
+      "acao_id": "acao_03_13_1",
+      "setor_id": "setor_03",
+      "estagio_id": 13,
+      "what": "Aprova o projeto conforme os termos documentais",
+      "why": "O Administrativo aprova pela perspectiva da documentação do projeto.",
+      "where": "Aprovação conjunta do projeto, coordenada pelo Administrativo",
+      "when": "Est. 13 — Aprovação conjunta do projeto: simultaneamente com as demais perspectivas",
+      "who": "Administrativo",
+      "how": "Confere o projeto quanto aos termos documentais e dá a aprovação do Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula N11 — Administrativo × Est. 13"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_14_1",
+      "acao_id": "acao_03_14_1",
+      "setor_id": "setor_03",
+      "estagio_id": 14,
+      "what": "Emite a ordem de compra ao Fornecedor",
+      "why": "Formalizar ao Fornecedor o pedido dos materiais do projeto aprovado.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Administrativo",
+      "how": "Emite a ordem de compra (OC) ao Fornecedor, que a recepciona como pedido de compra.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O11 — Administrativo × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_03_03_2",
       "acao_id": "acao_03_03_2",
       "setor_id": "setor_03",
@@ -1208,6 +1405,118 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 09 — Pagamentos"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_10_2",
+      "acao_id": "acao_03_10_2",
+      "setor_id": "setor_03",
+      "estagio_id": 10,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 10 — Projeto por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 10 — Projeto: início da fase técnica, após o Est. 09 — Pagamentos",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula K12 — Administrativo × Est. 10"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 10 — Projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_11_2",
+      "acao_id": "acao_03_11_2",
+      "setor_id": "setor_03",
+      "estagio_id": 11,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 11 — Engenharia por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 11 — Engenharia: após o Administrativo enviar o projeto à Engenharia",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula L12 — Administrativo × Est. 11"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 11 — Engenharia"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_12_2",
+      "acao_id": "acao_03_12_2",
+      "setor_id": "setor_03",
+      "estagio_id": 12,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 12 — Recepção do projeto por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 12 — Recepção do projeto: após a Engenharia enviar o projeto técnico ao Administrativo",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula M12 — Administrativo × Est. 12"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 12 — Recepção do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_13_2",
+      "acao_id": "acao_03_13_2",
+      "setor_id": "setor_03",
+      "estagio_id": 13,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 13 — Aprovação conjunta do projeto por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 13 — Aprovação conjunta do projeto: após o Administrativo encaminhar o projeto para aprovação multissetorial",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula N12 — Administrativo × Est. 13"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -1505,6 +1814,62 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_04_13_1",
+      "acao_id": "acao_04_13_1",
+      "setor_id": "setor_04",
+      "estagio_id": 13,
+      "what": "Aprova o projeto conforme os termos financeiros",
+      "why": "O Financeiro aprova pela perspectiva dos termos financeiros.",
+      "where": "Aprovação conjunta do projeto, coordenada pelo Administrativo",
+      "when": "Est. 13 — Aprovação conjunta do projeto: simultaneamente com as demais perspectivas",
+      "who": "Financeiro",
+      "how": "Confere o projeto quanto aos termos financeiros e dá a aprovação do Financeiro.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula N15 — Financeiro × Est. 13"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_04_14_1",
+      "acao_id": "acao_04_14_1",
+      "setor_id": "setor_04",
+      "estagio_id": 14,
+      "what": "Efetiva a compra dos materiais",
+      "why": "O Financeiro efetiva a compra dos materiais.",
+      "where": "Rotina interna do Financeiro",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Financeiro",
+      "how": "Efetiva financeiramente a compra dos materiais indicados na ordem de compra.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O15 — Financeiro × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_05_04_1",
       "acao_id": "acao_05_04_1",
       "setor_id": "setor_05",
@@ -1580,6 +1945,62 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 05 — Contabilidade"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_05_13_1",
+      "acao_id": "acao_05_13_1",
+      "setor_id": "setor_05",
+      "estagio_id": 13,
+      "what": "Aprova o projeto conforme os termos fiscais",
+      "why": "A Contabilidade aprova pela perspectiva dos termos fiscais.",
+      "where": "Aprovação conjunta do projeto, coordenada pelo Administrativo",
+      "when": "Est. 13 — Aprovação conjunta do projeto: simultaneamente com as demais perspectivas",
+      "who": "Contabilidade",
+      "how": "Confere o projeto quanto aos termos fiscais e dá a aprovação da Contabilidade.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula N17 — Contabilidade × Est. 13"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 05 — Contabilidade"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_05_14_1",
+      "acao_id": "acao_05_14_1",
+      "setor_id": "setor_05",
+      "estagio_id": 14,
+      "what": "Processa informações fiscais da compra e translado de material (ICMS)",
+      "why": "A Contabilidade processa as obrigações de ICMS da compra e do translado de material.",
+      "where": "Rotina interna da Contabilidade",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Contabilidade",
+      "how": "Processa as informações fiscais da compra e do translado do material (ICMS).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O17 — Contabilidade × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -1841,6 +2262,146 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_06_10_1",
+      "acao_id": "acao_06_10_1",
+      "setor_id": "setor_06",
+      "estagio_id": 10,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 10 — Projeto na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 10 — Projeto: início da fase técnica, após o Est. 09 — Pagamentos",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula K19 — CEO × Est. 10"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 10 — Projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_11_1",
+      "acao_id": "acao_06_11_1",
+      "setor_id": "setor_06",
+      "estagio_id": 11,
+      "what": "Cobra resolução do projeto",
+      "why": "O CEO orienta e supervisiona todos os 22 estágios; neste, cobra a resolução do projeto.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 11 — Engenharia: após o Administrativo enviar o projeto à Engenharia",
+      "who": "CEO",
+      "how": "Cobra a resolução do projeto junto ao Administrativo e à Engenharia.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula L19 — CEO × Est. 11"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 11 — Engenharia"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_12_1",
+      "acao_id": "acao_06_12_1",
+      "setor_id": "setor_06",
+      "estagio_id": 12,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 12 — Recepção do projeto na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 12 — Recepção do projeto: após a Engenharia enviar o projeto técnico ao Administrativo",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula M19 — CEO × Est. 12"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 12 — Recepção do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_13_1",
+      "acao_id": "acao_06_13_1",
+      "setor_id": "setor_06",
+      "estagio_id": 13,
+      "what": "Aprova o projeto em termos gerais",
+      "why": "O CEO aprova o projeto em termos gerais.",
+      "where": "Aprovação conjunta do projeto, coordenada pelo Administrativo",
+      "when": "Est. 13 — Aprovação conjunta do projeto: simultaneamente com as demais perspectivas",
+      "who": "CEO",
+      "how": "Analisa o projeto no conjunto e dá a aprovação geral da Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula N19 — CEO × Est. 13"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_14_1",
+      "acao_id": "acao_06_14_1",
+      "setor_id": "setor_06",
+      "estagio_id": 14,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 14 — Compra de material na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O19 — CEO × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_06_01_2",
       "acao_id": "acao_06_01_2",
       "setor_id": "setor_06",
@@ -2093,6 +2654,62 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_06_11_2",
+      "acao_id": "acao_06_11_2",
+      "setor_id": "setor_06",
+      "estagio_id": 11,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 11 — Engenharia na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 11 — Engenharia: após o Administrativo enviar o projeto à Engenharia",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula L20 — CEO × Est. 11"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 11 — Engenharia"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_13_2",
+      "acao_id": "acao_06_13_2",
+      "setor_id": "setor_06",
+      "estagio_id": 13,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 13 — Aprovação conjunta do projeto na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 13 — Aprovação conjunta do projeto: após o Administrativo encaminhar o projeto para aprovação multissetorial",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula N20 — CEO × Est. 13"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_06_06_3",
       "acao_id": "acao_06_06_3",
       "setor_id": "setor_06",
@@ -2177,6 +2794,118 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_07_10_1",
+      "acao_id": "acao_07_10_1",
+      "setor_id": "setor_07",
+      "estagio_id": 10,
+      "what": "Recepciona o pedido de projeto enviado pelo Administrativo",
+      "why": "Formalizar o início do trabalho da Engenharia sobre o projeto.",
+      "where": "Comunicação entre o Administrativo e a Engenharia terceirizada",
+      "when": "Est. 10 — Projeto: início da fase técnica, após o Est. 09 — Pagamentos",
+      "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)",
+      "how": "Recebe o pedido de projeto enviado pelo Administrativo e inicia a elaboração técnica (Est. 11).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula K23 — Engenharia × Est. 10"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 10 — Projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 07 — Engenharia"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_07_11_1",
+      "acao_id": "acao_07_11_1",
+      "setor_id": "setor_07",
+      "estagio_id": 11,
+      "what": "Elabora o projeto técnico",
+      "why": "A Engenharia é a parceria técnica terceirizada que elabora o projeto técnico.",
+      "where": "Engenharia terceirizada (Galva Engenharia ou Telar Engenharia)",
+      "when": "Est. 11 — Engenharia: após o Administrativo enviar o projeto à Engenharia",
+      "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)",
+      "how": "Elabora o projeto técnico a partir do pedido de projeto recebido do Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula L23 — Engenharia × Est. 11"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 11 — Engenharia"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 07 — Engenharia"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_07_13_1",
+      "acao_id": "acao_07_13_1",
+      "setor_id": "setor_07",
+      "estagio_id": 13,
+      "what": "Avalia e comunica impedimento técnico ou necessidade de adequação no imóvel",
+      "why": "A Engenharia aprova pela perspectiva da viabilidade técnica e identifica impedimentos ou necessidade de adequação no imóvel.",
+      "where": "Aprovação conjunta do projeto, coordenada pelo Administrativo",
+      "when": "Est. 13 — Aprovação conjunta do projeto: ao avaliar a viabilidade técnica do projeto",
+      "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)",
+      "how": "Avalia a viabilidade técnica do projeto no imóvel e comunica qualquer impedimento técnico ou necessidade de adequação, seguindo o caminho previsto para cada resultado. Condicional: se “Impedimento sanável”, propõe solução técnica alternativa; se “Impedimento insanável”, emite parecer de inviabilidade e comunica CEO e cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula N23 — Engenharia × Est. 13"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 07 — Engenharia"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_07_11_2",
+      "acao_id": "acao_07_11_2",
+      "setor_id": "setor_07",
+      "estagio_id": 11,
+      "what": "Envia o projeto ao Administrativo",
+      "why": "Levar o projeto técnico à aprovação multissetorial, que o Administrativo coordena.",
+      "where": "Comunicação entre o Administrativo e a Engenharia terceirizada",
+      "when": "Est. 11 — Engenharia: após concluir o projeto técnico",
+      "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)",
+      "how": "Envia o projeto técnico elaborado ao Administrativo, que o recepciona e o encaminha para aprovação (Est. 12).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula L24 — Engenharia × Est. 11"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 11 — Engenharia"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 07 — Engenharia"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_08_03_1",
       "acao_id": "acao_08_03_1",
       "setor_id": "setor_08",
@@ -2233,6 +2962,202 @@
       "atualizado_em": "2026-09-24"
     },
     {
+      "id": "ficha_08_14_1",
+      "acao_id": "acao_08_14_1",
+      "setor_id": "setor_08",
+      "estagio_id": 14,
+      "what": "Recepciona o pedido de compra do Administrativo",
+      "why": "Dar início ao atendimento do pedido pelo Fornecedor.",
+      "where": "Rotina do Fornecedor (parceiro externo)",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Fornecedores",
+      "how": "Recebe a ordem de compra emitida pelo Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O25 — Fornecedores × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 08 — Fornecedores"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_08_14_2",
+      "acao_id": "acao_08_14_2",
+      "setor_id": "setor_08",
+      "estagio_id": 14,
+      "what": "Separa os produtos conforme o pedido",
+      "why": "Preparar o material exatamente como foi pedido, para a conferência na entrega (Est. 15).",
+      "where": "Rotina do Fornecedor (parceiro externo)",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Fornecedores",
+      "how": "Separa e embala os produtos conforme o pedido.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O26 — Fornecedores × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 08 — Fornecedores"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_08_14_3",
+      "acao_id": "acao_08_14_3",
+      "setor_id": "setor_08",
+      "estagio_id": 14,
+      "what": "Comunica a separação à equipe de Logística",
+      "why": "Acionar a Logística, responsável pelo translado do Fornecedor até o local de instalação.",
+      "where": "Rotina do Fornecedor (parceiro externo)",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Fornecedores",
+      "how": "Avisa a equipe de Logística de que os produtos foram separados.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O27 — Fornecedores × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 08 — Fornecedores"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_08_14_4",
+      "acao_id": "acao_08_14_4",
+      "setor_id": "setor_08",
+      "estagio_id": 14,
+      "what": "Despacha o pedido",
+      "why": "Colocar o material em translado até o local de instalação.",
+      "where": "Rotina do Fornecedor (parceiro externo)",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Fornecedores",
+      "how": "Despacha o pedido; a Logística recepciona os produtos do Fornecedor.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O28 — Fornecedores × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 08 — Fornecedores"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_08_14_5",
+      "acao_id": "acao_08_14_5",
+      "setor_id": "setor_08",
+      "estagio_id": 14,
+      "what": "Comunica o despacho ao Administrativo",
+      "why": "Manter o Administrativo, hub de coordenação, informado do despacho.",
+      "where": "Rotina do Fornecedor (parceiro externo)",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Fornecedores",
+      "how": "Informa ao Administrativo que o pedido foi despachado.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O29 — Fornecedores × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 08 — Fornecedores"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_09_14_1",
+      "acao_id": "acao_09_14_1",
+      "setor_id": "setor_09",
+      "estagio_id": 14,
+      "what": "Recepciona os produtos do Fornecedor",
+      "why": "A Logística responde pelo translado dos materiais do Fornecedor até o local de instalação e começa recebendo os produtos.",
+      "where": "Do Fornecedor até o local de instalação",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Logística",
+      "how": "Recebe os produtos do Fornecedor para o translado.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O30 — Logística × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 09 — Logística"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_09_14_2",
+      "acao_id": "acao_09_14_2",
+      "setor_id": "setor_09",
+      "estagio_id": 14,
+      "what": "Emite as guias de translado",
+      "why": "Formalizar o translado do material até o local de instalação.",
+      "where": "Do Fornecedor até o local de instalação",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Logística",
+      "how": "Emite as guias de translado dos produtos recebidos; a Contabilidade processa o ICMS do translado.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O31 — Logística × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 09 — Logística"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
       "id": "ficha_10_02_1",
       "acao_id": "acao_10_02_1",
       "setor_id": "setor_10",
@@ -2280,6 +3205,34 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_13_1",
+      "acao_id": "acao_10_13_1",
+      "setor_id": "setor_10",
+      "estagio_id": 13,
+      "what": "Aprova o projeto conforme os termos técnicos",
+      "why": "A Equipe Técnica aprova pela perspectiva dos critérios técnicos.",
+      "where": "Aprovação conjunta do projeto, coordenada pelo Administrativo",
+      "when": "Est. 13 — Aprovação conjunta do projeto: simultaneamente com as demais perspectivas",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Confere o projeto quanto aos termos técnicos e dá a aprovação da Equipe Técnica.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula N32 — Equipe Técnica × Est. 13"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
@@ -2504,6 +3457,62 @@
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
           "trecho": "§3 Est. 09 — Pagamentos"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_13_1",
+      "acao_id": "acao_12_13_1",
+      "setor_id": "setor_12",
+      "estagio_id": 13,
+      "what": "Aprova o projeto conforme os termos contratuais",
+      "why": "O cliente aprova o projeto pela perspectiva dos termos contratuais.",
+      "where": "Aprovação conjunta do projeto, coordenada pelo Administrativo",
+      "when": "Est. 13 — Aprovação conjunta do projeto: simultaneamente com as demais perspectivas",
+      "who": "Cliente",
+      "how": "Confere o projeto com os termos do contrato e dá a aprovação do cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula N38 — Cliente × Est. 13"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 13 — Aprovação conjunta do projeto"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_14_1",
+      "acao_id": "acao_12_14_1",
+      "setor_id": "setor_12",
+      "estagio_id": 14,
+      "what": "Reafirma local e horário de entrega do material",
+      "why": "Confirmar com a Lux o local e o horário em que o material deve ser entregue.",
+      "where": "Contato com o cliente após o contrato (alinhamentos pós-contrato pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 14 — Compra de material: após a aprovação conjunta do projeto",
+      "who": "Cliente",
+      "how": "Reafirma o local e o horário de entrega combinados com o Vendedor.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula O38 — Cliente × Est. 14"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 14 — Compra de material"
         },
         {
           "arquivo": "data/fontes/Relatorio_Operacional_V07.md",

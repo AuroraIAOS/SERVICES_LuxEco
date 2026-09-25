@@ -37,12 +37,20 @@ describe('Fichas 5W1H das fases autoradas', () => {
     expect(doc.meta.total).toBe(doc.fichas.length);
   });
 
-  it('a fase 1 (Est. 01–09) tem uma ficha por ação e passa na validação', () => {
+  it('cada fase autorada (1: Est. 01–09, 2: Est. 10–14, …) tem uma ficha por ação e passa na validação', () => {
     expect(fasesAutoradas()).toContain(1);
-    const fase1 = v08.acoes.filter((a) => faseDoEstagio(a.estagio_id) === 1);
-    expect(fase1.length).toBeGreaterThan(0);
-    expect(fase1.every((a) => doc.fichas.some((f) => f.acao_id === a.id))).toBe(true);
-    expect(erros(doc, 1)).toEqual([]);
+    for (const fase of fasesAutoradas()) {
+      const daFase = v08.acoes.filter((a) => faseDoEstagio(a.estagio_id) === fase);
+      expect(daFase.length, `fase ${fase}`).toBeGreaterThan(0);
+      expect(daFase.every((a) => doc.fichas.some((f) => f.acao_id === a.id)), `fase ${fase}`).toBe(true);
+      expect(erros(doc, fase), `fase ${fase}`).toEqual([]);
+    }
+  });
+
+  it('cobre as fases já feitas nos números do plano (fase 1 = 110 fichas, fase 2 = 36)', () => {
+    const por = (fase: number) => doc.fichas.filter((f) => faseDoEstagio(f.estagio_id) === fase).length;
+    expect(por(1)).toBe(110);
+    if (fasesAutoradas().includes(2)) expect(por(2)).toBe(36);
   });
 
   it('nenhum campo 5W1H fica vazio e `what` é o texto da ação, sem reescrever', () => {

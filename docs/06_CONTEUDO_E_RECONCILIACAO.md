@@ -92,6 +92,7 @@ Regras de integração (o CODE decide os detalhes, sem perguntar):
 - **`when`:** estágio + gatilho (do estágio, ou da ação quando é mais preciso). Nenhum prazo numérico.
 - **`who`:** o setor (Vendas = “Vendedor”; Engenharia e Equipe Técnica com as empresas/equipes nomeadas na Matriz). Nenhuma pessoa interna da Lux.
 - **`sugerido`:** 2 fichas na Fase 1 (Marketing “Orienta comportamentos e comunicação da equipe” e Engenharia “Edita layouts e cenários do projeto”), cujo propósito é inferência do consultor; as demais são `documentado`. Pontos que dependem de informação que a Lux ainda não deu ficam escritos na própria ficha (ex.: a “margem autorizada” da renegociação de contrato não consta dos documentos).
+- **Fase 2 (02.3):** 36 fichas, nenhuma `sugerido`. O Est. 13 é escrito com as **oito perspectivas da Matriz** (inclui a Equipe Técnica), não as cinco/sete do Relatório e do Mapa — a Matriz vence (§2). As aprovações do Est. 13 têm `where` próprio (“aprovação conjunta coordenada pelo Administrativo”); a agenda de entrega do Est. 14 usa o Grupo de Fluxo só como “alinhamentos pós-contrato”, que é o uso que os documentos descrevem.
 - **Diretrizes do CEO** (“boleto”, IBS, afirmações sobre o imóvel alugado) aparecem como o CEO as formulou e com a marca “sujeita à revisão jurídica”; a lista completa vai para a seção 11 do POP (03.1).
 
 **Bibliotecas (6.c–6.h):**
