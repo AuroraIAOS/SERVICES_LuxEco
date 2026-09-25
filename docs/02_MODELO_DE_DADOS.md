@@ -40,7 +40,7 @@ pop_gerado       { id, escopo: "setor"|"geral", setor_id?, texto_por_secao{}, ge
 versao_backup    { id: "bk_AAAAMMDD_HHMMSS_<8hex>", rotulo, escopo: "fpe"|"pop"|"completo", criado_em, tamanho_bytes, sha256, versao_app, protegido: bool }   // metadados no servidor (sem Drive)
 config_llm       { schema_versao, teto_mensal_brl: number>=0 (padrão do .env, hoje 0), alerta_percentual: 1..100, limite_diario_requisicoes: int>=0, modelos: string[1..3] (principal + reservas, ids `:free` do OpenRouter), preco_entrada_brl_por_milhao?: number, preco_saida_brl_por_milhao?: number, atualizado_em }   // salvo no servidor (configuracao_llm.json) + cópia local; SEM chave de API
 uso_llm          { mes: "AAAA-MM", dia: "AAAA-MM-DD", tokens_entrada, tokens_saida, gasto_estimado_brl, requisicoes_dia }   // contador local
-estado_backup    { schema_versao, fpe_edicoes: {ficha_id: {campo: valor}}, pop_respostas: {}, gerado_em }   // embutido no .html de backup; sem PII
+estado_backup    { schema_versao, fpe_edicoes: {ficha_id: {campos: {campo: valor}, origem: "manual", atualizado_em}}, pop_respostas: {}, gerado_em }   // embutido no .html de backup; sem PII
 ```
 
 ## Regras de integridade (viram testes em `scripts/validar_dados.ts`)

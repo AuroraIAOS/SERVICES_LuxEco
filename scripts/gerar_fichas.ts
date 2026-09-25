@@ -5,7 +5,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Acao, Ficha5w1h, FonteFicha, MatrizV08 } from '../src/dados/tipos.ts';
+import type { Acao, DocumentoFichas, Ficha5w1h, FonteFicha, MatrizV08 } from '../src/dados/tipos.ts';
 import { faseDoEstagio } from '../src/dados/tipos.ts';
 import type { AnotacoesV08 } from './compor_v08.ts';
 import { JSON_ANOTACOES, JSON_V08 } from './compor_v08.ts';
@@ -47,10 +47,7 @@ export interface Autoria {
   fichas: Record<string, AutoriaFicha>;
 }
 
-export interface DocumentoFichas {
-  meta: { versao_matriz: string; gerado_de: string[]; fases_autoradas: number[]; total: number };
-  fichas: Ficha5w1h[];
-}
+export type { DocumentoFichas };
 
 const pad2 = (n: number) => String(n).padStart(2, '0');
 const preencher = (t: string, c: Record<string, string>) => t.replace(/\{(\w+)\}/g, (m, k: string) => c[k] ?? m);

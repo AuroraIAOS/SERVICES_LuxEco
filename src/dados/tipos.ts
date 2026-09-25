@@ -260,3 +260,9 @@ export interface Kpi {
   /** ação/estágio da Matriz que sustenta o indicador. */
   fundamento: string;
 }
+
+/** data/conteudo/fichas_5w1h.json: as fichas geradas de matriz_v08.json + fichas_autoria.json. */
+export interface DocumentoFichas {
+  meta: { versao_matriz: string; gerado_de: string[]; fases_autoradas: number[]; total: number };
+  fichas: Ficha5w1h[];
+}

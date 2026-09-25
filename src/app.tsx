@@ -6,6 +6,9 @@ import { BotaoLink, Cabecalho, EstadoVazio, PularParaConteudo, Rodape, Tela } fr
 import type { ItemNavegacao } from './ui';
 
 // Guia de estilo (#/guia): só no `npm run dev`. Em produção `import.meta.env.DEV` é falso e o módulo nem entra no build.
+// FPE: as 236 fichas (~280 kB de JSON) só carregam quando a tela é aberta.
+const TelaFpe = lazy(() => import('./telas/fpe').then((m) => ({ default: m.TelaFpe })));
+
 const Guia = import.meta.env.DEV ? lazy(() => import('./ui/Guia').then((m) => ({ default: m.Guia }))) : null;
 
 interface DefinicaoTela extends ItemNavegacao {
@@ -13,7 +16,7 @@ interface DefinicaoTela extends ItemNavegacao {
   tela: () => ReactNode;
 }
 
-/** Tela ainda por vir: diz o que vai aparecer e oferece um caminho (o FPE entra na 02.9; POP e Versões, na Etapa 03). */
+/** Tela ainda por vir: diz o que vai aparecer e oferece um caminho (POP e Versões chegam na Etapa 03). */
 function EmBreve({ titulo, subtitulo, vazio, acoes }: { titulo: string; subtitulo: string; vazio: { titulo: string; texto: string }; acoes?: { para: string; rotulo: string }[] }) {
   return (
     <Tela titulo={titulo} subtitulo={subtitulo}>
@@ -36,12 +39,15 @@ export const TELAS: readonly DefinicaoTela[] = [
     caminho: '/fpe',
     rotulo: 'FPE',
     tela: () => (
-      <EmBreve
-        titulo="FPE"
-        subtitulo="Formulário 5W1H e fluxograma"
-        vazio={{ titulo: 'Formulário em construção', texto: 'As fichas 5W1H e o fluxograma de cada setor aparecem nesta tela.' }}
-        acoes={[{ para: '/mmo', rotulo: 'Abrir o MMO v02' }]}
-      />
+      <Suspense
+        fallback={
+          <Tela titulo="FPE" subtitulo="Formulário 5W1H e fluxograma">
+            <p role="status">Carregando as fichas…</p>
+          </Tela>
+        }
+      >
+        <TelaFpe />
+      </Suspense>
     ),
   },
   {

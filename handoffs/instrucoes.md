@@ -147,6 +147,12 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm test -- mmo` → `23 passed` (paridade setor × estágio com a V07, números calculados, V08 visível no Est. 02 e 22, tela reage a dado alterado); `npm run e2e -- mmo` → `6 passed` (renderização inicial < 2 s no navegador); `grep -rn "210+" src | wc -l` → `0`; `npm run dados:validar -- --v08 | tail -1` → `OK v08: setores=12 estagios=22 celulas=236 if_else=37 novos=24`.
 - **Fonte:** decisão técnica de 24/09/2026 (02.8); `docs/04` (seção “Tela MMO v02”), `docs/06` §3.
 
+### FPE: estado em `src/estado/armazenamento.ts` (localStorage validado) + modelo puro + RHF; fluxograma = renderizador de raias sobre a Matriz com as edições
+- **Gatilho:** qualquer mudança na tela FPE, nos exports (02.10) ou no backup (03.5/03.6, que embute este mesmo estado).
+- **Ação:** chave `lux_fpe_estado_v1` = `{ schema_versao: 1, fpe_edicoes: { <ficha_id>: { campos: {campo: valor}, origem: "manual", atualizado_em } } }`, validado com Zod 4 ao ler (JSON ilegível → estado vazio **e cópia em `lux_fpe_estado_v1_invalido`**; nunca apagar em silêncio). Só guarda o que **difere do padrão**: voltar ao texto original desfaz a edição. Campo vazio é edição válida (a tela avisa; o dado fica). Storage ausente/recusando → tudo em memória + aviso na tela. `matrizComEdicoes` troca só o texto da ação cujo “O quê” foi editado (vazio não vira nó em branco) e alimenta `raiasSetor`/`raiasFase` (tema escuro na tela; claro no PDF, 02.10). Fluxograma só nasce ao clicar; editar depois mostra “desatualizado”. SVG entra por `dangerouslySetInnerHTML` porque o gerador escapa todo texto (`esc`). A tela é `lazy` (chunk próprio ~340 kB: fichas + raias + RHF/Zod). Zod 4: `z.record(enum, …)` exige **todas** as chaves — para edição parcial use `z.object` com campos opcionais. `userEvent.type` trata `[` e `{` como teclas: nos testes digite texto sem esses caracteres. Nome acessível do botão da ficha ganha “Editada”/“IF/ELSE” no fim: procure pelo começo.
+- **Evidência:** `npm test -- fpe` → `17 passed`; `npm test -- armazenamento` → `19 passed`; `npm run e2e -- fpe` → `3 passed`.
+- **Fonte:** decisão técnica de 25/09/2026 (02.9); docs RHF 7 e Zod 4 (context7).
+
 ## 6. Armadilhas conhecidas (não repetir)
 
 ### `white-space: nowrap` em rótulo de pílula estoura a largura no celular

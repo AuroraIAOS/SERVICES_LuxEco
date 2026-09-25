@@ -1,0 +1,213 @@
+/*
+ * Tela FPE. Só tokens da marca (ver ui.css): nenhuma cor, fonte ou peso literal.
+ * Trabalho de preencher: navegação compacta em cima, formulário legível no meio, fluxograma embaixo.
+ */
+.fpe-aviso {
+  max-width: 60rem;
+  margin: 0 0 1.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--chumbo-mid);
+  border-left: 3px solid var(--amarelo);
+}
+
+/* ── Navegação setor → estágio → ficha ─────────────────────────────── */
+.fpe-nav {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.fpe-nav__titulo {
+  margin: 0 0 0.4rem;
+  font-weight: var(--peso-titulo);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vao);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.9rem;
+  border: 0;
+  border-left: 3px solid var(--cor-setor, transparent);
+  background: var(--chumbo-mid);
+  color: var(--branco);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.chip:hover {
+  background: var(--chumbo-light);
+}
+
+.chip[aria-current='true'] {
+  background: var(--chumbo-light);
+  box-shadow: inset 0 -3px 0 var(--amarelo);
+}
+
+.chip__numero {
+  color: var(--amarelo);
+  font-weight: var(--peso-titulo);
+}
+
+.chip__contagem {
+  color: var(--texto-fraco);
+}
+
+.chip__editadas {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.3rem;
+  border-radius: 999px;
+  background: var(--amarelo);
+  color: var(--chumbo);
+  font-size: 0.8125rem;
+  font-weight: var(--peso-titulo);
+}
+
+.fichas-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: var(--vao);
+  max-height: 15rem; /* a lista de um estágio pode ter 20+ fichas: rola aqui e o formulário continua à vista */
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ficha-item {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 2.75rem;
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-left: 3px solid transparent;
+  background: var(--chumbo-mid);
+  color: var(--branco);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ficha-item:hover {
+  background: var(--chumbo-light);
+}
+
+.ficha-item[aria-current='true'] {
+  background: var(--chumbo-light);
+  border-left-color: var(--amarelo);
+}
+
+/* ── Formulário da ficha ───────────────────────────────────────────── */
+.ficha-form {
+  max-width: 64rem;
+  margin-bottom: 2.5rem;
+  padding: 1.25rem 1.5rem 0.5rem;
+  background: var(--chumbo-mid);
+  border-left: 3px solid var(--amarelo);
+}
+
+.ficha-form__cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.ficha-form__titulo {
+  margin: 0;
+  font-size: 1.375rem;
+}
+
+.ficha-form__contexto {
+  margin: 0.2rem 0 0;
+  color: var(--texto-suave);
+}
+
+.ficha-form__campos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 1.25rem;
+}
+
+.ficha-form__longo {
+  grid-column: 1 / -1;
+}
+
+/* ── Fluxograma ────────────────────────────────────────────────────── */
+.fluxo-painel {
+  margin-top: 1rem;
+}
+
+.fluxo-painel__titulo {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+}
+
+.fluxo-painel__dica {
+  max-width: 60ch;
+  margin: 0 0 1.25rem;
+  color: var(--texto-suave);
+}
+
+.fluxo-painel__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem 2.5rem;
+}
+
+.fluxo-painel__fase {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.fluxo-painel__fase .campo {
+  min-width: 16rem;
+  margin-bottom: 0;
+}
+
+.fluxo-painel__estado {
+  margin: 1rem 0 0.5rem;
+}
+
+.fluxo {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid var(--chumbo-lighter);
+  background: var(--chumbo);
+}
+
+.fluxo svg {
+  display: block;
+}
+
+/* ── Telas menores ─────────────────────────────────────────────────── */
+@media (max-width: 60rem) {
+  .ficha-form__campos {
+    grid-template-columns: 1fr;
+  }
+
+  .ficha-form {
+    padding: 1rem 1rem 0.25rem;
+  }
+}

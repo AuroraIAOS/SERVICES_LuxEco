@@ -2,6 +2,7 @@
 @import './tokens.css';
 @import './ui.css';
 @import './mmo.css';
+@import './fpe.css';
 
 *,
 *::before,
