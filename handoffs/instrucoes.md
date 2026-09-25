@@ -256,6 +256,12 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm run typecheck` → exit 0.
 - **Fonte:** erro real da 01.4.
 
+### Pré-commit sem husky: `core.hooksPath` + script Node, e teste negativo obrigatório
+- **Gatilho:** blindagem do repositório (01.6) e qualquer nova máquina/clone.
+- **Ação:** hook versionado em `.githooks/pre-commit` → `scripts/pre_commit.mjs`; o `npm install` roda `prepare` (`scripts/instalar_hooks.mjs`) e aponta `core.hooksPath` para `.githooks` (sem dependência nova). O hook (1) bloqueia arquivos que nunca vão ao Git (`.env*`, `referencias_privadas/`, `screenshots/`, `*.pem/*.key`…), (2) bloqueia **CPF/CNPJ** em linhas adicionadas — o gitleaks **não** detecta dado pessoal, e o contrato (RG/CPF) é o maior risco deste repositório —, (3) roda `gitleaks protect --staged --redact` (não imprime o segredo). `.gitattributes` força LF em `.githooks/*` (com `autocrlf`, um `#!/bin/sh\r` quebra o hook no Windows). **Nunca `--no-verify`.**
+- **Evidência:** prova negativa executada em 24/09/2026 — segredo falso, `.env.teste` forçado (`git add -f`) e CPF em linha nova → `exit=1` nos três; commit legítimo → passa. `gitleaks detect --no-banner` → `no leaks found`; `git ls-files | grep -c "^\.env$"` → `0`; `git ls-files referencias_privadas | wc -l` → `0`; `git check-ignore -q data/fontes/Matriz_Operacional.xlsx; echo $?` → `1`; `git grep -E "[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"` → vazio.
+- **Fonte:** CLAUDE.md §4/§5; docs/05 (checklist de segurança); gitleaks 8.30.1.
+
 ## 7. Candidatos a promoção
 
 - Pasta `data/` (fontes + conteúdo versionado) para projetos que são “ferramenta estática sobre dados curados”, sem banco — não existe no modelo de árvore da aurora-criativa.

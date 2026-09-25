@@ -20,7 +20,9 @@
     "spike:fluxo": "tsx scripts/spike_fluxo.ts",
     "deploy": "node -e \"console.error('deploy: ainda não implementado (subetapa 02.11).');process.exit(1)\"",
     "backup:provar": "node -e \"console.error('backup:provar: ainda não implementado (subetapa 03.5).');process.exit(1)\"",
-    "dados:comparar": "tsx scripts/comparar_mmo_legado.ts"
+    "dados:comparar": "tsx scripts/comparar_mmo_legado.ts",
+    "prepare": "node scripts/instalar_hooks.mjs",
+    "hooks:instalar": "node scripts/instalar_hooks.mjs"
   },
   "dependencies": {
     "docx": "^9.7.2",

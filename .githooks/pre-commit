@@ -1,0 +1,3 @@
+#!/bin/sh
+# Pré-commit do projeto: varredura de segredos (scripts/pre_commit.mjs). Nunca use --no-verify.
+exec node scripts/pre_commit.mjs

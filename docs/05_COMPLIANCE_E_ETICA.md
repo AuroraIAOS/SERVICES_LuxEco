@@ -21,6 +21,7 @@
 ## Checklist de segurança (adaptado — sem banco)
 | Item | Prova executável | Saída esperada |
 |---|---|---|
+| Pré-commit bloqueia segredo, arquivo proibido e CPF/CNPJ | commit de teste com cada um (ver `instrucoes.md` §6) | `exit=1` nos 3 casos |
 | `.env` fora do Git | `git ls-files \| grep -c "^\.env$"` | `0` |
 | Contrato fora do Git | `git ls-files referencias_privadas \| wc -l` | `0` |
 | Sem segredos no histórico | `gitleaks detect --no-banner` | `no leaks found` |
