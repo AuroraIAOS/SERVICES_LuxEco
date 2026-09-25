@@ -3,6 +3,10 @@
 Convenção: `+0.1` = correções/melhorias · `+1.0` = novas funcionalidades/serviços.
 Registra **o que mudou para o usuário**; o *como resolvemos* fica em `handoffs/instrucoes.md`.
 
+## [+0.1] - 2026-09-25 (Refinamento estético — enquadramento e alturas)
+- Todos os blocos de cada tela passaram a ocupar a **mesma largura** (a largura cheia da página). Antes, cartões como “Ficha 5W1H” (FPE) e “Perguntas estratégicas” (POP) ficavam mais estreitos que os tópicos acima deles; agora ficam alinhados na mesma borda.
+- Os **12 setores** (MMO, FPE e POP) e os **estágios** (FPE) agora têm **todos a mesma altura**, com as linhas do quadro iguais entre si — o enquadramento ficou regular. No MMO, abrir um setor mostra o detalhe sobreposto, sem desalinhar os outros cartões.
+
 ## [+0.1] - 2026-09-25 (Refinamento estético — só aparência e textos)
 - A tela do mapa passou a se chamar só **“MMO”** (antes “MMO v02”), na navegação, no título e na aba; o subtítulo ficou “Mapa Mental Organizacional”. Nada mudou nos dados nem no que a tela mostra.
 - Os **12 setores** aparecem agora num quadro regular de 4 colunas (3 em telas médias, 2 em telas pequenas, 1 no celular), todos do mesmo tamanho, no MMO, no FPE e no POP. Abrir um setor não desalinha os vizinhos.

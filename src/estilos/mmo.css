@@ -143,21 +143,45 @@
 
 /* ── Setores ───────────────────────────────────────────────────────── */
 /* Quadro 4×3 harmônico: 4 colunas em telas largas, 3 em ~900px, 2 em ~600px, 1 no celular.
- * `align-items: start` garante que abrir um cartão (uma pílula por vez) NÃO estica a altura dos irmãos da linha.
- * O cartão FECHADO tem altura uniforme por causa do `min-height` do botão (cabe o rótulo de tipo em duas linhas). */
+ * TODOS os 12 cartões têm a MESMA altura (as três linhas iguais, na altura do cartão mais alto):
+ * `grid-auto-rows: 1fr` iguala as linhas e o cartão preenche a célula (`height: 100%`).
+ * O painel aberto é SOBREPOSTO (position: absolute) — assim abrir um setor não estica nem deforma os irmãos. */
 .setores-grade {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: var(--vao);
-  align-items: start;
+  align-items: stretch;
+}
+
+.setores-grade > .pilula {
+  position: relative;
 }
 
 .setores-grade > .pilula + .pilula {
   margin-top: 0;
 }
 
+/* o botão preenche a célula esticada, com o conteúdo centralizado na vertical */
+.setores-grade .pilula__cabecalho,
+.setores-grade .pilula__botao {
+  height: 100%;
+}
+
 .setores-grade .pilula__botao {
   min-height: 4rem;
+}
+
+/* painel do setor: sobreposto logo abaixo do cartão, fundo sólido, sem mexer na grade */
+.setores-grade .pilula__painel:not([hidden]) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 5;
+  border: 1px solid var(--chumbo-lighter);
+  border-top-color: var(--filete-amarelo);
+  background: var(--chumbo);
 }
 
 .setor-detalhe {

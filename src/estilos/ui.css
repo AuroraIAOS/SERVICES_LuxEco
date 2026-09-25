@@ -506,6 +506,7 @@ html {
 .grade-setores {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 1fr; /* todas as linhas com a mesma altura (a da célula mais alta) */
   gap: var(--vao);
   margin: 0;
   padding: 0;

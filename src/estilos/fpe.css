@@ -3,7 +3,6 @@
  * Trabalho de preencher: navegação compacta em cima, formulário legível no meio, fluxograma embaixo.
  */
 .fpe-aviso {
-  max-width: 60rem;
   margin: 0 0 1.5rem;
   padding: 0.75rem 1rem;
   background: var(--chumbo-mid);
@@ -31,10 +30,11 @@
   list-style: none;
 }
 
-/* Grade de estágios: colunas uniformes alinhadas à largura da página, mesma altura por linha. */
+/* Grade de estágios: colunas uniformes alinhadas à largura da página; TODAS as células com a mesma altura. */
 .grade-estagios {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-auto-rows: 1fr; /* todas as linhas iguais (a do estágio mais alto) */
   gap: var(--vao);
   margin: 0;
   padding: 0;
@@ -135,8 +135,8 @@
 }
 
 /* ── Formulário da ficha ───────────────────────────────────────────── */
+/* Largura cheia (como as grades acima): o contêiner ocupa toda a horizontalidade da página. */
 .ficha-form {
-  max-width: 64rem;
   margin-bottom: 2.5rem;
   padding: 1.25rem 1.5rem 0.5rem;
   background: var(--chumbo-mid);

@@ -4,8 +4,8 @@
  */
 
 /* ── Perguntas estratégicas ────────────────────────────────────────── */
+/* Largura cheia (como a grade de setores acima): o contêiner ocupa toda a horizontalidade da página. */
 .pop-perguntas {
-  max-width: 64rem;
   margin-bottom: 1.5rem;
 }
 
@@ -62,7 +62,6 @@
 .pop-llm {
   display: grid;
   gap: 0.75rem;
-  max-width: 64rem;
   margin-bottom: 1.5rem;
 }
 
@@ -151,7 +150,7 @@
 }
 
 .pop-resultado {
-  max-width: 64rem;
+  width: 100%;
 }
 
 .pop-resultado__vazio {
@@ -312,7 +311,6 @@
 
 /* ── Salvar versão e Versões salvas (03.6) ─────────────────────────── */
 .salvar-versao {
-  max-width: 64rem;
   margin: 0 0 1.5rem;
 }
 
@@ -349,7 +347,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: 0 1.25rem;
-  max-width: 64rem;
 }
 
 .versoes__lote {
@@ -366,7 +363,7 @@
 }
 
 .versoes__confirmar {
-  max-width: 64rem;
+  width: 100%;
 }
 
 .versoes__confirmar ul {
