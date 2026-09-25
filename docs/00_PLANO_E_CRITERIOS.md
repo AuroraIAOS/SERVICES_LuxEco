@@ -5,7 +5,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 
 >> **Progresso Geral**
 >>
->> ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
+>> ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅⬜⬜⬜⬜⬜⬜⬜⬜ 20/28
 >>
 >> *baseado no número total de subetapas*
 
