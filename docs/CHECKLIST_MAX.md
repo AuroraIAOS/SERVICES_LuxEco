@@ -13,6 +13,12 @@ _Gerado na subetapa 01.1 a partir de `node scripts/checar_env.mjs` (24/09/2026).
 ## Só na migração (subetapa 03.8 — depois do seu “aprovado”)
 - [ ] **5.** Acessos da hospedagem do contratante: subdomínio + https, conta FTP, proteção de diretório, PHP ≥ 8, e o **host real do servidor** (aquele da URL do cPanel na porta 2083 — não o `ftp.<dominio>` se o site estiver atrás de Cloudflare).
 
+## Pendências no `.env` e decisões suas (25/09/2026, fim da 03.7)
+- [ ] **6.** Dizer **“aprovado”** para a migração (03.8) e entregar os acessos do item 5.
+- [ ] **7.** Revisão jurídica das diretrizes “boleto”, parcela × conta, IBS e afirmações técnicas (seção 11 de todo POP) antes de a Lux usá-las como roteiro de venda.
+- [ ] **8.** (Opcional) Limpar o `.env`: as linhas `#LLM_PRINCIPA`, `#LLM_RESERVA_01` (com aspas faltando) e `#LLM_RESERVA_02` não têm efeito — os modelos vêm de `data/conteudo/llm_modelos.json`. A linha `BACKUP_DIR_SERVIDOR` tinha aspas duplicadas e foi corrigida pelo CODE (cópia em `.deploy_backup/`).
+- [ ] **9.** Combinar com a Lux o hábito de **baixar o `.zip` das versões** periodicamente (o servidor não tem backup próprio).
+
 ## Já resolvido
 - [x] Repositório GitHub **privado** (`AuroraIAOS/SERVICES_LuxEco`).
 - [x] `.env` fora do Git (`git ls-files | grep -c "^\.env$"` → `0`) e sem variáveis do Google.

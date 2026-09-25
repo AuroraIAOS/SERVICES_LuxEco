@@ -594,6 +594,12 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm test -- backup versoes` → 108 passed; `npm run e2e -- versoes` → 5 passed; `grep -rEin "drive|oauth|gapi" src | wc -l` → `0`; `npx tsx scripts/smoke_remoto.ts` → POP e Versões salvas carregam no servidor de Max.
 - **Fonte:** decisão técnica de 25/09/2026 (03.6); docs/07.
 
+### Arquivo único (`build:single`): sem `public/`, favicon embutido, chave fora, e testado ABRINDO DO DISCO
+- **Gatilho:** qualquer mudança no `vite.config.ts`, em `src/llm/ambiente.ts` (`MODE === 'single'`) ou em telas que chamem a rede.
+- **Ação:** modo `single` = `viteSingleFile` + `publicDir: false` (nada de `api/`, `.htaccess` ou `backups.php` no pacote) + favicon em data URI (`transformIndexHtml`) + `define` que esvazia `import.meta.env.VITE_OPENROUTER_API_KEY`. `lerAmbiente` põe `llmDisponivel: false` em `MODE === 'single'`; `servidor.ts`/`cliente.ts` tratam `file:` como “sem servidor” sem nem tentar. **A chave NÃO se acha procurando `sk-or`** (a chave de Max tem outro formato): compare o VALOR do `.env` com os arquivos (script de sessão que imprime só contagem). Resultado: `dist` tem a chave (risco vigiado), `dist-single` não.
+- **Evidência:** `npm run e2e -- offline` → 4 passed (abre `file://`, sem pedidos de rede, sem erro de console, fonte da marca carregada, IA some, “Salvar versão” desativado, Excel e Word baixam); `npm run build:single && test -f dist-single/index.html && echo ok` → `ok`.
+- **Fonte:** decisão técnica de 25/09/2026 (03.7).
+
 ## 6. Armadilhas conhecidas (não repetir)
 
 ### `white-space: nowrap` em rótulo de pílula estoura a largura no celular

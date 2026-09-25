@@ -2,6 +2,8 @@
 
 _Preenchido pelo CODE ao fim da Etapa 02 (subetapa 02.12), em 25/09/2026. As provas abaixo foram executadas de novo nesta subetapa._
 
+> **Atualização (fim da 03.7, 25/09/2026):** as subetapas 03.1 a 03.7 estão concluídas e o portão 03→entrega está verde na hospedagem de Max — leia `docs/ENTREGA.md` (mapa do contrato, provas e pendências). Falta só a **03.8 (migração)**, que espera o “aprovado” de Max e os acessos do contratante. O texto abaixo descreve o estado no fim da Etapa 02.
+
 ## Estado atual
 MVP v01 (MMO v02 + FPE com exportações) **no ar** em `https://lux.strategicepiphany.com/intelligence/` (hospedagem particular de Max = homologação), atrás de senha e 100% verde. Repositório `AuroraIAOS/SERVICES_LuxEco` (**privado**), branch `main`, último commit de código: `5e80d82`. Gasto acumulado: **R$ 0**. Nova sessão para a Etapa 03 (POP, LLM, XLSX, API PHP de backups + tela `#/versoes`, migração). `CHANGELOG.md` tem a entrada `+1.0` do lançamento do MVP.
 
