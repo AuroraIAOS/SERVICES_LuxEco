@@ -101,10 +101,11 @@ describe('navegação e estrutura da página', () => {
     expect(ordem.slice(0, 6)).toEqual(['Pular para o conteúdo', 'LUX ECO SOLUTIONS', 'MMO v02', 'FPE', 'POP', 'Versões salvas']);
   });
 
-  it('a tela ainda sem conteúdo diz o que fazer (Versões oferece um caminho)', () => {
+  it('sem servidor de versões, a tela diz o que houve, que nada se perdeu e oferece tentar de novo', async () => {
     render(<AppEmMemoria inicial="/versoes" />);
-    expect(screen.getByRole('heading', { level: 2, name: 'Tela prevista para a próxima versão' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Abrir o MMO v02' })).toHaveAttribute('href', '/mmo');
+    expect(await screen.findByRole('heading', { level: 2, name: 'Não foi possível carregar as versões' })).toBeInTheDocument();
+    expect(screen.getByText(/nada foi perdido/)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Tentar de novo' })).toBeInTheDocument();
   });
 });
 

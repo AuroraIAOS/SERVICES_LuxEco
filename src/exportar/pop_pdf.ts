@@ -10,7 +10,7 @@ const linhas = (t: string) =>
     .map((l) => escaparHtml(l))
     .join('<br>');
 
-function htmlBloco(b: Bloco): string {
+export function htmlBloco(b: Bloco): string {
   switch (b.tipo) {
     case 'paragrafo':
       return `<p>${linhas(b.texto)}</p>`;

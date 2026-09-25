@@ -274,3 +274,98 @@
     padding-inline: 0.5rem;
   }
 }
+
+/* ── Salvar versão e Versões salvas (03.6) ─────────────────────────── */
+.salvar-versao {
+  max-width: 64rem;
+  margin: 0 0 1.5rem;
+}
+
+.salvar-versao__botoes,
+.versoes__botoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--vao);
+}
+
+.salvar-versao__form {
+  max-width: 34rem;
+  margin: 1rem 0;
+  padding: 1rem 1.25rem 0.25rem;
+  background: var(--chumbo-mid);
+  border-left: 3px solid var(--amarelo);
+}
+
+.versoes__topo {
+  margin-bottom: 1rem;
+}
+
+.versoes__desfazer {
+  margin-bottom: 1rem;
+}
+
+.versoes__contador {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+}
+
+.versoes__filtros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0 1.25rem;
+  max-width: 64rem;
+}
+
+.versoes__lote {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--vao);
+  margin: 0 0 1rem;
+}
+
+.versoes__selecionadas {
+  margin: 0 0.75rem 0 0;
+  color: var(--texto-suave);
+}
+
+.versoes__confirmar {
+  max-width: 64rem;
+}
+
+.versoes__confirmar ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.versoes__rolagem {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.versoes__tabela td,
+.versoes__tabela th {
+  white-space: nowrap;
+}
+
+.versoes__tabela td:nth-child(3) {
+  white-space: normal;
+  min-width: 12rem;
+}
+
+.versoes__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.versoes__renomear {
+  display: grid;
+  gap: 0.25rem;
+  justify-items: start;
+}
+
+.versoes__tabela tr[aria-selected='true'] td {
+  background: var(--chumbo-mid);
+}

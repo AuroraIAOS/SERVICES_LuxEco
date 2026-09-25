@@ -27,8 +27,9 @@ const paragrafos = (valor: string) =>
     .map((l) => escaparHtml(l))
     .join('<br>');
 
-export function htmlFichas(doc: DocumentoFichasTexto, dataTexto: string): string {
-  const corpo = doc.setores
+/** Só o corpo das fichas (setores → fases → estágios → fichas), sem cabeçalho nem rodapé: usado pelo PDF e pelo backup HTML. */
+export function corpoFichas(doc: DocumentoFichasTexto): string {
+  return doc.setores
     .map((s) => {
       const fases = s.fases
         .map(
@@ -55,7 +56,10 @@ export function htmlFichas(doc: DocumentoFichasTexto, dataTexto: string): string
       return doc.escopo === 'geral' ? `<section class="impressao__setor"><h2 class="impressao__nome-setor">Setor ${escaparHtml(s.nome)}</h2>${fases}</section>` : fases;
     })
     .join('');
-  return moldura(doc.titulo, dataTexto, corpo);
+}
+
+export function htmlFichas(doc: DocumentoFichasTexto, dataTexto: string): string {
+  return moldura(doc.titulo, dataTexto, corpoFichas(doc));
 }
 
 /**

@@ -7,6 +7,7 @@ import { Numeros, Tela } from '../../ui';
 import { FormularioFicha } from './FormularioFicha';
 import { matrizComEdicoes, montarFpe, resolverSelecao } from './modelo';
 import type { Selecao } from './modelo';
+import { SalvarVersao } from '../comum/SalvarVersao';
 import { NavegacaoFpe } from './NavegacaoFpe';
 import { PainelExportacao } from './PainelExportacao';
 import { PainelFluxograma } from './PainelFluxograma';
@@ -62,6 +63,7 @@ export function TelaFpe({ dados = MATRIZ_V08, fichas = DOCUMENTO_FICHAS, armazen
           />
           <PainelFluxograma matriz={matrizEfetiva} setor={setor.setor} faseSugerida={estagio.estagio.fase_id} revisao={revisao} />
           <PainelExportacao fpe={fpe} dados={dados} fichas={fichas} estado={estado} setor={setor.setor} aoImportar={substituir} />
+          <SalvarVersao escopoPadrao="fpe" estadoFpe={estado} />
         </>
       ) : (
         <p>Nenhuma ficha para mostrar.</p>

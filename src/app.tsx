@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { Suspense, lazy, useEffect, useRef } from 'react';
 import { HashRouter, MemoryRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { TelaMmo } from './telas/mmo';
-import { BotaoLink, Cabecalho, EstadoVazio, PularParaConteudo, Rodape, Tela } from './ui';
+import { Cabecalho, PularParaConteudo, Rodape, Tela } from './ui';
 import type { ItemNavegacao } from './ui';
 
 // Guia de estilo (#/guia): só no `npm run dev`. Em produção `import.meta.env.DEV` é falso e o módulo nem entra no build.
@@ -12,28 +12,14 @@ const TelaFpe = lazy(() => import('./telas/fpe').then((m) => ({ default: m.TelaF
 // POP: fichas, bibliotecas e perguntas (~400 kB de JSON) só carregam quando a tela é aberta.
 const TelaPop = lazy(() => import('./telas/pop').then((m) => ({ default: m.TelaPop })));
 
+// Versões salvas: só carrega o cliente da API, o modelo e as regras de restauração quando a tela é aberta.
+const TelaVersoes = lazy(() => import('./telas/versoes').then((m) => ({ default: m.TelaVersoes })));
+
 const Guia = import.meta.env.DEV ? lazy(() => import('./ui/Guia').then((m) => ({ default: m.Guia }))) : null;
 
 interface DefinicaoTela extends ItemNavegacao {
   /** o que a rota mostra. */
   tela: () => ReactNode;
-}
-
-/** Tela ainda por vir: diz o que vai aparecer e oferece um caminho (Versões chega na Etapa 03). */
-function EmBreve({ titulo, subtitulo, vazio, acoes }: { titulo: string; subtitulo: string; vazio: { titulo: string; texto: string }; acoes?: { para: string; rotulo: string }[] }) {
-  return (
-    <Tela titulo={titulo} subtitulo={subtitulo}>
-      <EstadoVazio
-        titulo={vazio.titulo}
-        texto={vazio.texto}
-        acao={acoes?.map((a) => (
-          <BotaoLink key={a.para} para={a.para}>
-            {a.rotulo}
-          </BotaoLink>
-        ))}
-      />
-    </Tela>
-  );
 }
 
 export const TELAS: readonly DefinicaoTela[] = [
@@ -72,12 +58,15 @@ export const TELAS: readonly DefinicaoTela[] = [
     caminho: '/versoes',
     rotulo: 'Versões salvas',
     tela: () => (
-      <EmBreve
-        titulo="Versões salvas"
-        subtitulo="Cópias de segurança guardadas no servidor"
-        vazio={{ titulo: 'Tela prevista para a próxima versão', texto: 'Aqui você vai listar, baixar e excluir as versões salvas no servidor.' }}
-        acoes={[{ para: '/mmo', rotulo: 'Abrir o MMO v02' }]}
-      />
+      <Suspense
+        fallback={
+          <Tela titulo="Versões salvas" subtitulo="Cópias de segurança guardadas no servidor">
+            <p role="status">Carregando as versões…</p>
+          </Tela>
+        }
+      >
+        <TelaVersoes />
+      </Suspense>
     ),
   },
 ];

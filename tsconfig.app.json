@@ -27,5 +27,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
-  "exclude": ["src/dados/*.test.ts", "src/fluxograma/*.test.ts"]
+  "exclude": ["src/dados/*.test.ts", "src/fluxograma/*.test.ts", "src/backup/*_php.test.ts"]
 }

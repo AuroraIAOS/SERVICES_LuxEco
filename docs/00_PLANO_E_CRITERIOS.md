@@ -5,7 +5,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 
 >> **Progresso Geral**
 >>
->> ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅⬜⬜⬜ 25/28
+>> ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅⬜⬜ 26/28
 >>
 >> *baseado no número total de subetapas*
 
@@ -83,7 +83,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 03.3 | LLM: seletor padrão/particular, consentimento e fallback | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- llm` → 86 passed; `npm test -- limite_gasto` → 27 passed; `npm test -- llm_texto` → 14 passed (total 483); `npm run e2e` → 19 passed (IA com rede simulada: 404 no principal → reserva); `grep -rEl "sk-ant\|sk-proj" dist` → 0; gitleaks limpo. Modelos: gemma-4-31b (principal), qwen3.8-27b e nemotron-3-super-120b (reservas), aprovados por Max. **Pendente na 03.5:** gravar/ler `config_llm` no servidor (rotas `config_ler`/`config_gravar`); por ora vale a cópia local. |
 | 03.4 | Exportar XLSX (FPE e POP) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | SheetJS 0.20.3 vendorizado (`vendor/xlsx-0.20.3.tgz`, decisão de Max); `npm test -- xlsx` → 23 passed (17 abas lidas de volta: 12 setores + 4 bibliotecas + 1 POP geral; sem fórmula, sem truncar); `npm test` → 506 passed; `npm run e2e` → 20 passed (download real pelo FPE e pelo POP); gitleaks limpo. |
  do PCRE aceitava `\n` no id); `npm run backup:provar` → `OK backup: criar=201 listar=200 baixar=200 zip=200 excluir=200 onze=409 config=200`; `curl` sem senha → 401, com senha → 200; `id=../../.env` → barrado pelo WAF da hospedagem (406) antes do PHP; `npm test` → 593 passed; `npm run e2e` → 20 passed; gitleaks limpo. `config_llm` sincroniza com o servidor. |
-| 03.6 | Tela “Versões salvas” (`#/versoes`) e botão “Salvar versão” | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 03.6 | Tela “Versões salvas” (`#/versoes`) e botão “Salvar versão” | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- backup versoes` → 108 passed (mocks 200/401/409/413/422/rede/protegido; o HTML do app validado pelo PHP de verdade); `npm run e2e -- versoes` → 5 passed com a API PHP real (salvar 10, 11º bloqueado, selecionar todas, zip, proteger, excluir em lote, restaurar/desfazer, pré-visualizar sob sandbox, 390 px); `npm run e2e` → 25 passed; smoke no servidor de Max (POP e Versões carregam com a senha); `grep -rEin "drive\|oauth\|gapi" src \| wc -l` → 0; gitleaks limpo. |
 | 03.7 | Build offline, guia do contratante e deploy final (homologação) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 03.8 | Migração para a hospedagem do contratante | [Auto após aprovação] [LLM: Sonnet] | ⬜ A FAZER |  |
 
@@ -451,7 +451,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis, incluindo `open_basedir`, permissões e `REMOTE_USER` + 2–3 alternativas, p. ex. WebDAV do cPanel ou salvar só por download manual); registrar em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 03.6 — Tela “Versões salvas” (`#/versoes`) e botão “Salvar versão” [Auto] [Goal] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: o contratante salva versões do FPE/POP e gere as versões anteriores em uma view própria.
 Arquivos tocados: `src/telas/versoes/*`, `src/backup/cliente.ts`, `src/backup/gerar_html.ts`, `src/backup/estado.ts`, `src/telas/comum/SalvarVersao.tsx`, `src/backup/backup.test.ts`, `src/telas/versoes/versoes.test.tsx`, `e2e/versoes.spec.ts`.
 Passos:

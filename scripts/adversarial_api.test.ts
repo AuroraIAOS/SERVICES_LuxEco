@@ -3,77 +3,28 @@
 // do ciclo feliz, ataca: id com ../, método errado, mutação sem X-Lux-Requisicao, corpo > 5 MB, HTML sem lux-estado, chave de API
 // na config e no backup, 11º backup, criação simultânea (processos CGI paralelos, flock), sem senha e cabeçalho de senha forjado.
 // A suíte funcional prova o comportamento pretendido; estes ataques provam a ausência do caminho não pretendido.
-import { spawn, type ChildProcess } from 'node:child_process';
-import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { createServer } from 'node:net';
-import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { spawn } from 'node:child_process';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { unzipSync } from 'fflate';
 import { afterAll, describe, expect, it } from 'vitest';
-import { acharPhp } from './php_local.ts';
+import { AUTH_TESTE, PHP, subirApi, type AmbienteApi } from './api_local.ts';
 
-const RAIZ = resolve(import.meta.dirname, '..');
-const PHP = acharPhp();
-const AUTH = `Basic ${Buffer.from('teste:teste').toString('base64')}`;
+const PHP_CGI = PHP.cgi;
+const AUTH = AUTH_TESTE;
 const ID = /^bk_\d{8}_\d{6}_[0-9a-f]{8}$/;
 const falsa = (...partes: string[]) => partes.join('-');
 const CHAVE_FALSA = falsa('sk', 'or', 'v1', 'abcdef1234567890');
 
-interface Ambiente {
-  url: string;
-  /** pasta dos backups (fora da raiz web). */
-  dir: string;
-  docroot: string;
-  parar: () => void;
-}
+type Ambiente = AmbienteApi;
 const abertos: Ambiente[] = [];
 afterAll(() => abertos.forEach((a) => a.parar()));
-
-const portaLivre = () =>
-  new Promise<number>((ok) => {
-    const s = createServer();
-    s.listen(0, '127.0.0.1', () => {
-      const p = (s.address() as { port: number }).port;
-      s.close(() => ok(p));
-    });
-  });
 
 const CONFIG_LLM = { schema_versao: 1, teto_mensal_brl: 0, alerta_percentual: 95, limite_diario_requisicoes: 50, modelos: ['google/gemma-4-31b-it:free', 'qwen/qwen3.8-27b:free'], atualizado_em: '2026-09-25T10:00:00.000Z' };
 
 /** Sobe uma cópia da API com a sua própria pasta de backups. `producao`: config sem modo_teste; REMOTE_USER só via cabeçalho de teste (simula o Apache). */
 async function subir(o: { limite?: number; producao?: boolean; semConfig?: boolean } = {}): Promise<Ambiente> {
-  const base = mkdtempSync(join(tmpdir(), 'lux_api_'));
-  const docroot = join(base, 'web');
-  const dir = join(base, 'lux_backups');
-  mkdirSync(docroot);
-  copyFileSync(join(RAIZ, 'public/api/backups.php'), join(docroot, 'backups.php'));
-  if (!o.semConfig) writeFileSync(join(docroot, 'config.php'), `<?php return ['diretorio' => ${JSON.stringify(dir)}, 'limite' => ${o.limite ?? 10}, ${o.producao ? '' : "'modo_teste' => true,"} 'fuso' => 'America/Sao_Paulo'];\n`);
-  const roteador = join(docroot, 'roteador.php');
-  writeFileSync(roteador, "<?php\nif (isset($_SERVER['HTTP_X_TESTE_REMOTE_USER'])) { $_SERVER['REMOTE_USER'] = $_SERVER['HTTP_X_TESTE_REMOTE_USER']; }\nrequire __DIR__ . '/backups.php';\n");
-  const porta = await portaLivre();
-  const filho: ChildProcess = spawn(PHP.php, [...PHP.ini, '-S', `127.0.0.1:${porta}`, '-t', docroot, roteador], { cwd: docroot, stdio: 'ignore' });
-  const url = `http://127.0.0.1:${porta}/backups.php`;
-  for (let i = 0; i < 100; i++) {
-    try {
-      await fetch(url);
-      break;
-    } catch {
-      await new Promise((r) => setTimeout(r, 50));
-    }
-  }
-  const amb: Ambiente = {
-    url,
-    dir,
-    docroot,
-    parar: () => {
-      filho.kill();
-      try {
-        rmSync(base, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 });
-      } catch {
-        // Windows ainda segurando a pasta: é só a pasta temporária do teste
-      }
-    },
-  };
+  const amb = await subirApi(o);
   abertos.push(amb);
   return amb;
 }
@@ -250,7 +201,7 @@ describe('limite de 10 versões', () => {
     const corpo = JSON.stringify({ html: html(), rotulo: 'paralelo', escopo: 'completo', versao_app: '0.1.0' });
     const rodar = () =>
       new Promise<number>((ok, falha) => {
-        const f = spawn(PHP.cgi, [...PHP.ini], {
+        const f = spawn(PHP_CGI, [...PHP.ini], {
           env: {
             ...process.env,
             REDIRECT_STATUS: '200',

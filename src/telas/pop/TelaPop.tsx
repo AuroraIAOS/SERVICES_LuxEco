@@ -14,6 +14,7 @@ import type { Ambiente } from '../../llm/ambiente';
 import { Botao, Numeros, Pilula, Tela, estiloDoSetor } from '../../ui';
 import { montarFpe } from '../fpe/modelo';
 import { PainelExportacaoPop } from './PainelExportacaoPop';
+import { SalvarVersao } from '../comum/SalvarVersao';
 import { PainelLimiteGasto } from './PainelLimiteGasto';
 import { PerguntasSetor } from './PerguntasSetor';
 import { SeletorLlm } from './SeletorLlm';
@@ -145,6 +146,8 @@ export function TelaPop({
           Gerar POP geral
         </Botao>
       </div>
+
+      <SalvarVersao escopoPadrao="pop" estadoFpe={edicoesFpe} estadoPop={estado} />
 
       <div ref={resultado} tabIndex={-1} className="pop-resultado">
         {gerado ? (
