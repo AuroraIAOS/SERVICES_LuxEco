@@ -12,6 +12,7 @@ import type { EscopoPop, Pop } from '../../pop/gerar';
 import { gerarPop } from '../../pop/gerar';
 import { Botao, Numeros, Tela, estiloDoSetor } from '../../ui';
 import { montarFpe } from '../fpe/modelo';
+import { PainelExportacaoPop } from './PainelExportacaoPop';
 import { PerguntasSetor } from './PerguntasSetor';
 import { PopGerado } from './PopGerado';
 import { useEstadoPop } from './useEstadoPop';
@@ -118,7 +119,14 @@ export function TelaPop({
       </div>
 
       <div ref={resultado} tabIndex={-1} className="pop-resultado">
-        {gerado ? <PopGerado pop={gerado.pop} desatualizado={gerado.estado !== estado} /> : <p className="pop-resultado__vazio">O POP gerado aparece aqui, com as {templates.secoes.length} seções.</p>}
+        {gerado ? (
+          <>
+            <PopGerado pop={gerado.pop} desatualizado={gerado.estado !== estado} />
+            <PainelExportacaoPop pop={gerado.pop} />
+          </>
+        ) : (
+          <p className="pop-resultado__vazio">O POP gerado aparece aqui, com as {templates.secoes.length} seções.</p>
+        )}
       </div>
     </Tela>
   );

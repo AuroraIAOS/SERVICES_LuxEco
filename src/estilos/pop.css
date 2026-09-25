@@ -50,6 +50,19 @@
   color: var(--texto-suave);
 }
 
+.pop-exportar {
+  margin-top: 2rem;
+}
+
+.pop-exportar__titulo {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+}
+
+.pop-exportar .pop-acoes {
+  margin-bottom: 1rem;
+}
+
 /* ── POP gerado ────────────────────────────────────────────────────── */
 .pop-gerado__cabecalho {
   display: flex;

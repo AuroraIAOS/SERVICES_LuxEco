@@ -5,7 +5,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 
 >> **Progresso Geral**
 >>
->> ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅⬜⬜⬜⬜⬜⬜⬜ 21/28
+>> ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅⬜⬜⬜⬜⬜⬜ 22/28
 >>
 >> *baseado no número total de subetapas*
 
@@ -37,7 +37,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 02.12 | HANDOFF_UPGRADE e CHANGELOG do MVP | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `HANDOFF_UPGRADE.md` preenchido com as saídas reais; `grep -c "^## \[+1.0\]" CHANGELOG.md` → `1`; portão 02→03 verde (304 testes, e2e 13 passed, 3 `dados:validar` OK, 401/200, gitleaks limpo). |
 | **Etapa 03** | UPGRADES E VERSIONAMENTOS |  | ⬜ A FAZER |  |
 | 03.1 | Tela POP: perguntas estratégicas e geração por template | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run dados:validar -- --pop` → `OK pop: setores=12 perguntas>=96 secoes=11` (108 perguntas); `npm test` → 385 passed (39 do gerador: 12 POPs setoriais + 1 geral com 11 seções e os 4 itens da seção 11); `npm run e2e` → 17 passed (4 do POP); gitleaks limpo. |
-| 03.2 | Exportar POP em .docx e .pdf | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 03.2 | Exportar POP em .docx e .pdf | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `node scripts/verificar_docx.mjs saidas_teste/pop_geral.docx` → `OK: secoes=11`; `npm test` → 397 passed (12 do export do POP); `npm run e2e` → 18 passed (download real do .docx e PDF A4 em mídia de impressão); gitleaks limpo. |
 | 03.3 | LLM: seletor padrão/particular, consentimento e fallback | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 03.4 | Exportar XLSX (FPE e POP) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 03.5 | API PHP de backups versionados no servidor (limite 10) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -354,7 +354,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 03.2 — Exportar POP em .docx e .pdf [Auto] [Goal] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: POP em arquivo de texto entregável.
 Arquivos tocados: `src/exportar/pop_docx.ts`, `src/exportar/pop_pdf.ts`, `scripts/verificar_docx.mjs`, `src/exportar/pop.test.ts`.
 Passos: 1) `.docx` com a biblioteca `docx`: capa, sumário, 11 seções, rodapé com a nota de propriedade intelectual. 2) PDF por impressão (A4). 3) `verificar_docx.mjs` abre o arquivo gerado e conta seções.

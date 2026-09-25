@@ -173,6 +173,12 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm run dados:validar -- --pop | tail -1` → `OK pop: setores=12 perguntas>=96 secoes=11`; `npm test -- pop` → 0 failed; `npm run e2e -- pop` → 4 passed.
 - **Fonte:** decisão técnica de 25/09/2026 (03.1); docs/06 §5.
 
+### Export do POP: uma estrutura (`Pop`) para tela, .docx e PDF; o .docx é conferido abrindo o arquivo
+- **Gatilho:** qualquer mudança em `src/exportar/pop_docx.ts`, `pop_pdf.ts`, no CSS de impressão do POP ou em `gerar.ts` (que alimenta os três).
+- **Ação:** `montarDocx(pop, data)` (biblioteca `docx` 9.x; `Packer.toArrayBuffer` roda no navegador e no Node) faz capa, sumário fixo (sem campo do Word: não pede “atualizar campos” ao abrir), cada seção como **Título 1 “N. Título”**, listas, passos, tabelas com linha de cabeçalho e rodapé com a nota + “Página X de Y”. Cores e fonte só dos tokens (o teste falha se aparecer outra cor no XML). `scripts/verificar_docx.mjs` (fflate + fast-xml-parser) abre o zip, conta os Título 1, exige a 11 “Observações para revisão jurídica” por último, o sumário e a nota no rodapé. PDF = `htmlPop` + `imprimir` (A4). A biblioteca do Word só carrega ao clicar em .docx (`import()` dinâmico). No CSS de impressão o amarelo é só filete (`border`): o teste `impressao.css` reprova `background` amarelo. No teste, o rodapé do XML tem `&amp;`: compare com a nota escapada.
+- **Evidência:** `node scripts/verificar_docx.mjs saidas_teste/pop_geral.docx` → `OK: secoes=11`; `npm test -- exportar` → 0 failed; `npm run e2e -- pop` → 5 passed.
+- **Fonte:** decisão técnica de 25/09/2026 (03.2); doc oficial da biblioteca docx (context7).
+
 ## 6. Armadilhas conhecidas (não repetir)
 
 ### `white-space: nowrap` em rótulo de pílula estoura a largura no celular

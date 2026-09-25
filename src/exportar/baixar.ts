@@ -26,7 +26,11 @@ export function nomeArquivo(escopo: string, extensao: string, agora: Date): stri
 
 /** Baixa `conteudo` como arquivo. UTF-8 sem BOM. */
 export function baixar(nome: string, conteudo: string, mime: string): void {
-  const url = URL.createObjectURL(new Blob([conteudo], { type: `${mime};charset=utf-8` }));
+  baixarBlob(nome, new Blob([conteudo], { type: `${mime};charset=utf-8` }));
+}
+
+function baixarBlob(nome: string, blob: Blob): void {
+  const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
   link.download = nome;
@@ -38,4 +42,19 @@ export function baixar(nome: string, conteudo: string, mime: string): void {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-export const MIME = { json: 'application/json', md: 'text/markdown', mermaid: 'text/vnd.mermaid' } as const;
+/** `pop_<setor|geral>_<AAAA-MM-DD>.<ext>` (03.2). */
+export function nomeArquivoPop(escopo: string, extensao: string, agora: Date): string {
+  return `pop_${slug(escopo)}_${dataLocal(agora)}.${extensao}`;
+}
+
+/** Baixa bytes já prontos (ex.: .docx). */
+export function baixarBytes(nome: string, bytes: Uint8Array, mime: string): void {
+  baixarBlob(nome, new Blob([bytes as BlobPart], { type: mime }));
+}
+
+export const MIME = {
+  json: 'application/json',
+  md: 'text/markdown',
+  mermaid: 'text/vnd.mermaid',
+  docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+} as const;

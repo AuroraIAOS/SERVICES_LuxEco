@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
@@ -91,4 +92,50 @@ test('POP: no celular (390 px) não rola na horizontal, nem com o POP aberto', a
   await page.getByRole('button', { name: 'Abrir todas as seções' }).click();
   const largura = await page.evaluate(() => ({ rolagem: document.documentElement.scrollWidth, janela: window.innerWidth }));
   expect(largura.rolagem).toBeLessThanOrEqual(largura.janela);
+});
+
+const infoPdf = (buffer: Buffer) => {
+  const texto = buffer.toString('latin1');
+  const caixa = /\/MediaBox\s*\[\s*0\s+0\s+([\d.]+)\s+([\d.]+)\s*\]/.exec(texto);
+  return { largura: Number(caixa?.[1]), altura: Number(caixa?.[2]), paginas: (texto.match(/\/Type\s*\/Page[^s]/g) ?? []).length };
+};
+
+test('POP: exporta .docx de verdade (nome padrão, 11 seções) e PDF A4 com a marca', async ({ page }) => {
+  await page.addInitScript(() => {
+    // a caixa de impressão não existe no headless: guarda que foi pedida e deixa a área montada
+    (window as unknown as { __impressoes: number }).__impressoes = 0;
+    window.print = () => {
+      (window as unknown as { __impressoes: number }).__impressoes++;
+    };
+  });
+  const erros: string[] = [];
+  page.on('console', (m) => m.type() === 'error' && erros.push(m.text()));
+  page.on('pageerror', (e) => erros.push(String(e)));
+
+  await abrirPop(page);
+  await page.getByRole('button', { name: 'Vendas', exact: true }).click();
+  await expect(page.getByRole('button', { name: /Exportar/ })).toHaveCount(0); // nada para exportar antes de gerar
+  await page.getByRole('button', { name: 'Gerar POP do setor Vendas' }).click();
+
+  const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Exportar POP — Vendas em Word (.docx)' }).click()]);
+  expect(download.suggestedFilename()).toMatch(/^pop_vendas_\d{4}-\d{2}-\d{2}\.docx$/);
+  const caminho = await download.path();
+  const saida = execFileSync('node', ['scripts/verificar_docx.mjs', caminho], { encoding: 'utf8' });
+  expect(saida.trim()).toBe('OK: secoes=11');
+
+  await page.getByRole('button', { name: 'Exportar POP — Vendas em PDF (.pdf)' }).click();
+  expect(await page.evaluate(() => (window as unknown as { __impressoes: number }).__impressoes)).toBe(1);
+  expect(await page.title()).toMatch(/^pop_vendas_\d{4}-\d{2}-\d{2}$/);
+  await page.emulateMedia({ media: 'print' });
+  await page.setViewportSize({ width: 794, height: 1123 });
+  const area = page.locator('#lux-impressao');
+  await expect(area.getByRole('heading', { level: 1 })).toHaveText('POP — Vendas');
+  await expect(area.locator('.impressao__secao-pop')).toHaveCount(11);
+  await expect(area).toContainText('Uso interno da Lux Eco Solutions');
+  await area.screenshot({ path: 'screenshots/pdf_pop_vendas.png' });
+  const info = infoPdf(await page.pdf({ preferCSSPageSize: true, printBackground: true }));
+  expect(Math.abs(info.largura - 595.28)).toBeLessThan(1); // A4
+  expect(Math.abs(info.altura - 841.89)).toBeLessThan(1);
+  expect(info.paginas).toBeGreaterThan(1);
+  expect(erros).toEqual([]);
 });

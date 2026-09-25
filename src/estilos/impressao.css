@@ -155,4 +155,79 @@
   .impressao dd {
     margin: 0;
   }
+
+  /* POP (03.2): sumário, listas, passos, tabelas e respostas */
+  .impressao__subtitulo {
+    margin: 0 0 4mm;
+  }
+
+  .impressao__sumario {
+    margin: 0 0 4mm;
+    break-after: page;
+  }
+
+  .impressao__sumario ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .impressao__secao-pop > h2 {
+    break-before: auto;
+  }
+
+  .impressao__lista {
+    margin: 0 0 3mm;
+    padding-left: 5mm;
+  }
+
+  .impressao__passo {
+    margin: 0 0 3mm;
+    break-inside: avoid;
+  }
+
+  .impressao__passo dl {
+    grid-template-columns: 17mm 1fr;
+    padding-left: 4mm;
+  }
+
+  .impressao__tabela {
+    width: 100%;
+    margin: 0 0 4mm;
+    border-collapse: collapse;
+    font-size: 9pt;
+  }
+
+  .impressao__tabela th,
+  .impressao__tabela td {
+    padding: 1.2mm 2mm;
+    border: 0.3mm solid var(--chumbo-lighter);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .impressao__tabela th {
+    border-bottom: 0.8mm solid var(--amarelo); /* amarelo só em filete */
+    color: var(--chumbo);
+    font-weight: var(--peso-titulo);
+  }
+
+  .impressao__tabela tr {
+    break-inside: avoid;
+  }
+
+  .impressao__respostas {
+    margin: 3mm 0;
+    padding-left: 3mm;
+    border-left: 0.8mm solid var(--chumbo-lighter);
+  }
+
+  .impressao__pergunta {
+    margin: 2mm 0 0.5mm;
+    font-weight: var(--peso-titulo);
+  }
+
+  .impressao__aviso {
+    font-style: italic;
+  }
 }

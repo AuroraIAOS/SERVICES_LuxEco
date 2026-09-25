@@ -10,7 +10,7 @@ export const ID_AREA_IMPRESSAO = 'lux-impressao';
 
 export const escaparHtml = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-const moldura = (titulo: string, dataTexto: string, corpo: string) =>
+export const moldura = (titulo: string, dataTexto: string, corpo: string) =>
   `<header class="impressao__topo"><p class="impressao__marca">${escaparHtml(NOME_MARCA)}</p><h1>${escaparHtml(titulo)}</h1>` +
   `<p class="impressao__meta">${escaparHtml(NOME_APP)} · exportado em ${escaparHtml(dataTexto)}</p></header>` +
   `${corpo}<footer class="impressao__rodape"><p>${escaparHtml(NOTA_PROPRIEDADE)}</p></footer>`;
