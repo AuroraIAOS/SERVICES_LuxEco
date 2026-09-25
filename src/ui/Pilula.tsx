@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { useId, useState } from 'react';
+import { estiloDoSetor } from './Cartao';
 import { cls } from './identidade';
 
 export interface PilulaProps {
@@ -12,6 +13,8 @@ export interface PilulaProps {
   nivel?: 2 | 3 | 4;
   aberta?: boolean;
   aoAlternar?: (aberta: boolean) => void;
+  /** `cor_token` do setor: filete lateral permanente na cor dele (o texto continua branco). */
+  setor?: string;
   children?: ReactNode;
 }
 
@@ -20,7 +23,7 @@ export interface PilulaProps {
  * `aria-expanded` e `aria-controls` dizem o estado; Enter e Espaço alternam (botão nativo).
  * Funciona sem controle externo; passe `aberta`/`aoAlternar` para controlar de fora.
  */
-export function Pilula({ numero, nome, resumo, nivel = 3, aberta, aoAlternar, children }: PilulaProps) {
+export function Pilula({ numero, nome, resumo, nivel = 3, aberta, aoAlternar, setor, children }: PilulaProps) {
   const [interno, setInterno] = useState(false);
   const idBotao = useId();
   const idPainel = useId();
@@ -34,12 +37,21 @@ export function Pilula({ numero, nome, resumo, nivel = 3, aberta, aoAlternar, ch
   };
 
   return (
-    <div className={cls('pilula', estaAberta && 'pilula--aberta')}>
+    <div className={cls('pilula', estaAberta && 'pilula--aberta', setor && 'pilula--setor')} style={estiloDoSetor(setor)}>
       <Titulo className="pilula__cabecalho">
         <button type="button" id={idBotao} className="pilula__botao" aria-expanded={estaAberta} aria-controls={idPainel} onClick={alternar}>
-          {numero && <span className="pilula__numero">{numero}</span>}
+          {numero && (
+            <>
+              <span className="pilula__numero">{numero}</span>{' '}
+            </>
+          )}
           <span className="pilula__nome">{nome}</span>
-          {resumo && <span className="pilula__resumo">{resumo}</span>}
+          {resumo && (
+            <>
+              {' '}
+              <span className="pilula__resumo">{resumo}</span>
+            </>
+          )}
           <span className="pilula__seta" aria-hidden="true">
             ›
           </span>

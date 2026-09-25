@@ -3,11 +3,11 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Condicional, Documento, Ferramenta, Investimento, Kpi, Matriz, MatrizV08 } from '../src/dados/tipos.ts';
+import type { Condicional, Documento, Estagio, Ferramenta, Investimento, Kpi, Matriz, MatrizV08, Setor } from '../src/dados/tipos.ts';
 import { faseDoEstagio } from '../src/dados/tipos.ts';
 import { comparar, HTML_LEGADO, lerJson, lerLegado } from './comparar_mmo_legado.ts';
-import { compor, JSON_ANOTACOES, JSON_MAPA, JSON_V08 } from './compor_v08.ts';
-import type { AnotacoesV08 } from './compor_v08.ts';
+import { compor, JSON_ANOTACOES, JSON_MAPA, JSON_MMO, JSON_V08 } from './compor_v08.ts';
+import type { AnotacoesV08, MmoV02 } from './compor_v08.ts';
 import { gerarFichas, JSON_AUTORIA, JSON_FICHAS, serializarFichas } from './gerar_fichas.ts';
 import type { Autoria, DocumentoFichas } from './gerar_fichas.ts';
 import { JSON_V07, lerMatriz, serializar, textoOriginalIfElse } from './xlsx_para_json.ts';
@@ -112,8 +112,36 @@ export function validarV08(v08: MatrizV08, v07: Matriz, mapa: MapaCondicionais, 
 
   // Nada da V07 mudou: mesmas estruturas, mesmas ações na mesma posição, mesmas condicionais (só ganham situacao_id).
   if (JSON.stringify(v08.fases) !== JSON.stringify(v07.fases)) erros.push('Regra 3: as fases da V08 diferem da V07');
-  if (JSON.stringify(v08.setores) !== JSON.stringify(v07.setores)) erros.push('Regra 3: os setores da V08 diferem da V07 (não renomear nem reordenar)');
-  if (JSON.stringify(v08.estagios) !== JSON.stringify(v07.estagios)) erros.push('Regra 3: os estágios da V08 diferem da V07 (não renomear nem reordenar)');
+  // Setores e estágios: o núcleo (id, número, nome, cor/fase) é o da V07; a V08 só ACRESCENTA campos (tipo, funções, descrição…).
+  const nucleoSetor = (s: Setor) => JSON.stringify({ id: s.id, numero: s.numero, nome: s.nome, cor_token: s.cor_token });
+  const nucleoEstagio = (e: Estagio) => JSON.stringify({ id: e.id, numero: e.numero, nome: e.nome, fase_id: e.fase_id });
+  if (v08.setores.map(nucleoSetor).join('|') !== v07.setores.map(nucleoSetor).join('|')) erros.push('Regra 3: os setores da V08 diferem da V07 (não renomear nem reordenar)');
+  if (v08.estagios.map(nucleoEstagio).join('|') !== v07.estagios.map(nucleoEstagio).join('|')) erros.push('Regra 3: os estágios da V08 diferem da V07 (não renomear nem reordenar)');
+
+  // Metadados da tela MMO (data/conteudo/mmo_v02.json): todo setor com tipo e funções, todo estágio com descrição, jornada do cliente.
+  for (const s of v08.setores) {
+    if (!s.tipo || !['estrategico', 'interno', 'externo'].includes(s.tipo)) erros.push(`V08: setor ${s.id} sem tipo válido`);
+    if (!s.tipo_rotulo?.trim()) erros.push(`V08: setor ${s.id} sem tipo_rotulo`);
+    if (!s.funcoes?.length) erros.push(`V08: setor ${s.id} sem funções`);
+    for (const t of [s.tipo_rotulo ?? '', ...(s.funcoes ?? [])]) {
+      if (!t.trim()) erros.push(`V08: setor ${s.id} com texto vazio`);
+      else if (traz_cifra_ou_prazo(t)) erros.push(`Conteúdo: setor ${s.id} traz cifra em R$ ou prazo numérico ("${t}")`);
+    }
+    for (const q of s.equipes ?? []) if (!q.nome?.trim() || !q.regiao?.trim()) erros.push(`V08: setor ${s.id} com equipe sem nome ou região`);
+  }
+  for (const e of v08.estagios) {
+    if (!e.descricao?.trim()) erros.push(`V08: estágio ${e.id} sem descrição`);
+    else if (traz_cifra_ou_prazo(e.descricao)) erros.push(`Conteúdo: estágio ${e.id} traz cifra em R$ ou prazo numérico`);
+  }
+  if (!v08.jornada_cliente?.length) erros.push('V08: jornada do cliente vazia');
+  const idsJornada = (v08.jornada_cliente ?? []).map((j) => j.id);
+  if (duplicados(idsJornada).length) erros.push(`V08: ids duplicados na jornada: ${[...new Set(duplicados(idsJornada))].join(', ')}`);
+  for (const j of v08.jornada_cliente ?? []) {
+    if (!j.nome?.trim() || !j.descricao?.trim()) erros.push(`V08: etapa ${j.id} da jornada com campo vazio`);
+    else if (traz_cifra_ou_prazo(`${j.nome} ${j.descricao}`)) erros.push(`Conteúdo: etapa ${j.id} da jornada traz cifra em R$ ou prazo numérico`);
+  }
+  const idsEstagio = new Set(v08.estagios.map((e) => e.id));
+  for (const x of [...v08.perfis_cliente, ...v08.classificacao_lead]) if (!idsEstagio.has(x.estagio_id)) erros.push(`V08: ${x.id} com estagio_id inexistente`);
   v07.acoes.forEach((a, i) => {
     if (JSON.stringify(v08.acoes[i]) !== JSON.stringify(a)) erros.push(`Regra 3: a ação ${a.id} da V07 foi alterada ou mudou de posição`);
   });
@@ -429,7 +457,7 @@ function rodarV08(): number {
   const v07 = lerJsonArquivo<Matriz>(JSON_V07);
   const v08 = lerJsonArquivo<MatrizV08>(JSON_V08);
   const mapa = lerJsonArquivo<MapaCondicionais>(JSON_MAPA);
-  const esperado = compor(v07, lerJsonArquivo<AnotacoesV08>(JSON_ANOTACOES), mapa);
+  const esperado = compor(v07, lerJsonArquivo<AnotacoesV08>(JSON_ANOTACOES), mapa, lerJsonArquivo<MmoV02>(JSON_MMO));
   const erros = [...validarV07(v07), ...validarV08(v08, v07, mapa, esperado)];
   if (erros.length) {
     erros.forEach((e) => console.log(`ERRO: ${e}`));

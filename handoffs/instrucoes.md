@@ -141,7 +141,19 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm test -- ui` → `63 passed`; `grep -rEn "#[0-9A-Fa-f]{6}" src --include=*.tsx | wc -l` → `0`; o guia `#/guia` (só em `npm run dev`) mostra todos os componentes.
 - **Fonte:** decisão técnica de 24/09/2026 (02.7); `docs/04` (seção “Base de UI”).
 
+### Tela MMO: modelo puro (`modelo.ts`) + componentes finos + dados em JSON; a V08 carrega os metadados do Mapa
+- **Gatilho:** qualquer mudança na tela MMO (02.8) ou nova tela que leia a Matriz (FPE 02.9, POP 03.1).
+- **Ação:** `src/telas/mmo/modelo.ts` (`montarMmo(v08, mapa)`) transforma `data/matriz_v08.json` em fases → estágios → setores → ações, números do hero, atuação dos setores e decisões; a tela só desenha (`CicloDeServico`, `SecaoSetores`, `SecaoDecisoes`, `SecaoJornada`). Nada de negócio no código: setores, estágios, textos, equipes e jornada vêm do JSON (`mmo_v02.json` → composto na V08 por `compor_v08.ts`; `resolveJsonModule` ligado no `tsconfig.app.json`). As 15 situações IF/ELSE usam o **estágio da planilha** (a Matriz vence o Mapa). Ramos: 1º caminho ✓ = `se_sim`, 2º ✗ = `se_nao`. O marcador “(GRUPO DE FLUXO)” sai do texto exibido (etiqueta WhatsApp). Sem selo de proveniência e sem exibir a prioridade padrão das oportunidades (inferência). Acordeão: uma pílula aberta por fase (estágios) e uma por vez (setores). Nome acessível dos botões tem espaço entre número, nome e resumo (`{' '}` entre os `<span>`); sem isso o leitor de tela lê “01Prospecção9 ações”.
+- **Evidência:** `npm test -- mmo` → `23 passed` (paridade setor × estágio com a V07, números calculados, V08 visível no Est. 02 e 22, tela reage a dado alterado); `npm run e2e -- mmo` → `6 passed` (renderização inicial < 2 s no navegador); `grep -rn "210+" src | wc -l` → `0`; `npm run dados:validar -- --v08 | tail -1` → `OK v08: setores=12 estagios=22 celulas=236 if_else=37 novos=24`.
+- **Fonte:** decisão técnica de 24/09/2026 (02.8); `docs/04` (seção “Tela MMO v02”), `docs/06` §3.
+
 ## 6. Armadilhas conhecidas (não repetir)
+
+### `white-space: nowrap` em rótulo de pílula estoura a largura no celular
+- **Gatilho:** `mmo.spec.ts` (390 px) falhou com `scrollWidth > 390` depois de travar a quebra do “N ações” em `.pilula__resumo` (regra global do `ui.css`).
+- **Ação:** o mesmo componente (`Pilula`) leva rótulos curtos (“9 ações”) e longos (“Setor externo, equipes terceirizadas”). A trava vale **só no ciclo** (`.fase__estagios .pilula__resumo`, em `mmo.css`). Regra geral: componente compartilhado não ganha `nowrap`; a tela que sabe que o texto é curto é quem trava.
+- **Evidência:** `npm run e2e -- mmo` → `6 passed` (inclui o teste de 390 px).
+- **Fonte:** erro real da 02.8.
 
 ### Vitest devolve string vazia para CSS importado com `?raw`
 - **Gatilho:** teste que faz `import css from './x.css?raw'` e recebe `''` (regex `exec` retorna `null`, asserção estranha).

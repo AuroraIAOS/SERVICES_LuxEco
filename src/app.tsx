@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Suspense, lazy, useEffect, useRef } from 'react';
 import { HashRouter, MemoryRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { TelaMmo } from './telas/mmo';
 import { BotaoLink, Cabecalho, EstadoVazio, PularParaConteudo, Rodape, Tela } from './ui';
 import type { ItemNavegacao } from './ui';
 
@@ -8,46 +9,70 @@ import type { ItemNavegacao } from './ui';
 const Guia = import.meta.env.DEV ? lazy(() => import('./ui/Guia').then((m) => ({ default: m.Guia }))) : null;
 
 interface DefinicaoTela extends ItemNavegacao {
-  subtitulo: string;
-  vazio: { titulo: string; texto: string; acoes?: { para: string; rotulo: string }[] };
+  /** o que a rota mostra. */
+  tela: () => ReactNode;
 }
 
-// Placeholders: o MMO (02.8) e o FPE (02.9) trocam o corpo por telas reais em src/telas/; POP e Versões chegam na Etapa 03.
+/** Tela ainda por vir: diz o que vai aparecer e oferece um caminho (o FPE entra na 02.9; POP e Versões, na Etapa 03). */
+function EmBreve({ titulo, subtitulo, vazio, acoes }: { titulo: string; subtitulo: string; vazio: { titulo: string; texto: string }; acoes?: { para: string; rotulo: string }[] }) {
+  return (
+    <Tela titulo={titulo} subtitulo={subtitulo}>
+      <EstadoVazio
+        titulo={vazio.titulo}
+        texto={vazio.texto}
+        acao={acoes?.map((a) => (
+          <BotaoLink key={a.para} para={a.para}>
+            {a.rotulo}
+          </BotaoLink>
+        ))}
+      />
+    </Tela>
+  );
+}
+
 export const TELAS: readonly DefinicaoTela[] = [
-  {
-    caminho: '/mmo',
-    rotulo: 'MMO v02',
-    subtitulo: 'Mapa Mental Organizacional',
-    vazio: { titulo: 'Mapa em construção', texto: 'O mapa dos 22 estágios e dos 12 setores aparece nesta tela.' },
-  },
+  { caminho: '/mmo', rotulo: 'MMO v02', tela: () => <TelaMmo /> },
   {
     caminho: '/fpe',
     rotulo: 'FPE',
-    subtitulo: 'Formulário 5W1H e fluxograma',
-    vazio: { titulo: 'Formulário em construção', texto: 'As fichas 5W1H e o fluxograma de cada setor aparecem nesta tela.' },
+    tela: () => (
+      <EmBreve
+        titulo="FPE"
+        subtitulo="Formulário 5W1H e fluxograma"
+        vazio={{ titulo: 'Formulário em construção', texto: 'As fichas 5W1H e o fluxograma de cada setor aparecem nesta tela.' }}
+        acoes={[{ para: '/mmo', rotulo: 'Abrir o MMO v02' }]}
+      />
+    ),
   },
   {
     caminho: '/pop',
     rotulo: 'POP',
-    subtitulo: 'Procedimentos Operacionais Padrão',
-    vazio: {
-      titulo: 'Tela prevista para a próxima versão',
-      texto: 'Aqui você vai montar os Procedimentos Operacionais Padrão de cada setor. Até lá, use o mapa e o formulário.',
-      acoes: [
-        { para: '/mmo', rotulo: 'Abrir o MMO v02' },
-        { para: '/fpe', rotulo: 'Abrir o FPE' },
-      ],
-    },
+    tela: () => (
+      <EmBreve
+        titulo="POP"
+        subtitulo="Procedimentos Operacionais Padrão"
+        vazio={{
+          titulo: 'Tela prevista para a próxima versão',
+          texto: 'Aqui você vai montar os Procedimentos Operacionais Padrão de cada setor. Até lá, use o mapa e o formulário.',
+        }}
+        acoes={[
+          { para: '/mmo', rotulo: 'Abrir o MMO v02' },
+          { para: '/fpe', rotulo: 'Abrir o FPE' },
+        ]}
+      />
+    ),
   },
   {
     caminho: '/versoes',
     rotulo: 'Versões salvas',
-    subtitulo: 'Cópias de segurança guardadas no servidor',
-    vazio: {
-      titulo: 'Tela prevista para a próxima versão',
-      texto: 'Aqui você vai listar, baixar e excluir as versões salvas no servidor.',
-      acoes: [{ para: '/fpe', rotulo: 'Abrir o FPE' }],
-    },
+    tela: () => (
+      <EmBreve
+        titulo="Versões salvas"
+        subtitulo="Cópias de segurança guardadas no servidor"
+        vazio={{ titulo: 'Tela prevista para a próxima versão', texto: 'Aqui você vai listar, baixar e excluir as versões salvas no servidor.' }}
+        acoes={[{ para: '/mmo', rotulo: 'Abrir o MMO v02' }]}
+      />
+    ),
   },
 ];
 
@@ -75,23 +100,7 @@ export function Rotas() {
         <Routes>
           <Route path="/" element={<Navigate to="/mmo" replace />} />
           {TELAS.map((t) => (
-            <Route
-              key={t.caminho}
-              path={t.caminho}
-              element={
-                <Tela titulo={t.rotulo} subtitulo={t.subtitulo}>
-                  <EstadoVazio
-                    titulo={t.vazio.titulo}
-                    texto={t.vazio.texto}
-                    acao={t.vazio.acoes?.map((a) => (
-                      <BotaoLink key={a.para} para={a.para}>
-                        {a.rotulo}
-                      </BotaoLink>
-                    ))}
-                  />
-                </Tela>
-              }
-            />
+            <Route key={t.caminho} path={t.caminho} element={t.tela()} />
           ))}
           {Guia && (
             <Route

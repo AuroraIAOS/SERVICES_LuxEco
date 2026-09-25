@@ -16,7 +16,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run spike:fluxo \| tail -1` → `DECISAO: raias_svg`. Mermaid 3/16 (máx 12.219 px); raias 16/16 (máx 1.972 px), fonte A3 ≥ 8,1 pt. 38 testes. |
 | 01.6 | Varredura de segredos e blindagem do repositório | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `gitleaks detect` → `no leaks found`; `.env`/`referencias_privadas`/`screenshots` = 0 versionados; xlsx versionável (1). Pré-commit (segredo + arquivo proibido + CPF/CNPJ) provado com 3 commits de teste bloqueados (exit 1) e commit legítimo aprovado. |
 | 01.7 | HANDOFF_BUILD | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "status: verde" handoffs/HANDOFF_BUILD.md` → `12` (≥ 5); portão 01→02 verde com saídas reais. |
-| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER | Em andamento: 02.1 ✅ · 02.2 ✅ · 02.3 ✅ · 02.4 ✅ · 02.5 ✅ · 02.6 ✅ · 02.7 ✅. Próxima: **02.8**. |
+| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER | Em andamento: 02.1 ✅ · 02.2 ✅ · 02.3 ✅ · 02.4 ✅ · 02.5 ✅ · 02.6 ✅ · 02.7 ✅ · 02.8 ✅. Próxima: **02.9**. |
 | 02.1 | Compor a Matriz V08 (Anotações integradas) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --v08` → `OK v08: setores=12 estagios=22 celulas=236 if_else=37 novos=24`; V07 intacta (validador + testes de mutação); 68 testes. **Achado:** `.gitignore` escondia `src/dados/` e `design/tokens.json` do Git — corrigido (ver `instrucoes.md` §6). |
 | 02.2 | Fichas 5W1H, Fase 1 Comercial (Est. 01–09) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --fichas --fase=1` → `OK fichas fase 1: 110/110` (2 `sugerido`); autoria + gerador determinístico + validador (regras 4–5); 24 testes. |
 | 02.3 | Fichas 5W1H, Fase 2 Técnica/Projeto (Est. 10–14) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --fichas --fase=2` → `OK fichas fase 2: 36/36`; fase 1 intacta (110 fichas idênticas às do commit anterior); 0 `sugerido` na fase. |
@@ -24,7 +24,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 02.5 | Fichas 5W1H, Fase 4 Homologação e Encerramento + consolidação (Est. 20–22) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --fichas --fase=4` → `OK fichas fase 4: 28/28`; total `OK fichas: 236/236` (uma ficha por ação da V08); fases 1–3 intactas; 5 `sugerido` no total. |
 | 02.6 | Bibliotecas: documentos, ferramentas, investimentos e KPIs | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --bibliotecas` → `OK bibliotecas: setores=12 kpis_produtividade>=12 kpis_eficiencia>=12 valores_brl=0` (28 documentos, 7 ferramentas, 6 investimentos sem valor, 36 KPIs sem meta); 19 testes. |
 | 02.7 | Base de UI e navegação entre as 3 telas | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- ui` → 63 testes, 0 falhas (contraste AA medido pelos tokens, foco, teclado, nada fora dos tokens); `grep -rEn "#[0-9A-Fa-f]{6}" src --include=*.tsx \| wc -l` → `0`; e2e verde; capturas em 1280 e 390 px sem rolagem horizontal. |
-| 02.8 | Tela MMO v02 | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.8 | Tela MMO v02 | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- mmo` → 23 passed; `npm run e2e -- mmo` → 6 passed (renderização inicial < 2 s, medida no navegador); `grep -rn "210+" src \| wc -l` → `0`. Paridade com o MMO_v01 (pares setor × estágio idênticos à V07) + itens da V08 (perfis, Energia por Assinatura, pós-venda). V08 ganhou metadados do MMO (`mmo_v02.json`). |
 | 02.9 | Tela FPE: formulário 5W1H + fluxograma | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 02.10 | Exportações do FPE (JSON, MD, MERMAID, PDF) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 02.11 | Deploy protegido e prova do portão | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -268,7 +268,7 @@ Escalonamento de LLM: Sonnet nas 3 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.8 — Tela MMO v02 [Auto] [Goal] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: dashboard do MMO renderizado do `matriz_v08.json`, com paridade de funcionalidades do MMO_v01 + as Anotações.
 Arquivos tocados: `src/telas/mmo/*`, `src/telas/mmo/mmo.test.tsx`, `e2e/mmo.spec.ts`.
 Passos: 1) Hero com estatísticas **calculadas** do JSON. 2) 22 pills expansíveis por fase (setor → ações; ramos IF/ELSE com ✓/✗; tag WhatsApp). 3) 12 cards de setor. 4) Bloco de condicionais. 5) Bloco “Jornada do cliente”. 6) Ramificações novas (perfis, Energia por Assinatura, pós-venda) visíveis no Est. 02 e no Est. 22. 7) Testes de unidade e e2e.

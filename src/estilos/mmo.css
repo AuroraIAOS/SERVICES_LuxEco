@@ -1,0 +1,254 @@
+/*
+ * Tela MMO v02. Só tokens da marca (ver ui.css): nenhuma cor, fonte ou peso literal.
+ * Painel plano: 4 fases lado a lado, setores e decisões em grades de 2px, o setor só como filete lateral.
+ */
+.mmo-secao {
+  margin-top: 3rem;
+}
+
+.mmo-secao__titulo {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.mmo-secao__dica {
+  max-width: 60ch;
+  margin: 0 0 1.25rem;
+  color: var(--texto-suave);
+}
+
+/* ── Ciclo de serviço: 4 fases ─────────────────────────────────────── */
+.fases {
+  display: grid;
+  /* --colunas vem da tela: a fase com um estágio aberto ganha o dobro da largura. Nas telas menores, as regras de baixo mandam. */
+  grid-template-columns: var(--colunas, repeat(4, minmax(0, 1fr)));
+  gap: var(--vao);
+  align-items: start;
+}
+
+.fase__titulo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.6rem;
+  margin: 0;
+  padding: 0.7rem 1rem;
+  background: var(--amarelo);
+  color: var(--chumbo);
+  font-size: 1.0625rem;
+  line-height: 1.25;
+}
+
+.fase__numero {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.fase__resumo {
+  flex-basis: 100%;
+  font-size: 0.9375rem;
+}
+
+.fase__estagios {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vao);
+  padding: var(--vao);
+  border: 1px solid var(--filete-amarelo);
+  border-top: 0;
+  background: var(--chumbo);
+}
+
+/* "N ações" nunca quebra em duas linhas, mesmo nas colunas estreitas (o nome do estágio é que quebra). */
+.fase__estagios .pilula__resumo {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.estagio {
+  padding: 0.75rem 1rem 1rem;
+}
+
+.estagio__descricao {
+  margin: 0 0 1rem;
+  color: var(--texto-suave);
+}
+
+.bloco-setor {
+  margin: 0 0 1rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--cor-setor, var(--chumbo-lighter));
+}
+
+.bloco-setor__nome {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+}
+
+.acoes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.acao {
+  margin: 0 0 0.45rem;
+}
+
+.ramos {
+  margin: 0.3rem 0 0.4rem 0.25rem;
+  padding-left: 0.6rem;
+  border-left: 2px solid var(--filete-amarelo);
+}
+
+.extra {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--chumbo-lighter);
+}
+
+.extra__titulo {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.extra__lista {
+  margin: 0 0 0.5rem;
+  padding-left: 1.1rem;
+}
+
+.extra__lista li {
+  margin-bottom: 0.5rem;
+}
+
+.extra__acao {
+  display: block;
+  color: var(--texto-suave);
+}
+
+.extra__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.extra__chips li {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--chumbo-lighter);
+}
+
+/* ── Setores ───────────────────────────────────────────────────────── */
+.setores-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: var(--vao);
+  align-items: start;
+}
+
+.setores-grade > .pilula + .pilula {
+  margin-top: 0;
+}
+
+.setor-detalhe {
+  padding: 0.75rem 1rem 1rem;
+}
+
+.funcoes {
+  margin: 0 0 0.75rem;
+  padding-left: 1.1rem;
+}
+
+.funcoes li {
+  margin-bottom: 0.3rem;
+}
+
+.setor-detalhe__atuacao,
+.setor-detalhe__equipes {
+  margin: 0 0 0.5rem;
+  color: var(--texto-suave);
+}
+
+/* ── Decisões IF/ELSE ──────────────────────────────────────────────── */
+.grupo-titulo {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.0625rem;
+}
+
+.decisoes-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+  gap: var(--vao);
+  margin-bottom: 1.5rem;
+}
+
+.decisao {
+  padding: 0.9rem 1rem 1rem;
+  background: var(--chumbo-mid);
+  border-left: 3px solid var(--cor-setor, transparent);
+}
+
+.decisao__onde {
+  margin: 0 0 0.25rem;
+  color: var(--texto-suave);
+}
+
+.decisao__pergunta {
+  margin: 0 0 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.3;
+}
+
+/* ── Jornada do cliente ────────────────────────────────────────────── */
+.jornada {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
+  gap: var(--vao);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.jornada li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem 1rem;
+  background: var(--chumbo-mid);
+}
+
+.jornada__numero {
+  color: var(--amarelo);
+  font-weight: var(--peso-titulo);
+}
+
+.jornada__nome {
+  font-weight: var(--peso-titulo);
+  font-size: 1.0625rem;
+}
+
+.jornada__descricao {
+  color: var(--texto-suave);
+}
+
+/* ── Telas menores ─────────────────────────────────────────────────── */
+/* 4 colunas só em telas largas (≥ 80rem): abaixo disso, 2 colunas — 4 estreitas demais quebram os nomes dos estágios. */
+@media (max-width: 80rem) {
+  .fases {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 40rem) {
+  .fases {
+    grid-template-columns: 1fr;
+  }
+
+  .setores-grade,
+  .decisoes-grade {
+    grid-template-columns: 1fr;
+  }
+}

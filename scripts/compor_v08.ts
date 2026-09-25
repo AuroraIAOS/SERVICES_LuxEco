@@ -8,12 +8,15 @@ import type {
   Acao,
   ClassificacaoLead,
   Condicional,
+  EquipeTecnica,
+  JornadaEtapa,
   Matriz,
   MatrizV08,
   Oportunidade,
   PerfilCliente,
   RamoCondicional,
   RespostaPadrao,
+  TipoSetor,
 } from '../src/dados/tipos.ts';
 import type { MapaCondicionais } from './validar_dados.ts';
 import { JSON_V07, serializar } from './xlsx_para_json.ts';
@@ -21,7 +24,16 @@ import { JSON_V07, serializar } from './xlsx_para_json.ts';
 const RAIZ = resolve(fileURLToPath(import.meta.url), '../..');
 export const JSON_ANOTACOES = resolve(RAIZ, 'data/conteudo/anotacoes_v08.json');
 export const JSON_MAPA = resolve(RAIZ, 'data/conteudo/mapa_condicionais.json');
+export const JSON_MMO = resolve(RAIZ, 'data/conteudo/mmo_v02.json');
 export const JSON_V08 = resolve(RAIZ, 'data/matriz_v08.json');
+
+/** Metadados da tela MMO que a planilha não traz (Mapa/Relatório): tipo e funções dos setores, descrição dos estágios, jornada. */
+export interface MmoV02 {
+  meta: { fonte: string; regra: string; decisoes: string[] };
+  setores: Record<string, { tipo: TipoSetor; tipo_rotulo: string; funcoes: string[]; equipes?: EquipeTecnica[]; empresas?: string[] }>;
+  estagios: Record<string, { descricao: string }>;
+  jornada_cliente: JornadaEtapa[];
+}
 
 /** Célula que a V08 acrescenta. Com `se_sim`/`se_nao` vira ação IF/ELSE + condicional. */
 export interface CelulaNova {
@@ -46,10 +58,24 @@ const pad2 = (n: number) => String(n).padStart(2, '0');
 const numeroSetor = (setorId: string) => setorId.replace(/^setor_/, '');
 
 /** Aplica o overlay. Erros de entrada (setor/estágio inexistente, ramo pela metade) falham com mensagem clara. */
-export function compor(v07: Matriz, overlay: AnotacoesV08, mapa: MapaCondicionais): MatrizV08 {
+export function compor(v07: Matriz, overlay: AnotacoesV08, mapa: MapaCondicionais, mmo: MmoV02): MatrizV08 {
   const m = structuredClone(v07);
   const setores = new Set(m.setores.map((s) => s.id));
   const estagios = new Set(m.estagios.map((e) => e.id));
+
+  // 0) metadados da tela MMO: setores (tipo, funções, equipes) e estágios (descrição). Só acrescenta campos.
+  for (const id of Object.keys(mmo.setores)) if (!setores.has(id)) throw new Error(`mmo_v02.setores["${id}"]: setor inexistente`);
+  for (const id of Object.keys(mmo.estagios)) if (!estagios.has(Number(id))) throw new Error(`mmo_v02.estagios["${id}"]: estágio inexistente`);
+  const setoresV08 = m.setores.map((s) => {
+    const x = mmo.setores[s.id];
+    if (!x) throw new Error(`mmo_v02: falta o setor ${s.id}`);
+    return { ...s, tipo: x.tipo, tipo_rotulo: x.tipo_rotulo, funcoes: x.funcoes, ...(x.equipes ? { equipes: x.equipes } : {}), ...(x.empresas ? { empresas: x.empresas } : {}) };
+  });
+  const estagiosV08 = m.estagios.map((e) => {
+    const x = mmo.estagios[String(e.id)];
+    if (!x) throw new Error(`mmo_v02: falta a descrição do estágio ${e.id}`);
+    return { ...e, descricao: x.descricao };
+  });
   const situacaoDaCondicional = new Map<string, string>();
   for (const s of mapa.situacoes) {
     for (const id of s.condicionais_ids) situacaoDaCondicional.set(id, s.id);
@@ -106,22 +132,23 @@ export function compor(v07: Matriz, overlay: AnotacoesV08, mapa: MapaCondicionai
       origem_doc: overlay.meta.origem_doc,
     },
     fases: m.fases,
-    setores: m.setores,
-    estagios: m.estagios,
+    setores: setoresV08,
+    estagios: estagiosV08,
     acoes,
     condicionais,
     perfis_cliente: overlay.perfis_cliente,
     classificacao_lead: overlay.classificacao_lead,
     oportunidades: overlay.oportunidades,
     respostas_padrao: overlay.respostas_padrao,
+    jornada_cliente: mmo.jornada_cliente,
   };
 }
 
 const lerJson = <T>(caminho: string): T => JSON.parse(readFileSync(caminho, 'utf8')) as T;
 
-/** Lê os três insumos versionados e devolve a V08 composta (sem escrever). */
+/** Lê os quatro insumos versionados e devolve a V08 composta (sem escrever). */
 export function comporDosArquivos(): MatrizV08 {
-  return compor(lerJson<Matriz>(JSON_V07), lerJson<AnotacoesV08>(JSON_ANOTACOES), lerJson<MapaCondicionais>(JSON_MAPA));
+  return compor(lerJson<Matriz>(JSON_V07), lerJson<AnotacoesV08>(JSON_ANOTACOES), lerJson<MapaCondicionais>(JSON_MAPA), lerJson<MmoV02>(JSON_MMO));
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

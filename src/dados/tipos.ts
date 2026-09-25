@@ -7,12 +7,28 @@ export interface Fase {
   nome: string;
 }
 
+export type TipoSetor = 'estrategico' | 'interno' | 'externo';
+
+export interface EquipeTecnica {
+  nome: string;
+  regiao: string;
+  empresa?: string;
+}
+
 export interface Setor {
   id: string; // "setor_01".."setor_12"
   numero: number;
   nome: string;
   /** chave de cor em design/tokens.json → `setores.<slug>` (a cor em si vive só nos tokens). */
   cor_token: string;
+  /** só na V08 (data/conteudo/mmo_v02.json): o que a tela MMO exibe e a planilha não traz. */
+  tipo?: TipoSetor;
+  tipo_rotulo?: string;
+  funcoes?: string[];
+  /** equipes terceirizadas por região (Equipe Técnica). */
+  equipes?: EquipeTecnica[];
+  /** empresas terceirizadas sem região (Engenharia). */
+  empresas?: string[];
 }
 
 export interface Estagio {
@@ -20,6 +36,8 @@ export interface Estagio {
   numero: number;
   nome: string;
   fase_id: Fase['id'];
+  /** só na V08: o que acontece no estágio (Relatório, alinhado à Matriz). */
+  descricao?: string;
 }
 
 export interface Acao {
@@ -91,12 +109,22 @@ export interface PerfilCliente {
   nome: string;
   criterios: string;
   proxima_acao: string;
+  /** estágio em que a triagem acontece (Est. 02). */
+  estagio_id: number;
 }
 
 export interface ClassificacaoLead {
   id: string; // "lead_quente" | "lead_morno" | "lead_frio"
   nome: string;
   criterios: string[];
+  estagio_id: number;
+}
+
+/** Uma das 10 fases da jornada do cliente (Relatório §6), na perspectiva do cliente. */
+export interface JornadaEtapa {
+  id: string; // "jornada_01"..
+  nome: string;
+  descricao: string;
 }
 
 export interface Oportunidade {
@@ -125,6 +153,27 @@ export interface MatrizV08 extends Omit<Matriz, 'meta'> {
   classificacao_lead: ClassificacaoLead[];
   oportunidades: Oportunidade[];
   respostas_padrao: RespostaPadrao[];
+  jornada_cliente: JornadaEtapa[];
+}
+
+/** Uma das 15 situações IF/ELSE do Mapa (data/conteudo/mapa_condicionais.json), com os textos do Mapa. */
+export interface SituacaoMapa {
+  id: string; // "sit_01"..
+  numero: number;
+  nome: string; // a pergunta: “Conta de energia disponível?”
+  setor_id: string;
+  estagios_mapa: number[];
+  estagios_planilha: number[];
+  divergencia_estagio: boolean;
+  se_sim: string;
+  se_nao: string;
+  condicionais_ids: string[];
+  participantes: { condicional_id: string }[];
+}
+
+export interface MapaSituacoes {
+  situacoes: SituacaoMapa[];
+  sem_situacao: { condicional_id: string }[];
 }
 
 // ---------------------------------------------------------------------------------------------

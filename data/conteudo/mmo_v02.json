@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "fonte": "data/fontes/Mapa_Organizacional.md e data/fontes/Relatorio_Operacional_V07.md (derivados: servem a textos; onde divergem da Matriz, a Matriz vence — docs/06 §1 e §2)",
+    "regra": "Metadados que a tela MMO v02 exibe e que a Matriz (planilha) não traz: tipo e funções de cada setor, equipes terceirizadas, descrição de cada estágio e a jornada do cliente. Compostos na V08 por scripts/compor_v08.ts. Nenhum valor em R$, nenhum prazo numérico; textos sem citação de fonte (a decisão de Max é não exibir selo de proveniência).",
+    "decisoes": [
+      "Descrições dos estágios seguem a Matriz: onde o Relatório situa uma ação em outro estágio (layouts no Est. 04, contrato no Est. 07, solicitação da vistoria externa no Est. 18), vale a célula da Matriz (docs/06 §2).",
+      "O Est. 13 lista as oito perspectivas da Matriz (com a Equipe Técnica), não as cinco/sete do Relatório e do Mapa.",
+      "As funções de Vendas, CEO e Administrativo incluem o que as células novas do atendimento e do pós-venda acrescentam à Matriz V08."
+    ]
+  },
+  "setores": {
+    "setor_01": {
+      "tipo": "interno",
+      "tipo_rotulo": "Setor interno",
+      "funcoes": [
+        "Gerencia propaganda e publicidade da marca",
+        "Opera campanhas de tráfego pago (Google Ads)",
+        "Gera e encaminha leads ao setor de Vendas",
+        "Cria layouts e cenários de simulação",
+        "Define abordagem e tom do pós-venda"
+      ]
+    },
+    "setor_02": {
+      "tipo": "interno",
+      "tipo_rotulo": "Setor interno",
+      "funcoes": [
+        "Prospecção ativa e captação por indicação",
+        "Atende leads gerados pelo Marketing e acompanha o cliente do primeiro contato ao pós-venda",
+        "Confirma a identidade do contato e a disponibilidade da conta de energia",
+        "Identifica o perfil do cliente, a condição financeira e classifica o lead (quente, morno ou frio)",
+        "Oferece a Energia por Assinatura da Lux quando o cliente não quer ou não consegue instalar o sistema",
+        "Acompanha a instalação com visitas presenciais e conduz o treinamento do cliente",
+        "Solicita feedback, identifica oportunidades de pós-venda e pede indicações"
+      ]
+    },
+    "setor_03": {
+      "tipo": "interno",
+      "tipo_rotulo": "Setor interno",
+      "funcoes": [
+        "Hub central de coordenação da operação",
+        "Elabora e envia propostas e contratos",
+        "Gera simulações de consumo",
+        "Emite ordens de compra ao Fornecedor",
+        "Monitora métricas em todos os estágios",
+        "Coordena a aprovação multissetorial do projeto",
+        "Comunica a Equipe Técnica para a instalação",
+        "Solicita a homologação à Cemig",
+        "Gerencia o Grupo de Fluxo (WhatsApp), canal temporário com o cliente",
+        "Registra as oportunidades de pós-venda e o acompanhamento por prioridade"
+      ]
+    },
+    "setor_04": {
+      "tipo": "interno",
+      "tipo_rotulo": "Setor interno",
+      "funcoes": [
+        "Verifica a pré-aprovação de crédito (boleto parcelado)",
+        "Aprova o projeto sob a perspectiva financeira",
+        "Efetiva a compra de materiais",
+        "Processa movimentações financeiras",
+        "Escala ao CEO os casos de maior impacto"
+      ]
+    },
+    "setor_05": {
+      "tipo": "interno",
+      "tipo_rotulo": "Setor interno",
+      "funcoes": [
+        "Indica movimentos contábeis (proposta e contrato)",
+        "Aprova o projeto sob a perspectiva fiscal",
+        "Processa o ICMS (compra e translado de material)",
+        "Processa o ISSQN (obra de instalação)",
+        "Finaliza os processos contábeis ao encerramento"
+      ]
+    },
+    "setor_06": {
+      "tipo": "estrategico",
+      "tipo_rotulo": "Núcleo estratégico",
+      "funcoes": [
+        "Orienta e supervisiona todos os 22 estágios",
+        "Assina contratos",
+        "Instância final de resolução de inconformidades escaladas",
+        "Aprovação geral de projetos",
+        "Apoia a mobilização da Equipe Técnica",
+        "Acompanha pagamentos e métricas",
+        "Define a estratégia comercial por cenário e decide situações não previstas"
+      ]
+    },
+    "setor_07": {
+      "tipo": "externo",
+      "tipo_rotulo": "Setor externo, terceirizado",
+      "empresas": ["Galva Engenharia", "Telar Engenharia"],
+      "funcoes": [
+        "Realiza visitas técnicas facultativas ao imóvel",
+        "Elabora o projeto técnico",
+        "Envia o projeto ao Administrativo para aprovação",
+        "Propõe soluções alternativas ou emite parecer de inviabilidade (IF/ELSE)",
+        "Emite o CAT ao final do processo",
+        "Mantém o Administrativo atualizado sobre novas tecnologias"
+      ]
+    },
+    "setor_08": {
+      "tipo": "externo",
+      "tipo_rotulo": "Setor externo, parceiro",
+      "funcoes": [
+        "Fornece dados para a simulação de consumo",
+        "Recepciona a ordem de compra",
+        "Separa, embala e despacha os materiais",
+        "Comunica o despacho ao Administrativo",
+        "Compartilha informações técnicas sobre os produtos",
+        "Age em conjunto com a Logística em caso de atrasos e avarias"
+      ]
+    },
+    "setor_09": {
+      "tipo": "externo",
+      "tipo_rotulo": "Setor externo, parceiro",
+      "funcoes": [
+        "Translado de materiais do Fornecedor até o local de instalação",
+        "Recepciona produtos e emite guias de translado",
+        "Realiza a entrega conforme local e horário definidos",
+        "Notifica o Fornecedor e o Administrativo em caso de atrasos e avarias"
+      ]
+    },
+    "setor_10": {
+      "tipo": "externo",
+      "tipo_rotulo": "Setor externo, equipes terceirizadas",
+      "equipes": [
+        { "nome": "Tiago/Illumini", "regiao": "Lavras", "empresa": "Illumini" },
+        { "nome": "Vinícius", "regiao": "Lavras" },
+        { "nome": "Odirley/Lumines", "regiao": "Passos", "empresa": "Lumines" },
+        { "nome": "João Paulo/C7", "regiao": "Passos", "empresa": "C7" }
+      ],
+      "funcoes": [
+        "Realiza visitas técnicas ao imóvel",
+        "Aprova o projeto conforme critérios técnicos",
+        "Confere o material entregue",
+        "Executa a instalação",
+        "Realiza a vistoria técnica interna e emite o laudo",
+        "Treina o cliente no uso dos equipamentos"
+      ]
+    },
+    "setor_11": {
+      "tipo": "externo",
+      "tipo_rotulo": "Agente externo, concessionária",
+      "funcoes": [
+        "Realiza a vistoria técnica externa",
+        "Analisa o pedido de ligação e homologação",
+        "Libera a usina para geração de energia",
+        "Emite parecer com ajustes em caso de inconformidade",
+        "Principal risco de prazo de toda a operação"
+      ]
+    },
+    "setor_12": {
+      "tipo": "externo",
+      "tipo_rotulo": "Participante ativo",
+      "funcoes": [
+        "Informa dados críticos para a simulação",
+        "Avalia e decide sobre proposta e contrato (IF/ELSE)",
+        "Realiza pagamentos (ao Fornecedor e à Lux)",
+        "Aprova o projeto conforme os termos contratuais",
+        "Recepciona o material e a Equipe Técnica",
+        "Participa do treinamento e assina o comprovante",
+        "Presta feedback final"
+      ]
+    }
+  },
+  "estagios": {
+    "1": { "descricao": "Captação de potenciais clientes: prospecção ativa dos vendedores, leads gerados pelo Marketing (tráfego pago) e indicações de clientes e parceiros. O CEO orienta as ações e o Administrativo monitora as métricas do setor." },
+    "2": { "descricao": "Primeiro contato com o lead. O Vendedor aborda, coleta dados, contorna objeções e confirma a identidade do contato, com as verificações condicionais de conta de energia e titularidade. O atendimento começa por perguntas abertas, identifica o perfil do cliente e a condição financeira e classifica o lead; quem não quer ou não consegue instalar o sistema recebe a oferta de Energia por Assinatura da Lux. A Engenharia e a Equipe Técnica podem fazer visitas facultativas ao imóvel (grandes clientes)." },
+    "3": { "descricao": "O Administrativo gera simulações de consumo e dimensionamento com dados do Vendedor e do Fornecedor; Marketing e Engenharia editam layouts e cenários. O Financeiro verifica a pré-aprovação de crédito para boleto parcelado e o Vendedor apresenta as formas de pagamento. O CEO orienta as ações." },
+    "4": { "descricao": "O Administrativo elabora e envia a proposta ao cliente. O Financeiro e a Contabilidade estabelecem as premissas básicas de cálculo e o Fornecedor envia dados complementares à simulação. O CEO acompanha o envio." },
+    "5": { "descricao": "O cliente recepciona a proposta e decide se aceita ou solicita revisão (IF/ELSE). O Vendedor mantém contato ativo e comunica alterações; o CEO e o Administrativo cobram a resolução da venda e da proposta." },
+    "6": { "descricao": "O cliente aprova a proposta e o processo avança para a contratação. O Administrativo elabora e envia o contrato; o CEO assina e pode reassinar após renegociação, dentro das margens autorizadas (IF/ELSE)." },
+    "7": { "descricao": "O cliente avalia o contrato e decide (IF/ELSE). O Administrativo cria o Grupo de Fluxo no WhatsApp com o cliente, canal temporário pós-fechamento; o CEO e o Administrativo cobram a resolução da venda e do contrato." },
+    "8": { "descricao": "Com o contrato assinado, o Administrativo envia guias e solicitações de pagamento e os documentos pelo Grupo de Fluxo. O Vendedor encerra o ciclo de contato comercial e solicita feedback da venda. O CEO e o Administrativo monitoram métricas e cobram resoluções." },
+    "9": { "descricao": "O cliente realiza dois pagamentos: ao Fornecedor (material) e à Lux (serviço). O Administrativo acompanha e cobra datas e pagamentos; o Financeiro e a Contabilidade prestam orientações e cálculos; o CEO acompanha e cobra." },
+    "10": { "descricao": "O Administrativo envia o projeto à Engenharia e monitora métricas; o CEO analisa as métricas gerais. O processo de elaboração técnica é iniciado." },
+    "11": { "descricao": "A Engenharia elabora o projeto técnico e o envia ao Administrativo. O Administrativo e o CEO cobram a resolução do projeto e monitoram métricas." },
+    "12": { "descricao": "O Administrativo recepciona o projeto da Engenharia e o encaminha para a aprovação multissetorial. As métricas são monitoradas pelo Administrativo e pelo CEO." },
+    "13": { "descricao": "Aprovação simultânea do projeto por todas as perspectivas envolvidas: Vendas (termos comerciais), Administrativo (documentação), Financeiro (termos financeiros), Contabilidade (termos fiscais), Engenharia (viabilidade técnica), Equipe Técnica (termos técnicos), CEO (aprovação geral) e Cliente (termos contratuais). A Engenharia pode identificar impedimentos técnicos e propor soluções alternativas ou emitir parecer de inviabilidade (IF/ELSE)." },
+    "14": { "descricao": "O Administrativo emite a ordem de compra ao Fornecedor e o Financeiro efetiva a compra; a Contabilidade processa as informações fiscais de compra e translado (ICMS). O Fornecedor recepciona o pedido, separa, embala e despacha os produtos, comunicando a Logística e o Administrativo. O Vendedor agenda com o cliente o local e o horário de entrega." },
+    "15": { "descricao": "A Logística entrega o material no local e horário definidos. Vendedor, Administrativo, Equipe Técnica e Fornecedor conferem a entrega e tratam atrasos, desvios e avarias (IF/ELSE). O CEO apoia a resolução de situações críticas e o cliente recepciona o material." },
+    "16": { "descricao": "O Administrativo apura e estabelece o calendário de disponibilidade da Equipe Técnica; o Vendedor agenda com o cliente horário e condições de instalação. A Equipe Técnica informa disponibilidade e pode comunicar indisponibilidades (IF/ELSE). O CEO apoia a mobilização." },
+    "17": { "descricao": "A Equipe Técnica executa a instalação. O Vendedor acompanha com visitas presenciais; o Administrativo coordena, monitora e solicita a vistoria técnica externa à Cemig; o CEO dá suporte. Fornecedor, Equipe Técnica, Financeiro, Contabilidade e cliente tratam inconformidades (IF/ELSE)." },
+    "18": { "descricao": "A Equipe Técnica realiza a vistoria técnica interna e emite laudo; a Cemig realiza a vistoria técnica externa e emite laudo. Inconformidades são tratadas com definição de ajustes e reagendamento, ou com parecer definitivo negativo (IF/ELSE). O CEO acompanha e cobra a resolução; o cliente comunica situações supervenientes." },
+    "19": { "descricao": "A Equipe Técnica e o Vendedor treinam o cliente no uso e cuidados dos equipamentos instalados; o cliente assina o comprovante de treinamento. O Fornecedor compartilha informações técnicas e a Engenharia mantém o Administrativo atualizado sobre tecnologias." },
+    "20": { "descricao": "O Administrativo solicita à concessionária a homologação e a ligação da estrutura; a Cemig recepciona o pedido. A Equipe Técnica mantém o Administrativo informado sobre os dados críticos do projeto. Em caso de negativa, o Administrativo e o CEO iniciam o tratamento de resolutividade (IF/ELSE)." },
+    "21": { "descricao": "A Cemig processa a ligação e a homologação do projeto (IF/ELSE): se aprova, homologa e comunica ao Administrativo; se reprova, emite parecer com os ajustes necessários. O Administrativo comunica a homologação a todos os setores e solicita à Engenharia a emissão do CAT." },
+    "22": { "descricao": "O Vendedor solicita feedback e avaliação ao cliente, que presta o feedback final e registra eventuais insatisfações; o CEO trata as não resolvidas (IF/ELSE). O Financeiro e a Contabilidade finalizam os processos do serviço e do contrato; o Marketing define abordagem e tom do pós-venda. Vendas identifica oportunidades (ampliação, retrofit, manutenção, monitoramento, limpeza técnica, seguro, outras unidades e indicações) e o Administrativo as registra por prioridade." }
+  },
+  "jornada_cliente": [
+    { "id": "jornada_01", "nome": "Primeiro contato", "descricao": "O cliente é abordado pelo Vendedor (prospecção ativa, indicação ou lead de tráfego pago), informa dados básicos e recebe esclarecimentos sobre o serviço." },
+    { "id": "jornada_02", "nome": "Proposta", "descricao": "Recebe uma simulação de consumo e uma proposta comercial personalizada, avalia, negocia se necessário e decide se avança." },
+    { "id": "jornada_03", "nome": "Contrato", "descricao": "Recebe e assina o contrato digital e é inserido em um grupo no WhatsApp (Grupo de Fluxo) para comunicação direta com o Administrativo." },
+    { "id": "jornada_04", "nome": "Pagamentos", "descricao": "Realiza dois pagamentos: um diretamente ao fornecedor de equipamentos e outro à Lux pelo serviço." },
+    { "id": "jornada_05", "nome": "Projeto e aprovação", "descricao": "É informado sobre o andamento do projeto técnico e aprova o projeto conforme os termos contratuais." },
+    { "id": "jornada_06", "nome": "Recebimento do material", "descricao": "Recepciona o material no local e horário combinados e confirma a conformidade da entrega." },
+    { "id": "jornada_07", "nome": "Instalação", "descricao": "Recepciona a equipe técnica na data agendada e acompanha a execução da instalação." },
+    { "id": "jornada_08", "nome": "Treinamento", "descricao": "Recebe treinamento sobre o uso e os cuidados dos equipamentos instalados e assina o comprovante." },
+    { "id": "jornada_09", "nome": "Homologação", "descricao": "Aguarda a vistoria e a aprovação da concessionária (Cemig) para que o sistema comece a gerar energia." },
+    { "id": "jornada_10", "nome": "Pós-venda", "descricao": "Presta feedback sobre a experiência, recebe acompanhamento do Vendedor e suporte da equipe Lux." }
+  ]
+}

@@ -1,8 +1,8 @@
 // @vitest-environment node
 import { readFileSync } from 'node:fs';
 import { beforeAll, describe, expect, it } from 'vitest';
-import type { AnotacoesV08 } from '../../scripts/compor_v08.ts';
-import { compor, comporDosArquivos, JSON_ANOTACOES, JSON_MAPA, JSON_V08 } from '../../scripts/compor_v08.ts';
+import type { AnotacoesV08, MmoV02 } from '../../scripts/compor_v08.ts';
+import { compor, comporDosArquivos, JSON_ANOTACOES, JSON_MAPA, JSON_MMO, JSON_V08 } from '../../scripts/compor_v08.ts';
 import type { MapaCondicionais } from '../../scripts/validar_dados.ts';
 import { validarV08 } from '../../scripts/validar_dados.ts';
 import { JSON_V07, serializar } from '../../scripts/xlsx_para_json.ts';
@@ -15,16 +15,18 @@ const clone = <T,>(x: T): T => structuredClone(x);
 let v07: Matriz;
 let overlay: AnotacoesV08;
 let mapa: MapaCondicionais;
+let mmo: MmoV02;
 let v08: MatrizV08;
 
 beforeAll(() => {
   v07 = ler<Matriz>(JSON_V07);
   overlay = ler<AnotacoesV08>(JSON_ANOTACOES);
   mapa = ler<MapaCondicionais>(JSON_MAPA);
-  v08 = compor(v07, overlay, mapa);
+  mmo = ler<MmoV02>(JSON_MMO);
+  v08 = compor(v07, overlay, mapa, mmo);
 });
 
-const erros = (m: MatrizV08 = v08) => validarV08(m, v07, mapa, compor(v07, overlay, mapa));
+const erros = (m: MatrizV08 = v08) => validarV08(m, v07, mapa, compor(v07, overlay, mapa, mmo));
 
 describe('Matriz V08 = V07 + overlay das Anotações do CEO', () => {
   it('tem mais células e mais condicionais que a V07 e fecha sem nenhum erro de validação', () => {
@@ -40,10 +42,34 @@ describe('Matriz V08 = V07 + overlay das Anotações do CEO', () => {
     expect(v08.acoes.filter((a) => a.e_condicional)).toHaveLength(v08.condicionais.length);
   });
 
-  it('mantém os 12 setores e os 22 estágios idênticos (nada renomeado nem reordenado)', () => {
-    expect(v08.setores).toEqual(v07.setores);
-    expect(v08.estagios).toEqual(v07.estagios);
+  it('mantém os 12 setores e os 22 estágios (nada renomeado nem reordenado); a V08 só acrescenta campos a eles', () => {
+    expect(v08.setores.map(({ id, numero, nome, cor_token }) => ({ id, numero, nome, cor_token }))).toEqual(v07.setores);
+    expect(v08.estagios.map(({ id, numero, nome, fase_id }) => ({ id, numero, nome, fase_id }))).toEqual(v07.estagios);
     expect(v08.fases).toEqual(v07.fases);
+  });
+
+  it('cada setor ganha tipo, rótulo e funções; cada estágio ganha descrição; a jornada do cliente tem 10 etapas', () => {
+    for (const s of v08.setores) {
+      expect(['estrategico', 'interno', 'externo'], s.id).toContain(s.tipo);
+      expect(s.tipo_rotulo?.length, s.id).toBeGreaterThan(0);
+      expect(s.funcoes?.length, s.id).toBeGreaterThan(0);
+    }
+    expect(v08.setores.find((s) => s.id === 'setor_06')?.tipo).toBe('estrategico');
+    expect(v08.estagios.every((e) => (e.descricao ?? '').length > 20)).toBe(true);
+    expect(v08.jornada_cliente).toHaveLength(10);
+  });
+
+  it('as equipes terceirizadas (Equipe Técnica) são 4, em 2 regiões — Lavras e Passos — e a Engenharia tem 2 empresas', () => {
+    const equipe = v08.setores.find((s) => s.id === 'setor_10')!;
+    expect(equipe.equipes).toHaveLength(4);
+    expect([...new Set(equipe.equipes!.map((q) => q.regiao))].sort()).toEqual(['Lavras', 'Passos']);
+    expect(v08.setores.find((s) => s.id === 'setor_07')?.empresas).toEqual(['Galva Engenharia', 'Telar Engenharia']);
+  });
+
+  it('a triagem por perfil e a classificação do lead acontecem no Est. 02; as oportunidades, no Est. 02 e no 22', () => {
+    expect(v08.perfis_cliente.every((p) => p.estagio_id === 2)).toBe(true);
+    expect(v08.classificacao_lead.every((l) => l.estagio_id === 2)).toBe(true);
+    expect([...new Set(v08.oportunidades.map((o) => o.estagio_id))].sort((a, b) => a - b)).toEqual([2, 22]);
   });
 
   it('não altera nenhuma ação da V07: mesmas ações, na mesma posição, sem origem_doc', () => {
@@ -137,7 +163,7 @@ describe('Matriz V08 = V07 + overlay das Anotações do CEO', () => {
 
   it('compor não muta a V07 (overlay puro)', () => {
     const antes = JSON.stringify(v07);
-    compor(v07, overlay, mapa);
+    compor(v07, overlay, mapa, mmo);
     expect(JSON.stringify(v07)).toBe(antes);
   });
 });
@@ -162,6 +188,33 @@ describe('validarV08 detecta erro (sensibilidade)', () => {
     const b = clone(v08);
     b.estagios[1]!.nome = 'Outro';
     expect(erros(b).some((e) => e.includes('estágios da V08 diferem'))).toBe(true);
+  });
+
+  it('metadados do MMO: setor sem funções ou sem tipo, estágio sem descrição, jornada vazia ou com cifra', () => {
+    const a = clone(v08);
+    a.setores[2]!.funcoes = [];
+    expect(erros(a).some((e) => e.includes('sem funções'))).toBe(true);
+    const t = clone(v08);
+    delete t.setores[3]!.tipo;
+    expect(erros(t).some((e) => e.includes('sem tipo válido'))).toBe(true);
+    const b = clone(v08);
+    b.estagios[5]!.descricao = ' ';
+    expect(erros(b).some((e) => e.includes('sem descrição'))).toBe(true);
+    const c = clone(v08);
+    c.jornada_cliente = [];
+    expect(erros(c).some((e) => e.includes('jornada do cliente vazia'))).toBe(true);
+    const d = clone(v08);
+    d.jornada_cliente[0]!.descricao += ' Custa R$ 10.';
+    expect(erros(d).some((e) => e.includes('jornada traz cifra'))).toBe(true);
+    const e = clone(v08);
+    e.setores[1]!.funcoes = ['Responde em 48 horas'];
+    expect(erros(e).some((x) => x.includes('prazo numérico'))).toBe(true);
+  });
+
+  it('perfil ou lead apontando para estágio inexistente', () => {
+    const a = clone(v08);
+    a.perfis_cliente[0]!.estagio_id = 99;
+    expect(erros(a).some((e) => e.includes('estagio_id inexistente'))).toBe(true);
   });
 
   it('ação nova sem origem_doc', () => {
@@ -220,25 +273,48 @@ describe('compor falha com mensagem clara em overlay inválido', () => {
   it('setor inexistente', () => {
     const o = base();
     o.celulas_novas[0]!.setor_id = 'setor_99';
-    expect(() => compor(v07, o, mapa)).toThrow(/setor_id inexistente/);
+    expect(() => compor(v07, o, mapa, mmo)).toThrow(/setor_id inexistente/);
   });
 
   it('estágio inexistente', () => {
     const o = base();
     o.celulas_novas[0]!.estagio_id = 99;
-    expect(() => compor(v07, o, mapa)).toThrow(/estagio_id inexistente/);
+    expect(() => compor(v07, o, mapa, mmo)).toThrow(/estagio_id inexistente/);
   });
 
   it('IF/ELSE com um ramo só', () => {
     const o = base();
     const i = o.celulas_novas.findIndex((c) => c.se_sim);
     delete o.celulas_novas[i]!.se_nao;
-    expect(() => compor(v07, o, mapa)).toThrow(/dois ramos/);
+    expect(() => compor(v07, o, mapa, mmo)).toThrow(/dois ramos/);
   });
 
   it('sem fonte_secao (rastreabilidade)', () => {
     const o = base();
     o.celulas_novas[0]!.fonte_secao = ' ';
-    expect(() => compor(v07, o, mapa)).toThrow(/fonte_secao/);
+    expect(() => compor(v07, o, mapa, mmo)).toThrow(/fonte_secao/);
+  });
+});
+
+describe('compor falha com mensagem clara em metadados do MMO inválidos', () => {
+  it('setor que não existe na Matriz', () => {
+    const m = clone(mmo);
+    m.setores.setor_99 = { tipo: 'interno', tipo_rotulo: 'x', funcoes: ['y'] };
+    expect(() => compor(v07, overlay, mapa, m)).toThrow(/setor inexistente/);
+  });
+
+  it('setor da Matriz sem metadados', () => {
+    const m = clone(mmo);
+    delete m.setores.setor_05;
+    expect(() => compor(v07, overlay, mapa, m)).toThrow(/falta o setor setor_05/);
+  });
+
+  it('estágio sem descrição ou inexistente', () => {
+    const a = clone(mmo);
+    delete a.estagios['7'];
+    expect(() => compor(v07, overlay, mapa, a)).toThrow(/falta a descrição do estágio 7/);
+    const b = clone(mmo);
+    b.estagios['99'] = { descricao: 'x' };
+    expect(() => compor(v07, overlay, mapa, b)).toThrow(/estágio inexistente/);
   });
 });

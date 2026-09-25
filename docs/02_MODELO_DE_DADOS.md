@@ -7,7 +7,8 @@ Não há banco. A fonte é JSON versionado (`data/`). Sem RLS. Chaves em `snake_
 |---|---|---|
 | `data/matriz_v07.json` | `npm run dados:gerar` (xlsx → json) | Espelho fiel da Matriz V07. |
 | `data/conteudo/anotacoes_v08.json` | escrito à mão pelo CODE (spec: doc 06 §3) | Overlay das Anotações do CEO. |
-| `data/matriz_v08.json` | `npm run dados:compor` (v07 + overlay) | **Fonte de verdade das telas.** |
+| `data/conteudo/mmo_v02.json` | escrito à mão pelo CODE (02.8; fonte: Mapa e Relatório) | Metadados da tela MMO que a planilha não traz: tipo e funções dos setores, equipes, descrição dos 22 estágios e jornada do cliente. |
+| `data/matriz_v08.json` | `npm run dados:compor` (v07 + anotações + mapa + mmo_v02) | **Fonte de verdade das telas.** |
 | `data/conteudo/fichas_autoria.json` | escrito à mão pelo CODE (subetapas 02.2–02.5; spec: doc 06 §4) | Autoria das fichas: `why`/`how` de cada ação (ou modelo p/ texto repetido) + catálogos de setor, estágio e local. |
 | `data/conteudo/fichas_5w1h.json` | `npm run dados:fichas` (autoria + V08) | 1 ficha por célula (ação). Nunca editar à mão. |
 | `data/conteudo/documentos.json`, `ferramentas.json`, `investimentos.json`, `kpis.json` | CODE (02.6) | Bibliotecas. |
@@ -17,9 +18,9 @@ Não há banco. A fonte é JSON versionado (`data/`). Sem RLS. Chaves em `snake_
 
 ## Entidades (campos principais)
 ```
-setor            { id: "setor_01".."setor_12", numero, nome, cor_token (chave em design/tokens.json → `setores.<slug>`; a cor vive só nos tokens), tipo?: "estrategico"|"interno"|"externo" (V08), equipes?: [{nome, regiao, empresa?}] (V08) }
+setor            { id: "setor_01".."setor_12", numero, nome, cor_token (chave em design/tokens.json → `setores.<slug>`; a cor vive só nos tokens), tipo?: "estrategico"|"interno"|"externo" (V08), tipo_rotulo? (V08, texto exibido), funcoes?: string[] (V08, resumo do Mapa), equipes?: [{nome, regiao, empresa?}] (V08, Equipe Técnica), empresas?: string[] (V08, Engenharia) }
 fase             { id: 1..4, nome }                        // Comercial, Técnica/Projeto, Execução, Homologação e Encerramento
-estagio          { id: 1..22, numero, nome, fase_id, descricao? }
+estagio          { id: 1..22, numero, nome, fase_id, descricao? (V08: o que acontece no estágio, alinhado à Matriz) }
 acao             { id: "acao_<setor>_<estagio>_<ordem>", setor_id, estagio_id, ordem, texto, e_condicional: bool, canal?: "whatsapp_grupo_fluxo", celula (ref. na planilha, ex. "P6"), origem_doc?: string }
 condicional      { id, acao_id, pergunta: string (= texto-base da ação), se_sim: {rotulo, texto}, se_nao: {rotulo, texto}, situacao_id? (preenchido pelo mapa/V08) }   // 1º ramo da célula = se_sim, 2º = se_nao; o texto original se reconstrói exatamente
 situacao         { id, nome, estagio_id, setor_id }        // as "15 situações" (agrupa células IF/ELSE)
@@ -29,10 +30,11 @@ ferramenta       { id: "fer_NN", nome, setor_ids[], estagio_ids[], origem, situa
 investimento     { id: "inv_NN", categoria, setor_ids[], descricao, valor_estimado_brl: null, origem, fontes?, justificativa? }   // sempre null no v01
 kpi              { id: "kpi_<setor>_<n>", setor_id, tipo: "produtividade"|"eficiencia", nome (≤ 60 car.), formula_descricao (1 linha, ≤ 160 car.), meta: null, formulario: ["indicador","periodo","meta","realizado","responsavel","observacoes"], acompanhamento?: true (Cemig e Cliente), origem, fundamento (ação da Matriz que o sustenta) }   // kpis.json.meta.campos_formulario descreve cada campo
 oportunidade     { id, nome, prioridade_padrao: "alta"|"media"|"baixa", estagio_id }   // Anotações §1.4
-perfil_cliente   { id, nome, criterios, proxima_acao }                                  // Anotações §1.1
+perfil_cliente   { id, nome, criterios, proxima_acao, estagio_id }                       // Anotações §1.1 (estagio_id = 2: a triagem é no Est. 02)
+jornada_etapa    { id: "jornada_NN", nome, descricao }                                  // Relatório §6 (10 fases, na perspectiva do cliente)
 classificacao_lead { id: "lead_quente"|"lead_morno"|"lead_frio", nome, criterios: string[] }   // Anotações §1.1.1.7
 resposta_padrao  { id, tema, texto, revisao_juridica: bool }                                   // Anotações §2 (texto fiel; true = vai à seção 11 do POP)
-// matriz_v08.json = { meta{…, base_v07, overlay, origem_doc}, fases, setores, estagios, acoes, condicionais (com situacao_id), perfis_cliente, classificacao_lead, oportunidades, respostas_padrao }
+// matriz_v08.json = { meta{…, base_v07, overlay, origem_doc}, fases, setores (+tipo, funções, equipes), estagios (+descricao), acoes, condicionais (com situacao_id), perfis_cliente, classificacao_lead, oportunidades, respostas_padrao, jornada_cliente }
 pop_secao        { id, ordem, titulo, campos[] }
 pop_gerado       { id, escopo: "setor"|"geral", setor_id?, texto_por_secao{}, gerado_com: "template"|"llm", criado_em }
 versao_backup    { id: "bk_AAAAMMDD_HHMMSS_<8hex>", rotulo, escopo: "fpe"|"pop"|"completo", criado_em, tamanho_bytes, sha256, versao_app, protegido: bool }   // metadados no servidor (sem Drive)

@@ -319,6 +319,11 @@ html {
   border-left-color: var(--amarelo);
 }
 
+/* Pílula de setor: filete permanente na cor do setor (vem depois do estado aberto; mesma especificidade). */
+.pilula--setor .pilula__botao {
+  border-left-color: var(--cor-setor);
+}
+
 .pilula__numero {
   min-width: 2ch;
   color: var(--amarelo);
