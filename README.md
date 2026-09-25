@@ -42,7 +42,8 @@ npm run tokens:gerar       # regenera src/estilos/tokens.css a partir de design/
 npm run env:checar         # confere o .env sem mostrar valores
 ```
 
-Rotas (`HashRouter`): `#/mmo`, `#/fpe`, `#/pop`, `#/versoes`. Scripts de dados, deploy, spike e backup existem como
+Rotas (`HashRouter`): `#/mmo`, `#/fpe`, `#/pop`, `#/versoes`. No `npm run dev` há também `#/guia`, o guia de estilo dos componentes
+(`src/ui/`); ele **não entra** no build de produção. Scripts de deploy, spike e backup existem como
 marcadores e **falham de propósito** (`exit 1`) até a subetapa que os implementa — assim nenhum portão passa por engano.
 
 ## Status e documentos-chave

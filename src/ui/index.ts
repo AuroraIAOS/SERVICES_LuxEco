@@ -1,0 +1,20 @@
+// Base de UI da Lux (02.7): tudo o que as telas MMO, FPE, POP e Versões usam. Só tokens da marca; ver src/estilos/ui.css.
+export { Botao, BotaoExportar, BotaoLink } from './Botao';
+export type { BotaoProps, FormatoExportacao, VarianteBotao } from './Botao';
+export { Cabecalho } from './Cabecalho';
+export type { ItemNavegacao } from './Cabecalho';
+export { CampoAreaTexto, CampoSeletor, CampoTexto } from './Campo';
+export type { BaseCampo, OpcaoSeletor } from './Campo';
+export { Cartao, estiloDoSetor } from './Cartao';
+export type { CartaoProps } from './Cartao';
+export { EstadoVazio } from './EstadoVazio';
+export { Etiqueta, Ramo } from './Etiqueta';
+export type { VarianteEtiqueta } from './Etiqueta';
+export { Hero, Numeros } from './Hero';
+export type { NumeroDoResumo } from './Hero';
+export { Marca, SeloSol } from './Marca';
+export { NOME_APP, NOME_MARCA, NOTA_PROPRIEDADE, cls } from './identidade';
+export { Pilula } from './Pilula';
+export type { PilulaProps } from './Pilula';
+export { Rodape } from './Rodape';
+export { PularParaConteudo, Tela } from './Tela';

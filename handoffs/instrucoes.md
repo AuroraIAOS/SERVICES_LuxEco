@@ -135,7 +135,31 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm run dados:fichas | tail -1` → `OK fichas geradas: fases=1 total=110 sugeridas=2` (fase 1; final da 02.5, com as 4 fases: `fases=1,2,3,4 total=236 sugeridas=5`); `npm run dados:validar -- --fichas | tail -1` → `OK fichas: 236/236`; `npm run dados:validar -- --fichas --fase=1 | tail -1` → `OK fichas fase 1: 110/110`; `npm test -- fichas` → `0 failed` (24 testes, 13 de sensibilidade).
 - **Fonte:** decisão técnica de 24/09/2026 (02.2); `docs/06` §4; padrão idêntico ao da V08 (compor → validar → arquivo em dia).
 
+### Base de UI: componentes só com tokens, e a marca é medida por teste (não por olho)
+- **Gatilho:** qualquer tela nova (02.8 MMO, 02.9 FPE, 03.x POP/Versões) e qualquer CSS/TSX novo.
+- **Ação:** usar `src/ui/*` (`Tela`, `Hero`/`Numeros`, `Cartao`, `Pilula`, `Etiqueta`/`Ramo`, `Botao`/`BotaoExportar`, `Campo*`, `EstadoVazio`, `Rodape`) e as classes de `src/estilos/ui.css`; nunca cor, família ou peso literal (o teste `src/ui/ui.test.tsx` varre todos os `.tsx`/`.css` e reprova hex/`rgb()`/`font-family`/`font-weight` fora dos tokens). Tons de texto vêm de `--texto-suave` (78%) e `--texto-fraco` (64%) do `branco`. **O texto do setor é branco; a cor do setor vai no filete** (`<Cartao setor="setor-vendas">`, `cor_token` da V08). Erro de campo = texto branco + marcador + `aria-invalid`. `Pilula` é acordeão nativo (`<button>` dentro do título). Cada tela usa `<Tela titulo subtitulo resumo>`: define o `h1` único, o título da aba e o hero; o foco vai para o `<main>` a cada troca de rota (`src/app.tsx`). Números do hero sempre calculados dos dados (`<Numeros itens=…>`).
+- **Evidência:** `npm test -- ui` → `63 passed`; `grep -rEn "#[0-9A-Fa-f]{6}" src --include=*.tsx | wc -l` → `0`; o guia `#/guia` (só em `npm run dev`) mostra todos os componentes.
+- **Fonte:** decisão técnica de 24/09/2026 (02.7); `docs/04` (seção “Base de UI”).
+
 ## 6. Armadilhas conhecidas (não repetir)
+
+### Vitest devolve string vazia para CSS importado com `?raw`
+- **Gatilho:** teste que faz `import css from './x.css?raw'` e recebe `''` (regex `exec` retorna `null`, asserção estranha).
+- **Ação:** em `vitest.config.ts`, `test.css: { include: [/\.css\?raw$/] }` — só os `?raw` voltam com o texto; o resto continua desligado. Sem isso o Vitest zera todo CSS. `console.log` some na saída deste projeto: para inspecionar um valor, faça o teste lançar `new Error(...)`.
+- **Evidência:** `npm test -- ui` lê `ui.css` e mede o contraste a partir dele (`63 passed`).
+- **Fonte:** erro real da 02.7.
+
+### Windows: dois arquivos que só diferem na caixa (`marca.ts` × `Marca.tsx`) quebram o `tsc` e o Vite
+- **Gatilho:** `TS1149: File name … differs from already included file name … only in casing` e “Element type is invalid … got: undefined” ao importar `./Marca`.
+- **Ação:** nunca criar `foo.ts` e `Foo.tsx` na mesma pasta (o sistema de arquivos não diferencia; o import resolve para o errado). As constantes da marca ficam em `src/ui/identidade.ts`; o componente, em `Marca.tsx`.
+- **Evidência:** `npm run typecheck` → exit 0.
+- **Fonte:** erro real da 02.7.
+
+### Skip link com `HashRouter`: `href="#conteudo"` troca a rota
+- **Gatilho:** “Pular para o conteúdo” dentro de uma SPA que usa o hash para as rotas.
+- **Ação:** `preventDefault()` no clique e `document.getElementById('conteudo').focus()` (o `<main>` tem `tabIndex={-1}`); o hash das rotas não muda.
+- **Evidência:** `npm test -- ui` (teste do primeiro `Tab` + `Enter` mantém o `h1` da tela).
+- **Fonte:** erro evitado na 02.7; WAI-ARIA APG (skip link).
 
 ### `.gitignore` escondia código e marca: `dados/` pegava `src/dados/`, `*token*.json` pegava `design/tokens.json`
 - **Gatilho:** `git status` limpo e `git ls-files src/dados design/tokens.json` **vazio** — os arquivos existiam no disco (testes e build passavam) mas **nunca foram commitados** desde a 01.3/01.4; um clone novo não compilaria (`scripts/*.ts` importam `src/dados/tipos.ts`; `tokens:gerar` lê `design/tokens.json`). Descoberto na 02.1 ao ver que `src/dados/v08.test.ts` não aparecia no `git status`.

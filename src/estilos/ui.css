@@ -1,0 +1,517 @@
+/*
+ * Base de UI da Lux (02.7). Só tokens da marca (tokens.css, gerado de design/tokens.json): nenhuma cor, fonte ou peso literal aqui.
+ * Tons de texto são derivados do token `branco` com color-mix — mesma cor, com transparência.
+ * Superfícies planas, cantos retos, 2px entre elas e nenhuma sombra: o setor aparece só como filete lateral.
+ */
+:root {
+  --texto-suave: color-mix(in srgb, var(--branco) 78%, transparent);
+  --texto-fraco: color-mix(in srgb, var(--branco) 64%, transparent);
+  --filete-amarelo: color-mix(in srgb, var(--amarelo) 28%, transparent);
+  --vao: 2px;
+  --gutter: clamp(1rem, 3vw, 1.5rem);
+  --largura-max: 87.5rem;
+  --t-2: 1.125rem;
+  --t-3: 1.375rem;
+  --t-4: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Navegação por teclado ─────────────────────────────────────────── */
+.pular {
+  position: absolute;
+  left: 0.75rem;
+  top: -4rem;
+  z-index: 30;
+  padding: 0.6rem 1rem;
+  background: var(--amarelo);
+  color: var(--chumbo);
+  font-weight: var(--peso-titulo);
+  text-decoration: none;
+}
+
+.pular:focus-visible {
+  top: 0.75rem;
+}
+
+.conteudo {
+  flex: 1;
+}
+
+/* O <main> recebe foco por código ao trocar de tela; não é um controle, então sem anel. */
+.conteudo:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ── Cabeçalho ─────────────────────────────────────────────────────── */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--chumbo-mid);
+  border-bottom: 1px solid var(--chumbo-lighter);
+}
+
+.cabecalho__interno {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0 2rem;
+}
+
+.cabecalho__marca {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: var(--peso-titulo);
+  font-size: var(--t-2);
+}
+
+.marca strong {
+  color: var(--amarelo);
+}
+
+.cabecalho__nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cabecalho__nav a {
+  display: block;
+  padding: 1rem 1rem 0.8rem;
+  border-bottom: 3px solid transparent;
+  color: var(--texto-suave);
+  text-decoration: none;
+}
+
+.cabecalho__nav a:hover {
+  background: var(--chumbo-light);
+  color: var(--branco);
+}
+
+.cabecalho__nav a[aria-current='page'] {
+  color: var(--branco);
+  font-weight: var(--peso-titulo);
+  border-bottom-color: var(--amarelo);
+}
+
+/* ── Selo da marca ─────────────────────────────────────────────────── */
+.selo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 2px solid var(--amarelo);
+  border-radius: 50%;
+}
+
+.selo svg {
+  width: 55%;
+  height: 55%;
+  fill: var(--amarelo);
+}
+
+.selo--grande {
+  width: 4rem;
+  height: 4rem;
+  animation: pulso 3s ease-in-out infinite;
+}
+
+@keyframes pulso {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--amarelo-glow);
+  }
+  50% {
+    box-shadow: 0 0 0 0.875rem transparent;
+  }
+}
+
+/* ── Hero compacto ─────────────────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.25rem 1.5rem;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 1.75rem var(--gutter) 1.5rem;
+}
+
+.hero__titulo {
+  margin: 0;
+  font-size: var(--t-4);
+  font-weight: var(--peso-titulo);
+  line-height: 1.1;
+}
+
+.hero__subtitulo {
+  max-width: 60ch;
+  margin: 0.4rem 0 0;
+  color: var(--texto-suave);
+  font-size: var(--t-2);
+}
+
+.numeros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--texto-suave);
+  font-size: var(--t-2);
+}
+
+.numeros strong {
+  margin-right: 0.15em;
+  color: var(--amarelo);
+  font-weight: var(--peso-titulo);
+  font-size: var(--t-3);
+}
+
+.tela__corpo {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 4rem;
+}
+
+/* ── Botões ────────────────────────────────────────────────────────── */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 1.1rem;
+  border: 2px solid transparent;
+  background: none;
+  color: var(--branco);
+  font: inherit;
+  font-weight: var(--peso-titulo);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.botao--primario {
+  background: var(--amarelo);
+  color: var(--chumbo);
+}
+
+.botao--primario:hover {
+  background: color-mix(in srgb, var(--amarelo) 84%, var(--branco));
+}
+
+.botao--secundario {
+  background: var(--chumbo-mid);
+  border-color: var(--chumbo-lighter);
+}
+
+.botao--secundario:hover {
+  background: var(--chumbo-light);
+  border-color: var(--amarelo);
+}
+
+.botao--discreto {
+  color: var(--amarelo);
+}
+
+.botao--discreto:hover {
+  background: var(--amarelo-dim);
+}
+
+.botao:disabled,
+.botao[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Cartão ────────────────────────────────────────────────────────── */
+.cartao {
+  padding: 1rem 1.25rem 1.25rem;
+  background: var(--chumbo-mid);
+  border-left: 3px solid transparent;
+}
+
+.cartao--setor {
+  border-left-color: var(--cor-setor);
+}
+
+.cartao__cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.cartao__titulo {
+  margin: 0;
+  font-size: var(--t-3);
+  line-height: 1.2;
+}
+
+.cartao__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ── Pílula expansível ─────────────────────────────────────────────── */
+.pilula {
+  background: var(--chumbo-mid);
+}
+
+.pilula + .pilula {
+  margin-top: var(--vao);
+}
+
+.pilula__cabecalho {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: var(--peso-corpo);
+}
+
+.pilula__botao {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-left: 3px solid transparent;
+  background: none;
+  color: var(--branco);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pilula__botao:hover,
+.pilula--aberta .pilula__botao {
+  background: var(--chumbo-light);
+}
+
+.pilula--aberta .pilula__botao {
+  border-left-color: var(--amarelo);
+}
+
+.pilula__numero {
+  min-width: 2ch;
+  color: var(--amarelo);
+  font-weight: var(--peso-titulo);
+}
+
+.pilula__nome {
+  flex: 1;
+  line-height: 1.3;
+}
+
+.pilula__resumo {
+  color: var(--texto-fraco);
+}
+
+.pilula__seta {
+  color: var(--amarelo);
+  font-size: var(--t-3);
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.pilula--aberta .pilula__seta {
+  transform: rotate(90deg);
+}
+
+.pilula__painel {
+  padding: 0.25rem 0 0.5rem;
+  background: var(--chumbo);
+  border-top: 1px solid var(--filete-amarelo);
+}
+
+.pilula__painel[hidden] {
+  display: none;
+}
+
+/* ── Etiquetas e ramos IF/ELSE ─────────────────────────────────────── */
+.etiqueta {
+  display: inline-block;
+  padding: 0.05rem 0.45rem;
+  border: 1px solid var(--chumbo-lighter);
+  color: var(--texto-suave);
+  font-weight: var(--peso-titulo);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+.etiqueta--ifelse {
+  border-color: var(--filete-amarelo);
+  background: var(--amarelo-dim);
+  color: var(--amarelo);
+}
+
+.etiqueta--whatsapp {
+  border-color: color-mix(in srgb, var(--whatsapp) 45%, transparent);
+  background: color-mix(in srgb, var(--whatsapp) 14%, transparent);
+  color: var(--whatsapp);
+}
+
+.ramo {
+  position: relative;
+  margin: 0.2rem 0;
+  padding-left: 1.5rem;
+  color: var(--texto-suave);
+}
+
+.ramo__simbolo {
+  position: absolute;
+  left: 0;
+  font-weight: var(--peso-titulo);
+}
+
+.ramo--sim .ramo__simbolo {
+  color: var(--sucesso);
+}
+
+.ramo--nao .ramo__simbolo {
+  color: var(--erro);
+}
+
+.ramo__rotulo {
+  color: var(--branco);
+  font-weight: var(--peso-titulo);
+}
+
+/* ── Formulário ────────────────────────────────────────────────────── */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.campo__rotulo {
+  font-weight: var(--peso-titulo);
+}
+
+.campo__ajuda {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.campo__controle {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.75rem;
+  border: 2px solid var(--chumbo-lighter);
+  border-radius: 0;
+  background: var(--chumbo);
+  color: var(--branco);
+  font: inherit;
+}
+
+.campo__controle--longo {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.campo__controle:hover {
+  border-color: var(--chumbo-light);
+}
+
+.campo__controle:focus-visible {
+  border-color: var(--amarelo);
+}
+
+/* Erro em texto (branco, AA) com marcador lateral: nunca só cor. */
+.campo--erro .campo__controle {
+  border-color: var(--erro);
+}
+
+.campo__erro {
+  margin: 0;
+  padding-left: 0.6rem;
+  border-left: 3px solid var(--erro);
+  color: var(--branco);
+  font-weight: var(--peso-titulo);
+}
+
+/* ── Estado vazio ──────────────────────────────────────────────────── */
+.vazio {
+  padding: 1.75rem var(--gutter) 2rem;
+  background: var(--chumbo-mid);
+  border-left: 3px solid var(--amarelo);
+}
+
+.vazio__titulo {
+  margin: 0 0 0.5rem;
+  font-size: var(--t-3);
+}
+
+.vazio__texto {
+  max-width: 60ch;
+  margin: 0 0 1.25rem;
+  color: var(--texto-suave);
+}
+
+.vazio__acao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ── Rodapé ────────────────────────────────────────────────────────── */
+.rodape {
+  padding: 1.25rem var(--gutter);
+  border-top: 1px solid var(--chumbo-lighter);
+  color: var(--texto-fraco);
+}
+
+.rodape p {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+}
+
+/* ── Telas estreitas ───────────────────────────────────────────────── */
+@media (max-width: 40rem) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .cabecalho__nav a {
+    padding: 0.75rem 0.75rem 0.6rem;
+  }
+}
+
+/* ── Movimento reduzido ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

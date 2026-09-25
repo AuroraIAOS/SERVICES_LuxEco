@@ -10,6 +10,7 @@ Registra **o que mudou para o usuário**; o *como resolvemos* fica em `handoffs/
 - Fichas 5W1H da Fase 3 — Execução (Est. 15 a 19): mais 62 fichas (entrega e conferência do material, agendamento, instalação, vistorias interna e da Cemig, treinamento). Onde os documentos não trazem um dado (ex.: duração esperada da instalação), a ficha pede que a Lux o informe.
 - Fichas 5W1H da Fase 4 — Homologação e Encerramento (Est. 20 a 22): mais 28 fichas (pedido de ligação, homologação pela Cemig, CAT, feedback, encerramento e oportunidades de pós-venda). Com isso o FPE tem as 236 fichas, uma para cada ação da Matriz V08.
 - Bibliotecas do contrato (documentos, ferramentas, investimentos e KPIs): 28 documentos (com a origem de cada um), 7 ferramentas (o CRM próprio consta como futuro e fora do escopo), 6 categorias de investimento **sem valores em R$** e 36 indicadores de produtividade e eficiência para os 12 setores, com formulário de monitoramento e **sem metas** (a Lux define).
+- Interface base da ferramenta: barra de navegação com a marca, abertura de tela compacta, botões, cartões de setor, itens expansíveis, etiquetas IF/ELSE e WhatsApp, campos de formulário e rodapé com a nota de propriedade intelectual. Navegação completa por teclado (com “Pular para o conteúdo”), foco visível, contraste conferido e uso de leitor de tela considerado.
 
 ## [+0.1] - 2026-09-24 (Etapa 01 — fundação técnica)
 - Projeto Vite + React + TypeScript criado, com as rotas `#/mmo`, `#/fpe`, `#/pop` e `#/versoes` (ainda em construção), tema e fonte da marca Lux.

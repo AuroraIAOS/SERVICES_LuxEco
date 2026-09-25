@@ -1,5 +1,6 @@
 @import './fontes.css';
 @import './tokens.css';
+@import './ui.css';
 
 *,
 *::before,
@@ -23,9 +24,14 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-weight: var(--peso-titulo);
   margin: 0 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em;
 }
 
 a {
@@ -36,38 +42,4 @@ a {
   outline: 3px solid var(--amarelo);
   outline-offset: 2px;
   box-shadow: 0 0 0 5px var(--amarelo-glow);
-}
-
-.marca strong {
-  color: var(--amarelo);
-}
-
-.cabecalho {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem 1.5rem;
-  background: var(--chumbo-mid);
-  border-bottom: 1px solid var(--chumbo-light);
-}
-
-.cabecalho nav {
-  display: flex;
-  gap: 1rem;
-}
-
-.cabecalho nav a {
-  text-decoration: none;
-  color: var(--branco);
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.5rem;
-}
-
-.cabecalho nav a[aria-current='page'] {
-  background: var(--amarelo-dim);
-  color: var(--amarelo);
-}
-
-.conteudo {
-  padding: 2rem 1.5rem;
 }
