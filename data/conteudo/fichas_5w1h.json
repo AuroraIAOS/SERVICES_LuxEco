@@ -1,0 +1,3104 @@
+{
+  "meta": {
+    "versao_matriz": "V08",
+    "gerado_de": [
+      "data/matriz_v08.json",
+      "data/conteudo/fichas_autoria.json",
+      "data/conteudo/anotacoes_v08.json"
+    ],
+    "fases_autoradas": [
+      1
+    ],
+    "total": 110
+  },
+  "fichas": [
+    {
+      "id": "ficha_01_01_1",
+      "acao_id": "acao_01_01_1",
+      "setor_id": "setor_01",
+      "estagio_id": 1,
+      "what": "Gerencia propaganda e publicidade da marca",
+      "why": "Sustentar a presença digital da marca e a geração de demanda que alimenta o funil de vendas.",
+      "where": "Rotina interna do Marketing",
+      "when": "Est. 01 — Prospecção: abertura do ciclo de serviço, antes do primeiro contato com o lead",
+      "who": "Marketing",
+      "how": "Planeja e conduz a propaganda e a publicidade da marca; os resultados chegam ao Vendas como leads, encaminhados pelo Marketing na ação seguinte.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula B2 — Marketing × Est. 01"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 01 — Prospecção"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 01 — Marketing"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_01_02_1",
+      "acao_id": "acao_01_02_1",
+      "setor_id": "setor_01",
+      "estagio_id": 2,
+      "what": "Orienta comportamentos e comunicação da equipe",
+      "why": "Padronizar o comportamento e a comunicação da equipe no contato com o cliente: o Marketing define a abordagem e o tom de comunicação da marca.",
+      "where": "Rotina interna do Marketing",
+      "when": "Est. 02 — Atendimento: primeiro contato com o lead",
+      "who": "Marketing",
+      "how": "Orienta a equipe sobre como se comportar e se comunicar no atendimento, em linha com a comunicação da marca.",
+      "origem": "sugerido",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C2 — Marketing × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 01 — Marketing"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_01_03_1",
+      "acao_id": "acao_01_03_1",
+      "setor_id": "setor_01",
+      "estagio_id": 3,
+      "what": "Cria e edita layouts e cenários de simulação",
+      "why": "Apoiar a simulação com layouts e cenários: o Marketing cria materiais de comunicação e, segundo a Matriz, também cria e edita os layouts e cenários de simulação.",
+      "where": "Rotina interna do Marketing",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "Marketing",
+      "how": "Cria e edita os layouts e os cenários usados na simulação; a Engenharia edita os layouts e cenários do projeto na sua ação correspondente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D2 — Marketing × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 01 — Marketing"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_01_01_2",
+      "acao_id": "acao_01_01_2",
+      "setor_id": "setor_01",
+      "estagio_id": 1,
+      "what": "Opera campanhas de tráfego pago",
+      "why": "Gerar leads para o funil de vendas por meio de tráfego pago.",
+      "where": "Campanhas de tráfego pago (Google Ads)",
+      "when": "Est. 01 — Prospecção: abertura do ciclo de serviço, antes do primeiro contato com o lead",
+      "who": "Marketing",
+      "how": "Opera as campanhas de tráfego pago (Google Ads); os leads gerados seguem para o Vendas.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula B3 — Marketing × Est. 01"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 01 — Prospecção"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 01 — Marketing"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_01_01_3",
+      "acao_id": "acao_01_01_3",
+      "setor_id": "setor_01",
+      "estagio_id": 1,
+      "what": "Gera e encaminha leads ao setor de Vendas",
+      "why": "Alimentar o funil: entregar ao Vendas os leads gerados pelo Marketing para atendimento.",
+      "where": "Rotina interna do Marketing",
+      "when": "Est. 01 — Prospecção: abertura do ciclo de serviço, antes do primeiro contato com o lead",
+      "who": "Marketing",
+      "how": "Reúne os leads gerados pelas campanhas e os encaminha ao setor de Vendas, que os capta na ação “Capta leads gerados pelo Marketing”.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula B4 — Marketing × Est. 01"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 01 — Prospecção"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 01 — Marketing"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_01_1",
+      "acao_id": "acao_02_01_1",
+      "setor_id": "setor_02",
+      "estagio_id": 1,
+      "what": "Realiza prospecção ativa",
+      "why": "Captar potenciais clientes por iniciativa do próprio time comercial: Vendas é o motor comercial da empresa.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 01 — Prospecção: abertura do ciclo de serviço, antes do primeiro contato com o lead",
+      "who": "Vendas (Vendedor)",
+      "how": "O Vendedor busca ativamente potenciais clientes e inicia o contato; os leads captados seguem para o Est. 02 (Atendimento).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula B5 — Vendas × Est. 01"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 01 — Prospecção"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_1",
+      "acao_id": "acao_02_02_1",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Aborda o lead rapidamente",
+      "why": "Iniciar o atendimento assim que o lead chega, abrindo o primeiro contato com o cliente.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: assim que o lead é captado",
+      "who": "Vendas (Vendedor)",
+      "how": "O Vendedor entra em contato com o lead logo que ele é captado (prospecção, indicação ou Marketing) e inicia o atendimento pelas perguntas abertas sobre a energia do cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C5 — Vendas × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_03_1",
+      "acao_id": "acao_02_03_1",
+      "setor_id": "setor_02",
+      "estagio_id": 3,
+      "what": "Mantém contato ativo com o cliente",
+      "why": "Manter o cliente acompanhado durante o Est. 03 — Simulação: Vendas é o setor de maior presença transversal na jornada do cliente.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "Vendas (Vendedor)",
+      "how": "Mantém comunicação ativa com o cliente durante o estágio e, quando algo muda, comunica o Administrativo e o cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D5 — Vendas × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_04_1",
+      "acao_id": "acao_02_04_1",
+      "setor_id": "setor_02",
+      "estagio_id": 4,
+      "what": "Mantém contato ativo com o cliente",
+      "why": "Manter o cliente acompanhado durante o Est. 04 — Proposta: Vendas é o setor de maior presença transversal na jornada do cliente.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 04 — Proposta: após a simulação",
+      "who": "Vendas (Vendedor)",
+      "how": "Mantém comunicação ativa com o cliente durante o estágio e, quando algo muda, comunica o Administrativo e o cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula E5 — Vendas × Est. 04"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_05_1",
+      "acao_id": "acao_02_05_1",
+      "setor_id": "setor_02",
+      "estagio_id": 5,
+      "what": "Mantém contato ativo com o cliente",
+      "why": "Manter o cliente acompanhado durante o Est. 05 — Pré-aprovação: Vendas é o setor de maior presença transversal na jornada do cliente.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 05 — Pré-aprovação: após o envio da proposta ao cliente",
+      "who": "Vendas (Vendedor)",
+      "how": "Mantém comunicação ativa com o cliente durante o estágio e, quando algo muda, comunica o Administrativo e o cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula F5 — Vendas × Est. 05"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 05 — Pré-aprovação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_06_1",
+      "acao_id": "acao_02_06_1",
+      "setor_id": "setor_02",
+      "estagio_id": 6,
+      "what": "Mantém contato ativo com o cliente",
+      "why": "Manter o cliente acompanhado durante o Est. 06 — Fechamento: Vendas é o setor de maior presença transversal na jornada do cliente.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 06 — Fechamento: após o aceite da proposta pelo cliente",
+      "who": "Vendas (Vendedor)",
+      "how": "Mantém comunicação ativa com o cliente durante o estágio e, quando algo muda, comunica o Administrativo e o cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula G5 — Vendas × Est. 06"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_07_1",
+      "acao_id": "acao_02_07_1",
+      "setor_id": "setor_02",
+      "estagio_id": 7,
+      "what": "Mantém contato ativo com o cliente",
+      "why": "Manter o cliente acompanhado durante o Est. 07 — Aprovação do contrato: Vendas é o setor de maior presença transversal na jornada do cliente.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 07 — Aprovação do contrato: após o envio do contrato ao cliente",
+      "who": "Vendas (Vendedor)",
+      "how": "Mantém comunicação ativa com o cliente durante o estágio e, quando algo muda, comunica o Administrativo e o cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula H5 — Vendas × Est. 07"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 07 — Aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_08_1",
+      "acao_id": "acao_02_08_1",
+      "setor_id": "setor_02",
+      "estagio_id": 8,
+      "what": "Encerra o ciclo de contato com o cliente",
+      "why": "Com o contrato assinado, o Vendedor encerra o ciclo de contato comercial.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 08 — Pós-aprovação do contrato: após a assinatura do contrato",
+      "who": "Vendas (Vendedor)",
+      "how": "Conclui o contato comercial com o cliente; a comunicação passa a ser conduzida pelo Administrativo no Grupo de Fluxo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I5 — Vendas × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_01_2",
+      "acao_id": "acao_02_01_2",
+      "setor_id": "setor_02",
+      "estagio_id": 1,
+      "what": "Capta leads por indicação",
+      "why": "Aproveitar as indicações de clientes e parceiros como fonte de leads.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 01 — Prospecção: abertura do ciclo de serviço, antes do primeiro contato com o lead",
+      "who": "Vendas (Vendedor)",
+      "how": "Recebe as indicações de clientes e parceiros e as trata como leads para o atendimento.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula B6 — Vendas × Est. 01"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 01 — Prospecção"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_2",
+      "acao_id": "acao_02_02_2",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Contorna objeções do cliente",
+      "why": "As objeções são naturais na negociação e precisam ser respondidas para o atendimento avançar.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: sempre que o cliente apresenta uma objeção durante o atendimento",
+      "who": "Vendas (Vendedor)",
+      "how": "Responde cada objeção com informações técnicas e exemplos práticos. Objeções previstas: investimento inicial, financiamento de longo prazo, receio quanto à garantia, dúvidas sobre manutenção, funcionamento em dias chuvosos, durabilidade, imóvel alugado e desconhecimento da tecnologia.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C6 — Vendas × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_03_2",
+      "acao_id": "acao_02_03_2",
+      "setor_id": "setor_02",
+      "estagio_id": 3,
+      "what": "Apoia o Administrativo na coleta e organização dos dados",
+      "why": "O Administrativo gera a simulação com dados fornecidos pelo Vendedor e pelo Fornecedor.",
+      "where": "Comunicação interna entre Vendas e Administrativo",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "Vendas (Vendedor)",
+      "how": "Repassa ao Administrativo os dados coletados no atendimento e ajuda a organizá-los para a simulação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D6 — Vendas × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_04_2",
+      "acao_id": "acao_02_04_2",
+      "setor_id": "setor_02",
+      "estagio_id": 4,
+      "what": "Comunica alterações ao Administrativo e ao cliente",
+      "why": "Manter o Administrativo (hub de coordenação) e o cliente alinhados sobre qualquer alteração no Est. 04 — Proposta.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 04 — Proposta: após a simulação",
+      "who": "Vendas (Vendedor)",
+      "how": "Informa ao Administrativo e ao cliente as alterações ocorridas no estágio.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula E6 — Vendas × Est. 04"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_05_2",
+      "acao_id": "acao_02_05_2",
+      "setor_id": "setor_02",
+      "estagio_id": 5,
+      "what": "Comunica alterações ao Administrativo e ao cliente",
+      "why": "Manter o Administrativo (hub de coordenação) e o cliente alinhados sobre qualquer alteração no Est. 05 — Pré-aprovação.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 05 — Pré-aprovação: após o envio da proposta ao cliente",
+      "who": "Vendas (Vendedor)",
+      "how": "Informa ao Administrativo e ao cliente as alterações ocorridas no estágio.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula F6 — Vendas × Est. 05"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 05 — Pré-aprovação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_06_2",
+      "acao_id": "acao_02_06_2",
+      "setor_id": "setor_02",
+      "estagio_id": 6,
+      "what": "Comunica alterações ao Administrativo e ao cliente",
+      "why": "Manter o Administrativo (hub de coordenação) e o cliente alinhados sobre qualquer alteração no Est. 06 — Fechamento.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 06 — Fechamento: após o aceite da proposta pelo cliente",
+      "who": "Vendas (Vendedor)",
+      "how": "Informa ao Administrativo e ao cliente as alterações ocorridas no estágio.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula G6 — Vendas × Est. 06"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_07_2",
+      "acao_id": "acao_02_07_2",
+      "setor_id": "setor_02",
+      "estagio_id": 7,
+      "what": "Comunica alterações ao Administrativo e ao cliente",
+      "why": "Manter o Administrativo (hub de coordenação) e o cliente alinhados sobre qualquer alteração no Est. 07 — Aprovação do contrato.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 07 — Aprovação do contrato: após o envio do contrato ao cliente",
+      "who": "Vendas (Vendedor)",
+      "how": "Informa ao Administrativo e ao cliente as alterações ocorridas no estágio.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula H6 — Vendas × Est. 07"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 07 — Aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_08_2",
+      "acao_id": "acao_02_08_2",
+      "setor_id": "setor_02",
+      "estagio_id": 8,
+      "what": "Solicita feedback sobre a experiência de venda",
+      "why": "Obter a avaliação do cliente sobre a experiência de venda.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 08 — Pós-aprovação do contrato: ao encerrar o ciclo de contato comercial",
+      "who": "Vendas (Vendedor)",
+      "how": "Pede ao cliente que avalie a experiência de venda; a resposta do cliente é registrada na ação “Responde ao feedback de venda”.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I6 — Vendas × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_01_3",
+      "acao_id": "acao_02_01_3",
+      "setor_id": "setor_02",
+      "estagio_id": 1,
+      "what": "Capta leads gerados pelo Marketing",
+      "why": "Dar continuidade comercial aos leads que o Marketing gera por tráfego pago.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 01 — Prospecção: quando o Marketing encaminha os leads gerados",
+      "who": "Vendas (Vendedor)",
+      "how": "Recebe do Marketing os leads gerados e os assume para o atendimento (Est. 02).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula B7 — Vendas × Est. 01"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 01 — Prospecção"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_3",
+      "acao_id": "acao_02_02_3",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Coleta dados do cliente (nome, cidade, conta de energia, tipo de imóvel)",
+      "why": "Reunir os dados críticos de que a simulação de consumo (Est. 03) precisa.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: durante o atendimento, antes de avançar para a simulação",
+      "who": "Vendas (Vendedor)",
+      "how": "Coleta nome, cidade, conta de energia e tipo de imóvel do cliente; as demais informações de contexto são levantadas na ação “Levanta o contexto do cliente”.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C7 — Vendas × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_08_3",
+      "acao_id": "acao_02_08_3",
+      "setor_id": "setor_02",
+      "estagio_id": 8,
+      "what": "Transfere os dados coletados ao Administrativo",
+      "why": "O Administrativo coordena a operação a partir do fechamento.",
+      "where": "Comunicação interna entre Vendas e Administrativo",
+      "when": "Est. 08 — Pós-aprovação do contrato: após a assinatura do contrato",
+      "who": "Vendas (Vendedor)",
+      "how": "Entrega ao Administrativo os dados coletados do cliente durante a venda.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I7 — Vendas × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_4",
+      "acao_id": "acao_02_02_4",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Registra e informa o Administrativo sobre o lead",
+      "why": "Passar ao Administrativo, hub de coordenação da operação, as informações do lead para que a simulação seja gerada.",
+      "where": "Comunicação interna entre Vendas e Administrativo",
+      "when": "Est. 02 — Atendimento: após coletar os dados do lead",
+      "who": "Vendas (Vendedor)",
+      "how": "Registra o lead com os dados coletados e informa o Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C8 — Vendas × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_5",
+      "acao_id": "acao_02_02_5",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Verifica disponibilidade da conta de energia",
+      "why": "Verificação condicional crítica antes de avançar para a simulação: a simulação de consumo usa a conta de energia do cliente ou, na falta dela, uma estimativa de consumo.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: antes de avançar para a simulação",
+      "who": "Vendas (Vendedor)",
+      "how": "Confirma se o cliente disponibilizou a conta de energia e segue o caminho previsto para cada resultado. Condicional: se “Conta disponível”, segue para simulação; se “Conta indisponível”, solicita estimativa de consumo e projeta o dimensionamento.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C9 — Vendas × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_6",
+      "acao_id": "acao_02_02_6",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Confirma identidade e titularidade do contato",
+      "why": "Verificação condicional crítica: confirmar que se fala com o titular ou responsável antes de avançar no atendimento.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: no início do atendimento, antes de avançar",
+      "who": "Vendas (Vendedor)",
+      "how": "Confirma a identidade e a titularidade de quem está em contato e segue o caminho previsto para cada resultado. Condicional: se “Contato correto”, prossegue o atendimento; se “Contato incorreto”, solicita redirecionamento e registra a ocorrência.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C10 — Vendas × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_01_1",
+      "acao_id": "acao_03_01_1",
+      "setor_id": "setor_03",
+      "estagio_id": 1,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 01 — Prospecção por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 01 — Prospecção: abertura do ciclo de serviço, antes do primeiro contato com o lead",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula B11 — Administrativo × Est. 01"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 01 — Prospecção"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_02_1",
+      "acao_id": "acao_03_02_1",
+      "setor_id": "setor_03",
+      "estagio_id": 2,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 02 — Atendimento por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 02 — Atendimento: primeiro contato com o lead",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C11 — Administrativo × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_03_1",
+      "acao_id": "acao_03_03_1",
+      "setor_id": "setor_03",
+      "estagio_id": 3,
+      "what": "Articula comunicação com fornecedores",
+      "why": "A simulação usa dados do Fornecedor, e o Administrativo é o hub de coordenação da operação.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "Administrativo",
+      "how": "Aciona os Fornecedores para obter os dados necessários à simulação e acompanha o retorno.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D11 — Administrativo × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_04_1",
+      "acao_id": "acao_03_04_1",
+      "setor_id": "setor_03",
+      "estagio_id": 4,
+      "what": "Elabora a proposta comercial",
+      "why": "Formalizar ao cliente a oferta comercial personalizada.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 04 — Proposta: após a simulação",
+      "who": "Administrativo",
+      "how": "Elabora a proposta a partir da simulação (Est. 03), das premissas de cálculo do Financeiro e dos movimentos contábeis indicados pela Contabilidade.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula E11 — Administrativo × Est. 04"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_05_1",
+      "acao_id": "acao_03_05_1",
+      "setor_id": "setor_03",
+      "estagio_id": 5,
+      "what": "Cobra resolução da venda e da proposta",
+      "why": "O Administrativo e o CEO cobram a resolução da venda e da proposta.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 05 — Pré-aprovação: após o envio da proposta ao cliente",
+      "who": "Administrativo",
+      "how": "Cobra dos envolvidos a resolução da venda e da proposta, isto é, que o cliente decida entre aceitar ou solicitar revisão.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula F11 — Administrativo × Est. 05"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 05 — Pré-aprovação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_06_1",
+      "acao_id": "acao_03_06_1",
+      "setor_id": "setor_03",
+      "estagio_id": 6,
+      "what": "Elabora o contrato",
+      "why": "Com a proposta aprovada, o processo avança para a contratação.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 06 — Fechamento: após o aceite da proposta pelo cliente",
+      "who": "Administrativo",
+      "how": "Elabora o contrato com base na proposta aprovada, nas premissas do Financeiro e nos movimentos contábeis indicados pela Contabilidade.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula G11 — Administrativo × Est. 06"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_07_1",
+      "acao_id": "acao_03_07_1",
+      "setor_id": "setor_03",
+      "estagio_id": 7,
+      "what": "Cobra resolução da venda e do contrato",
+      "why": "Acompanhar a resolução do contrato pelo cliente.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 07 — Aprovação do contrato: após o envio do contrato ao cliente",
+      "who": "Administrativo",
+      "how": "Cobra dos envolvidos a resolução da venda e do contrato, isto é, que o cliente decida entre aceitar (assinar) ou solicitar revisão.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula H11 — Administrativo × Est. 07"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 07 — Aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_08_1",
+      "acao_id": "acao_03_08_1",
+      "setor_id": "setor_03",
+      "estagio_id": 8,
+      "what": "Envia guias e solicitações de pagamento",
+      "why": "Habilitar o cliente a realizar os dois pagamentos previstos (ao Fornecedor e à Lux).",
+      "where": "Grupo de Fluxo no WhatsApp (canal temporário com o cliente, criado pelo Administrativo no Est. 07; será substituído pelo CRM próprio)",
+      "when": "Est. 08 — Pós-aprovação do contrato: após a assinatura do contrato",
+      "who": "Administrativo",
+      "how": "Envia ao cliente as guias e solicitações de pagamento pelo Grupo de Fluxo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I11 — Administrativo × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_09_1",
+      "acao_id": "acao_03_09_1",
+      "setor_id": "setor_03",
+      "estagio_id": 9,
+      "what": "Acompanha e cobra datas e pagamentos",
+      "why": "O cliente realiza dois pagamentos e o Administrativo acompanha e cobra datas e pagamentos.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 09 — Pagamentos: após o envio das guias e solicitações de pagamento",
+      "who": "Administrativo",
+      "how": "Acompanha as datas e a realização dos pagamentos ao Fornecedor (material) e à Lux (serviço) e cobra o cumprimento de datas e pagamentos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula J11 — Administrativo × Est. 09"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 09 — Pagamentos"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_03_2",
+      "acao_id": "acao_03_03_2",
+      "setor_id": "setor_03",
+      "estagio_id": 3,
+      "what": "Gera simulações de consumo e dimensionamento",
+      "why": "Gerar as simulações de consumo e o dimensionamento (Est. 03), etapa anterior à elaboração da proposta (Est. 04).",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "Administrativo",
+      "how": "Usa os dados fornecidos pelo Vendedor no atendimento e pelo Fornecedor para gerar a simulação de consumo e o dimensionamento do sistema.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D12 — Administrativo × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_04_2",
+      "acao_id": "acao_03_04_2",
+      "setor_id": "setor_03",
+      "estagio_id": 4,
+      "what": "Envia a proposta ao cliente",
+      "why": "Levar a proposta ao cliente para que ele a avalie e decida (Est. 05).",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 04 — Proposta: após a simulação",
+      "who": "Administrativo",
+      "how": "Envia a proposta ao cliente; o CEO acompanha o envio e o Vendedor mantém o contato com o cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula E12 — Administrativo × Est. 04"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_05_2",
+      "acao_id": "acao_03_05_2",
+      "setor_id": "setor_03",
+      "estagio_id": 5,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 05 — Pré-aprovação por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 05 — Pré-aprovação: após o envio da proposta ao cliente",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula F12 — Administrativo × Est. 05"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 05 — Pré-aprovação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_06_2",
+      "acao_id": "acao_03_06_2",
+      "setor_id": "setor_03",
+      "estagio_id": 6,
+      "what": "Envia o contrato ao cliente",
+      "why": "Levar o contrato ao cliente para avaliação e assinatura (Est. 07).",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 06 — Fechamento: após o aceite da proposta pelo cliente",
+      "who": "Administrativo",
+      "how": "Envia o contrato ao cliente; o cliente avalia e decide no estágio seguinte.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula G12 — Administrativo × Est. 06"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_07_2",
+      "acao_id": "acao_03_07_2",
+      "setor_id": "setor_03",
+      "estagio_id": 7,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 07 — Aprovação do contrato por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 07 — Aprovação do contrato: após o envio do contrato ao cliente",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula H12 — Administrativo × Est. 07"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 07 — Aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_08_2",
+      "acao_id": "acao_03_08_2",
+      "setor_id": "setor_03",
+      "estagio_id": 8,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 08 — Pós-aprovação do contrato por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 08 — Pós-aprovação do contrato: após a assinatura do contrato",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I12 — Administrativo × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_09_2",
+      "acao_id": "acao_03_09_2",
+      "setor_id": "setor_03",
+      "estagio_id": 9,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 09 — Pagamentos por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 09 — Pagamentos: após o envio das guias e solicitações de pagamento",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula J12 — Administrativo × Est. 09"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 09 — Pagamentos"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_03_3",
+      "acao_id": "acao_03_03_3",
+      "setor_id": "setor_03",
+      "estagio_id": 3,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 03 — Simulação por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D13 — Administrativo × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_05_3",
+      "acao_id": "acao_03_05_3",
+      "setor_id": "setor_03",
+      "estagio_id": 5,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 05 — Pré-aprovação por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 05 — Pré-aprovação: após o envio da proposta ao cliente",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula F13 — Administrativo × Est. 05"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 05 — Pré-aprovação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_07_3",
+      "acao_id": "acao_03_07_3",
+      "setor_id": "setor_03",
+      "estagio_id": 7,
+      "what": "Monitora métricas do setor",
+      "why": "Acompanhar o andamento do Est. 07 — Aprovação do contrato por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "where": "Rotina interna do Administrativo (hub central de coordenação)",
+      "when": "Est. 07 — Aprovação do contrato: após o envio do contrato ao cliente",
+      "who": "Administrativo",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula H13 — Administrativo × Est. 07"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 07 — Aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_08_3",
+      "acao_id": "acao_03_08_3",
+      "setor_id": "setor_03",
+      "estagio_id": 8,
+      "what": "Envia proposta, contrato e documentos no Grupo de Fluxo (GRUPO DE FLUXO)",
+      "why": "Reunir, no canal com o cliente, a proposta, o contrato e os documentos.",
+      "where": "Grupo de Fluxo no WhatsApp (canal temporário com o cliente, criado pelo Administrativo no Est. 07; será substituído pelo CRM próprio)",
+      "when": "Est. 08 — Pós-aprovação do contrato: após a assinatura do contrato",
+      "who": "Administrativo",
+      "how": "Envia a proposta, o contrato e os documentos no Grupo de Fluxo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I13 — Administrativo × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_09_3",
+      "acao_id": "acao_03_09_3",
+      "setor_id": "setor_03",
+      "estagio_id": 9,
+      "what": "Comunica orientações de pagamento no Grupo de Fluxo (GRUPO DE FLUXO)",
+      "why": "Manter o cliente informado sobre como pagar.",
+      "where": "Grupo de Fluxo no WhatsApp (canal temporário com o cliente, criado pelo Administrativo no Est. 07; será substituído pelo CRM próprio)",
+      "when": "Est. 09 — Pagamentos: após o envio das guias e solicitações de pagamento",
+      "who": "Administrativo",
+      "how": "Comunica as orientações de pagamento no Grupo de Fluxo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula J13 — Administrativo × Est. 09"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 09 — Pagamentos"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_03_07_4",
+      "acao_id": "acao_03_07_4",
+      "setor_id": "setor_03",
+      "estagio_id": 7,
+      "what": "Cria o Grupo de Fluxo no WhatsApp com o cliente (canal temporário) (GRUPO DE FLUXO)",
+      "why": "Abrir o canal de comunicação direta com o cliente após o fechamento; é uma solução temporária até a implantação do CRM próprio da Lux.",
+      "where": "Grupo de Fluxo no WhatsApp (canal temporário com o cliente, criado pelo Administrativo no Est. 07; será substituído pelo CRM próprio)",
+      "when": "Est. 07 — Aprovação do contrato: após a assinatura do contrato pelo cliente",
+      "who": "Administrativo",
+      "how": "Cria no WhatsApp o grupo “Grupo de Fluxo — [Nome do Cliente]” com o cliente; o grupo passa a receber documentos, orientações de pagamento e alinhamentos pós-contrato.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula H14 — Administrativo × Est. 07"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 07 — Aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 03 — Administrativo"
+        },
+        {
+          "arquivo": "data/fontes/Mapa_Organizacional.md",
+          "trecho": "Canal temporário — Grupo de Fluxo (WhatsApp)"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§4 Canal Temporário — Grupo de Fluxo (WhatsApp)"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_04_03_1",
+      "acao_id": "acao_04_03_1",
+      "setor_id": "setor_04",
+      "estagio_id": 3,
+      "what": "Verifica pré-aprovação de crédito para boleto parcelado",
+      "why": "Verificar se o cliente tem crédito pré-aprovado para o boleto parcelado.",
+      "where": "Rotina interna do Financeiro",
+      "when": "Est. 03 — Simulação: durante a simulação, com os dados do cliente",
+      "who": "Financeiro",
+      "how": "Verifica a pré-aprovação de crédito do cliente para boleto parcelado; a aprovação depende de análise de crédito. Condicional: se “Crédito aprovado”, prossegue com o boleto parcelado; se “Crédito negado”, oferece alternativa de pagamento ao cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D15 — Financeiro × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_04_04_1",
+      "acao_id": "acao_04_04_1",
+      "setor_id": "setor_04",
+      "estagio_id": 4,
+      "what": "Estabelece cálculos e premissas básicas da proposta",
+      "why": "Dar à proposta as premissas financeiras: o Financeiro responde pelos cálculos, premissas e processamento financeiro ao longo do ciclo.",
+      "where": "Rotina interna do Financeiro",
+      "when": "Est. 04 — Proposta: após a simulação",
+      "who": "Financeiro",
+      "how": "Define os cálculos e as premissas financeiras básicas usadas na proposta, junto ao Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula E15 — Financeiro × Est. 04"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_04_06_1",
+      "acao_id": "acao_04_06_1",
+      "setor_id": "setor_04",
+      "estagio_id": 6,
+      "what": "Estabelece cálculos e premissas básicas do contrato",
+      "why": "Dar ao contrato as premissas financeiras.",
+      "where": "Rotina interna do Financeiro",
+      "when": "Est. 06 — Fechamento: após o aceite da proposta pelo cliente",
+      "who": "Financeiro",
+      "how": "Define os cálculos e as premissas financeiras básicas usadas no contrato, junto ao Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula G15 — Financeiro × Est. 06"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_04_08_1",
+      "acao_id": "acao_04_08_1",
+      "setor_id": "setor_04",
+      "estagio_id": 8,
+      "what": "Presta orientações e cálculos financeiros",
+      "why": "Dar suporte financeiro às guias e solicitações de pagamento e aos pagamentos do Est. 09.",
+      "where": "Rotina interna do Financeiro",
+      "when": "Est. 08 — Pós-aprovação do contrato: após a assinatura do contrato",
+      "who": "Financeiro",
+      "how": "Presta as orientações e os cálculos financeiros relacionados aos pagamentos do cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I15 — Financeiro × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_05_04_1",
+      "acao_id": "acao_05_04_1",
+      "setor_id": "setor_05",
+      "estagio_id": 4,
+      "what": "Indica movimentos contábeis básicos da proposta",
+      "why": "A Contabilidade indica movimentos contábeis nas fases de proposta e contrato.",
+      "where": "Rotina interna da Contabilidade",
+      "when": "Est. 04 — Proposta: após a simulação",
+      "who": "Contabilidade",
+      "how": "Indica os movimentos contábeis básicos que a proposta gera.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula E17 — Contabilidade × Est. 04"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 05 — Contabilidade"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_05_06_1",
+      "acao_id": "acao_05_06_1",
+      "setor_id": "setor_05",
+      "estagio_id": 6,
+      "what": "Indica movimentos contábeis básicos do contrato",
+      "why": "A Contabilidade indica movimentos contábeis nas fases de proposta e contrato.",
+      "where": "Rotina interna da Contabilidade",
+      "when": "Est. 06 — Fechamento: após o aceite da proposta pelo cliente",
+      "who": "Contabilidade",
+      "how": "Indica os movimentos contábeis básicos que o contrato gera.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula G17 — Contabilidade × Est. 06"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 05 — Contabilidade"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_05_08_1",
+      "acao_id": "acao_05_08_1",
+      "setor_id": "setor_05",
+      "estagio_id": 8,
+      "what": "Presta orientações e cálculos contábeis e fiscais",
+      "why": "Dar suporte fiscal e contábil às guias e solicitações de pagamento e aos pagamentos do Est. 09.",
+      "where": "Rotina interna da Contabilidade",
+      "when": "Est. 08 — Pós-aprovação do contrato: após a assinatura do contrato",
+      "who": "Contabilidade",
+      "how": "Presta as orientações e os cálculos contábeis e fiscais relacionados aos pagamentos do cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I17 — Contabilidade × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 05 — Contabilidade"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_01_1",
+      "acao_id": "acao_06_01_1",
+      "setor_id": "setor_06",
+      "estagio_id": 1,
+      "what": "Orienta e alinha as ações da equipe",
+      "why": "O CEO orienta as ações do Est. 01 — Prospecção e alinha a equipe.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 01 — Prospecção: abertura do ciclo de serviço, antes do primeiro contato com o lead",
+      "who": "CEO",
+      "how": "Orienta a equipe sobre as ações do estágio e alinha o trabalho entre os setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula B19 — CEO × Est. 01"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 01 — Prospecção"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_02_1",
+      "acao_id": "acao_06_02_1",
+      "setor_id": "setor_06",
+      "estagio_id": 2,
+      "what": "Orienta e alinha as ações da equipe",
+      "why": "O CEO orienta as ações do Est. 02 — Atendimento e alinha a equipe.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 02 — Atendimento: primeiro contato com o lead",
+      "who": "CEO",
+      "how": "Orienta a equipe sobre as ações do estágio e alinha o trabalho entre os setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C19 — CEO × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_03_1",
+      "acao_id": "acao_06_03_1",
+      "setor_id": "setor_06",
+      "estagio_id": 3,
+      "what": "Orienta e alinha as ações da equipe",
+      "why": "O CEO orienta as ações do Est. 03 — Simulação e alinha a equipe.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "CEO",
+      "how": "Orienta a equipe sobre as ações do estágio e alinha o trabalho entre os setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D19 — CEO × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_04_1",
+      "acao_id": "acao_06_04_1",
+      "setor_id": "setor_06",
+      "estagio_id": 4,
+      "what": "Acompanha o envio de proposta",
+      "why": "O CEO orienta e supervisiona todos os 22 estágios; neste, acompanha o envio da proposta.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 04 — Proposta: após a simulação",
+      "who": "CEO",
+      "how": "Acompanha a elaboração e o envio da proposta pelo Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula E19 — CEO × Est. 04"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_05_1",
+      "acao_id": "acao_06_05_1",
+      "setor_id": "setor_06",
+      "estagio_id": 5,
+      "what": "Cobra resolução da venda e da proposta",
+      "why": "O Administrativo e o CEO cobram a resolução da venda e da proposta.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 05 — Pré-aprovação: após o envio da proposta ao cliente",
+      "who": "CEO",
+      "how": "Cobra do Administrativo e do Vendas a resolução da venda e da proposta.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula F19 — CEO × Est. 05"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 05 — Pré-aprovação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_06_1",
+      "acao_id": "acao_06_06_1",
+      "setor_id": "setor_06",
+      "estagio_id": 6,
+      "what": "Assina o contrato",
+      "why": "O CEO assina os contratos da Lux.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 06 — Fechamento: após o aceite da proposta pelo cliente",
+      "who": "CEO",
+      "how": "Assina o contrato pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula G19 — CEO × Est. 06"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_07_1",
+      "acao_id": "acao_06_07_1",
+      "setor_id": "setor_06",
+      "estagio_id": 7,
+      "what": "Cobra resolução da venda e do contrato",
+      "why": "Acompanhar a resolução do contrato pelo cliente.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 07 — Aprovação do contrato: após o envio do contrato ao cliente",
+      "who": "CEO",
+      "how": "Cobra do Administrativo e do Vendas a resolução da venda e do contrato.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula H19 — CEO × Est. 07"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 07 — Aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_08_1",
+      "acao_id": "acao_06_08_1",
+      "setor_id": "setor_06",
+      "estagio_id": 8,
+      "what": "Orienta e alinha as ações da equipe",
+      "why": "O CEO orienta as ações do Est. 08 — Pós-aprovação do contrato e alinha a equipe.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 08 — Pós-aprovação do contrato: após a assinatura do contrato",
+      "who": "CEO",
+      "how": "Orienta a equipe sobre as ações do estágio e alinha o trabalho entre os setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I19 — CEO × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_09_1",
+      "acao_id": "acao_06_09_1",
+      "setor_id": "setor_06",
+      "estagio_id": 9,
+      "what": "Acompanha e cobra datas e pagamentos",
+      "why": "O CEO acompanha os pagamentos e cobra datas e pagamentos.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 09 — Pagamentos: após o envio das guias e solicitações de pagamento",
+      "who": "CEO",
+      "how": "Acompanha, junto ao Administrativo, as datas e a realização dos pagamentos e cobra datas e pagamentos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula J19 — CEO × Est. 09"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 09 — Pagamentos"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_01_2",
+      "acao_id": "acao_06_01_2",
+      "setor_id": "setor_06",
+      "estagio_id": 1,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 01 — Prospecção na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 01 — Prospecção: abertura do ciclo de serviço, antes do primeiro contato com o lead",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula B20 — CEO × Est. 01"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 01 — Prospecção"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_02_2",
+      "acao_id": "acao_06_02_2",
+      "setor_id": "setor_06",
+      "estagio_id": 2,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 02 — Atendimento na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 02 — Atendimento: primeiro contato com o lead",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C20 — CEO × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_03_2",
+      "acao_id": "acao_06_03_2",
+      "setor_id": "setor_06",
+      "estagio_id": 3,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 03 — Simulação na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D20 — CEO × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_04_2",
+      "acao_id": "acao_06_04_2",
+      "setor_id": "setor_06",
+      "estagio_id": 4,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 04 — Proposta na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 04 — Proposta: após a simulação",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula E20 — CEO × Est. 04"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_05_2",
+      "acao_id": "acao_06_05_2",
+      "setor_id": "setor_06",
+      "estagio_id": 5,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 05 — Pré-aprovação na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 05 — Pré-aprovação: após o envio da proposta ao cliente",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula F20 — CEO × Est. 05"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 05 — Pré-aprovação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_06_2",
+      "acao_id": "acao_06_06_2",
+      "setor_id": "setor_06",
+      "estagio_id": 6,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 06 — Fechamento na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 06 — Fechamento: após o aceite da proposta pelo cliente",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula G20 — CEO × Est. 06"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_07_2",
+      "acao_id": "acao_06_07_2",
+      "setor_id": "setor_06",
+      "estagio_id": 7,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 07 — Aprovação do contrato na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 07 — Aprovação do contrato: após o envio do contrato ao cliente",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula H20 — CEO × Est. 07"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 07 — Aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_08_2",
+      "acao_id": "acao_06_08_2",
+      "setor_id": "setor_06",
+      "estagio_id": 8,
+      "what": "Cobra resolução",
+      "why": "O CEO e o Administrativo cobram resoluções no Est. 08.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 08 — Pós-aprovação do contrato: após a assinatura do contrato",
+      "who": "CEO",
+      "how": "Cobra dos setores a resolução das pendências do estágio.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I20 — CEO × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_09_2",
+      "acao_id": "acao_06_09_2",
+      "setor_id": "setor_06",
+      "estagio_id": 9,
+      "what": "Analisa métricas gerais",
+      "why": "Manter a visão geral do Est. 09 — Pagamentos na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 09 — Pagamentos: após o envio das guias e solicitações de pagamento",
+      "who": "CEO",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula J20 — CEO × Est. 09"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 09 — Pagamentos"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_06_3",
+      "acao_id": "acao_06_06_3",
+      "setor_id": "setor_06",
+      "estagio_id": 6,
+      "what": "Reasina o contrato após renegociação",
+      "why": "Uma renegociação de contrato só é assinada dentro da margem que a Lux autorizou.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 06 — Fechamento: quando o cliente renegocia o contrato",
+      "who": "CEO",
+      "how": "Avalia o ajuste pedido na renegociação em relação à margem autorizada (a margem em si não consta dos documentos e deve ser informada pela Lux). Condicional: se “Ajuste dentro da margem autorizada”, assina e registra; se “Ajuste fora da margem”, recusa e define próxima ação com o cliente.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula G21 — CEO × Est. 06"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_07_02_1",
+      "acao_id": "acao_07_02_1",
+      "setor_id": "setor_07",
+      "estagio_id": 2,
+      "what": "Realiza visita técnica facultativa ao imóvel",
+      "why": "Apoiar o atendimento com a avaliação técnica do imóvel quando ela for necessária; a visita é facultativa e ocorre em grandes clientes.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 02 — Atendimento: quando a visita for necessária (grandes clientes)",
+      "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)",
+      "how": "Quando a visita é necessária, a Engenharia vai ao imóvel do cliente para a avaliação técnica.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C23 — Engenharia × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 07 — Engenharia"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_07_03_1",
+      "acao_id": "acao_07_03_1",
+      "setor_id": "setor_07",
+      "estagio_id": 3,
+      "what": "Edita layouts e cenários do projeto",
+      "why": "Dar o olhar técnico da Engenharia aos layouts e cenários usados na simulação.",
+      "where": "Engenharia terceirizada (Galva Engenharia ou Telar Engenharia)",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)",
+      "how": "Edita os layouts e cenários do projeto; o Marketing cria e edita os layouts e cenários de simulação.",
+      "origem": "sugerido",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D23 — Engenharia × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 07 — Engenharia"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_08_03_1",
+      "acao_id": "acao_08_03_1",
+      "setor_id": "setor_08",
+      "estagio_id": 3,
+      "what": "Envia dados para simulação de consumo e dimensionamento",
+      "why": "A simulação de consumo e o dimensionamento usam dados fornecidos pelo Fornecedor.",
+      "where": "Rotina do Fornecedor (parceiro externo)",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "Fornecedores",
+      "how": "Envia ao Administrativo os dados dos produtos necessários à simulação de consumo e ao dimensionamento.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D25 — Fornecedores × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 08 — Fornecedores"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_08_04_1",
+      "acao_id": "acao_08_04_1",
+      "setor_id": "setor_08",
+      "estagio_id": 4,
+      "what": "Reenvia dados para simulação após ajuste de proposta",
+      "why": "Manter os dados de simulação coerentes com a proposta quando ela é ajustada.",
+      "where": "Rotina do Fornecedor (parceiro externo)",
+      "when": "Est. 04 — Proposta: após a proposta ser ajustada ou mantida",
+      "who": "Fornecedores",
+      "how": "Verifica se a proposta foi ajustada de forma que altere os dados de simulação já enviados. Condicional: se “Proposta ajustada”, reenvia dados revisados; se “Proposta mantida”, confirma dados anteriores.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula E25 — Fornecedores × Est. 04"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 08 — Fornecedores"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_02_1",
+      "acao_id": "acao_10_02_1",
+      "setor_id": "setor_10",
+      "estagio_id": 2,
+      "what": "Realiza visita técnica facultativa ao imóvel",
+      "why": "Apoiar o atendimento com a avaliação técnica do imóvel quando ela for necessária; a visita é facultativa e ocorre em grandes clientes.",
+      "where": "No imóvel do cliente",
+      "when": "Est. 02 — Atendimento: quando a visita for necessária (grandes clientes)",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Quando a visita é necessária, a Equipe Técnica vai ao imóvel do cliente para a avaliação técnica.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C32 — Equipe Técnica × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_10_03_1",
+      "acao_id": "acao_10_03_1",
+      "setor_id": "setor_10",
+      "estagio_id": 3,
+      "what": "Esclarece dúvidas técnicas sobre o projeto",
+      "why": "Esclarecer as dúvidas técnicas que aparecem na fase de simulação.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)",
+      "how": "Esclarece as dúvidas técnicas sobre o projeto surgidas durante a simulação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D32 — Equipe Técnica × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 10 — Equipe Técnica"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_02_1",
+      "acao_id": "acao_12_02_1",
+      "setor_id": "setor_12",
+      "estagio_id": 2,
+      "what": "Informa dados críticos ao Vendedor",
+      "why": "O cliente fornece os dados críticos de que a simulação precisa.",
+      "where": "Contato do cliente com a Lux (Vendedor e Administrativo)",
+      "when": "Est. 02 — Atendimento: quando o Vendedor solicita os dados no atendimento",
+      "who": "Cliente",
+      "how": "Informa ao Vendedor os dados solicitados no atendimento: nome, cidade, conta de energia e tipo de imóvel.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula C38 — Cliente × Est. 02"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_03_1",
+      "acao_id": "acao_12_03_1",
+      "setor_id": "setor_12",
+      "estagio_id": 3,
+      "what": "Mantém o fornecimento de dados críticos atualizado",
+      "why": "A simulação depende dos dados críticos informados pelo cliente.",
+      "where": "Contato do cliente com a Lux (Vendedor e Administrativo)",
+      "when": "Est. 03 — Simulação: após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)",
+      "who": "Cliente",
+      "how": "Atualiza as informações críticas fornecidas ao Vendedor no atendimento sempre que elas mudarem.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula D38 — Cliente × Est. 03"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_04_1",
+      "acao_id": "acao_12_04_1",
+      "setor_id": "setor_12",
+      "estagio_id": 4,
+      "what": "Recepciona a proposta",
+      "why": "O cliente precisa receber a proposta para avaliá-la e decidir (Est. 05).",
+      "where": "Contato do cliente com a Lux (Vendedor e Administrativo)",
+      "when": "Est. 04 — Proposta: quando a Lux envia a proposta",
+      "who": "Cliente",
+      "how": "Recebe a proposta enviada pela Lux e a analisa antes de decidir.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula E38 — Cliente × Est. 04"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 04 — Proposta"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_05_1",
+      "acao_id": "acao_12_05_1",
+      "setor_id": "setor_12",
+      "estagio_id": 5,
+      "what": "Avalia a proposta e decide",
+      "why": "O cliente decide se aceita a proposta ou solicita revisão.",
+      "where": "Contato do cliente com a Lux (Vendedor e Administrativo)",
+      "when": "Est. 05 — Pré-aprovação: após receber a proposta",
+      "who": "Cliente",
+      "how": "Avalia a proposta recebida e decide, seguindo o caminho previsto para cada resposta. Condicional: se “Proposta aceita”, confirma e segue para o contrato; se “Proposta recusada”, solicita revisão ou encerra negociação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula F38 — Cliente × Est. 05"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 05 — Pré-aprovação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_06_1",
+      "acao_id": "acao_12_06_1",
+      "setor_id": "setor_12",
+      "estagio_id": 6,
+      "what": "Recepciona o contrato",
+      "why": "O cliente precisa receber o contrato para avaliá-lo e decidir (Est. 07).",
+      "where": "Contato do cliente com a Lux (Vendedor e Administrativo)",
+      "when": "Est. 06 — Fechamento: quando a Lux envia o contrato",
+      "who": "Cliente",
+      "how": "Recebe o contrato enviado pela Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula G38 — Cliente × Est. 06"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 06 — Fechamento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_07_1",
+      "acao_id": "acao_12_07_1",
+      "setor_id": "setor_12",
+      "estagio_id": 7,
+      "what": "Avalia o contrato e decide",
+      "why": "O cliente avalia o contrato e decide se assina ou solicita revisão.",
+      "where": "Contato do cliente com a Lux (Vendedor e Administrativo)",
+      "when": "Est. 07 — Aprovação do contrato: após receber o contrato",
+      "who": "Cliente",
+      "how": "Avalia o contrato recebido e decide, seguindo o caminho previsto para cada resposta. Condicional: se “Contrato aceito”, assina e segue para pagamento; se “Contrato recusado”, solicita revisão ou encerra negociação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula H38 — Cliente × Est. 07"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 07 — Aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_08_1",
+      "acao_id": "acao_12_08_1",
+      "setor_id": "setor_12",
+      "estagio_id": 8,
+      "what": "Responde ao feedback de venda",
+      "why": "O cliente devolve à Lux a sua avaliação da experiência de venda.",
+      "where": "Contato do cliente com a Lux (Vendedor e Administrativo)",
+      "when": "Est. 08 — Pós-aprovação do contrato: quando o Vendedor solicita o feedback",
+      "who": "Cliente",
+      "how": "Responde ao pedido de feedback feito pelo Vendedor.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I38 — Cliente × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_09_1",
+      "acao_id": "acao_12_09_1",
+      "setor_id": "setor_12",
+      "estagio_id": 9,
+      "what": "Realiza o pagamento ao fornecedor",
+      "why": "O cliente paga o material diretamente ao Fornecedor.",
+      "where": "Pagamento feito pelo cliente conforme as guias e orientações recebidas (orientações pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 09 — Pagamentos: após o envio das guias e solicitações de pagamento",
+      "who": "Cliente",
+      "how": "Paga o Fornecedor pelo material, conforme as guias e orientações de pagamento recebidas.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula J38 — Cliente × Est. 09"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 09 — Pagamentos"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_08_2",
+      "acao_id": "acao_12_08_2",
+      "setor_id": "setor_12",
+      "estagio_id": 8,
+      "what": "Recepciona guias de pagamento",
+      "why": "O cliente precisa das guias para realizar os pagamentos do Est. 09.",
+      "where": "Grupo de Fluxo no WhatsApp (canal temporário com o cliente, criado pelo Administrativo no Est. 07; será substituído pelo CRM próprio)",
+      "when": "Est. 08 — Pós-aprovação do contrato: quando o Administrativo envia as guias",
+      "who": "Cliente",
+      "how": "Recebe as guias de pagamento enviadas pelo Administrativo.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula I39 — Cliente × Est. 08"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 08 — Pós-aprovação do contrato"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_12_09_2",
+      "acao_id": "acao_12_09_2",
+      "setor_id": "setor_12",
+      "estagio_id": 9,
+      "what": "Realiza o pagamento à Lux",
+      "why": "O cliente paga o serviço à Lux.",
+      "where": "Pagamento feito pelo cliente conforme as guias e orientações recebidas (orientações pelo Grupo de Fluxo no WhatsApp)",
+      "when": "Est. 09 — Pagamentos: após o envio das guias e solicitações de pagamento",
+      "who": "Cliente",
+      "how": "Paga a Lux pelo serviço, conforme as guias e orientações de pagamento recebidas.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Matriz_Operacional.xlsx",
+          "trecho": "Célula J39 — Cliente × Est. 09"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 09 — Pagamentos"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 12 — Cliente"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_7",
+      "acao_id": "acao_02_02_7",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Inicia o atendimento com pergunta aberta sobre como o cliente resolve hoje a questão da energia",
+      "why": "A venda nunca começa apresentando produtos: começa entendendo a realidade do cliente, para identificar a oportunidade mais adequada.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: na abertura do atendimento",
+      "who": "Vendas (Vendedor)",
+      "how": "Abre o atendimento com uma pergunta aberta, como “Como o senhor resolve hoje a questão da energia?”, e deixa o próprio cliente descrever a situação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_8",
+      "acao_id": "acao_02_02_8",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Aprofunda a situação de energia: se paga só a distribuidora, se possui solar neste ou em outro imóvel que compensa a unidade, se compra energia por assinatura ou usa outro modelo de geração",
+      "why": "As respostas identificam rapidamente o perfil do cliente e direcionam a melhor solução.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: logo após a pergunta aberta inicial",
+      "who": "Vendas (Vendedor)",
+      "how": "Depois da pergunta aberta, aprofunda: o senhor paga apenas a conta da distribuidora? possui energia solar instalada neste imóvel? possui energia solar em outro imóvel que compensa esta unidade? compra energia por assinatura (energia com desconto)? existe outro modelo de geração de energia?",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_9",
+      "acao_id": "acao_02_02_9",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Identifica o perfil do cliente: paga só a distribuidora, já possui solar, compra energia por assinatura ou está em imóvel alugado",
+      "why": "Direcionar a abordagem pelo perfil do cliente.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: após as respostas do cliente às perguntas iniciais",
+      "who": "Vendas (Vendedor)",
+      "how": "Interpreta as respostas e enquadra o cliente em um perfil: paga somente a distribuidora (altamente qualificado para sistema fotovoltaico), já possui energia solar, compra energia por assinatura ou está em imóvel alugado; em seguida segue a próxima ação prevista para o perfil.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1.1"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_10",
+      "acao_id": "acao_02_02_10",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Levanta o contexto do cliente: valor da conta, consumo médio, tipo de imóvel, imóvel próprio ou alugado, atividade, previsão de aumento de consumo, outras unidades consumidoras, situação financeira, urgência, objetivo principal, experiências anteriores e objeções",
+      "why": "Toda negociação se baseia no contexto do cliente; só depois de compreendê-lo é possível definir a melhor estratégia comercial.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: durante o atendimento, antes de o CEO definir a estratégia comercial",
+      "who": "Vendas (Vendedor)",
+      "how": "Levanta as informações obrigatórias: valor da conta, consumo médio, tipo de imóvel, imóvel próprio ou alugado, atividade exercida, previsão de aumento de consumo, existência de outras unidades consumidoras, situação financeira, urgência, objetivo principal, experiências anteriores e objeções apresentadas.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.2"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_11",
+      "acao_id": "acao_02_02_11",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Trata imóvel alugado sem considerá-lo objeção e prossegue o atendimento normalmente",
+      "why": "A informação de imóvel alugado não deve ser tratada como objeção: grande parte dos clientes comerciais da Lux opera em imóveis alugados.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: quando o cliente informa que o imóvel é alugado",
+      "who": "Vendas (Vendedor)",
+      "how": "Prossegue o atendimento normalmente. Explicação usada pelo CEO: na maioria das vezes o proprietário autoriza a instalação porque o sistema valoriza e agrega patrimônio ao imóvel e protege o telhado quando instalado corretamente; muitas vezes a parcela do financiamento fica semelhante ou inferior ao valor pago à distribuidora (diretriz do CEO, sujeita à revisão jurídica).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1.1.4; 1.3.5"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_12",
+      "acao_id": "acao_02_02_12",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Verifica se o cliente já possui energia solar",
+      "why": "Cliente que já possui energia solar não significa ausência de oportunidade.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: ao identificar o perfil do cliente",
+      "who": "Vendas (Vendedor)",
+      "how": "Verifica se o cliente já possui energia solar. Se possui, avalia: o sistema atende toda a demanda? houve aumento de consumo? existe possibilidade de ampliação? existem outras unidades consumidoras? há necessidade de manutenção ou modernização? Condicional: se “Possui solar”, avalia ampliação, manutenção, retrofit e monitoramento; se “Não possui solar”, segue com a proposta de sistema fotovoltaico.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1.1.2; 1.3.2"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_13",
+      "acao_id": "acao_02_02_13",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Verifica se o cliente compra energia por assinatura",
+      "why": "Quem compra energia com desconto continua pagando a terceiros durante toda a vida; com energia fotovoltaica, o investimento passa a gerar patrimônio próprio.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: ao identificar o perfil do cliente",
+      "who": "Vendas (Vendedor)",
+      "how": "Verifica se o cliente compra energia por assinatura; se compra, explica a diferença entre pagar a terceiros e investir em um ativo próprio e avalia a implantação do sistema fotovoltaico ou a migração para a Energia por Assinatura da Lux. Condicional: se “Compra por assinatura”, explica que o investimento no sistema próprio gera patrimônio e avalia migrar para sistema fotovoltaico; se “Não compra por assinatura”, segue o atendimento pelo perfil identificado.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1.1.3; 1.3.1"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_14",
+      "acao_id": "acao_02_02_14",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Avalia se o cliente quer e consegue instalar o sistema fotovoltaico",
+      "why": "A Energia por Assinatura da Lux é a oferta para o cliente que não quer ou não consegue instalar o sistema.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: após identificar o perfil e a condição do cliente",
+      "who": "Vendas (Vendedor)",
+      "how": "Avalia se o cliente quer e consegue instalar o sistema fotovoltaico e conduz o atendimento para a venda do sistema ou para a Energia por Assinatura da Lux. Condicional: se “Quer e consegue instalar”, prossegue com a venda do sistema fotovoltaico; se “Não quer ou não consegue instalar”, oferece Energia por Assinatura da Lux.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1.1.3; 4 (Energia por Assinatura)"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_15",
+      "acao_id": "acao_02_02_15",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Identifica a condição financeira do cliente",
+      "why": "Definir a modalidade de pagamento a priorizar conforme a condição financeira do cliente.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: durante o atendimento, ao conversar sobre o investimento",
+      "who": "Vendas (Vendedor)",
+      "how": "Identifica durante a conversa: possui capital disponível? prefere preservar caixa? prefere parcelamento? busca o menor investimento inicial? Com capital disponível, argumenta que o cliente elimina a despesa definitiva com energia e que o valor economizado pode voltar para seus investimentos ou patrimônio; sem capital, explica que em muitos casos a parcela fica próxima ou inferior à conta de energia, dependendo do projeto e do crédito aprovado (uso preferencial do termo “boleto”: diretriz do CEO, sujeita à revisão jurídica). Condicional: se “Capital disponível”, prioriza o pagamento à vista; se “Sem capital disponível”, prioriza o financiamento, usando preferencialmente o termo “boleto”.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1.1.5; 1.1.1.6; 1.3.3; 1.3.4"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_16",
+      "acao_id": "acao_02_02_16",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Classifica o lead como quente, morno ou frio conforme o interesse demonstrado",
+      "why": "Registrar o nível de interesse do lead.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: durante o atendimento, conforme o interesse demonstrado",
+      "who": "Vendas (Vendedor)",
+      "how": "Classifica pelo comportamento. Lead quente: pergunta sobre valores e economia, solicita proposta, envia a conta rapidamente, demonstra interesse nas formas de pagamento, pergunta o prazo de instalação. Lead morno: faz poucas perguntas, demonstra curiosidade, pede a proposta para analisar depois. Lead frio: não responde, não fornece informações, resiste sem ouvir, não tem abertura para negociação.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1.1.7"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_17",
+      "acao_id": "acao_02_02_17",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Responde às objeções com informações técnicas e exemplos práticos, sem competir apenas por preço ao comparar concorrentes",
+      "why": "As objeções naturais devem ser tratadas com informação técnica; ao comparar concorrentes, a Lux jamais compete apenas por preço.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: quando o cliente levanta objeções ou compara concorrentes",
+      "who": "Vendas (Vendedor)",
+      "how": "Reforça qualidade dos equipamentos, engenharia do projeto, credenciamento, suporte técnico, garantia, pós-venda e credibilidade da Lux, com informações técnicas e exemplos práticos.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1.2.2; 1.3.6"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_18",
+      "acao_id": "acao_02_02_18",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Responde dúvidas de garantia, formas de pagamento e qualidade dos equipamentos com as respostas-padrão",
+      "why": "Padronizar as respostas às dúvidas mais frequentes de garantia, formas de pagamento e qualidade dos equipamentos.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: quando o cliente pergunta sobre garantia, formas de pagamento ou qualidade dos equipamentos",
+      "who": "Vendas (Vendedor)",
+      "how": "Usa as respostas-padrão de garantia, formas de pagamento e qualidade dos equipamentos (diretrizes do CEO, sujeitas à revisão jurídica) e segue os princípios de atendimento: resposta objetiva e clara, segurança e credibilidade, linguagem adaptada ao perfil do cliente, benefícios antes de características técnicas e condução natural ao próximo passo da venda.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§2.1; 2.2; 2.3"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_19",
+      "acao_id": "acao_02_02_19",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Identifica ao menos uma oportunidade na conversa e a classifica em alta, média ou baixa prioridade",
+      "why": "Toda conversa deve resultar na identificação de pelo menos uma oportunidade.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: em toda conversa de atendimento",
+      "who": "Vendas (Vendedor)",
+      "how": "Registra ao menos uma oportunidade (sistema fotovoltaico, ampliação, energia por assinatura, manutenção, monitoramento, limpeza técnica, seguro, retrofit, atendimento de outras unidades consumidoras ou indicações) e a classifica: alta prioridade (compra em curto prazo), média (potencial que exige acompanhamento) ou baixa (relacionamento de longo prazo).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.4"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_02_20",
+      "acao_id": "acao_02_02_20",
+      "setor_id": "setor_02",
+      "estagio_id": 2,
+      "what": "Conduz ao próximo passo da venda: simulação, análise da conta ou agendamento de visita",
+      "why": "Conduzir naturalmente o cliente ao próximo passo da venda.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 02 — Atendimento: ao final do atendimento",
+      "who": "Vendas (Vendedor)",
+      "how": "Propõe o passo seguinte: a simulação, a análise da conta de energia ou o agendamento de uma visita.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§2.4"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_02_3",
+      "acao_id": "acao_06_02_3",
+      "setor_id": "setor_06",
+      "estagio_id": 2,
+      "what": "Define a estratégia comercial conforme o cenário identificado no atendimento",
+      "why": "As decisões comerciais da Lux são tomadas conforme o cenário identificado no atendimento.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 02 — Atendimento: após o atendimento identificar o cenário do cliente",
+      "who": "CEO",
+      "how": "Define a estratégia por cenário: paga apenas a distribuidora, priorizar o sistema fotovoltaico; compra energia por assinatura, avaliar o sistema ou a migração para a Energia por Assinatura da Lux; já possui sistema, avaliar ampliação, manutenção, retrofit e monitoramento; pouco capital, priorizar financiamento; capital disponível, priorizar pagamento à vista; imóvel alugado, prosseguir normalmente; compara concorrentes, jamais competir apenas por preço.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.3"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_06_02_4",
+      "acao_id": "acao_06_02_4",
+      "setor_id": "setor_06",
+      "estagio_id": 2,
+      "what": "Decide sobre situação sem procedimento definido",
+      "why": "Preservar a confiança do cliente e a reputação da Lux, buscar solução vantajosa para ambas as partes e documentar aprendizados para a melhoria contínua.",
+      "where": "Rotina interna do CEO",
+      "when": "Est. 02 — Atendimento: quando surge situação sem procedimento definido",
+      "who": "CEO",
+      "how": "Quando surge situação sem procedimento definido, o responsável pela decisão segue os cinco passos: ouvir completamente o cliente, identificar a causa, avaliar os impactos técnicos, comerciais e financeiros, buscar solução personalizada e registrar a decisão para futura padronização. Condicional: se “Situação prevista”, segue o procedimento definido; se “Situação não prevista”, ouve o cliente, identifica a causa, avalia impactos técnicos, comerciais e financeiros, busca solução personalizada e registra a decisão para padronização.",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.5"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 02 — Atendimento"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 06 — CEO"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_03_3",
+      "acao_id": "acao_02_03_3",
+      "setor_id": "setor_02",
+      "estagio_id": 3,
+      "what": "Apresenta as formas de pagamento: financiamento (“boleto”), cartão em até 21 vezes por plataforma especializada, à vista e em etapas",
+      "why": "A Lux disponibiliza diferentes modalidades de pagamento para atender cada perfil de cliente.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 03 — Simulação: quando o cliente pergunta sobre formas de pagamento",
+      "who": "Vendas (Vendedor)",
+      "how": "Apresenta as modalidades. Financiamento (“boleto”): diversas plataformas financeiras parceiras, aprovação mediante análise de crédito e parcelamento facilitado. Cartão de crédito: plataforma especializada para o setor fotovoltaico, em até 21 vezes, com taxas reduzidas em relação às máquinas convencionais. À vista: elimina os custos financeiros do parcelamento e dá maior rentabilidade ao investimento. Em etapas, quando aplicável: paga primeiro os equipamentos e a instalação depois da montagem (uso do termo “boleto”: diretriz do CEO, sujeita à revisão jurídica).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§2.2"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_04_03_2",
+      "acao_id": "acao_04_03_2",
+      "setor_id": "setor_04",
+      "estagio_id": 3,
+      "what": "Apoia as modalidades de pagamento: cartão por plataforma especializada, à vista e em etapas (equipamentos primeiro; instalação após a montagem)",
+      "why": "Dar suporte financeiro às demais modalidades de pagamento apresentadas ao cliente.",
+      "where": "Rotina interna do Financeiro",
+      "when": "Est. 03 — Simulação: quando o cliente opta por uma modalidade de pagamento",
+      "who": "Financeiro",
+      "how": "Apoia o cartão em plataforma especializada, o pagamento à vista e o pagamento em etapas (equipamentos primeiro; instalação após a conclusão da montagem).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§2.2.1; 2.2.2; 2.2.3"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 03 — Simulação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 04 — Financeiro"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    },
+    {
+      "id": "ficha_02_05_3",
+      "acao_id": "acao_02_05_3",
+      "setor_id": "setor_02",
+      "estagio_id": 5,
+      "what": "Informa que a aprovação do financiamento depende de análise de crédito e que a parcela pode ficar próxima ou inferior à conta de energia, conforme o projeto e o crédito aprovado",
+      "why": "Alinhar a expectativa do cliente sobre o financiamento sem prometer condição genérica.",
+      "where": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+      "when": "Est. 05 — Pré-aprovação: quando o cliente avalia a proposta e as condições de pagamento",
+      "who": "Vendas (Vendedor)",
+      "how": "Explica que a aprovação do financiamento depende de análise de crédito e que, em muitos casos, a parcela fica próxima ou inferior à conta de energia, conforme o projeto e o crédito aprovado (uso preferencial do termo “boleto”: diretriz do CEO, sujeita à revisão jurídica).",
+      "origem": "documentado",
+      "fontes": [
+        {
+          "arquivo": "data/fontes/Anotacoes_CEO_2026-09-24.md",
+          "trecho": "§1.1.1.6; 2.2"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§3 Est. 05 — Pré-aprovação"
+        },
+        {
+          "arquivo": "data/fontes/Relatorio_Operacional_V07.md",
+          "trecho": "§2 Setor 02 — Vendas"
+        }
+      ],
+      "atualizado_em": "2026-09-24"
+    }
+  ]
+}

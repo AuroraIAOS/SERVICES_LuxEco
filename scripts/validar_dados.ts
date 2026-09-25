@@ -4,9 +4,12 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Condicional, Matriz, MatrizV08 } from '../src/dados/tipos.ts';
+import { faseDoEstagio } from '../src/dados/tipos.ts';
 import { comparar, HTML_LEGADO, lerJson, lerLegado } from './comparar_mmo_legado.ts';
 import { compor, JSON_ANOTACOES, JSON_MAPA, JSON_V08 } from './compor_v08.ts';
 import type { AnotacoesV08 } from './compor_v08.ts';
+import { gerarFichas, JSON_AUTORIA, JSON_FICHAS, serializarFichas } from './gerar_fichas.ts';
+import type { Autoria, DocumentoFichas } from './gerar_fichas.ts';
 import { JSON_V07, lerMatriz, serializar, textoOriginalIfElse } from './xlsx_para_json.ts';
 
 const RAIZ = resolve(fileURLToPath(import.meta.url), '../..');
@@ -205,6 +208,71 @@ export function validarMapa(m: Matriz, mapa: MapaCondicionais): string[] {
   return erros;
 }
 
+/** Nomes de pessoas internas da Lux que nunca podem aparecer nas fichas (docs/06 §4: “who” só função/setor). */
+const NOMES_INTERNOS_PROIBIDOS = /\bLuan\b/;
+const CAMPOS_TEXTO_FICHA = ['what', 'why', 'where', 'when', 'who', 'how'] as const;
+const DATA_ISO = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * Regras 4 e 5 (docs/02): uma ficha por ação; nenhuma órfã; nenhum campo 5W1H vazio; `who` sem nome de pessoa interna.
+ * `fase` limita a cobertura exigida (02.2–02.5); sem `fase`, exige as 236 (todas as fases). `esperado` é o que o gerador produz hoje.
+ */
+export function validarFichas(v08: MatrizV08, doc: DocumentoFichas, autoria: Autoria, fase?: number, esperado?: DocumentoFichas): string[] {
+  const erros: string[] = [];
+  const acaoPorId = new Map(v08.acoes.map((a) => [a.id, a]));
+  const permitidas = new Set(['Lux', ...Object.values(autoria.setores).flatMap((s) => s.who.match(/\p{Lu}[\p{L}\d]*/gu) ?? [])]);
+
+  const ids = doc.fichas.map((f) => f.id);
+  const acoes = doc.fichas.map((f) => f.acao_id);
+  if (duplicados(ids).length) erros.push(`Regra 4: ids de ficha duplicados: ${[...new Set(duplicados(ids))].join(', ')}`);
+  if (duplicados(acoes).length) erros.push(`Regra 4: mais de uma ficha para a mesma ação: ${[...new Set(duplicados(acoes))].join(', ')}`);
+
+  for (const f of doc.fichas) {
+    const a = acaoPorId.get(f.acao_id);
+    if (!a) {
+      erros.push(`Regra 4: ficha ${f.id} órfã (ação "${f.acao_id}" inexistente na V08)`);
+      continue;
+    }
+    if (f.id !== `ficha_${a.id.replace(/^acao_/, '')}`) erros.push(`${f.id}: id deveria ser ficha_${a.id.replace(/^acao_/, '')}`);
+    if (f.setor_id !== a.setor_id || f.estagio_id !== a.estagio_id) erros.push(`${f.id}: setor/estágio diferem da ação ${a.id}`);
+    if (f.what !== a.texto) erros.push(`${f.id}: what difere do texto da ação (não reescrever a Matriz)`);
+    for (const campo of CAMPOS_TEXTO_FICHA) {
+      const valor = f[campo];
+      if (typeof valor !== 'string' || !valor.trim()) {
+        erros.push(`Regra 5: ${f.id} com campo ${campo} vazio`);
+        continue;
+      }
+      if (NOMES_INTERNOS_PROIBIDOS.test(valor)) erros.push(`Regra 5: ${f.id} cita pessoa interna no campo ${campo}`);
+      if (campo !== 'what' && traz_cifra_ou_prazo(valor)) erros.push(`Conteúdo: ${f.id} traz cifra em R$ ou prazo numérico em ${campo} ("${valor}")`);
+    }
+    for (const palavra of f.who.match(/\p{Lu}[\p{L}\d]*/gu) ?? []) {
+      if (!permitidas.has(palavra)) erros.push(`Regra 5: ${f.id} com who “${f.who}” — “${palavra}” não é função/setor nem equipe nomeada na Matriz`);
+    }
+    if (!['documentado', 'sugerido', 'manual'].includes(f.origem)) erros.push(`${f.id}: origem inválida`);
+    if (!DATA_ISO.test(f.atualizado_em)) erros.push(`${f.id}: atualizado_em fora do formato AAAA-MM-DD`);
+    if (f.fontes.length === 0) erros.push(`${f.id}: sem fontes`);
+    for (const fonte of f.fontes) {
+      if (!fonte.arquivo || !fonte.trecho?.trim()) erros.push(`${f.id}: fonte sem arquivo ou trecho`);
+      else if (!existsSync(resolve(RAIZ, fonte.arquivo))) erros.push(`${f.id}: fonte "${fonte.arquivo}" não existe`);
+    }
+  }
+
+  // Cobertura: uma ficha por ação da fase pedida (ou de todas).
+  if (fase !== undefined && !doc.meta.fases_autoradas.includes(fase)) {
+    erros.push(`Regra 4: a fase ${fase} ainda não foi autorada (fases autoradas: ${doc.meta.fases_autoradas.join(', ') || 'nenhuma'})`);
+  }
+  const exigidas = v08.acoes.filter((a) => fase === undefined || faseDoEstagio(a.estagio_id) === fase);
+  const comFicha = new Set(acoes);
+  const faltam = exigidas.filter((a) => !comFicha.has(a.id));
+  if (faltam.length) erros.push(`Regra 4: ${faltam.length} ação(ões) sem ficha: ${faltam.slice(0, 8).map((a) => a.id).join(', ')}${faltam.length > 8 ? '…' : ''}`);
+
+  // O arquivo tem que ser exatamente o que a autoria produz hoje.
+  if (esperado && serializarFichas(esperado) !== serializarFichas(doc)) {
+    erros.push('Regra 4: fichas_5w1h.json está desatualizado em relação a matriz_v08.json + fichas_autoria.json — rode `npm run dados:fichas`.');
+  }
+  return erros;
+}
+
 const lerJsonArquivo = <T>(caminho: string): T => JSON.parse(readFileSync(caminho, 'utf8')) as T;
 
 /** `--v08`: valida a V08 gravada contra a V07, o mapa e o overlay. Devolve a linha final (OK ou os erros). */
@@ -229,6 +297,38 @@ function rodarV08(): number {
   }
   const novos = v08.acoes.filter((a) => a.origem_doc).length;
   console.log(`OK v08: setores=${v08.setores.length} estagios=${v08.estagios.length} celulas=${v08.acoes.length} if_else=${v08.condicionais.length} novos=${novos}`);
+  return 0;
+}
+
+/** `--fichas [--fase=N]`: valida as fichas 5W1H gravadas contra a V08 e a autoria. */
+function rodarFichas(fase?: number): number {
+  for (const [caminho, dica] of [
+    [JSON_V08, '`npm run dados:compor`'],
+    [JSON_AUTORIA, 'a subetapa 02.2'],
+    [JSON_FICHAS, '`npm run dados:fichas`'],
+  ] as const) {
+    if (!existsSync(caminho)) {
+      console.log(`ERRO: ${caminho.slice(RAIZ.length + 1).replace(/\\/g, '/')} não existe — rode ${dica}.`);
+      return 1;
+    }
+  }
+  const v08 = lerJsonArquivo<MatrizV08>(JSON_V08);
+  const autoria = lerJsonArquivo<Autoria>(JSON_AUTORIA);
+  const doc = lerJsonArquivo<DocumentoFichas>(JSON_FICHAS);
+  let esperado: DocumentoFichas | undefined;
+  const erros: string[] = [];
+  try {
+    esperado = gerarFichas(v08, autoria, lerJsonArquivo<AnotacoesV08>(JSON_ANOTACOES));
+  } catch (e) {
+    erros.push((e as Error).message);
+  }
+  erros.push(...validarFichas(v08, doc, autoria, fase, esperado));
+  if (erros.length) {
+    erros.forEach((e) => console.log(`ERRO: ${e}`));
+    return 1;
+  }
+  const exigidas = v08.acoes.filter((a) => fase === undefined || faseDoEstagio(a.estagio_id) === fase).length;
+  console.log(`OK fichas${fase === undefined ? '' : ` fase ${fase}`}: ${exigidas}/${exigidas}`);
   return 0;
 }
 
@@ -261,11 +361,21 @@ function rodarV07(): number {
 function principal(): number {
   const args = process.argv.slice(2);
   const pendentes: Record<string, [string, string]> = {
-    '--fichas': ['data/conteudo/fichas_5w1h.json', 'subetapas 02.2–02.5'],
     '--bibliotecas': ['data/conteudo/documentos.json', 'subetapa 02.6'],
     '--pop': ['data/conteudo/perguntas_pop.json', 'subetapa 03.1'],
   };
   if (args.length === 0) return rodarV07();
+
+  const argFase = args.find((a) => a.startsWith('--fase='));
+  const fase = argFase === undefined ? undefined : Number(argFase.slice('--fase='.length));
+  if (fase !== undefined && ![1, 2, 3, 4].includes(fase)) {
+    console.log(`ERRO: ${argFase} inválido — use --fase=1, 2, 3 ou 4.`);
+    return 1;
+  }
+  if (fase !== undefined && !args.includes('--fichas')) {
+    console.log('ERRO: --fase só vale junto com --fichas.');
+    return 1;
+  }
 
   let codigo = 0;
   for (const a of args) {
@@ -274,7 +384,11 @@ function principal(): number {
       codigo |= rodarV08();
       continue;
     }
-    if (flag === '--fase') continue; // parâmetro de --fichas (02.2)
+    if (flag === '--fichas') {
+      codigo |= rodarFichas(fase);
+      continue;
+    }
+    if (flag === '--fase') continue; // parâmetro de --fichas
     const p = pendentes[flag];
     if (p && !existsSync(resolve(RAIZ, p[0]))) {
       console.log(`ERRO: ${a} indisponível — ${p[0]} ainda não existe (${p[1]}).`);

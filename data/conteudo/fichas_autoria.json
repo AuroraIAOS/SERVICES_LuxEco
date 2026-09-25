@@ -1,0 +1,451 @@
+{
+  "meta": {
+    "atualizado_em": "2026-09-24",
+    "regra": "Autoria das fichas 5W1H (docs/06 §4). Cada ficha = o texto da ação (what) + o que está aqui (why, how, e onde/quando/quem quando fogem do padrão). Só o que os documentos sustentam: sem valores em R$, sem prazos numéricos, sem nomes de pessoas internas. origem = documentado, exceto onde marcado sugerido. Sem citações de fonte dentro dos textos: as fontes vivem no campo fontes de cada ficha.",
+    "fases_autoradas": [1]
+  },
+  "setores": {
+    "setor_01": { "who": "Marketing", "onde_padrao": "Rotina interna do Marketing", "trecho": "§2 Setor 01 — Marketing" },
+    "setor_02": { "who": "Vendas (Vendedor)", "onde_padrao": "contato", "trecho": "§2 Setor 02 — Vendas" },
+    "setor_03": { "who": "Administrativo", "onde_padrao": "Rotina interna do Administrativo (hub central de coordenação)", "trecho": "§2 Setor 03 — Administrativo" },
+    "setor_04": { "who": "Financeiro", "onde_padrao": "Rotina interna do Financeiro", "trecho": "§2 Setor 04 — Financeiro" },
+    "setor_05": { "who": "Contabilidade", "onde_padrao": "Rotina interna da Contabilidade", "trecho": "§2 Setor 05 — Contabilidade" },
+    "setor_06": { "who": "CEO", "onde_padrao": "Rotina interna do CEO", "trecho": "§2 Setor 06 — CEO" },
+    "setor_07": { "who": "Engenharia (Galva Engenharia e Telar Engenharia, terceirizadas)", "onde_padrao": "Engenharia terceirizada (Galva Engenharia ou Telar Engenharia)", "trecho": "§2 Setor 07 — Engenharia" },
+    "setor_08": { "who": "Fornecedores", "onde_padrao": "Rotina do Fornecedor (parceiro externo)", "trecho": "§2 Setor 08 — Fornecedores" },
+    "setor_09": { "who": "Logística", "onde_padrao": "Do Fornecedor até o local de instalação", "trecho": "§2 Setor 09 — Logística" },
+    "setor_10": { "who": "Equipe Técnica (Lavras: Illumini/Tiago e Vinícius; Passos: Lumines/Odirley e C7/João Paulo)", "onde_padrao": "imovel", "trecho": "§2 Setor 10 — Equipe Técnica" },
+    "setor_11": { "who": "Cemig (concessionária)", "onde_padrao": "Cemig (concessionária, agente externo)", "trecho": "§2 Setor 11 — Cemig" },
+    "setor_12": { "who": "Cliente", "onde_padrao": "contato_lux", "trecho": "§2 Setor 12 — Cliente" }
+  },
+  "estagios": {
+    "1": { "objetivo": "Captar potenciais clientes: prospecção ativa dos vendedores, leads do Marketing por tráfego pago e indicações de clientes e parceiros.", "gatilho": "abertura do ciclo de serviço, antes do primeiro contato com o lead", "trecho": "§3 Est. 01 — Prospecção" },
+    "2": { "objetivo": "Primeiro contato com o lead: abordagem rápida, coleta de dados, contorno de objeções e confirmação da identidade do contato.", "gatilho": "primeiro contato com o lead", "trecho": "§3 Est. 02 — Atendimento" },
+    "3": { "objetivo": "Gerar a simulação de consumo e o dimensionamento e verificar a pré-aprovação de crédito para boleto parcelado.", "gatilho": "após o atendimento, com os dados do cliente e a conta de energia (ou a estimativa de consumo)", "trecho": "§3 Est. 03 — Simulação" },
+    "4": { "objetivo": "Elaborar e enviar a proposta comercial personalizada.", "gatilho": "após a simulação", "trecho": "§3 Est. 04 — Proposta" },
+    "5": { "objetivo": "O cliente recepciona a proposta e decide se aceita ou solicita revisão.", "gatilho": "após o envio da proposta ao cliente", "trecho": "§3 Est. 05 — Pré-aprovação" },
+    "6": { "objetivo": "O cliente aprova a proposta e o processo avança para a contratação; o CEO assina o contrato.", "gatilho": "após o aceite da proposta pelo cliente", "trecho": "§3 Est. 06 — Fechamento" },
+    "7": { "objetivo": "Envio, avaliação e assinatura do contrato pelo cliente; criação do Grupo de Fluxo no WhatsApp.", "gatilho": "após o envio do contrato ao cliente", "trecho": "§3 Est. 07 — Aprovação do contrato" },
+    "8": { "objetivo": "Com o contrato assinado: envio de guias e solicitações de pagamento, encerramento do ciclo de contato comercial e início da comunicação pelo Grupo de Fluxo.", "gatilho": "após a assinatura do contrato", "trecho": "§3 Est. 08 — Pós-aprovação do contrato" },
+    "9": { "objetivo": "O cliente realiza dois pagamentos: ao Fornecedor (material) e à Lux (serviço).", "gatilho": "após o envio das guias e solicitações de pagamento", "trecho": "§3 Est. 09 — Pagamentos" }
+  },
+  "locais": {
+    "contato": "Contato com o cliente (canal definido pela Lux; o Grupo de Fluxo no WhatsApp só existe a partir do Est. 07)",
+    "contato_lux": "Contato do cliente com a Lux (Vendedor e Administrativo)",
+    "comunicacao_adm": "Comunicação interna entre Vendas e Administrativo",
+    "wa": "Grupo de Fluxo no WhatsApp (canal temporário com o cliente, criado pelo Administrativo no Est. 07; será substituído pelo CRM próprio)",
+    "imovel": "No imóvel do cliente",
+    "ads": "Campanhas de tráfego pago (Google Ads)",
+    "pagamento": "Pagamento feito pelo cliente conforme as guias e orientações recebidas (orientações pelo Grupo de Fluxo no WhatsApp)"
+  },
+  "modelos": {
+    "Monitora métricas do setor": {
+      "why": "Acompanhar o andamento do Est. {num} — {nome} por meio das métricas; o Administrativo monitora as métricas em todos os estágios.",
+      "how": "Acompanha as métricas do setor durante o estágio; os indicadores-padrão do setor estão na biblioteca de KPIs, com metas a definir pela Lux."
+    },
+    "Analisa métricas gerais": {
+      "why": "Manter a visão geral do Est. {num} — {nome} na instância de decisão: o CEO exerce papel operacional relevante em todos os 22 estágios.",
+      "how": "Analisa as métricas gerais do estágio, com a visão consolidada dos setores envolvidos."
+    },
+    "Mantém contato ativo com o cliente": {
+      "why": "Manter o cliente acompanhado durante o Est. {num} — {nome}: Vendas é o setor de maior presença transversal na jornada do cliente.",
+      "how": "Mantém comunicação ativa com o cliente durante o estágio e, quando algo muda, comunica o Administrativo e o cliente."
+    },
+    "Comunica alterações ao Administrativo e ao cliente": {
+      "why": "Manter o Administrativo (hub de coordenação) e o cliente alinhados sobre qualquer alteração no Est. {num} — {nome}.",
+      "how": "Informa ao Administrativo e ao cliente as alterações ocorridas no estágio."
+    },
+    "Orienta e alinha as ações da equipe": {
+      "why": "O CEO orienta as ações do Est. {num} — {nome} e alinha a equipe.",
+      "how": "Orienta a equipe sobre as ações do estágio e alinha o trabalho entre os setores envolvidos."
+    }
+  },
+  "fichas": {
+    "acao_01_01_1": {
+      "why": "Sustentar a presença digital da marca e a geração de demanda que alimenta o funil de vendas.",
+      "how": "Planeja e conduz a propaganda e a publicidade da marca; os resultados chegam ao Vendas como leads, encaminhados pelo Marketing na ação seguinte."
+    },
+    "acao_01_01_2": {
+      "why": "Gerar leads para o funil de vendas por meio de tráfego pago.",
+      "how": "Opera as campanhas de tráfego pago (Google Ads); os leads gerados seguem para o Vendas.",
+      "onde": "ads"
+    },
+    "acao_01_01_3": {
+      "why": "Alimentar o funil: entregar ao Vendas os leads gerados pelo Marketing para atendimento.",
+      "how": "Reúne os leads gerados pelas campanhas e os encaminha ao setor de Vendas, que os capta na ação “Capta leads gerados pelo Marketing”."
+    },
+    "acao_02_01_1": {
+      "why": "Captar potenciais clientes por iniciativa do próprio time comercial: Vendas é o motor comercial da empresa.",
+      "how": "O Vendedor busca ativamente potenciais clientes e inicia o contato; os leads captados seguem para o Est. 02 (Atendimento)."
+    },
+    "acao_02_01_2": {
+      "why": "Aproveitar as indicações de clientes e parceiros como fonte de leads.",
+      "how": "Recebe as indicações de clientes e parceiros e as trata como leads para o atendimento."
+    },
+    "acao_02_01_3": {
+      "why": "Dar continuidade comercial aos leads que o Marketing gera por tráfego pago.",
+      "how": "Recebe do Marketing os leads gerados e os assume para o atendimento (Est. 02).",
+      "quando": "quando o Marketing encaminha os leads gerados"
+    },
+
+    "acao_01_02_1": {
+      "why": "Padronizar o comportamento e a comunicação da equipe no contato com o cliente: o Marketing define a abordagem e o tom de comunicação da marca.",
+      "how": "Orienta a equipe sobre como se comportar e se comunicar no atendimento, em linha com a comunicação da marca.",
+      "origem": "sugerido"
+    },
+    "acao_02_02_1": {
+      "why": "Iniciar o atendimento assim que o lead chega, abrindo o primeiro contato com o cliente.",
+      "how": "O Vendedor entra em contato com o lead logo que ele é captado (prospecção, indicação ou Marketing) e inicia o atendimento pelas perguntas abertas sobre a energia do cliente.",
+      "quando": "assim que o lead é captado"
+    },
+    "acao_02_02_2": {
+      "why": "As objeções são naturais na negociação e precisam ser respondidas para o atendimento avançar.",
+      "how": "Responde cada objeção com informações técnicas e exemplos práticos. Objeções previstas: investimento inicial, financiamento de longo prazo, receio quanto à garantia, dúvidas sobre manutenção, funcionamento em dias chuvosos, durabilidade, imóvel alugado e desconhecimento da tecnologia.",
+      "quando": "sempre que o cliente apresenta uma objeção durante o atendimento"
+    },
+    "acao_02_02_3": {
+      "why": "Reunir os dados críticos de que a simulação de consumo (Est. 03) precisa.",
+      "how": "Coleta nome, cidade, conta de energia e tipo de imóvel do cliente; as demais informações de contexto são levantadas na ação “Levanta o contexto do cliente”.",
+      "quando": "durante o atendimento, antes de avançar para a simulação"
+    },
+    "acao_02_02_4": {
+      "why": "Passar ao Administrativo, hub de coordenação da operação, as informações do lead para que a simulação seja gerada.",
+      "how": "Registra o lead com os dados coletados e informa o Administrativo.",
+      "onde": "comunicacao_adm",
+      "quando": "após coletar os dados do lead"
+    },
+    "acao_02_02_5": {
+      "why": "Verificação condicional crítica antes de avançar para a simulação: a simulação de consumo usa a conta de energia do cliente ou, na falta dela, uma estimativa de consumo.",
+      "how": "Confirma se o cliente disponibilizou a conta de energia e segue o caminho previsto para cada resultado.",
+      "quando": "antes de avançar para a simulação"
+    },
+    "acao_02_02_6": {
+      "why": "Verificação condicional crítica: confirmar que se fala com o titular ou responsável antes de avançar no atendimento.",
+      "how": "Confirma a identidade e a titularidade de quem está em contato e segue o caminho previsto para cada resultado.",
+      "quando": "no início do atendimento, antes de avançar"
+    },
+    "acao_07_02_1": {
+      "why": "Apoiar o atendimento com a avaliação técnica do imóvel quando ela for necessária; a visita é facultativa e ocorre em grandes clientes.",
+      "how": "Quando a visita é necessária, a Engenharia vai ao imóvel do cliente para a avaliação técnica.",
+      "onde": "imovel",
+      "quando": "quando a visita for necessária (grandes clientes)"
+    },
+    "acao_10_02_1": {
+      "why": "Apoiar o atendimento com a avaliação técnica do imóvel quando ela for necessária; a visita é facultativa e ocorre em grandes clientes.",
+      "how": "Quando a visita é necessária, a Equipe Técnica vai ao imóvel do cliente para a avaliação técnica.",
+      "quando": "quando a visita for necessária (grandes clientes)"
+    },
+    "acao_12_02_1": {
+      "why": "O cliente fornece os dados críticos de que a simulação precisa.",
+      "how": "Informa ao Vendedor os dados solicitados no atendimento: nome, cidade, conta de energia e tipo de imóvel.",
+      "quando": "quando o Vendedor solicita os dados no atendimento"
+    },
+    "acao_02_02_7": {
+      "why": "A venda nunca começa apresentando produtos: começa entendendo a realidade do cliente, para identificar a oportunidade mais adequada.",
+      "how": "Abre o atendimento com uma pergunta aberta, como “Como o senhor resolve hoje a questão da energia?”, e deixa o próprio cliente descrever a situação.",
+      "quando": "na abertura do atendimento"
+    },
+    "acao_02_02_8": {
+      "why": "As respostas identificam rapidamente o perfil do cliente e direcionam a melhor solução.",
+      "how": "Depois da pergunta aberta, aprofunda: o senhor paga apenas a conta da distribuidora? possui energia solar instalada neste imóvel? possui energia solar em outro imóvel que compensa esta unidade? compra energia por assinatura (energia com desconto)? existe outro modelo de geração de energia?",
+      "quando": "logo após a pergunta aberta inicial"
+    },
+    "acao_02_02_9": {
+      "why": "Direcionar a abordagem pelo perfil do cliente.",
+      "how": "Interpreta as respostas e enquadra o cliente em um perfil: paga somente a distribuidora (altamente qualificado para sistema fotovoltaico), já possui energia solar, compra energia por assinatura ou está em imóvel alugado; em seguida segue a próxima ação prevista para o perfil.",
+      "quando": "após as respostas do cliente às perguntas iniciais"
+    },
+    "acao_02_02_10": {
+      "why": "Toda negociação se baseia no contexto do cliente; só depois de compreendê-lo é possível definir a melhor estratégia comercial.",
+      "how": "Levanta as informações obrigatórias: valor da conta, consumo médio, tipo de imóvel, imóvel próprio ou alugado, atividade exercida, previsão de aumento de consumo, existência de outras unidades consumidoras, situação financeira, urgência, objetivo principal, experiências anteriores e objeções apresentadas.",
+      "quando": "durante o atendimento, antes de o CEO definir a estratégia comercial"
+    },
+    "acao_02_02_11": {
+      "why": "A informação de imóvel alugado não deve ser tratada como objeção: grande parte dos clientes comerciais da Lux opera em imóveis alugados.",
+      "how": "Prossegue o atendimento normalmente. Explicação usada pelo CEO: na maioria das vezes o proprietário autoriza a instalação porque o sistema valoriza e agrega patrimônio ao imóvel e protege o telhado quando instalado corretamente; muitas vezes a parcela do financiamento fica semelhante ou inferior ao valor pago à distribuidora (diretriz do CEO, sujeita à revisão jurídica).",
+      "quando": "quando o cliente informa que o imóvel é alugado"
+    },
+    "acao_02_02_12": {
+      "why": "Cliente que já possui energia solar não significa ausência de oportunidade.",
+      "how": "Verifica se o cliente já possui energia solar. Se possui, avalia: o sistema atende toda a demanda? houve aumento de consumo? existe possibilidade de ampliação? existem outras unidades consumidoras? há necessidade de manutenção ou modernização?",
+      "quando": "ao identificar o perfil do cliente"
+    },
+    "acao_02_02_13": {
+      "why": "Quem compra energia com desconto continua pagando a terceiros durante toda a vida; com energia fotovoltaica, o investimento passa a gerar patrimônio próprio.",
+      "how": "Verifica se o cliente compra energia por assinatura; se compra, explica a diferença entre pagar a terceiros e investir em um ativo próprio e avalia a implantação do sistema fotovoltaico ou a migração para a Energia por Assinatura da Lux.",
+      "quando": "ao identificar o perfil do cliente"
+    },
+    "acao_02_02_14": {
+      "why": "A Energia por Assinatura da Lux é a oferta para o cliente que não quer ou não consegue instalar o sistema.",
+      "how": "Avalia se o cliente quer e consegue instalar o sistema fotovoltaico e conduz o atendimento para a venda do sistema ou para a Energia por Assinatura da Lux.",
+      "quando": "após identificar o perfil e a condição do cliente"
+    },
+    "acao_02_02_15": {
+      "why": "Definir a modalidade de pagamento a priorizar conforme a condição financeira do cliente.",
+      "how": "Identifica durante a conversa: possui capital disponível? prefere preservar caixa? prefere parcelamento? busca o menor investimento inicial? Com capital disponível, argumenta que o cliente elimina a despesa definitiva com energia e que o valor economizado pode voltar para seus investimentos ou patrimônio; sem capital, explica que em muitos casos a parcela fica próxima ou inferior à conta de energia, dependendo do projeto e do crédito aprovado (uso preferencial do termo “boleto”: diretriz do CEO, sujeita à revisão jurídica).",
+      "quando": "durante o atendimento, ao conversar sobre o investimento"
+    },
+    "acao_02_02_16": {
+      "why": "Registrar o nível de interesse do lead.",
+      "how": "Classifica pelo comportamento. Lead quente: pergunta sobre valores e economia, solicita proposta, envia a conta rapidamente, demonstra interesse nas formas de pagamento, pergunta o prazo de instalação. Lead morno: faz poucas perguntas, demonstra curiosidade, pede a proposta para analisar depois. Lead frio: não responde, não fornece informações, resiste sem ouvir, não tem abertura para negociação.",
+      "quando": "durante o atendimento, conforme o interesse demonstrado"
+    },
+    "acao_02_02_17": {
+      "why": "As objeções naturais devem ser tratadas com informação técnica; ao comparar concorrentes, a Lux jamais compete apenas por preço.",
+      "how": "Reforça qualidade dos equipamentos, engenharia do projeto, credenciamento, suporte técnico, garantia, pós-venda e credibilidade da Lux, com informações técnicas e exemplos práticos.",
+      "quando": "quando o cliente levanta objeções ou compara concorrentes"
+    },
+    "acao_02_02_18": {
+      "why": "Padronizar as respostas às dúvidas mais frequentes de garantia, formas de pagamento e qualidade dos equipamentos.",
+      "how": "Usa as respostas-padrão de garantia, formas de pagamento e qualidade dos equipamentos (diretrizes do CEO, sujeitas à revisão jurídica) e segue os princípios de atendimento: resposta objetiva e clara, segurança e credibilidade, linguagem adaptada ao perfil do cliente, benefícios antes de características técnicas e condução natural ao próximo passo da venda.",
+      "quando": "quando o cliente pergunta sobre garantia, formas de pagamento ou qualidade dos equipamentos"
+    },
+    "acao_02_02_19": {
+      "why": "Toda conversa deve resultar na identificação de pelo menos uma oportunidade.",
+      "how": "Registra ao menos uma oportunidade (sistema fotovoltaico, ampliação, energia por assinatura, manutenção, monitoramento, limpeza técnica, seguro, retrofit, atendimento de outras unidades consumidoras ou indicações) e a classifica: alta prioridade (compra em curto prazo), média (potencial que exige acompanhamento) ou baixa (relacionamento de longo prazo).",
+      "quando": "em toda conversa de atendimento"
+    },
+    "acao_02_02_20": {
+      "why": "Conduzir naturalmente o cliente ao próximo passo da venda.",
+      "how": "Propõe o passo seguinte: a simulação, a análise da conta de energia ou o agendamento de uma visita.",
+      "quando": "ao final do atendimento"
+    },
+    "acao_06_02_3": {
+      "why": "As decisões comerciais da Lux são tomadas conforme o cenário identificado no atendimento.",
+      "how": "Define a estratégia por cenário: paga apenas a distribuidora, priorizar o sistema fotovoltaico; compra energia por assinatura, avaliar o sistema ou a migração para a Energia por Assinatura da Lux; já possui sistema, avaliar ampliação, manutenção, retrofit e monitoramento; pouco capital, priorizar financiamento; capital disponível, priorizar pagamento à vista; imóvel alugado, prosseguir normalmente; compara concorrentes, jamais competir apenas por preço.",
+      "quando": "após o atendimento identificar o cenário do cliente"
+    },
+    "acao_06_02_4": {
+      "why": "Preservar a confiança do cliente e a reputação da Lux, buscar solução vantajosa para ambas as partes e documentar aprendizados para a melhoria contínua.",
+      "how": "Quando surge situação sem procedimento definido, o responsável pela decisão segue os cinco passos: ouvir completamente o cliente, identificar a causa, avaliar os impactos técnicos, comerciais e financeiros, buscar solução personalizada e registrar a decisão para futura padronização.",
+      "quando": "quando surge situação sem procedimento definido"
+    },
+
+    "acao_01_03_1": {
+      "why": "Apoiar a simulação com layouts e cenários: o Marketing cria materiais de comunicação e, segundo a Matriz, também cria e edita os layouts e cenários de simulação.",
+      "how": "Cria e edita os layouts e os cenários usados na simulação; a Engenharia edita os layouts e cenários do projeto na sua ação correspondente."
+    },
+    "acao_02_03_2": {
+      "why": "O Administrativo gera a simulação com dados fornecidos pelo Vendedor e pelo Fornecedor.",
+      "how": "Repassa ao Administrativo os dados coletados no atendimento e ajuda a organizá-los para a simulação.",
+      "onde": "comunicacao_adm"
+    },
+    "acao_02_03_3": {
+      "why": "A Lux disponibiliza diferentes modalidades de pagamento para atender cada perfil de cliente.",
+      "how": "Apresenta as modalidades. Financiamento (“boleto”): diversas plataformas financeiras parceiras, aprovação mediante análise de crédito e parcelamento facilitado. Cartão de crédito: plataforma especializada para o setor fotovoltaico, em até 21 vezes, com taxas reduzidas em relação às máquinas convencionais. À vista: elimina os custos financeiros do parcelamento e dá maior rentabilidade ao investimento. Em etapas, quando aplicável: paga primeiro os equipamentos e a instalação depois da montagem (uso do termo “boleto”: diretriz do CEO, sujeita à revisão jurídica).",
+      "quando": "quando o cliente pergunta sobre formas de pagamento"
+    },
+    "acao_03_03_1": {
+      "why": "A simulação usa dados do Fornecedor, e o Administrativo é o hub de coordenação da operação.",
+      "how": "Aciona os Fornecedores para obter os dados necessários à simulação e acompanha o retorno."
+    },
+    "acao_03_03_2": {
+      "why": "Gerar as simulações de consumo e o dimensionamento (Est. 03), etapa anterior à elaboração da proposta (Est. 04).",
+      "how": "Usa os dados fornecidos pelo Vendedor no atendimento e pelo Fornecedor para gerar a simulação de consumo e o dimensionamento do sistema."
+    },
+    "acao_04_03_1": {
+      "why": "Verificar se o cliente tem crédito pré-aprovado para o boleto parcelado.",
+      "how": "Verifica a pré-aprovação de crédito do cliente para boleto parcelado; a aprovação depende de análise de crédito.",
+      "quando": "durante a simulação, com os dados do cliente"
+    },
+    "acao_04_03_2": {
+      "why": "Dar suporte financeiro às demais modalidades de pagamento apresentadas ao cliente.",
+      "how": "Apoia o cartão em plataforma especializada, o pagamento à vista e o pagamento em etapas (equipamentos primeiro; instalação após a conclusão da montagem).",
+      "quando": "quando o cliente opta por uma modalidade de pagamento"
+    },
+    "acao_07_03_1": {
+      "why": "Dar o olhar técnico da Engenharia aos layouts e cenários usados na simulação.",
+      "how": "Edita os layouts e cenários do projeto; o Marketing cria e edita os layouts e cenários de simulação.",
+      "origem": "sugerido"
+    },
+    "acao_08_03_1": {
+      "why": "A simulação de consumo e o dimensionamento usam dados fornecidos pelo Fornecedor.",
+      "how": "Envia ao Administrativo os dados dos produtos necessários à simulação de consumo e ao dimensionamento."
+    },
+    "acao_10_03_1": {
+      "why": "Esclarecer as dúvidas técnicas que aparecem na fase de simulação.",
+      "how": "Esclarece as dúvidas técnicas sobre o projeto surgidas durante a simulação.",
+      "onde": "contato"
+    },
+    "acao_12_03_1": {
+      "why": "A simulação depende dos dados críticos informados pelo cliente.",
+      "how": "Atualiza as informações críticas fornecidas ao Vendedor no atendimento sempre que elas mudarem."
+    },
+
+    "acao_03_04_1": {
+      "why": "Formalizar ao cliente a oferta comercial personalizada.",
+      "how": "Elabora a proposta a partir da simulação (Est. 03), das premissas de cálculo do Financeiro e dos movimentos contábeis indicados pela Contabilidade."
+    },
+    "acao_03_04_2": {
+      "why": "Levar a proposta ao cliente para que ele a avalie e decida (Est. 05).",
+      "how": "Envia a proposta ao cliente; o CEO acompanha o envio e o Vendedor mantém o contato com o cliente.",
+      "onde": "contato"
+    },
+    "acao_04_04_1": {
+      "why": "Dar à proposta as premissas financeiras: o Financeiro responde pelos cálculos, premissas e processamento financeiro ao longo do ciclo.",
+      "how": "Define os cálculos e as premissas financeiras básicas usadas na proposta, junto ao Administrativo."
+    },
+    "acao_05_04_1": {
+      "why": "A Contabilidade indica movimentos contábeis nas fases de proposta e contrato.",
+      "how": "Indica os movimentos contábeis básicos que a proposta gera."
+    },
+    "acao_06_04_1": {
+      "why": "O CEO orienta e supervisiona todos os 22 estágios; neste, acompanha o envio da proposta.",
+      "how": "Acompanha a elaboração e o envio da proposta pelo Administrativo."
+    },
+    "acao_08_04_1": {
+      "why": "Manter os dados de simulação coerentes com a proposta quando ela é ajustada.",
+      "how": "Verifica se a proposta foi ajustada de forma que altere os dados de simulação já enviados.",
+      "quando": "após a proposta ser ajustada ou mantida"
+    },
+    "acao_12_04_1": {
+      "why": "O cliente precisa receber a proposta para avaliá-la e decidir (Est. 05).",
+      "how": "Recebe a proposta enviada pela Lux e a analisa antes de decidir.",
+      "quando": "quando a Lux envia a proposta"
+    },
+
+    "acao_02_05_3": {
+      "why": "Alinhar a expectativa do cliente sobre o financiamento sem prometer condição genérica.",
+      "how": "Explica que a aprovação do financiamento depende de análise de crédito e que, em muitos casos, a parcela fica próxima ou inferior à conta de energia, conforme o projeto e o crédito aprovado (uso preferencial do termo “boleto”: diretriz do CEO, sujeita à revisão jurídica).",
+      "quando": "quando o cliente avalia a proposta e as condições de pagamento"
+    },
+    "acao_03_05_1": {
+      "why": "O Administrativo e o CEO cobram a resolução da venda e da proposta.",
+      "how": "Cobra dos envolvidos a resolução da venda e da proposta, isto é, que o cliente decida entre aceitar ou solicitar revisão."
+    },
+    "acao_06_05_1": {
+      "why": "O Administrativo e o CEO cobram a resolução da venda e da proposta.",
+      "how": "Cobra do Administrativo e do Vendas a resolução da venda e da proposta."
+    },
+    "acao_12_05_1": {
+      "why": "O cliente decide se aceita a proposta ou solicita revisão.",
+      "how": "Avalia a proposta recebida e decide, seguindo o caminho previsto para cada resposta.",
+      "quando": "após receber a proposta"
+    },
+
+    "acao_03_06_1": {
+      "why": "Com a proposta aprovada, o processo avança para a contratação.",
+      "how": "Elabora o contrato com base na proposta aprovada, nas premissas do Financeiro e nos movimentos contábeis indicados pela Contabilidade."
+    },
+    "acao_03_06_2": {
+      "why": "Levar o contrato ao cliente para avaliação e assinatura (Est. 07).",
+      "how": "Envia o contrato ao cliente; o cliente avalia e decide no estágio seguinte.",
+      "onde": "contato"
+    },
+    "acao_04_06_1": {
+      "why": "Dar ao contrato as premissas financeiras.",
+      "how": "Define os cálculos e as premissas financeiras básicas usadas no contrato, junto ao Administrativo."
+    },
+    "acao_05_06_1": {
+      "why": "A Contabilidade indica movimentos contábeis nas fases de proposta e contrato.",
+      "how": "Indica os movimentos contábeis básicos que o contrato gera."
+    },
+    "acao_06_06_1": {
+      "why": "O CEO assina os contratos da Lux.",
+      "how": "Assina o contrato pela Lux."
+    },
+    "acao_06_06_3": {
+      "why": "Uma renegociação de contrato só é assinada dentro da margem que a Lux autorizou.",
+      "how": "Avalia o ajuste pedido na renegociação em relação à margem autorizada (a margem em si não consta dos documentos e deve ser informada pela Lux).",
+      "quando": "quando o cliente renegocia o contrato"
+    },
+    "acao_12_06_1": {
+      "why": "O cliente precisa receber o contrato para avaliá-lo e decidir (Est. 07).",
+      "how": "Recebe o contrato enviado pela Lux.",
+      "quando": "quando a Lux envia o contrato"
+    },
+
+    "acao_03_07_1": {
+      "why": "Acompanhar a resolução do contrato pelo cliente.",
+      "how": "Cobra dos envolvidos a resolução da venda e do contrato, isto é, que o cliente decida entre aceitar (assinar) ou solicitar revisão."
+    },
+    "acao_03_07_4": {
+      "why": "Abrir o canal de comunicação direta com o cliente após o fechamento; é uma solução temporária até a implantação do CRM próprio da Lux.",
+      "how": "Cria no WhatsApp o grupo “Grupo de Fluxo — [Nome do Cliente]” com o cliente; o grupo passa a receber documentos, orientações de pagamento e alinhamentos pós-contrato.",
+      "onde": "wa",
+      "quando": "após a assinatura do contrato pelo cliente",
+      "fontes": ["mapa:Canal temporário — Grupo de Fluxo (WhatsApp)", "rel:§4 Canal Temporário — Grupo de Fluxo (WhatsApp)"]
+    },
+    "acao_06_07_1": {
+      "why": "Acompanhar a resolução do contrato pelo cliente.",
+      "how": "Cobra do Administrativo e do Vendas a resolução da venda e do contrato."
+    },
+    "acao_12_07_1": {
+      "why": "O cliente avalia o contrato e decide se assina ou solicita revisão.",
+      "how": "Avalia o contrato recebido e decide, seguindo o caminho previsto para cada resposta.",
+      "quando": "após receber o contrato"
+    },
+
+    "acao_02_08_1": {
+      "why": "Com o contrato assinado, o Vendedor encerra o ciclo de contato comercial.",
+      "how": "Conclui o contato comercial com o cliente; a comunicação passa a ser conduzida pelo Administrativo no Grupo de Fluxo."
+    },
+    "acao_02_08_2": {
+      "why": "Obter a avaliação do cliente sobre a experiência de venda.",
+      "how": "Pede ao cliente que avalie a experiência de venda; a resposta do cliente é registrada na ação “Responde ao feedback de venda”.",
+      "quando": "ao encerrar o ciclo de contato comercial"
+    },
+    "acao_02_08_3": {
+      "why": "O Administrativo coordena a operação a partir do fechamento.",
+      "how": "Entrega ao Administrativo os dados coletados do cliente durante a venda.",
+      "onde": "comunicacao_adm"
+    },
+    "acao_03_08_1": {
+      "why": "Habilitar o cliente a realizar os dois pagamentos previstos (ao Fornecedor e à Lux).",
+      "how": "Envia ao cliente as guias e solicitações de pagamento pelo Grupo de Fluxo.",
+      "onde": "wa"
+    },
+    "acao_03_08_3": {
+      "why": "Reunir, no canal com o cliente, a proposta, o contrato e os documentos.",
+      "how": "Envia a proposta, o contrato e os documentos no Grupo de Fluxo.",
+      "onde": "wa"
+    },
+    "acao_04_08_1": {
+      "why": "Dar suporte financeiro às guias e solicitações de pagamento e aos pagamentos do Est. 09.",
+      "how": "Presta as orientações e os cálculos financeiros relacionados aos pagamentos do cliente."
+    },
+    "acao_05_08_1": {
+      "why": "Dar suporte fiscal e contábil às guias e solicitações de pagamento e aos pagamentos do Est. 09.",
+      "how": "Presta as orientações e os cálculos contábeis e fiscais relacionados aos pagamentos do cliente."
+    },
+    "acao_06_08_2": {
+      "why": "O CEO e o Administrativo cobram resoluções no Est. 08.",
+      "how": "Cobra dos setores a resolução das pendências do estágio."
+    },
+    "acao_12_08_1": {
+      "why": "O cliente devolve à Lux a sua avaliação da experiência de venda.",
+      "how": "Responde ao pedido de feedback feito pelo Vendedor.",
+      "quando": "quando o Vendedor solicita o feedback"
+    },
+    "acao_12_08_2": {
+      "why": "O cliente precisa das guias para realizar os pagamentos do Est. 09.",
+      "how": "Recebe as guias de pagamento enviadas pelo Administrativo.",
+      "onde": "wa",
+      "quando": "quando o Administrativo envia as guias"
+    },
+
+    "acao_03_09_1": {
+      "why": "O cliente realiza dois pagamentos e o Administrativo acompanha e cobra datas e pagamentos.",
+      "how": "Acompanha as datas e a realização dos pagamentos ao Fornecedor (material) e à Lux (serviço) e cobra o cumprimento de datas e pagamentos."
+    },
+    "acao_03_09_3": {
+      "why": "Manter o cliente informado sobre como pagar.",
+      "how": "Comunica as orientações de pagamento no Grupo de Fluxo.",
+      "onde": "wa"
+    },
+    "acao_06_09_1": {
+      "why": "O CEO acompanha os pagamentos e cobra datas e pagamentos.",
+      "how": "Acompanha, junto ao Administrativo, as datas e a realização dos pagamentos e cobra datas e pagamentos."
+    },
+    "acao_12_09_1": {
+      "why": "O cliente paga o material diretamente ao Fornecedor.",
+      "how": "Paga o Fornecedor pelo material, conforme as guias e orientações de pagamento recebidas.",
+      "onde": "pagamento"
+    },
+    "acao_12_09_2": {
+      "why": "O cliente paga o serviço à Lux.",
+      "how": "Paga a Lux pelo serviço, conforme as guias e orientações de pagamento recebidas.",
+      "onde": "pagamento"
+    }
+  }
+}

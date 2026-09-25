@@ -16,9 +16,9 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run spike:fluxo \| tail -1` → `DECISAO: raias_svg`. Mermaid 3/16 (máx 12.219 px); raias 16/16 (máx 1.972 px), fonte A3 ≥ 8,1 pt. 38 testes. |
 | 01.6 | Varredura de segredos e blindagem do repositório | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `gitleaks detect` → `no leaks found`; `.env`/`referencias_privadas`/`screenshots` = 0 versionados; xlsx versionável (1). Pré-commit (segredo + arquivo proibido + CPF/CNPJ) provado com 3 commits de teste bloqueados (exit 1) e commit legítimo aprovado. |
 | 01.7 | HANDOFF_BUILD | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "status: verde" handoffs/HANDOFF_BUILD.md` → `12` (≥ 5); portão 01→02 verde com saídas reais. |
-| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER | Em andamento: 02.1 ✅. Próxima: **02.2**. |
+| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER | Em andamento: 02.1 ✅ · 02.2 ✅. Próxima: **02.3**. |
 | 02.1 | Compor a Matriz V08 (Anotações integradas) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --v08` → `OK v08: setores=12 estagios=22 celulas=236 if_else=37 novos=24`; V07 intacta (validador + testes de mutação); 68 testes. **Achado:** `.gitignore` escondia `src/dados/` e `design/tokens.json` do Git — corrigido (ver `instrucoes.md` §6). |
-| 02.2 | Fichas 5W1H, Fase 1 Comercial (Est. 01–09) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.2 | Fichas 5W1H, Fase 1 Comercial (Est. 01–09) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --fichas --fase=1` → `OK fichas fase 1: 110/110` (2 `sugerido`); autoria + gerador determinístico + validador (regras 4–5); 24 testes. |
 | 02.3 | Fichas 5W1H, Fase 2 Técnica/Projeto (Est. 10–14) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 02.4 | Fichas 5W1H, Fase 3 Execução (Est. 15–19) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 02.5 | Fichas 5W1H, Fase 4 Homologação e Encerramento + consolidação (Est. 20–22) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
@@ -196,7 +196,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar; relatório curto; registrar em `instrucoes.md`.
 
 ### Subetapa 02.2 — Fichas 5W1H, Fase 1 Comercial (Est. 01–09) [Auto] [Goal] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: 1 ficha completa por célula da Fase 1.
 Arquivos tocados: `data/conteudo/fichas_5w1h.json`, `scripts/validar_dados.ts`.
 Passos: 1) Para cada `acao` da V08 com `estagio_id` 1–9, criar a ficha conforme `docs/06` §4 (campos, `origem`, `fontes`). 2) Estender `validar_dados.ts` com `--fichas [--fase=N]`.

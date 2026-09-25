@@ -128,6 +128,12 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm run dados:compor && npm run dados:validar -- --v08 | tail -1` → `OK v08: setores=12 estagios=22 celulas=236 if_else=37 novos=24`; `npm test -- v08` → `0 failed` (30 testes, 14 deles de sensibilidade: provam que o validador e o `compor` acusam erro).
 - **Fonte:** decisão técnica de 24/09/2026 (02.1); `docs/06` §3 (resultado da integração).
 
+### Fichas 5W1H: autoria curada + gerador determinístico (não escrever `fichas_5w1h.json` à mão)
+- **Gatilho:** subetapas 02.2–02.5 (uma ficha por ação da V08; 236 no total) e qualquer edição de `data/conteudo/fichas_autoria.json`.
+- **Ação:** o `why`/`how` de cada ação vive em `fichas_autoria.json` (`fichas` por `acao_id`; `modelos` por texto repetido, com `{num}`/`{nome}`/`{setor}`); `npm run dados:fichas` gera `fichas_5w1h.json` acrescentando `what`, `who`, `where`/`when` padrão, condicionais no `how` e `fontes`. Cada subetapa **acrescenta** a fase em `meta.fases_autoradas` (a validação `--fase=N` só passa para fases autoradas; `--fichas` sem fase exige as 4). O gerador recusa: ação sem autoria, autoria de ação fora das fases autoradas, ficha própria + modelo na mesma ação, modelo sem uso, alias de fonte desconhecido. **Textos sem citação de fonte dentro** (as `fontes` ficam no JSON) e sem selo. `where`: só local documentado ou “rotina interna do setor”; antes do Est. 07 o canal com o cliente é “definido pela Lux” (os documentos não o definem).
+- **Evidência:** `npm run dados:fichas | tail -1` → `OK fichas geradas: fases=1 total=110 sugeridas=2`; `npm run dados:validar -- --fichas --fase=1 | tail -1` → `OK fichas fase 1: 110/110`; `npm test -- fichas` → `0 failed` (24 testes, 13 de sensibilidade).
+- **Fonte:** decisão técnica de 24/09/2026 (02.2); `docs/06` §4; padrão idêntico ao da V08 (compor → validar → arquivo em dia).
+
 ## 6. Armadilhas conhecidas (não repetir)
 
 ### `.gitignore` escondia código e marca: `dados/` pegava `src/dados/`, `*token*.json` pegava `design/tokens.json`

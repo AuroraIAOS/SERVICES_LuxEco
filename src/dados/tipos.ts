@@ -126,3 +126,29 @@ export interface MatrizV08 extends Omit<Matriz, 'meta'> {
   oportunidades: Oportunidade[];
   respostas_padrao: RespostaPadrao[];
 }
+
+// ---------------------------------------------------------------------------------------------
+// Fichas 5W1H (docs/02, docs/06 §4): uma por ação (célula) da V08.
+// ---------------------------------------------------------------------------------------------
+
+export interface FonteFicha {
+  arquivo: string; // caminho em data/fontes/
+  trecho: string; // célula, seção ou estágio de onde vem o conteúdo
+}
+
+export interface Ficha5w1h {
+  id: string; // "ficha_<setor>_<estagio>_<ordem>" (o sufixo do id da ação)
+  acao_id: string;
+  setor_id: string;
+  estagio_id: number;
+  what: string;
+  why: string;
+  where: string;
+  when: string;
+  who: string;
+  how: string;
+  /** só no JSON: nunca exibido como selo nas telas nem nos exports (decisão de Max). */
+  origem: OrigemConteudo;
+  fontes: FonteFicha[];
+  atualizado_em: string; // AAAA-MM-DD
+}

@@ -16,6 +16,7 @@
     "env:checar": "node scripts/checar_env.mjs",
     "dados:gerar": "tsx scripts/xlsx_para_json.ts",
     "dados:compor": "tsx scripts/compor_v08.ts",
+    "dados:fichas": "tsx scripts/gerar_fichas.ts",
     "dados:validar": "tsx scripts/validar_dados.ts",
     "spike:fluxo": "tsx scripts/spike_fluxo.ts",
     "deploy": "node -e \"console.error('deploy: ainda não implementado (subetapa 02.11).');process.exit(1)\"",
