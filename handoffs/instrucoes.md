@@ -153,6 +153,13 @@ Descartadas na sondagem de custo (nenhuma API paga necessária no núcleo): serv
 - **Evidência:** `npm test -- fpe` → `17 passed`; `npm test -- armazenamento` → `19 passed`; `npm run e2e -- fpe` → `3 passed`.
 - **Fonte:** decisão técnica de 25/09/2026 (02.9); docs RHF 7 e Zod 4 (context7).
 
+### Exportações do FPE: um documento de texto para .md e PDF, PDF por área de impressão própria, JSON com o mesmo estado, contraste derivado dos tokens
+- **Gatilho:** qualquer mudança em `src/exportar/*`, no botão de exportar/importar do FPE, no CSS de impressão ou nas cores do fluxograma; e o backup (03.5), que reaproveita o JSON.
+- **Ação:** `montarDocumentoFichas` (valores EM VIGOR, sem selo) alimenta `renderizarMd` e `htmlFichas`. JSON = carimbo (`formato`, `formato_versao`, `exportado_em`, `versao_matriz`) + o `estado` validado pelo mesmo Zod do localStorage; importar filtra fichas inexistentes, **pede confirmação**, guarda cópia em `lux_fpe_estado_v1_antes_importar` e remonta o formulário (`key` com contador `importacoes`: sem isso o RHF mostra o valor antigo — pego só no e2e). PDF = `imprimir()` monta `#lux-impressao` no body, `html.imprimindo` esconde o resto, `@page` nomeada (`fluxo` A3 paisagem, `texto` A4); o título da aba vira o nome sugerido do arquivo. Fluxo geral é por fase: `fpe_geral-fase<N>_<data>`. `.mermaid` leva cabeçalho `%%` (sem chaves) e passa em `mermaid.parse` (funciona em jsdom). Contraste: `src/fluxograma/cor.ts` (`corLegivel`) puxa verde/vermelho/WhatsApp e o nome do setor ao pólo do tema até 4,5:1, sempre a partir dos tokens; losango IF/ELSE ganhou contorno. Sem rasterizador de PDF nesta máquina: conferir por captura com `emulateMedia print` + MediaBox (A3 1190,55×841,89 pt; o Chromium arredonda ±1).
+- **Limite conhecido:** o fluxograma longo (Vendas ≈ 4 páginas A3) quebra entre páginas sem respeitar cartões.
+- **Evidência:** `npm test -- exportar` → 0 failed; `npm run e2e -- exportar` → 3 passed.
+- **Fonte:** decisão técnica de 25/09/2026 (02.10).
+
 ## 6. Armadilhas conhecidas (não repetir)
 
 ### `white-space: nowrap` em rótulo de pílula estoura a largura no celular

@@ -1,7 +1,10 @@
 import { useId, useState } from 'react';
 import type { MatrizV08, Setor } from '../../dados/tipos';
+import { baixar, MIME, nomeArquivo } from '../../exportar/baixar';
+import { exportarMermaidFase, exportarMermaidSetor } from '../../exportar/mermaid';
+import { htmlFluxo, imprimir } from '../../exportar/pdf';
 import { raiasFase, raiasSetor } from '../../fluxograma/raias';
-import { Botao, CampoSeletor } from '../../ui';
+import { Botao, BotaoExportar, CampoSeletor } from '../../ui';
 
 interface Gerado {
   titulo: string;
@@ -26,6 +29,30 @@ export function PainelFluxograma({ matriz, setor, faseSugerida, revisao }: { mat
   const gerarFase = () => setGerado({ titulo: `Fluxo geral — Fase ${fase}: ${nomeDaFase}`, svg: raiasFase(matriz, fase, { tema: 'escuro' }), revisao });
   const desatualizado = gerado !== null && gerado.revisao !== revisao;
 
+  // Exportar não depende de “Gerar”: sai da Matriz com as edições de agora. O PDF usa o tema claro (papel branco).
+  const dataBR = (d: Date) => d.toLocaleDateString('pt-BR');
+  const nomeFluxoFase = `geral-fase${fase}`;
+  const mermaidDoSetor = () => {
+    const agora = new Date();
+    baixar(nomeArquivo(setor.nome, 'mermaid', agora), exportarMermaidSetor(matriz, setor.id, agora), MIME.mermaid);
+  };
+  const mermaidDaFase = () => {
+    const agora = new Date();
+    baixar(nomeArquivo(nomeFluxoFase, 'mermaid', agora), exportarMermaidFase(matriz, fase, agora), MIME.mermaid);
+  };
+  const pdfDoSetor = () => {
+    const agora = new Date();
+    imprimir(htmlFluxo(`Fluxo do setor ${setor.nome}`, raiasSetor(matriz, setor.id, { tema: 'claro' }), dataBR(agora)), 'a3', nomeArquivo(setor.nome, 'pdf', agora).replace(/\.pdf$/, ''));
+  };
+  const pdfDaFase = () => {
+    const agora = new Date();
+    imprimir(
+      htmlFluxo(`Fluxo geral — Fase ${fase}: ${nomeDaFase}`, raiasFase(matriz, fase, { tema: 'claro' }), dataBR(agora)),
+      'a3',
+      nomeArquivo(nomeFluxoFase, 'pdf', agora).replace(/\.pdf$/, ''),
+    );
+  };
+
   return (
     <section className="fluxo-painel" aria-labelledby={idTitulo}>
       <h2 id={idTitulo} className="fluxo-painel__titulo">
@@ -44,6 +71,23 @@ export function PainelFluxograma({ matriz, setor, faseSugerida, revisao }: { mat
             opcoes={matriz.fases.map((f) => ({ valor: String(f.id), rotulo: `${f.id}. ${f.nome}` }))}
           />
           <Botao onClick={gerarFase}>Gerar fluxograma geral da fase</Botao>
+        </div>
+      </div>
+
+      <div className="fluxo-painel__exportar">
+        <div role="group" aria-label="Exportar o fluxo do setor" className="exportacao__grupo">
+          <p className="exportacao__rotulo">{`Exportar o fluxo do setor ${setor.nome}`}</p>
+          <div className="exportacao__botoes">
+            <BotaoExportar formato="mermaid" escopo={`fluxo do setor ${setor.nome}`} onExportar={mermaidDoSetor} />
+            <BotaoExportar formato="pdf" escopo={`fluxo do setor ${setor.nome}`} onExportar={pdfDoSetor} />
+          </div>
+        </div>
+        <div role="group" aria-label="Exportar o fluxo geral da fase" className="exportacao__grupo">
+          <p className="exportacao__rotulo">{`Exportar o fluxo geral da Fase ${fase}`}</p>
+          <div className="exportacao__botoes">
+            <BotaoExportar formato="mermaid" escopo={`fluxo geral da Fase ${fase}`} onExportar={mermaidDaFase} />
+            <BotaoExportar formato="pdf" escopo={`fluxo geral da Fase ${fase}`} onExportar={pdfDaFase} />
+          </div>
         </div>
       </div>
 

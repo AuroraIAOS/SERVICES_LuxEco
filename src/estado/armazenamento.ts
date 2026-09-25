@@ -10,12 +10,15 @@ export type CampoFicha = (typeof CAMPOS_FICHA)[number];
 export const CHAVE_FPE = 'lux_fpe_estado_v1';
 /** cópia do texto ilegível, guardada antes de qualquer regravação (nunca apagar em silêncio). */
 export const CHAVE_FPE_INVALIDO = `${CHAVE_FPE}_invalido`;
+/** cópia do estado que uma importação de JSON substituiu (nunca apagar em silêncio). */
+export const CHAVE_FPE_ANTES_IMPORTAR = `${CHAVE_FPE}_antes_importar`;
 export const SCHEMA_VERSAO = 1;
 
 const texto = z.string().optional();
 const esquemaCampos = z.object({ what: texto, why: texto, where: texto, when: texto, who: texto, how: texto });
 const esquemaEdicao = z.object({ campos: esquemaCampos, origem: z.literal('manual'), atualizado_em: z.string() });
-const esquemaEstado = z.object({ schema_versao: z.literal(SCHEMA_VERSAO), fpe_edicoes: z.record(z.string(), esquemaEdicao) });
+/** também valida o `estado` dentro do JSON exportado (src/exportar/json.ts): um só formato, um só validador. */
+export const esquemaEstado = z.object({ schema_versao: z.literal(SCHEMA_VERSAO), fpe_edicoes: z.record(z.string(), esquemaEdicao) });
 
 export interface EdicaoFicha {
   /** só os campos que diferem do padrão. */
@@ -82,6 +85,17 @@ export function gravarEstadoFpe(estado: EstadoFpe, storage: ArmazenamentoTexto |
   if (!storage) return false;
   try {
     storage.setItem(CHAVE_FPE, JSON.stringify(estado));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Guarda o estado atual antes de uma importação o substituir. `false` se o navegador recusou (a tela avisa). */
+export function guardarCopiaAntesDeImportar(estado: EstadoFpe, storage: ArmazenamentoTexto | null = armazenamentoDoNavegador()): boolean {
+  if (!storage) return false;
+  try {
+    storage.setItem(CHAVE_FPE_ANTES_IMPORTAR, JSON.stringify(estado));
     return true;
   } catch {
     return false;

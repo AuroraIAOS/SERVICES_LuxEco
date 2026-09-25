@@ -201,6 +201,89 @@
   display: block;
 }
 
+/* ── Exportar e importar ───────────────────────────────────────────── */
+.fluxo-painel__exportar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  margin-top: 1.25rem;
+}
+
+.exportacao {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--chumbo-light);
+}
+
+.exportacao__titulo {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+}
+
+.exportacao__dica {
+  max-width: 60ch;
+  margin: 0 0 1.25rem;
+  color: var(--texto-suave);
+}
+
+.exportacao__grupos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.5rem;
+}
+
+.exportacao__rotulo {
+  margin: 0 0 0.4rem;
+  font-weight: var(--peso-titulo);
+}
+
+.exportacao__botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vao);
+}
+
+.exportacao__importar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 34rem;
+  margin-top: 1.75rem;
+}
+
+.exportacao__arquivo {
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--chumbo-lighter);
+  background: var(--chumbo);
+  color: var(--branco);
+  font: inherit;
+}
+
+.exportacao__confirmar {
+  max-width: 44rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--chumbo-mid);
+  border-left: 3px solid var(--amarelo);
+}
+
+.exportacao__confirmar p {
+  margin: 0 0 0.75rem;
+}
+
+.exportacao__aviso {
+  max-width: 44rem;
+  margin: 1rem 0 0;
+  padding: 0.5rem 1rem;
+  background: var(--chumbo-mid);
+  border-left: 3px solid var(--sucesso);
+}
+
+.exportacao__aviso--erro {
+  border-left-color: var(--erro);
+}
+
 /* ── Telas menores ─────────────────────────────────────────────────── */
 @media (max-width: 60rem) {
   .ficha-form__campos {

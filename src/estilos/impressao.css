@@ -1,0 +1,158 @@
+/*
+ * PDF por impressão (src/exportar/pdf.ts). Só tokens da marca.
+ * Fundo branco, texto chumbo, amarelo só em filetes. Fluxograma: A3 paisagem; fichas: A4.
+ * Na tela a área fica oculta; ao imprimir, só ela aparece.
+ */
+@page fluxo {
+  size: A3 landscape;
+  margin: 12mm;
+}
+
+@page texto {
+  size: A4;
+  margin: 16mm 14mm;
+}
+
+.impressao {
+  display: none;
+}
+
+.impressao--fluxo {
+  page: fluxo;
+}
+
+.impressao--texto {
+  page: texto;
+}
+
+@media print {
+  html.imprimindo {
+    color-scheme: light;
+  }
+
+  html.imprimindo,
+  html.imprimindo body {
+    margin: 0;
+    padding: 0;
+    background: var(--branco);
+    color: var(--chumbo);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html.imprimindo body > *:not(.impressao) {
+    display: none !important;
+  }
+
+  html.imprimindo .impressao {
+    display: block;
+    font-family: var(--fonte-familia);
+    font-weight: var(--peso-corpo);
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--chumbo);
+  }
+
+  .impressao h1,
+  .impressao h2,
+  .impressao h3,
+  .impressao h4,
+  .impressao dt,
+  .impressao__marca {
+    font-weight: var(--peso-titulo);
+    color: var(--chumbo);
+  }
+
+  .impressao__topo {
+    margin: 0 0 6mm;
+    padding-bottom: 3mm;
+    border-bottom: 1.2mm solid var(--amarelo);
+    break-after: avoid;
+  }
+
+  .impressao__marca {
+    margin: 0 0 1mm;
+    font-size: 9pt;
+    letter-spacing: 0.04em;
+  }
+
+  .impressao h1 {
+    margin: 0;
+    font-size: 20pt;
+    line-height: 1.15;
+  }
+
+  .impressao__meta {
+    margin: 1.5mm 0 0;
+    font-size: 9pt;
+  }
+
+  .impressao__rodape {
+    margin-top: 8mm;
+    padding-top: 2mm;
+    border-top: 0.4mm solid var(--chumbo);
+    font-size: 8pt;
+  }
+
+  .impressao__rodape p {
+    margin: 0;
+  }
+
+  /* fluxograma: o SVG ocupa a largura útil da página e a altura acompanha */
+  .impressao__fluxo svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* fichas */
+  .impressao h2 {
+    margin: 7mm 0 2mm;
+    padding-bottom: 1mm;
+    border-bottom: 0.6mm solid var(--amarelo);
+    font-size: 15pt;
+    break-after: avoid;
+  }
+
+  .impressao h3 {
+    margin: 5mm 0 2mm;
+    font-size: 12pt;
+    break-after: avoid;
+  }
+
+  .impressao__nome-setor {
+    break-before: page;
+  }
+
+  .impressao__setor:first-of-type .impressao__nome-setor {
+    break-before: auto;
+  }
+
+  .impressao h4 {
+    margin: 0 0 1.5mm;
+    font-size: 10.5pt;
+  }
+
+  .impressao__decisao {
+    white-space: nowrap;
+  }
+
+  .impressao__ficha {
+    margin: 0 0 4mm;
+    padding-left: 3mm;
+    border-left: 1mm solid var(--amarelo);
+    break-inside: avoid;
+  }
+
+  .impressao dl {
+    display: grid;
+    grid-template-columns: 17mm 1fr;
+    gap: 0.8mm 3mm;
+    margin: 0;
+  }
+
+  .impressao dt,
+  .impressao dd {
+    margin: 0;
+  }
+}

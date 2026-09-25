@@ -8,6 +8,7 @@ import { FormularioFicha } from './FormularioFicha';
 import { matrizComEdicoes, montarFpe, resolverSelecao } from './modelo';
 import type { Selecao } from './modelo';
 import { NavegacaoFpe } from './NavegacaoFpe';
+import { PainelExportacao } from './PainelExportacao';
 import { PainelFluxograma } from './PainelFluxograma';
 import { useEstadoFpe } from './useEstadoFpe';
 
@@ -16,7 +17,7 @@ import { useEstadoFpe } from './useEstadoFpe';
  * `dados`, `fichas` e `armazenamento` existem para os testes; a tela real usa os JSON versionados e o localStorage.
  */
 export function TelaFpe({ dados = MATRIZ_V08, fichas = DOCUMENTO_FICHAS, armazenamento }: { dados?: MatrizV08; fichas?: DocumentoFichas; armazenamento?: ArmazenamentoTexto | null }) {
-  const { estado, persistindo, revisao, editar, restaurar } = useEstadoFpe(armazenamento);
+  const { estado, persistindo, revisao, editar, restaurar, substituir, importacoes } = useEstadoFpe(armazenamento);
   const fpe = useMemo(() => montarFpe(dados, fichas, estado), [dados, fichas, estado]);
   const matrizEfetiva = useMemo(() => matrizComEdicoes(dados, fichas, estado), [dados, fichas, estado]);
   const [pedido, setPedido] = useState<Partial<Selecao>>({});
@@ -52,7 +53,7 @@ export function TelaFpe({ dados = MATRIZ_V08, fichas = DOCUMENTO_FICHAS, armazen
         <>
           <NavegacaoFpe fpe={fpe} selecao={selecao} aoSelecionar={selecionar} />
           <FormularioFicha
-            key={ficha.ficha.id}
+            key={`${ficha.ficha.id}#${importacoes}`}
             setor={setor.setor}
             estagio={estagio.estagio}
             ficha={ficha}
@@ -60,6 +61,7 @@ export function TelaFpe({ dados = MATRIZ_V08, fichas = DOCUMENTO_FICHAS, armazen
             aoRestaurar={() => restaurar(ficha.ficha.id)}
           />
           <PainelFluxograma matriz={matrizEfetiva} setor={setor.setor} faseSugerida={estagio.estagio.fase_id} revisao={revisao} />
+          <PainelExportacao fpe={fpe} dados={dados} fichas={fichas} estado={estado} setor={setor.setor} aoImportar={substituir} />
         </>
       ) : (
         <p>Nenhuma ficha para mostrar.</p>

@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import type { ArmazenamentoTexto, CampoFicha, EstadoFpe, ValoresFicha } from '../../estado/armazenamento';
-import { armazenamentoDoNavegador, editarCampo, gravarEstadoFpe, lerEstadoFpe, restaurarFicha } from '../../estado/armazenamento';
+import { armazenamentoDoNavegador, editarCampo, gravarEstadoFpe, guardarCopiaAntesDeImportar, lerEstadoFpe, restaurarFicha } from '../../estado/armazenamento';
 
 export interface EstadoDoFpe {
   estado: EstadoFpe;
@@ -10,6 +10,10 @@ export interface EstadoDoFpe {
   revisao: number;
   editar: (fichaId: string, padrao: ValoresFicha, campo: CampoFicha, valor: string) => void;
   restaurar: (fichaId: string) => void;
+  /** troca o estado inteiro (importação de JSON). Guarda antes uma cópia do estado atual; devolve `false` se o navegador recusou a cópia. */
+  substituir: (novo: EstadoFpe) => boolean;
+  /** sobe a cada importação: o formulário monta de novo, porque o estado mudou por fora do que ele digitou. */
+  importacoes: number;
 }
 
 /**
@@ -22,6 +26,7 @@ export function useEstadoFpe(armazenamento?: ArmazenamentoTexto | null): EstadoD
   const [estado, setEstado] = useState<EstadoFpe>(inicial.estado);
   const [persistindo, setPersistindo] = useState(inicial.origem !== 'indisponivel');
   const [revisao, setRevisao] = useState(0);
+  const [importacoes, setImportacoes] = useState(0);
   // A digitação é rápida: sempre parte do estado mais recente, não de um valor capturado na renderização.
   const atual = useRef(inicial.estado);
 
@@ -42,5 +47,15 @@ export function useEstadoFpe(armazenamento?: ArmazenamentoTexto | null): EstadoD
   );
   const restaurar = useCallback((fichaId: string) => aplicar(restaurarFicha(atual.current, fichaId)), [aplicar]);
 
-  return { estado, persistindo, revisao, editar, restaurar };
+  const substituir = useCallback(
+    (novo: EstadoFpe) => {
+      const copiado = guardarCopiaAntesDeImportar(atual.current, storage);
+      aplicar(novo);
+      setImportacoes((n) => n + 1);
+      return copiado;
+    },
+    [aplicar, storage],
+  );
+
+  return { estado, persistindo, revisao, editar, restaurar, substituir, importacoes };
 }

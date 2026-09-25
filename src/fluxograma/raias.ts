@@ -4,6 +4,7 @@
 //  · raiasFase: TODOS os setores de uma fase; linhas (raias) = setores; colunas = estágios da fase.
 import tokens from '../../design/tokens.json' with { type: 'json' };
 import type { Acao, Condicional, Matriz } from '../dados/tipos.ts';
+import { corLegivel, misturar } from './cor.ts';
 
 export type Tema = 'claro' | 'escuro';
 export interface Opcoes {
@@ -58,16 +59,33 @@ interface Paleta {
   cartao: string;
   borda: string;
   destaque: string;
+  /** texto dos ramos ✓/✗ e da etiqueta WhatsApp, ajustado para passar AA (4,5:1) sobre o cartão do tema. */
   sim: string;
   nao: string;
   whatsapp: string;
+  /** o pólo do tema (branco no escuro, chumbo no claro): para onde se puxa uma cor que não passa no contraste. */
+  polo: string;
 }
 const paleta = (tema: Tema): Paleta => {
   const c = tokens.cores;
-  return tema === 'escuro'
-    ? { fundo: c.chumbo, texto: c.branco, cartao: c['chumbo-mid'], borda: c['chumbo-light'], destaque: c.amarelo, sim: c.sucesso, nao: c.erro, whatsapp: c.whatsapp }
-    : { fundo: c.branco, texto: c.chumbo, cartao: c.branco, borda: c['chumbo-lighter'], destaque: c.amarelo, sim: c.sucesso, nao: c.erro, whatsapp: c.whatsapp };
+  const escuro = tema === 'escuro';
+  const cartao = escuro ? c['chumbo-mid'] : c.branco;
+  const polo = escuro ? c.branco : c.chumbo;
+  const legivel = (cor: string) => corLegivel(cor, cartao, polo);
+  return {
+    fundo: escuro ? c.chumbo : c.branco,
+    texto: polo,
+    cartao,
+    borda: escuro ? c['chumbo-light'] : c['chumbo-lighter'],
+    destaque: c.amarelo,
+    sim: legivel(c.sucesso),
+    nao: legivel(c.erro),
+    whatsapp: legivel(c.whatsapp),
+    polo,
+  };
 };
+/** Cor do nome do setor como TEXTO: a cor do setor puxada ao pólo do tema até passar AA sobre a faixa da raia (6% da cor sobre o fundo). */
+const corRotulo = (cor: string, p: Paleta) => corLegivel(cor, misturar(cor, p.fundo, 0.06), p.polo);
 const corSetor = (m: Matriz, setorId: string): string => {
   const chave = m.setores.find((s) => s.id === setorId)?.cor_token.replace(/^setor-/, '') ?? '';
   return (tokens.setores as Record<string, string>)[chave] ?? tokens.cores.amarelo;
@@ -107,7 +125,7 @@ function cartaoAcao(a: Acao, c: Condicional | undefined, p: Paleta, prefixo = ''
         texto(ramoSim, p.sim);
         texto(ramoNao, p.nao);
         const cx = x + COL_W - 12;
-        partes.push(`<polygon points="${cx},${y + 5} ${cx + 7},${y + 12} ${cx},${y + 19} ${cx - 7},${y + 12}" fill="${p.destaque}"><title>IF/ELSE</title></polygon>`);
+        partes.push(`<polygon points="${cx},${y + 5} ${cx + 7},${y + 12} ${cx},${y + 19} ${cx - 7},${y + 12}" fill="${p.destaque}" stroke="${p.texto}" stroke-width="1"><title>IF/ELSE</title></polygon>`);
       }
       if (wa) texto(['● Grupo de Fluxo WhatsApp'], p.whatsapp);
       return partes.join('');
@@ -214,7 +232,7 @@ export function raiasFase(m: Matriz, faseId: number, op: Opcoes = {}): string {
     corpo.push(`<rect x="${MARGEM}" y="${y}" width="${largura - 2 * MARGEM}" height="${alturaRaia}" rx="6" fill="${cor}" fill-opacity="0.06" stroke="${p.borda}"/>`);
     corpo.push(`<rect x="${MARGEM}" y="${y}" width="5" height="${alturaRaia}" rx="2" fill="${cor}"/>`);
     quebrar(s.nome, Math.floor((RAIA_LABEL_W - 2 * PAD - 4) / ROTULO_CHAR)).forEach((l, i) =>
-      corpo.push(`<text x="${MARGEM + PAD + 4}" y="${y + 22 + i * LINHA}" font-size="${ROTULO_FONTE}" font-weight="800" fill="${cor === tokens.cores.amarelo && (op.tema ?? 'claro') === 'claro' ? p.texto : cor}">${esc(l)}</text>`),
+      corpo.push(`<text x="${MARGEM + PAD + 4}" y="${y + 22 + i * LINHA}" font-size="${ROTULO_FONTE}" font-weight="800" fill="${corRotulo(cor, p)}">${esc(l)}</text>`),
     );
     celulas.forEach((cs, i) => {
       const x = x0 + i * (COL_W + GAP);

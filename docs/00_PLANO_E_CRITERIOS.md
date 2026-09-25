@@ -3,6 +3,10 @@
 ## Tabela de Progresso
 _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §6). Status aparece aqui e logo abaixo do título de cada item._
 
+>> Progresso Geral 
+>> ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
+>> *baseado no número total de subetapas*
+
 **Legenda:** ✅ CONCLUÍDA (código, testes, deploy e verificação 100% verdes) · ⏸️ ADIADA (deixada para o futuro) · ⚠️ PENDENTE (em aberto, sem bloquear o avanço) · 🛑 ABANDONADA (permanece registrada) · ⬜ A FAZER (ainda não iniciada — estado inicial, anterior às quatro marcas do §6).
 
 | Item | Título | Modo · função · LLM | Status | Observação / prova |
@@ -16,7 +20,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 01.5 | Spike de legibilidade do fluxograma (Mermaid × SVG de raias) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm run spike:fluxo \| tail -1` → `DECISAO: raias_svg`. Mermaid 3/16 (máx 12.219 px); raias 16/16 (máx 1.972 px), fonte A3 ≥ 8,1 pt. 38 testes. |
 | 01.6 | Varredura de segredos e blindagem do repositório | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `gitleaks detect` → `no leaks found`; `.env`/`referencias_privadas`/`screenshots` = 0 versionados; xlsx versionável (1). Pré-commit (segredo + arquivo proibido + CPF/CNPJ) provado com 3 commits de teste bloqueados (exit 1) e commit legítimo aprovado. |
 | 01.7 | HANDOFF_BUILD | [Auto] [LLM: Sonnet] | ✅ CONCLUÍDA | `grep -c "status: verde" handoffs/HANDOFF_BUILD.md` → `12` (≥ 5); portão 01→02 verde com saídas reais. |
-| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER | Em andamento: 02.1 ✅ · 02.2 ✅ · 02.3 ✅ · 02.4 ✅ · 02.5 ✅ · 02.6 ✅ · 02.7 ✅ · 02.8 ✅ · 02.9 ✅. Próxima: **02.10**. |
+| **Etapa 02** | CONSTRUÇÃO E DEPLOY DO MVP |  | ⬜ A FAZER | Em andamento: 02.1 ✅ · 02.2 ✅ · 02.3 ✅ · 02.4 ✅ · 02.5 ✅ · 02.6 ✅ · 02.7 ✅ · 02.8 ✅ · 02.9 ✅ · 02.10 ✅. Próxima: **02.11**. |
 | 02.1 | Compor a Matriz V08 (Anotações integradas) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --v08` → `OK v08: setores=12 estagios=22 celulas=236 if_else=37 novos=24`; V07 intacta (validador + testes de mutação); 68 testes. **Achado:** `.gitignore` escondia `src/dados/` e `design/tokens.json` do Git — corrigido (ver `instrucoes.md` §6). |
 | 02.2 | Fichas 5W1H, Fase 1 Comercial (Est. 01–09) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --fichas --fase=1` → `OK fichas fase 1: 110/110` (2 `sugerido`); autoria + gerador determinístico + validador (regras 4–5); 24 testes. |
 | 02.3 | Fichas 5W1H, Fase 2 Técnica/Projeto (Est. 10–14) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `dados:validar -- --fichas --fase=2` → `OK fichas fase 2: 36/36`; fase 1 intacta (110 fichas idênticas às do commit anterior); 0 `sugerido` na fase. |
@@ -26,7 +30,7 @@ _Atualizada pelo CODE ao iniciar e ao concluir cada etapa/subetapa (CLAUDE.md §
 | 02.7 | Base de UI e navegação entre as 3 telas | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- ui` → 63 testes, 0 falhas (contraste AA medido pelos tokens, foco, teclado, nada fora dos tokens); `grep -rEn "#[0-9A-Fa-f]{6}" src --include=*.tsx \| wc -l` → `0`; e2e verde; capturas em 1280 e 390 px sem rolagem horizontal. |
 | 02.8 | Tela MMO v02 | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- mmo` → 23 passed; `npm run e2e -- mmo` → 6 passed (renderização inicial < 2 s, medida no navegador); `grep -rn "210+" src \| wc -l` → `0`. Paridade com o MMO_v01 (pares setor × estágio idênticos à V07) + itens da V08 (perfis, Energia por Assinatura, pós-venda). V08 ganhou metadados do MMO (`mmo_v02.json`). |
 | 02.9 | Tela FPE: formulário 5W1H + fluxograma | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- fpe` → 17 passed (+19 de estado em `armazenamento`); `npm run e2e -- fpe` → 3 passed (editar → gerar fluxograma reflete a edição; recarregar mantém; restaurar padrão; teclado; celular). FPE carrega sob demanda (chunk próprio). |
-| 02.10 | Exportações do FPE (JSON, MD, MERMAID, PDF) | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
+| 02.10 | Exportações do FPE (JSON, MD, MERMAID, PDF) | [Auto] [Goal] [LLM: Sonnet] | ✅ CONCLUÍDA | `npm test -- exportar` → 0 failed (JSON ida e volta idêntica, MD, Mermaid validado pelo parser real, contraste AA nos 2 temas, UI); e2e `exportar` 3 passed (downloads reais; PDF A3 paisagem e A4 conferidos no MediaBox). 1ª tentativa (Sonnet). |
 | 02.11 | Deploy protegido e prova do portão | [Auto] [Goal] [LLM: Sonnet] | ⬜ A FAZER |  |
 | 02.12 | HANDOFF_UPGRADE e CHANGELOG do MVP | [Auto] [LLM: Sonnet] | ⬜ A FAZER |  |
 | **Etapa 03** | UPGRADES E VERSIONAMENTOS |  | ⬜ A FAZER |  |
@@ -292,7 +296,7 @@ Escalonamento de LLM: Sonnet nas 4 primeiras; na última, Opus.
 Se esgotar: parar e emitir relatório curto (problema + causas prováveis + 2–3 alternativas); registrar o caso em `handoffs/instrucoes.md` seção 5.
 
 ### Subetapa 02.10 — Exportações do FPE (JSON, MD, MERMAID, PDF) [Auto] [Goal] [LLM: Sonnet]
-Status: ⬜ A FAZER
+Status: ✅ CONCLUÍDA
 Objetivo: “memória exportável” do FPE.
 Arquivos tocados: `src/exportar/json.ts`, `md.ts`, `mermaid.ts`, `pdf.ts`, `src/estilos/impressao.css`, `src/exportar/exportar.test.ts`.
 Passos: 1) JSON com carimbo de versão e data. 2) MD legível por setor. 3) `.mermaid` por setor e geral. 4) PDF por impressão (`@page` A3 paisagem para o fluxograma, A4 para o texto), com fundo branco. 5) Teste de ida e volta: exportar JSON → importar → estado idêntico.
